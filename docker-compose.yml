@@ -1,0 +1,41 @@
+services:
+  mysql:
+    image: biarms/mysql:5.7
+    restart: on-failure
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+    volumes:
+      - db_data:/var/lib/mysql
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    restart: on-failure
+    volumes:
+      - ./:/var/www/project/:cached
+    ports:
+      - ${NGINX_PORT}:80
+    depends_on:
+      - php-fpm
+
+  php-fpm:
+    build:
+      context: .
+      dockerfile: docker/php-fpm/Dockerfile
+    volumes:
+      - ./:/var/www/project/:cached
+    restart: on-failure
+    env_file:
+      - .env
+    user: ${LOCAL_USER}
+    ports:
+      - '9000:9000'
+
+volumes:
+  db_data:
