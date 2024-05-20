@@ -34,15 +34,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    /**
-     * @var Collection<int, Gang>
-     */
     #[ORM\OneToMany(targetEntity: Gang::class, mappedBy: 'user')]
-    private Collection $Gang;
+    private Collection $gang;
 
     public function __construct()
     {
         $this->Gang = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return $this->username;
     }
 
     public function getId(): ?int
@@ -125,13 +127,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getGang(): Collection
     {
-        return $this->Gang;
+        return $this->gang;
     }
 
     public function addGang(Gang $gang): static
     {
-        if (!$this->Gang->contains($gang)) {
-            $this->Gang->add($gang);
+        if (!$this->gang->contains($gang)) {
+            $this->gang->add($gang);
             $gang->setUser($this);
         }
 
@@ -140,7 +142,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeGang(Gang $gang): static
     {
-        if ($this->Gang->removeElement($gang)) {
+        if ($this->gang->removeElement($gang)) {
             // set the owning side to null (unless already changed)
             if ($gang->getUser() === $this) {
                 $gang->setUser(null);

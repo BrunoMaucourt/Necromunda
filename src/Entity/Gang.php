@@ -34,10 +34,10 @@ class Gang
     /**
      * @var Collection<int, Ganger>
      */
-    #[ORM\OneToMany(targetEntity: Ganger::class, mappedBy: 'Gang')]
+    #[ORM\OneToMany(targetEntity: Ganger::class, mappedBy: 'gang')]
     private Collection $gangers;
 
-    #[ORM\ManyToOne(inversedBy: 'Gang')]
+    #[ORM\ManyToOne(inversedBy: 'gang')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
@@ -50,7 +50,7 @@ class Gang
     /**
      * @var Collection<int, Games>
      */
-    #[ORM\OneToMany(targetEntity: Games::class, mappedBy: 'Gang1')]
+    #[ORM\OneToMany(targetEntity: Games::class, mappedBy: 'gang1')]
     private Collection $games;
 
     /**
@@ -65,6 +65,11 @@ class Gang
         $this->territories = new ArrayCollection();
         $this->games = new ArrayCollection();
         $this->win = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
     }
 
     public function getId(): ?int
