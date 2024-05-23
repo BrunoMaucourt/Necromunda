@@ -2,41 +2,50 @@
 
 {% block title %}Log in!{% endblock %}
 
+{% block stylesheets %}
+    <link href="{{ asset('./style/style.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
+    <body class="form__container">
+        <figure class="form__container-picture">
+            <img src="{{ asset('./img/Necromunda_campaign_tracker.png') }}">
+        </figure>
+        <form method="post" class="form__container-form">
+            {% if error %}
+                <div class="form__container-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            {% if app.user %}
+                <div class="form__container-logged">
+                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+            <h1 class="form__container-title">Please sign in</h1>
+            <div class="form__container-input">
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="username" required autofocus>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+                </div>
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
             </div>
-        {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="username">Username</label>
-        <input type="text" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="username" required autofocus>
-        <label for="password">Password</label>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
-
-        <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
-        >
-
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
-
-            <div class="checkbox mb-3">
+            <div class="form__container-remember_me">
                 <label>
                     <input type="checkbox" name="_remember_me"> Remember me
                 </label>
             </div>
-        #}
 
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
-        </button>
-    </form>
+            <button class="form__container-btn" type="submit">
+                Sign in
+            </button>
+        </form>
+    </body>
 {% endblock %}
