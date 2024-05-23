@@ -2,27 +2,151 @@
 
 namespace App\Controller\Admin;
 
+use App\EasyAdmin\GangerTypeField;
 use App\Entity\Ganger;
+use App\Enum\GangerTypeEnum;
+use Doctrine\ORM\EntityRepository;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use \Symfony\Bundle\SecurityBundle\Security;
 
 class GangerCrudController extends AbstractCrudController
 {
+    private Security $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
     public static function getEntityFqcn(): string
     {
         return Ganger::class;
     }
 
-    /*
+    public function configureFilters(Filters $filters): Filters
+    {
+        return $filters
+            ->add('name')
+            ->add('gang')
+            ->add('type')
+        ;
+    }
+
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        if ($pageName === Crud::PAGE_NEW) {
+            yield TextField::new('name')
+                ->setColumns(6);
+            yield AssociationField::new('gang')
+                ->setColumns(6)
+                ->setFormTypeOptions([
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('g')
+                            ->where('g.user = :user')
+                            ->setParameter('user', $this->getUser());
+                    },
+                ]);
+            yield GangerTypeField::new('type', 'Ganger type')
+                ->formatValue(static function (GangerTypeEnum $gangerType): string {
+                    return $gangerType->enumToString();
+                })
+                ->setColumns(6);
+        } else {
+            yield AssociationField::new('gang')
+                ->setColumns(6)
+                ->onlyOnIndex();
+            yield GangerTypeField::new('type', 'Ganger type')
+                ->formatValue(static function (GangerTypeEnum $gangerType): string {
+                    return $gangerType->enumToString();
+                })
+                ->setColumns(3);
+            yield TextField::new('name')
+                ->setColumns(6);
+            yield BooleanField::new('alive')
+                ->setColumns(3);
+            yield NumberField::new('move')
+                ->setColumns(3);
+            yield NumberField::new('weaponSkill')
+                ->setColumns(3);
+            yield NumberField::new('ballisticSkill')
+                ->setColumns(3);
+            yield NumberField::new('strength')
+                ->setColumns(3);
+            yield NumberField::new('toughness')
+                ->setColumns(3);
+            yield NumberField::new('wounds')
+                ->setColumns(3);
+            yield NumberField::new('initiative')
+                ->setColumns(3);
+            yield NumberField::new('attacks')
+                ->setColumns(3);
+            yield NumberField::new('leadership')
+                ->setColumns(3);
+            yield NumberField::new('experience')
+                ->setColumns(3);
+            yield NumberField::new('rating')
+                ->setColumns(3);
+        }
     }
-    */
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL)
+            ->update(Crud::PAGE_INDEX, Action::DETAIL, function (Action $action) {
+                return $action->setIcon('fa fa-eye');
+            })
+            ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
+                $security = $this->security;
+                return $action
+                    ->setIcon('fa fa-pen-to-square')
+                    ->displayIf(static function ($entity) use ($security) {
+                    return self::checkGangsOfCurrentUser($entity, $security);
+                });
+            })
+            ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+                $security = $this->security;
+                return $action
+                    ->setIcon('fa fa-trash')
+                    ->displayIf(static function ($entity) use ($security) {
+                    return self::checkGangsOfCurrentUser($entity, $security);
+                });
+            })
+            ->update(Crud::PAGE_DETAIL, Action::EDIT, function (Action $action) {
+                $security = $this->security;
+                return $action
+                    ->setIcon('fa fa-file-alt')
+                    ->displayIf(static function ($entity) use ($security) {
+                    return self::checkGangsOfCurrentUser($entity, $security);
+                });
+            })
+            ->update(Crud::PAGE_DETAIL, Action::DELETE, function (Action $action) {
+                $security = $this->security;
+                return $action
+                    ->setIcon('fa fa-user')
+                    ->displayIf(static function ($entity) use ($security) {
+                    return self::checkGangsOfCurrentUser($entity, $security);
+                });
+            })
+        ;
+    }
+
+    public static function checkGangsOfCurrentUser(Ganger $ganger, $security): bool
+    {
+        if(
+            $ganger->getGang()->getUser() == $security->getUser()
+            || $security->isGranted('ROLE_ADMIN')
+        ) {
+            return true;
+        }
+
+        return false;
+    }
 }
