@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use App\Enum\TerritoriesEnum;
 use App\Repository\TerritoriesRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TerritoriesRepository::class)]
@@ -13,30 +15,33 @@ class Territories
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    #[ORM\Column(length: 255, enumType: TerritoriesEnum::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?TerritoriesEnum $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'territories')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Gang $gang = null;
 
-    #[ORM\Column]
-    private ?int $incomeFixed = null;
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $effect = null;
 
-    #[ORM\Column]
-    private ?int $incomeVariable = null;
+    public function __toString(): string
+    {
+        return $this->name->enumToString();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): ?TerritoriesEnum
     {
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(TerritoriesEnum $name): static
     {
         $this->name = $name;
 
@@ -55,27 +60,27 @@ class Territories
         return $this;
     }
 
-    public function getIncomeFixed(): ?int
+    public function getEffect(): ?string
     {
-        return $this->incomeFixed;
+        return $this->effect;
     }
 
-    public function setIncomeFixed(int $incomeFixed): static
+    public function setEffect(?string $effect): static
     {
-        $this->incomeFixed = $incomeFixed;
+        $this->effect = $effect;
 
         return $this;
     }
 
-    public function getIncomeVariable(): ?int
+    public function getIncomeAsString(): string
     {
-        return $this->incomeVariable;
+        $currentTerritory = $this->getName();
+        return $currentTerritory->getFixedIncome() .' + ' . $currentTerritory->getVariableIncomeNumberOfDice() . ' D6 X ' . $currentTerritory->getVariableIncomeMultiplicator();
     }
 
-    public function setIncomeVariable(int $incomeVariable): static
+    public function getIncomeAsMoney(): int
     {
-        $this->incomeVariable = $incomeVariable;
-
-        return $this;
+        $currentTerritory = $this->getName();
+        return $currentTerritory->getFixedIncome() +  $currentTerritory->getVariableIncomeNumberOfDice() * (mt_rand(1, 6) * $currentTerritory->getVariableIncomeMultiplicator());
     }
 }
