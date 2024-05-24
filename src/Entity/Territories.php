@@ -23,9 +23,6 @@ class Territories
     #[ORM\JoinColumn(nullable: false)]
     private ?Gang $gang = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $effect = null;
-
     public function __toString(): string
     {
         return $this->name->enumToString();
@@ -62,7 +59,7 @@ class Territories
 
     public function getEffect(): ?string
     {
-        return $this->effect;
+        return $this->name->getEffect();
     }
 
     public function setEffect(?string $effect): static

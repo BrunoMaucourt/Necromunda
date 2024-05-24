@@ -149,4 +149,29 @@ enum TerritoriesEnum: string
             self::GreenHivers => '66-66',
         };
     }
+
+    public function getEffect(): string
+    {
+        return match($this)
+        {
+            self::ChemPit => 'If double roll, no incone collected and ganger cause fear',
+            self::OldRuins => '',
+            self::Slag => '',
+            self::WaterStill => '',
+            self::Settlement => 'If dice roll 6, recruit for free a juve',
+            self::MineWorkings => 'If an enemy fighter is captured, he can work in mine and add +1 to this income D6',
+            self::Tunnels => 'Three fighters can be deployed anywhere at ground level',
+            self::Vents => 'Three fighters can be deployed anywhere on buildings surface',
+            self::Holestead => '',
+            self::DrinkingHole => 'If dice roll 6, +1 or -1 for next scenario table roll',
+            self::Workshop => 'First ammo roll can be ignored',
+            self::GuilderContact => 'Each loot discovered can be trade for +5 credits',
+            self::MineralOutcrop => 'If dice roll 6, add D6 X 10 credits',
+            self::FriendlyDoc =>  'If a fighter dead, roll a D6, for 5+ he get multiple injuries instead dead',
+            self::GamblingDen =>  'If double roll, you lose this credits',
+            self::SporeCave =>  'If double roll 1, ganger is sicke and can take part to next battle on 4+ with a D6',
+            self::ArcheotechHoard =>  'Can collect 3 to 6 D6 X10 but if double roll, territory become Old ruins',
+            self::GreenHivers => 'Choose another territory',
+        };
+    }
 }
