@@ -20,13 +20,10 @@ class Gang
     private ?string $name = null;
 
     #[ORM\Column]
-    private ?int $rating = null;
+    private ?int $credits = 1000;
 
     #[ORM\Column]
-    private ?int $credits = null;
-
-    #[ORM\Column]
-    private ?bool $status = null;
+    private ?bool $active = true;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $background = null;
@@ -59,6 +56,9 @@ class Gang
     #[ORM\OneToMany(targetEntity: Games::class, mappedBy: 'winner')]
     private Collection $win;
 
+    #[ORM\Column(length: 255)]
+    private ?string $house = null;
+
     public function __construct()
     {
         $this->gangers = new ArrayCollection();
@@ -69,7 +69,7 @@ class Gang
 
     public function __toString(): string
     {
-        return $this->name;
+        return $this->name . ' - ' . $this->house;
     }
 
     public function getId(): ?int
@@ -91,14 +91,7 @@ class Gang
 
     public function getRating(): ?int
     {
-        return $this->rating;
-    }
-
-    public function setRating(int $rating): static
-    {
-        $this->rating = $rating;
-
-        return $this;
+        return 0;
     }
 
     public function getCredits(): ?int
@@ -113,14 +106,14 @@ class Gang
         return $this;
     }
 
-    public function isStatus(): ?bool
+    public function isActive(): ?bool
     {
-        return $this->status;
+        return $this->active;
     }
 
-    public function setStatus(bool $status): static
+    public function setActive(bool $active): static
     {
-        $this->status = $status;
+        $this->active = $active;
 
         return $this;
     }
@@ -265,6 +258,18 @@ class Gang
                 $win->setWinner(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getHouse(): ?string
+    {
+        return $this->house;
+    }
+
+    public function setHouse(string $house): static
+    {
+        $this->house = $house;
 
         return $this;
     }
