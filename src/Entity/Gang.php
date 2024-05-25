@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Enum\HouseEnum;
+use App\Enum\TerritoriesEnum;
 use App\Repository\GangRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -56,8 +58,9 @@ class Gang
     #[ORM\OneToMany(targetEntity: Games::class, mappedBy: 'winner')]
     private Collection $win;
 
-    #[ORM\Column(length: 255)]
-    private ?string $house = null;
+    #[ORM\Column(length: 255, enumType: HouseEnum::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?HouseEnum $house = null;
 
     public function __construct()
     {
@@ -69,7 +72,7 @@ class Gang
 
     public function __toString(): string
     {
-        return $this->name . ' - ' . $this->house;
+        return $this->name . ' - ' . $this->house->enumToString();
     }
 
     public function getId(): ?int
@@ -262,12 +265,12 @@ class Gang
         return $this;
     }
 
-    public function getHouse(): ?string
+    public function getHouse(): ?HouseEnum
     {
         return $this->house;
     }
 
-    public function setHouse(string $house): static
+    public function setHouse(HouseEnum $house): static
     {
         $this->house = $house;
 
