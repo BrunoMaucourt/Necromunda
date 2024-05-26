@@ -23,6 +23,9 @@ class Equipements
     #[ORM\Column]
     private ?int $cost = null;
 
+    #[ORM\ManyToOne(inversedBy: 'equipements')]
+    private ?Weapons $weapon = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Equipements
     public function setCost(int $cost): static
     {
         $this->cost = $cost;
+
+        return $this;
+    }
+
+    public function getWeapon(): ?Weapons
+    {
+        return $this->weapon;
+    }
+
+    public function setWeapon(?Weapons $weapon): static
+    {
+        $this->weapon = $weapon;
 
         return $this;
     }
