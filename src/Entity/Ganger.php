@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\GangerTypeEnum;
 use App\Repository\GangerRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -20,7 +21,7 @@ class Ganger
     private ?string $name = null;
 
     #[ORM\Column]
-    private ?int $move = null;
+    private ?int $move = 4;
 
     #[ORM\Column]
     private ?int $weaponSkill = null;
@@ -29,19 +30,19 @@ class Ganger
     private ?int $ballisticSkill = null;
 
     #[ORM\Column]
-    private ?int $strength = null;
+    private ?int $strength = 3;
 
     #[ORM\Column]
-    private ?int $toughness = null;
+    private ?int $toughness = 3;
 
     #[ORM\Column]
-    private ?int $wounds = null;
+    private ?int $wounds = 1;
 
     #[ORM\Column]
     private ?int $initiative = null;
 
     #[ORM\Column]
-    private ?int $attacks = null;
+    private ?int $attacks = 1;
 
     #[ORM\Column]
     private ?int $leadership = null;
@@ -50,7 +51,7 @@ class Ganger
     private ?string $background = null;
 
     #[ORM\Column]
-    private ?bool $alive = null;
+    private ?bool $alive = true;
 
     #[ORM\Column]
     private ?int $experience = null;
@@ -82,15 +83,16 @@ class Ganger
     /**
      * @var Collection<int, Skills>
      */
-    #[ORM\OneToMany(targetEntity: Skills::class, mappedBy: 'Ganger')]
+    #[ORM\OneToMany(targetEntity: Skills::class, mappedBy: 'ganger')]
     private Collection $skills;
 
     #[ORM\ManyToOne(inversedBy: 'gangers')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Gang $gang = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $type = null;
+    #[ORM\Column(length: 255, enumType: GangerTypeEnum::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?GangerTypeEnum $type = null;
 
     public function __construct()
     {
@@ -98,6 +100,11 @@ class Ganger
         $this->weapons = new ArrayCollection();
         $this->equipements = new ArrayCollection();
         $this->skills = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return $this->type->enumToString() . ' - ' . $this->name;
     }
 
     public function getId(): ?int
@@ -275,7 +282,8 @@ class Ganger
 
     public function getRating(): ?int
     {
-        return $this->rating;
+        // ToDo add cost for weapons and equipments
+        return $this->experience + $this->cost;
     }
 
     public function setRating(int $rating): static
@@ -407,22 +415,22 @@ class Ganger
 
     public function getGang(): ?Gang
     {
-        return $this->Gang;
+        return $this->gang;
     }
 
     public function setGang(?Gang $gang): static
     {
-        $this->Gang = $gang;
+        $this->gang = $gang;
 
         return $this;
     }
 
-    public function getType(): ?string
+    public function getType(): ?GangerTypeEnum
     {
         return $this->type;
     }
 
-    public function setType(string $type): static
+    public function setType(GangerTypeEnum $type): static
     {
         $this->type = $type;
 
