@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use \Symfony\Bundle\SecurityBundle\Security;
@@ -71,28 +72,32 @@ class GangerCrudController extends AbstractCrudController
                 ->setColumns(6);
             yield BooleanField::new('alive')
                 ->setColumns(3);
-            yield NumberField::new('move')
+            yield IntegerField::new('move')
                 ->setColumns(3);
-            yield NumberField::new('weaponSkill')
+            yield IntegerField::new('weaponSkill')
                 ->setColumns(3);
-            yield NumberField::new('ballisticSkill')
+            yield IntegerField::new('ballisticSkill')
                 ->setColumns(3);
-            yield NumberField::new('strength')
+            yield IntegerField::new('strength')
                 ->setColumns(3);
-            yield NumberField::new('toughness')
+            yield IntegerField::new('toughness')
                 ->setColumns(3);
-            yield NumberField::new('wounds')
+            yield IntegerField::new('wounds')
                 ->setColumns(3);
-            yield NumberField::new('initiative')
+            yield IntegerField::new('initiative')
                 ->setColumns(3);
-            yield NumberField::new('attacks')
+            yield IntegerField::new('attacks')
                 ->setColumns(3);
-            yield NumberField::new('leadership')
+            yield IntegerField::new('leadership')
                 ->setColumns(3);
-            yield NumberField::new('experience')
+            yield IntegerField::new('experience')
                 ->setColumns(3);
-            yield NumberField::new('rating')
+            yield IntegerField::new('rating')
                 ->setColumns(3);
+            yield CollectionField::new('injuries')
+                ->setColumns(6);
+            yield CollectionField::new('skills')
+                ->setColumns(6);
         }
     }
 

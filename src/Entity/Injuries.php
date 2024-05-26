@@ -25,6 +25,11 @@ class Injuries
     #[ORM\ManyToOne(inversedBy: 'injuries')]
     private ?Ganger $author = null;
 
+    public function __toString(): string
+    {
+        return $this->name->enumToString();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
