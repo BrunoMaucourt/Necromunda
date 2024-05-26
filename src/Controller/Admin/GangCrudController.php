@@ -13,7 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bundle\SecurityBundle\Security;
@@ -53,10 +53,10 @@ class GangCrudController extends AbstractCrudController
         yield TextareaField::new('background')
             ->setColumns(4);
         if ($pageName !== Crud::PAGE_NEW) {
-            yield NumberField::new('rating')
+            yield IntegerField::new('rating')
                 ->setColumns(4)
                 ->setFormTypeOption('disabled','disabled');
-            yield NumberField::new('credits')
+            yield IntegerField::new('credits')
                 ->setColumns(4);
             yield BooleanField::new('active')
                 ->setColumns(4);
@@ -111,7 +111,7 @@ class GangCrudController extends AbstractCrudController
                         return self::checkGangOfCurrentUser($entity, $security);
                     });
             })
-            ;
+        ;
     }
 
     public static function checkGangOfCurrentUser(Gang $gang, $security): bool
