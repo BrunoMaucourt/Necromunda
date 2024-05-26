@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -59,9 +60,9 @@ class GangCrudController extends AbstractCrudController
                 ->setColumns(4);
             yield BooleanField::new('active')
                 ->setColumns(4);
-            yield AssociationField::new('gangers')
+            yield CollectionField::new('gangers')
                 ->setColumns(4)
-                ->renderAsNativeWidget();
+                ->setFormTypeOption('disabled','disabled');
             yield AssociationField::new('territories')
                 ->setColumns(4);
             yield AssociationField::new('games')
