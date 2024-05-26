@@ -94,7 +94,14 @@ class Gang
 
     public function getRating(): ?int
     {
-        return 0;
+        $gangers = $this->getGangers();
+        $rating = 0;
+
+        foreach ($gangers as $ganger) {
+            $rating += $ganger->getRating();
+        }
+
+        return $rating;
     }
 
     public function getCredits(): ?int
