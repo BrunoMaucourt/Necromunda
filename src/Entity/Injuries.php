@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\InjuriesEnum;
 use App\Repository\InjuriesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,8 +14,9 @@ class Injuries
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    #[ORM\Column(length: 255, enumType: InjuriesEnum::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?InjuriesEnum $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'injuries')]
     #[ORM\JoinColumn(nullable: false)]
@@ -28,12 +30,12 @@ class Injuries
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): ?InjuriesEnum
     {
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(InjuriesEnum $name): static
     {
         $this->name = $name;
 
