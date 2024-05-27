@@ -38,6 +38,11 @@ class Weapons
         $this->equipements = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return $this->name->enumToString();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

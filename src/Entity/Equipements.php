@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\EquipementsEnum;
 use App\Repository\EquipementsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -14,29 +15,35 @@ class Equipements
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $name = null;
+    private ?EquipementsEnum $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'equipements')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Ganger $ganger = null;
 
     #[ORM\Column]
-    private ?int $cost = null;
+    private ?int $cost = 0;
 
     #[ORM\ManyToOne(inversedBy: 'equipements')]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Weapons $weapon = null;
+
+    public function __toString(): string
+    {
+        return $this->name->enumToString();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?int
+    public function getName(): ?EquipementsEnum
     {
         return $this->name;
     }
 
-    public function setName(int $name): static
+    public function setName(EquipementsEnum $name): static
     {
         $this->name = $name;
 
@@ -45,12 +52,12 @@ class Equipements
 
     public function getGanger(): ?Ganger
     {
-        return $this->Ganger;
+        return $this->ganger;
     }
 
     public function setGanger(?Ganger $ganger): static
     {
-        $this->Ganger = $ganger;
+        $this->ganger = $ganger;
 
         return $this;
     }
