@@ -19,7 +19,7 @@ class Games
 
     #[ORM\ManyToOne(inversedBy: 'games')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Gang $Gang1 = null;
+    private ?Gang $gang1 = null;
 
     #[ORM\ManyToOne(inversedBy: 'games')]
     #[ORM\JoinColumn(nullable: false)]
@@ -54,12 +54,12 @@ class Games
 
     public function getGang1(): ?Gang
     {
-        return $this->Gang1;
+        return $this->gang1;
     }
 
-    public function setGang1(?Gang $Gang1): static
+    public function setGang1(?Gang $gang1): static
     {
-        $this->Gang1 = $Gang1;
+        $this->gang1 = $gang1;
 
         return $this;
     }

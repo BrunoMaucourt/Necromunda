@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\EasyAdmin\HouseField;
 use App\EasyAdmin\InjuriesField;
 use App\Entity\Injuries;
-use App\Enum\HouseEnum;
 use App\Enum\InjuriesEnum;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -13,13 +12,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bundle\SecurityBundle\Security;
 
 class InjuriesCrudController extends AbstractCrudController
@@ -93,7 +85,7 @@ class InjuriesCrudController extends AbstractCrudController
                         return self::checkInjuriesOfCurrentUser($entity, $security);
                     });
             })
-            ;
+        ;
     }
 
     public static function checkInjuriesOfCurrentUser(Injuries $injuries, $security): bool

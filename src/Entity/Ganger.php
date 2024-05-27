@@ -71,13 +71,13 @@ class Ganger
     /**
      * @var Collection<int, Weapons>
      */
-    #[ORM\OneToMany(targetEntity: Weapons::class, mappedBy: 'Ganger')]
+    #[ORM\OneToMany(targetEntity: Weapons::class, mappedBy: 'ganger')]
     private Collection $weapons;
 
     /**
      * @var Collection<int, Equipements>
      */
-    #[ORM\OneToMany(targetEntity: Equipements::class, mappedBy: 'Ganger')]
+    #[ORM\OneToMany(targetEntity: Equipements::class, mappedBy: 'ganger')]
     private Collection $equipements;
 
     /**

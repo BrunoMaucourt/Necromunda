@@ -39,7 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
-        $this->Gang = new ArrayCollection();
+        $this->gang = new ArrayCollection();
     }
 
     public function __toString(): string

@@ -27,6 +27,6 @@ final class WeaponsField implements FieldInterface
                     return $choice->value;
                 },
             ])
-            ;
+        ;
     }
 }
