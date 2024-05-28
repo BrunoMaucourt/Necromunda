@@ -282,8 +282,21 @@ class Ganger
 
     public function getRating(): ?int
     {
-        // ToDo add cost for weapons and equipments
-        return $this->experience + $this->cost;
+        $weaponsCost = 0;
+        $equipementsCost = 0;
+
+        $weapons = $this->weapons;
+
+        foreach ($weapons as $weapon){
+            $weaponsCost += $weapon->getCost();
+        }
+
+       $equipements = $this->equipements;
+       foreach ($equipements as $equipement){
+           $equipementsCost += $equipement->getCost();
+       }
+
+        return $this->experience + $this->cost + $weaponsCost + $equipementsCost;
     }
 
     public function setRating(int $rating): static
