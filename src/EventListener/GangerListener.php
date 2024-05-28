@@ -27,38 +27,39 @@ class GangerListener
         // ToDo check number of alive leader and heavy
 
         if ($object instanceof Ganger) {
-            switch ($object->getType()){
+            $ganger = $object;
+            switch ($ganger->getType()){
                 case GangerTypeEnum::leader:
-                    $object->setWeaponSkill(4);
-                    $object->setBallisticSkill(4);
-                    $object->setLeadership(8);
-                    $object->setInitiative(4);
-                    $object->setCost(120);
-                    $object->setExperience(60 + random_int(1, 6));
+                    $ganger->setWeaponSkill(4);
+                    $ganger->setBallisticSkill(4);
+                    $ganger->setLeadership(8);
+                    $ganger->setInitiative(4);
+                    $ganger->setCost(120);
+                    $ganger->setExperience(60 + random_int(1, 6));
                     break;
                 case GangerTypeEnum::heavy:
-                    $object->setWeaponSkill(3);
-                    $object->setBallisticSkill(3);
-                    $object->setLeadership(7);
-                    $object->setInitiative(3);
-                    $object->setCost(50);
-                    $object->setExperience(60 + random_int(1, 6));
+                    $ganger->setWeaponSkill(3);
+                    $ganger->setBallisticSkill(3);
+                    $ganger->setLeadership(7);
+                    $ganger->setInitiative(3);
+                    $ganger->setCost(50);
+                    $ganger->setExperience(60 + random_int(1, 6));
                     break;
                 case GangerTypeEnum::ganger:
-                    $object->setWeaponSkill(3);
-                    $object->setBallisticSkill(3);
-                    $object->setLeadership(7);
-                    $object->setInitiative(3);
-                    $object->setCost(25);
-                    $object->setExperience(20 + random_int(1, 6));
+                    $ganger->setWeaponSkill(3);
+                    $ganger->setBallisticSkill(3);
+                    $ganger->setLeadership(7);
+                    $ganger->setInitiative(3);
+                    $ganger->setCost(25);
+                    $ganger->setExperience(20 + random_int(1, 6));
                     break;
                 case GangerTypeEnum::juve:
-                    $object->setWeaponSkill(2);
-                    $object->setBallisticSkill(2);
-                    $object->setLeadership(6);
-                    $object->setInitiative(3);
-                    $object->setCost(25);
-                    $object->setExperience(0);
+                    $ganger->setWeaponSkill(2);
+                    $ganger->setBallisticSkill(2);
+                    $ganger->setLeadership(6);
+                    $ganger->setInitiative(3);
+                    $ganger->setCost(25);
+                    $ganger->setExperience(0);
                     break;
             }
 
