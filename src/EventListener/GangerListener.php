@@ -3,14 +3,22 @@
 namespace App\EventListener;
 
 use App\Entity\Ganger;
+use App\Entity\Weapons;
 use App\Enum\GangerTypeEnum;
+use App\Enum\WeaponsEnum;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Events;
 
 #[AsDoctrineListener(event: Events::prePersist, priority: 500, connection: 'default')]
 class GangerListener
 {
+    private EntityManagerInterface $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager){
+        $this->entityManager = $entityManager;
+    }
     public function prePersist(PrePersistEventArgs $event)
     {
         /** @var Ganger $object */
@@ -54,7 +62,17 @@ class GangerListener
                     break;
             }
 
-            $object->setRating($object->getCost() + $object->getExperience());
+            $newGangCredits = $ganger->getGang()->getCredits() - $ganger->getCost();
+            $ganger->getGang()->setCredits($newGangCredits);
+            $ganger->setRating($object->getCost() + $object->getExperience());
+
+            $freeKnife = New Weapons();
+            $freeKnife->setName(WeaponsEnum::KNIFE);
+            $freeKnife->setGanger($object);
+            $freeKnife->setCost(0);
+            $this->entityManager->persist($freeKnife);
+
+            $object->addWeapon($freeKnife);
         }
     }
 }
