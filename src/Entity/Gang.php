@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use App\Enum\HouseEnum;
 use App\Enum\TerritoriesEnum;
+use App\Repository\GangerRepository;
 use App\Repository\GangRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: GangRepository::class)]
@@ -33,7 +35,7 @@ class Gang
     /**
      * @var Collection<int, Ganger>
      */
-    #[ORM\OneToMany(targetEntity: Ganger::class, mappedBy: 'gang')]
+    #[ORM\OneToMany(targetEntity: Ganger::class, mappedBy: 'gang', cascade: ['persist'])]
     private Collection $gangers;
 
     #[ORM\ManyToOne(inversedBy: 'gang')]
@@ -43,19 +45,19 @@ class Gang
     /**
      * @var Collection<int, Territories>
      */
-    #[ORM\OneToMany(targetEntity: Territories::class, mappedBy: 'gang')]
+    #[ORM\OneToMany(targetEntity: Territories::class, mappedBy: 'gang', cascade: ['persist'])]
     private Collection $territories;
 
     /**
      * @var Collection<int, Games>
      */
-    #[ORM\OneToMany(targetEntity: Games::class, mappedBy: 'gang1')]
+    #[ORM\OneToMany(targetEntity: Games::class, mappedBy: 'gang1', cascade: ['persist'])]
     private Collection $games;
 
     /**
      * @var Collection<int, Games>
      */
-    #[ORM\OneToMany(targetEntity: Games::class, mappedBy: 'winner')]
+    #[ORM\OneToMany(targetEntity: Games::class, mappedBy: 'winner', cascade: ['persist'])]
     private Collection $win;
 
     #[ORM\Column(length: 255, enumType: HouseEnum::class)]

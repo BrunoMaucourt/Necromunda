@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\EasyAdmin\HouseField;
 use App\Entity\Gang;
+use App\Entity\Ganger;
+use App\Enum\GangerTypeEnum;
 use App\Enum\HouseEnum;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -13,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -50,9 +53,10 @@ class GangCrudController extends AbstractCrudController
                         ->setParameter('username', $this->getUser()->getUsername());
                 },
             ]);
-        yield TextareaField::new('background')
-            ->setColumns(4);
         if ($pageName !== Crud::PAGE_NEW) {
+            yield FormField::addPanel('Gange status')
+                ->setIcon('fa fa-chart-simple')
+                ->collapsible();
             yield IntegerField::new('rating')
                 ->setColumns(4)
                 ->setFormTypeOption('disabled','disabled');
@@ -60,16 +64,54 @@ class GangCrudController extends AbstractCrudController
                 ->setColumns(4);
             yield BooleanField::new('active')
                 ->setColumns(4);
-            yield CollectionField::new('gangers')
-                ->setColumns(4)
-                ->setFormTypeOption('disabled','disabled');
-            yield AssociationField::new('territories')
-                ->setColumns(4);
-            yield AssociationField::new('games')
-                ->setColumns(4);
-            yield AssociationField::new('win')
-                ->setColumns(4);
+            yield FormField::addPanel('Gangers and territories')
+                ->setIcon('fa fa-user-secret')
+                ->collapsible();
+
+            if ($pageName == Crud::PAGE_DETAIL) {
+                yield CollectionField::new('gangers')
+                    ->setColumns(6)
+                    ->hideOnIndex();
+                yield CollectionField::new('territories')
+                    ->setColumns(6)
+                    ->hideOnIndex();
+            } else {
+                yield CollectionField::new('gangers')
+                    ->setColumns(6)
+                    ->hideOnIndex()
+                    ->useEntryCrudForm(GangerCrudController::class);
+                yield CollectionField::new('territories')
+                    ->setColumns(6)
+                    ->hideOnIndex()
+                    ->useEntryCrudForm(TerritoriesCrudController::class);
+            }
+            yield FormField::addPanel('Gang fights')
+                ->setIcon('fa fa-dice')
+                ->collapsible();
+            if ($pageName == Crud::PAGE_DETAIL) {
+                yield CollectionField::new('games')
+                    ->setColumns(6)
+                    ->hideOnIndex();
+                yield CollectionField::new('win')
+                    ->setColumns(6)
+                    ->hideOnIndex();
+            } else {
+                yield CollectionField::new('games')
+                    ->setColumns(6)
+                    ->hideOnIndex()
+                    ->setFormTypeOption('disabled','disabled');
+                yield CollectionField::new('win')
+                    ->setColumns(6)
+                    ->hideOnIndex()
+                    ->setFormTypeOption('disabled','disabled');
+            }
         }
+        yield FormField::addPanel('Gang background')
+            ->setIcon('fa fa-book')
+            ->collapsible();
+        yield TextareaField::new('background')
+            ->setColumns(12)
+            ->hideOnIndex();
     }
 
     public function configureActions(Actions $actions): Actions
