@@ -70,8 +70,7 @@ class WeaponsCrudController extends AbstractCrudController
                 },
             ]);
         yield IntegerField::new('cost')
-            ->setColumns(4)
-            ->setFormTypeOption('disabled','disabled');
+            ->setColumns(4);
     }
     public function configureActions(Actions $actions): Actions
     {
