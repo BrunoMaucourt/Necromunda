@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use \Symfony\Bundle\SecurityBundle\Security;
@@ -72,6 +73,9 @@ class GangerCrudController extends AbstractCrudController
                 ->setColumns(6);
             yield BooleanField::new('alive')
                 ->setColumns(3);
+            yield FormField::addPanel('Characteristics')
+                ->setIcon('fa fa-list-ol')
+                ->collapsible();
             yield IntegerField::new('move')
                 ->setColumns(3);
             yield IntegerField::new('weaponSkill')
@@ -94,10 +98,28 @@ class GangerCrudController extends AbstractCrudController
                 ->setColumns(3);
             yield IntegerField::new('rating')
                 ->setColumns(3);
+            yield FormField::addPanel('Injuries and skills')
+                ->setIcon('fa fa-info')
+                ->collapsible();
             yield CollectionField::new('injuries')
-                ->setColumns(6);
+                ->setColumns(6)
+                ->hideOnIndex()
+                ->useEntryCrudForm(InjuriesCrudController::class);
             yield CollectionField::new('skills')
-                ->setColumns(6);
+                ->setColumns(6)
+                ->hideOnIndex()
+                ->useEntryCrudForm(SkillsCrudController::class);
+            yield FormField::addPanel('Weapons and equipements')
+                ->setIcon('fa fa-gun')
+                ->collapsible();
+            yield CollectionField::new('weapons')
+                ->setColumns(6)
+                ->hideOnIndex()
+                ->useEntryCrudForm(WeaponsCrudController::class);
+            yield CollectionField::new('equipements')
+                ->setColumns(6)
+                ->hideOnIndex()
+                ->useEntryCrudForm(EquipementsCrudController::class);
         }
     }
 

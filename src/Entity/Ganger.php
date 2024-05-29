@@ -65,25 +65,25 @@ class Ganger
     /**
      * @var Collection<int, Injuries>
      */
-    #[ORM\OneToMany(targetEntity: Injuries::class, mappedBy: 'victim')]
+    #[ORM\OneToMany(targetEntity: Injuries::class, mappedBy: 'victim', cascade: ['persist'])]
     private Collection $injuries;
 
     /**
      * @var Collection<int, Weapons>
      */
-    #[ORM\OneToMany(targetEntity: Weapons::class, mappedBy: 'ganger')]
+    #[ORM\OneToMany(targetEntity: Weapons::class, mappedBy: 'ganger', cascade: ['persist'])]
     private Collection $weapons;
 
     /**
      * @var Collection<int, Equipements>
      */
-    #[ORM\OneToMany(targetEntity: Equipements::class, mappedBy: 'ganger')]
+    #[ORM\OneToMany(targetEntity: Equipements::class, mappedBy: 'ganger', cascade: ['persist'])]
     private Collection $equipements;
 
     /**
      * @var Collection<int, Skills>
      */
-    #[ORM\OneToMany(targetEntity: Skills::class, mappedBy: 'ganger')]
+    #[ORM\OneToMany(targetEntity: Skills::class, mappedBy: 'ganger', cascade: ['persist'])]
     private Collection $skills;
 
     #[ORM\ManyToOne(inversedBy: 'gangers')]
