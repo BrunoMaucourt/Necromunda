@@ -101,25 +101,43 @@ class GangerCrudController extends AbstractCrudController
             yield FormField::addPanel('Injuries and skills')
                 ->setIcon('fa fa-info')
                 ->collapsible();
-            yield CollectionField::new('injuries')
-                ->setColumns(6)
-                ->hideOnIndex()
-                ->useEntryCrudForm(InjuriesCrudController::class);
-            yield CollectionField::new('skills')
-                ->setColumns(6)
-                ->hideOnIndex()
-                ->useEntryCrudForm(SkillsCrudController::class);
+            if ($pageName == Crud::PAGE_DETAIL) {
+                yield CollectionField::new('injuries')
+                    ->setColumns(6)
+                    ->hideOnIndex();
+                yield CollectionField::new('skills')
+                    ->setColumns(6)
+                    ->hideOnIndex();
+            } else {
+                yield CollectionField::new('injuries')
+                    ->setColumns(6)
+                    ->hideOnIndex()
+                    ->useEntryCrudForm(InjuriesCrudController::class);
+                yield CollectionField::new('skills')
+                    ->setColumns(6)
+                    ->hideOnIndex()
+                    ->useEntryCrudForm(SkillsCrudController::class);
+            }
             yield FormField::addPanel('Weapons and equipements')
                 ->setIcon('fa fa-gun')
                 ->collapsible();
-            yield CollectionField::new('weapons')
-                ->setColumns(6)
-                ->hideOnIndex()
-                ->useEntryCrudForm(WeaponsCrudController::class);
-            yield CollectionField::new('equipements')
-                ->setColumns(6)
-                ->hideOnIndex()
-                ->useEntryCrudForm(EquipementsCrudController::class);
+            if ($pageName == Crud::PAGE_DETAIL) {
+                yield CollectionField::new('weapons')
+                    ->setColumns(6)
+                    ->hideOnIndex();
+                yield CollectionField::new('equipements')
+                    ->setColumns(6)
+                    ->hideOnIndex();
+            } else {
+                yield CollectionField::new('weapons')
+                    ->setColumns(6)
+                    ->hideOnIndex()
+                    ->useEntryCrudForm(WeaponsCrudController::class);
+                yield CollectionField::new('equipements')
+                    ->setColumns(6)
+                    ->hideOnIndex()
+                    ->useEntryCrudForm(EquipementsCrudController::class);
+            }
         }
     }
 
