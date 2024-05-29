@@ -69,6 +69,9 @@ class Equipements
 
     public function setCost(int $cost): static
     {
+        $newGangCredits = $this->ganger->getGang()->getCredits() - $cost;
+        $this->ganger->getGang()->setCredits($newGangCredits);
+
         $this->cost = $cost;
 
         return $this;
