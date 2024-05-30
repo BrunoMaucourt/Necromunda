@@ -16,6 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use \Symfony\Bundle\SecurityBundle\Security;
 
@@ -142,6 +143,12 @@ class GangerCrudController extends AbstractCrudController
                     ->hideOnIndex()
                     ->useEntryCrudForm(EquipementsCrudController::class);
             }
+            yield FormField::addPanel('Ganger background')
+                ->setIcon('fa fa-book')
+                ->collapsible();
+            yield TextareaField::new('background')
+                ->setColumns(12)
+                ->hideOnIndex();
         }
     }
 
