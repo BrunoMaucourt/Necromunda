@@ -77,7 +77,8 @@ class GangerCrudController extends AbstractCrudController
                 ->onlyOnIndex()
                 ->setTemplatePath('admin/fields/nameAsLink.html.twig');
             yield BooleanField::new('alive')
-                ->setColumns(3);
+                ->setColumns(3)
+                ->renderAsSwitch(false);
             yield FormField::addPanel('Characteristics')
                 ->setIcon('fa fa-list-ol')
                 ->collapsible();

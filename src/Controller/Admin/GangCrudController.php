@@ -63,7 +63,8 @@ class GangCrudController extends AbstractCrudController
             yield IntegerField::new('credits')
                 ->setColumns(4);
             yield BooleanField::new('active')
-                ->setColumns(4);
+                ->setColumns(4)
+                ->renderAsSwitch(false);
             yield FormField::addPanel('Gangers and territories')
                 ->setIcon('fa fa-user-secret')
                 ->collapsible();
