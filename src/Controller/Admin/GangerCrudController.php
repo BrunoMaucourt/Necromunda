@@ -83,24 +83,44 @@ class GangerCrudController extends AbstractCrudController
                 ->setIcon('fa fa-list-ol')
                 ->collapsible();
             yield IntegerField::new('move')
+                ->setLabel('M')
+                ->setHelp('Move')
                 ->setColumns(3);
             yield IntegerField::new('weaponSkill')
+                ->setLabel('WS')
+                ->setHelp('Weapon Skill')
                 ->setColumns(3);
             yield IntegerField::new('ballisticSkill')
+                ->setLabel('BS')
+                ->setHelp('Ballistic Skill')
                 ->setColumns(3);
             yield IntegerField::new('strength')
+                ->setLabel('S')
+                ->setHelp('Strength')
                 ->setColumns(3);
             yield IntegerField::new('toughness')
+                ->setLabel('T')
+                ->setHelp('Toughness')
                 ->setColumns(3);
             yield IntegerField::new('wounds')
+                ->setLabel('W')
+                ->setHelp('Wounds')
                 ->setColumns(3);
             yield IntegerField::new('initiative')
+                ->setLabel('I')
+                ->setHelp('Initiative')
                 ->setColumns(3);
             yield IntegerField::new('attacks')
+                ->setLabel('A')
+                ->setHelp('Attacks')
                 ->setColumns(3);
             yield IntegerField::new('leadership')
+                ->setLabel('Ld')
+                ->setHelp('Leadership')
                 ->setColumns(3);
             yield IntegerField::new('experience')
+                ->setLabel('Xp')
+                ->setHelp('Experience')
                 ->setColumns(3);
             yield IntegerField::new('rating')
                 ->setColumns(3);
