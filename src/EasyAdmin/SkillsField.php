@@ -19,7 +19,7 @@ final class SkillsField implements FieldInterface
         return (new self())
             ->setProperty($skillsEnum)
             ->setLabel($label)
-            ->setTemplatePath('admin/field/enumField.html.twig')
+            ->setTemplatePath('admin/fields/enumField.html.twig')
             ->setFormType(EnumType::class)
             ->setFormTypeOptions(['class' => SkillsEnum::class,
                 'choice_label' => static function (\UnitEnum $choice): string {

@@ -19,7 +19,7 @@ final class EquipementsField implements FieldInterface
         return (new self())
             ->setProperty($equipementsEnum)
             ->setLabel($label)
-            ->setTemplatePath('admin/field/enumField.html.twig')
+            ->setTemplatePath('admin/fields/enumField.html.twig')
             ->setFormType(EnumType::class)
             ->setFormTypeOptions(['class' => EquipementsEnum::class,
                 'choice_label' => static function (\UnitEnum $choice): string {

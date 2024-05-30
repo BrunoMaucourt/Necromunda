@@ -1,0 +1,5 @@
+{# templates/admin/fields/raw_text.html.twig #}
+
+{% if field is not empty %}
+    <a href="/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CGangerCrudController&entityId={{ entity.primaryKeyValue }}">{{ field.value }}</a>
+{% endif %}

@@ -20,7 +20,7 @@ final class WeaponsField implements FieldInterface
         return (new self())
             ->setProperty($weaponEnum)
             ->setLabel($label)
-            ->setTemplatePath('admin/field/enumField.html.twig')
+            ->setTemplatePath('admin/fields/enumField.html.twig')
             ->setFormType(EnumType::class)
             ->setFormTypeOptions(['class' => WeaponsEnum::class,
                 'choice_label' => static function (\UnitEnum $choice): string {

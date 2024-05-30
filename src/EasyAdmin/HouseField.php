@@ -19,7 +19,7 @@ final class HouseField implements FieldInterface
         return (new self())
             ->setProperty($houseEnum)
             ->setLabel($label)
-            ->setTemplatePath('admin/field/enumField.html.twig')
+            ->setTemplatePath('admin/fields/enumField.html.twig')
             ->setFormType(EnumType::class)
             ->setFormTypeOptions(['class' => HouseEnum::class,
                 'choice_label' => static function (\UnitEnum $choice): string {

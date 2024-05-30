@@ -70,7 +70,11 @@ class GangerCrudController extends AbstractCrudController
                 })
                 ->setColumns(3);
             yield TextField::new('name')
-                ->setColumns(6);
+                ->setColumns(6)
+                ->hideOnIndex();
+            yield TextField::new('name')
+                ->onlyOnIndex()
+                ->setTemplatePath('admin/fields/nameAsLink.html.twig');
             yield BooleanField::new('alive')
                 ->setColumns(3);
             yield FormField::addPanel('Characteristics')

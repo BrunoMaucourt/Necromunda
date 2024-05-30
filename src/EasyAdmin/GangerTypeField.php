@@ -19,7 +19,7 @@ final class GangerTypeField implements FieldInterface
         return (new self())
             ->setProperty($gangerTypeEnum)
             ->setLabel($label)
-            ->setTemplatePath('admin/field/enumField.html.twig')
+            ->setTemplatePath('admin/fields/enumField.html.twig')
             ->setFormType(EnumType::class)
             ->setFormTypeOptions(['class' => GangerTypeEnum::class,
                 'choice_label' => static function (\UnitEnum $choice): string {
