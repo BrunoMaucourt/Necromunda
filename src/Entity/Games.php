@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Enum\ScenariosEnum;
+use App\Enum\TerritoriesEnum;
 use App\Repository\GamesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -16,8 +18,9 @@ class Games
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $scenario = null;
+    #[ORM\Column(length: 255, enumType: ScenariosEnum::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ScenariosEnum $scenario = null;
 
     #[ORM\ManyToOne(inversedBy: 'games')]
     #[ORM\JoinColumn(nullable: false)]
@@ -43,9 +46,129 @@ class Games
     #[ORM\OneToMany(targetEntity: Advancement::class, mappedBy: 'game')]
     private Collection $advancements;
 
+    #[ORM\Column]
+    private ?int $gang1RatingBeforeGame = null;
+
+    #[ORM\Column]
+    private ?int $gang1RAtingAfterGame = null;
+
+    #[ORM\Column]
+    private ?int $gang2RatingBeforeGame = null;
+
+    #[ORM\Column]
+    private ?int $gang2RatingAfterGame = null;
+
+    /**
+     * @var int|null
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * gang
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     */
+    #[ORM\Column]
+    private ?int $gang1gain = null;
+
+    #[ORM\Column]
+    private ?int $gang2gain = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $gang1loots = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $gang2loots = null;
+
+    /**
+     * @var Collection<int, Ganger>
+     */
+    #[ORM\ManyToMany(targetEntity: Ganger::class, inversedBy: 'games')]
+    private Collection $gangers;
+
+    /**
+     * @var Collection<int, Territories>
+     */
+    #[ORM\ManyToMany(targetEntity: Territories::class, inversedBy: 'games')]
+    private Collection $territories;
+
+    /**
+     * @var Collection<int, Injuries>
+     */
+    #[ORM\ManyToMany(targetEntity: Injuries::class, inversedBy: 'games')]
+    private Collection $injuries;
+
+    /**
+     * @var Collection<int, Skills>
+     */
+    #[ORM\ManyToMany(targetEntity: Skills::class, inversedBy: 'games')]
+    private Collection $skills;
+
+    #[ORM\Column]
+    private ?int $gang1creditsBeforeGame = null;
+
+    #[ORM\Column]
+    private ?int $gang2creditsBeforeGame = null;
+
     public function __construct()
     {
         $this->advancements = new ArrayCollection();
+        $this->gangers = new ArrayCollection();
+        $this->territories = new ArrayCollection();
+        $this->injuries = new ArrayCollection();
+        $this->skills = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return $this->date . ' - ' . $this->scenario->enumToString();
     }
 
     public function getId(): ?int
@@ -53,12 +176,12 @@ class Games
         return $this->id;
     }
 
-    public function getScenario(): ?string
+    public function getScenario(): ?ScenariosEnum
     {
         return $this->scenario;
     }
 
-    public function setScenario(string $scenario): static
+    public function setScenario(ScenariosEnum $scenario): static
     {
         $this->scenario = $scenario;
 
@@ -143,6 +266,119 @@ class Games
         return $this;
     }
 
+    public function getGang1RatingBeforeGame(): ?int
+    {
+        return $this->gang1RatingBeforeGame;
+    }
+
+    public function setGang1RatingBeforeGame(int $gang1RatingBeforeGame): static
+    {
+        $this->gang1RatingBeforeGame = $gang1RatingBeforeGame;
+
+        return $this;
+    }
+
+    public function getGang1RAtingAfterGame(): ?int
+    {
+        return $this->gang1RAtingAfterGame;
+    }
+
+    public function setGang1RAtingAfterGame(int $gang1RAtingAfterGame): static
+    {
+        $this->gang1RAtingAfterGame = $gang1RAtingAfterGame;
+
+        return $this;
+    }
+
+    public function getGang2RatingBeforeGame(): ?int
+    {
+        return $this->gang2RatingBeforeGame;
+    }
+
+    public function setGang2RatingBeforeGame(int $gang2RatingBeforeGame): static
+    {
+        $this->gang2RatingBeforeGame = $gang2RatingBeforeGame;
+
+        return $this;
+    }
+
+    public function getGang2RatingAfterGame(): ?int
+    {
+        return $this->gang2RatingAfterGame;
+    }
+
+    public function setGang2RatingAfterGame(int $gang2RatingAfterGame): static
+    {
+        $this->gang2RatingAfterGame = $gang2RatingAfterGame;
+
+        return $this;
+    }
+
+    public function getGang1gain(): ?int
+    {
+        return $this->gang1gain;
+    }
+
+    public function setGang1gain(int $gang1gain): static
+    {
+        $this->gang1gain = $gang1gain;
+
+        return $this;
+    }
+
+    public function getGang2gain(): ?int
+    {
+        return $this->gang2gain;
+    }
+
+    public function setGang2gain(int $gang2gain): static
+    {
+        $this->gang2gain = $gang2gain;
+
+        return $this;
+    }
+
+    public function getGang1loots(): ?string
+    {
+        return $this->gang1loots;
+    }
+
+    public function setGang1loots(string $gang1loots): static
+    {
+        $this->gang1loots = $gang1loots;
+
+        return $this;
+    }
+
+    public function getGang2loots(): ?string
+    {
+        return $this->gang2loots;
+    }
+
+    public function setGang2loots(string $gang2loots): static
+    {
+        $this->gang2loots = $gang2loots;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ganger>
+     */
+    public function getGangers(): Collection
+    {
+        return $this->gangers;
+    }
+
+    public function addGanger(Ganger $ganger): static
+    {
+        if (!$this->gangers->contains($ganger)) {
+            $this->gangers->add($ganger);
+        }
+
+        return $this;
+    }
+
     public function removeAdvancement(Advancement $advancement): static
     {
         if ($this->advancements->removeElement($advancement)) {
@@ -151,6 +387,109 @@ class Games
                 $advancement->setGame(null);
             }
         }
+
+        return $this;
+    }
+
+    public function removeGanger(Ganger $ganger): static
+    {
+        $this->gangers->removeElement($ganger);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Territories>
+     */
+    public function getTerritories(): Collection
+    {
+        return $this->territories;
+    }
+
+    public function addTerritory(Territories $territory): static
+    {
+        if (!$this->territories->contains($territory)) {
+            $this->territories->add($territory);
+        }
+
+        return $this;
+    }
+
+    public function removeTerritory(Territories $territory): static
+    {
+        $this->territories->removeElement($territory);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Injuries>
+     */
+    public function getInjuries(): Collection
+    {
+        return $this->injuries;
+    }
+
+    public function addInjury(Injuries $injury): static
+    {
+        if (!$this->injuries->contains($injury)) {
+            $this->injuries->add($injury);
+        }
+
+        return $this;
+    }
+
+    public function removeInjury(Injuries $injury): static
+    {
+        $this->injuries->removeElement($injury);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Skills>
+     */
+    public function getSkills(): Collection
+    {
+        return $this->skills;
+    }
+
+    public function addSkill(Skills $skill): static
+    {
+        if (!$this->skills->contains($skill)) {
+            $this->skills->add($skill);
+        }
+
+        return $this;
+    }
+
+    public function removeSkill(Skills $skill): static
+    {
+        $this->skills->removeElement($skill);
+
+        return $this;
+    }
+
+    public function getGang1creditsBeforeGame(): ?int
+    {
+        return $this->gang1creditsBeforeGame;
+    }
+
+    public function setGang1creditsBeforeGame(int $gang1creditsBeforeGame): static
+    {
+        $this->gang1creditsBeforeGame = $gang1creditsBeforeGame;
+
+        return $this;
+    }
+
+    public function getGang2creditsBeforeGame(): ?int
+    {
+        return $this->gang2creditsBeforeGame;
+    }
+
+    public function setGang2creditsBeforeGame(int $gang2creditsBeforeGame): static
+    {
+        $this->gang2creditsBeforeGame = $gang2creditsBeforeGame;
 
         return $this;
     }

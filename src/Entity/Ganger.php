@@ -100,13 +100,20 @@ class Ganger
     #[ORM\OneToMany(targetEntity: Advancement::class, mappedBy: 'ganger', orphanRemoval: true)]
     private Collection $advancement;
 
+    /**
+     * @var Collection<int, Games>
+     */
+    #[ORM\ManyToMany(targetEntity: Games::class, mappedBy: 'gangers')]
+    private Collection $games;
+
     public function __construct()
     {
         $this->injuries = new ArrayCollection();
         $this->weapons = new ArrayCollection();
         $this->equipements = new ArrayCollection();
         $this->skills = new ArrayCollection();
-        $this->content = new ArrayCollection();
+        $this->advancement = new ArrayCollection();
+        $this->games = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -460,28 +467,56 @@ class Ganger
     /**
      * @return Collection<int, Advancement>
      */
-    public function getContent(): Collection
+    public function getAdvancement(): Collection
     {
-        return $this->content;
+        return $this->advancement;
     }
 
-    public function addContent(Advancement $advancement): static
+    public function addAdvancement(Advancement $advancement): static
     {
-        if (!$this->content->contains($advancement)) {
-            $this->content->add($advancement);
+        if (!$this->advancement->contains($advancement)) {
+            $this->advancement->add($advancement);
             $advancement->setGanger($this);
+        }
+            return $this;
+    }
+
+    /**
+     * @return Collection<int, Games>
+     */
+    public function getGames(): Collection
+    {
+        return $this->games;
+    }
+
+    public function addGame(Games $game): static
+    {
+        if (!$this->games->contains($game)) {
+            $this->games->add($game);
+            $game->addGanger($this);
+
         }
 
         return $this;
     }
 
-    public function removeContent(Advancement $advancement): static
+
+    public function removeAdvancement(Advancement $advancement): static
     {
-        if ($this->content->removeElement($advancement)) {
+        if ($this->advancement->removeElement($advancement)) {
             // set the owning side to null (unless already changed)
             if ($advancement->getGanger() === $this) {
                 $advancement->setGanger(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Games $game): static
+    {
+        if ($this->games->removeElement($game)) {
+            $game->removeGanger($this);
         }
 
         return $this;

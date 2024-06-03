@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Enum\TerritoriesEnum;
 use App\Repository\TerritoriesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +24,17 @@ class Territories
     #[ORM\ManyToOne(inversedBy: 'territories')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Gang $gang = null;
+
+    /**
+     * @var Collection<int, Games>
+     */
+    #[ORM\ManyToMany(targetEntity: Games::class, mappedBy: 'territories')]
+    private Collection $games;
+
+    public function __construct()
+    {
+        $this->games = new ArrayCollection();
+    }
 
     public function __toString(): string
     {
@@ -79,5 +92,32 @@ class Territories
     {
         $currentTerritory = $this->getName();
         return $currentTerritory->getFixedIncome() +  $currentTerritory->getVariableIncomeNumberOfDice() * (mt_rand(1, 6) * $currentTerritory->getVariableIncomeMultiplicator());
+    }
+
+    /**
+     * @return Collection<int, Games>
+     */
+    public function getGames(): Collection
+    {
+        return $this->games;
+    }
+
+    public function addGame(Games $game): static
+    {
+        if (!$this->games->contains($game)) {
+            $this->games->add($game);
+            $game->addTerritory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Games $game): static
+    {
+        if ($this->games->removeElement($game)) {
+            $game->removeTerritory($this);
+        }
+
+        return $this;
     }
 }

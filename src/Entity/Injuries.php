@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Enum\InjuriesEnum;
 use App\Repository\InjuriesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: InjuriesRepository::class)]
@@ -24,6 +26,17 @@ class Injuries
 
     #[ORM\ManyToOne(inversedBy: 'injuries')]
     private ?Ganger $author = null;
+
+    /**
+     * @var Collection<int, Games>
+     */
+    #[ORM\ManyToMany(targetEntity: Games::class, mappedBy: 'injuries')]
+    private Collection $games;
+
+    public function __construct()
+    {
+        $this->games = new ArrayCollection();
+    }
 
     public function __toString(): string
     {
@@ -67,6 +80,33 @@ class Injuries
     public function setAuthor(?Ganger $author): static
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Games>
+     */
+    public function getGames(): Collection
+    {
+        return $this->games;
+    }
+
+    public function addGame(Games $game): static
+    {
+        if (!$this->games->contains($game)) {
+            $this->games->add($game);
+            $game->addInjury($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Games $game): static
+    {
+        if ($this->games->removeElement($game)) {
+            $game->removeInjury($this);
+        }
 
         return $this;
     }
