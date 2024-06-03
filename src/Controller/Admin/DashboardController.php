@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Advancement;
 use App\Entity\Equipements;
 use App\Entity\Games;
 use App\Entity\Gang;
@@ -62,5 +63,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Skills', 'fas fa-user-graduate', Skills::class);
         yield MenuItem::linkToCrud('Weapons', 'fas fa-gun', Weapons::class);
         yield MenuItem::linkToCrud('Equipements', 'fas fa-toolbox', Equipements::class);
+        yield MenuItem::linkToCrud('Advancements', 'fas fa-trophy', Advancement::class);
     }
 }

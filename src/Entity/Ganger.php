@@ -94,12 +94,19 @@ class Ganger
     #[ORM\JoinColumn(nullable: false)]
     private ?GangerTypeEnum $type = null;
 
+    /**
+     * @var Collection<int, Advancement>
+     */
+    #[ORM\OneToMany(targetEntity: Advancement::class, mappedBy: 'ganger', orphanRemoval: true)]
+    private Collection $advancement;
+
     public function __construct()
     {
         $this->injuries = new ArrayCollection();
         $this->weapons = new ArrayCollection();
         $this->equipements = new ArrayCollection();
         $this->skills = new ArrayCollection();
+        $this->content = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -446,6 +453,36 @@ class Ganger
     public function setType(GangerTypeEnum $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Advancement>
+     */
+    public function getContent(): Collection
+    {
+        return $this->content;
+    }
+
+    public function addContent(Advancement $advancement): static
+    {
+        if (!$this->content->contains($advancement)) {
+            $this->content->add($advancement);
+            $advancement->setGanger($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContent(Advancement $advancement): static
+    {
+        if ($this->content->removeElement($advancement)) {
+            // set the owning side to null (unless already changed)
+            if ($advancement->getGanger() === $this) {
+                $advancement->setGanger(null);
+            }
+        }
 
         return $this;
     }

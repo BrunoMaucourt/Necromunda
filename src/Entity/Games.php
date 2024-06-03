@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GamesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -34,6 +36,17 @@ class Games
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $background = null;
+
+    /**
+     * @var Collection<int, Advancement>
+     */
+    #[ORM\OneToMany(targetEntity: Advancement::class, mappedBy: 'game')]
+    private Collection $advancements;
+
+    public function __construct()
+    {
+        $this->advancements = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -108,6 +121,36 @@ class Games
     public function setBackground(?string $background): static
     {
         $this->background = $background;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Advancement>
+     */
+    public function getAdvancements(): Collection
+    {
+        return $this->advancements;
+    }
+
+    public function addAdvancement(Advancement $advancement): static
+    {
+        if (!$this->advancements->contains($advancement)) {
+            $this->advancements->add($advancement);
+            $advancement->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdvancement(Advancement $advancement): static
+    {
+        if ($this->advancements->removeElement($advancement)) {
+            // set the owning side to null (unless already changed)
+            if ($advancement->getGame() === $this) {
+                $advancement->setGame(null);
+            }
+        }
 
         return $this;
     }

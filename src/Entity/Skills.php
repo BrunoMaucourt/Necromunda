@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Enum\SkillsEnum;
 use App\Repository\SkillsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SkillsRepository::class)]
@@ -21,6 +23,17 @@ class Skills
     #[ORM\ManyToOne(inversedBy: 'skills')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Ganger $ganger = null;
+
+    /**
+     * @var Collection<int, Advancement>
+     */
+    #[ORM\OneToMany(targetEntity: Advancement::class, mappedBy: 'skill')]
+    private Collection $advancements;
+
+    public function __construct()
+    {
+        $this->advancements = new ArrayCollection();
+    }
 
     public function __toString(): string
     {
@@ -52,6 +65,36 @@ class Skills
     public function setGanger(?Ganger $ganger): static
     {
         $this->ganger = $ganger;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Advancement>
+     */
+    public function getAdvancements(): Collection
+    {
+        return $this->advancements;
+    }
+
+    public function addAdvancement(Advancement $advancement): static
+    {
+        if (!$this->advancements->contains($advancement)) {
+            $this->advancements->add($advancement);
+            $advancement->setSkill($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdvancement(Advancement $advancement): static
+    {
+        if ($this->advancements->removeElement($advancement)) {
+            // set the owning side to null (unless already changed)
+            if ($advancement->getSkill() === $this) {
+                $advancement->setSkill(null);
+            }
+        }
 
         return $this;
     }
