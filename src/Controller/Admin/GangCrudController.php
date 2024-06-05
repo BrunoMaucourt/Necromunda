@@ -59,9 +59,11 @@ class GangCrudController extends AbstractCrudController
                 ->collapsible();
             yield IntegerField::new('rating')
                 ->setColumns(4)
-                ->setFormTypeOption('disabled','disabled');
+                ->setFormTypeOption('disabled','disabled')
+                ->setThousandsSeparator(' ');
             yield IntegerField::new('credits')
-                ->setColumns(4);
+                ->setColumns(4)
+                ->setThousandsSeparator(' ');
             yield BooleanField::new('active')
                 ->setColumns(4)
                 ->renderAsSwitch(false);
