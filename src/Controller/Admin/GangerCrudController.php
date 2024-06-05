@@ -19,6 +19,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use \Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Validator\Constraints\Range;
 
 class GangerCrudController extends AbstractCrudController
 {
@@ -39,7 +40,7 @@ class GangerCrudController extends AbstractCrudController
             ->showEntityActionsInlined()
         ;
     }
-    
+
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
@@ -92,38 +93,56 @@ class GangerCrudController extends AbstractCrudController
             yield IntegerField::new('move')
                 ->setLabel('M')
                 ->setHelp('Move')
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 4])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 4])])
                 ->setColumns(3);
             yield IntegerField::new('weaponSkill')
                 ->setLabel('WS')
                 ->setHelp('Weapon Skill')
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 6])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 6])])
                 ->setColumns(3);
             yield IntegerField::new('ballisticSkill')
                 ->setLabel('BS')
                 ->setHelp('Ballistic Skill')
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 6])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 6])])
                 ->setColumns(3);
             yield IntegerField::new('strength')
                 ->setLabel('S')
                 ->setHelp('Strength')
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 4])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 4])])
                 ->setColumns(3);
             yield IntegerField::new('toughness')
                 ->setLabel('T')
                 ->setHelp('Toughness')
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 4])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 4])])
                 ->setColumns(3);
             yield IntegerField::new('wounds')
                 ->setLabel('W')
                 ->setHelp('Wounds')
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 3])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 3])])
                 ->setColumns(3);
             yield IntegerField::new('initiative')
                 ->setLabel('I')
                 ->setHelp('Initiative')
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 6])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 6])])
                 ->setColumns(3);
             yield IntegerField::new('attacks')
                 ->setLabel('A')
                 ->setHelp('Attacks')
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 3])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 3])])
                 ->setColumns(3);
             yield IntegerField::new('leadership')
                 ->setLabel('Ld')
                 ->setHelp('Leadership')
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 9])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 9])])
                 ->setColumns(3);
             yield IntegerField::new('experience')
                 ->setLabel('Xp')
