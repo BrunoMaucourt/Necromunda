@@ -16,28 +16,13 @@ class GangerRepository extends ServiceEntityRepository
         parent::__construct($registry, Ganger::class);
     }
 
-//    /**
-//     * @return Ganger[] Returns an array of Ganger objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('g')
-//            ->andWhere('g.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('g.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Ganger
-//    {
-//        return $this->createQueryBuilder('g')
-//            ->andWhere('g.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findAliveByGang($gangId)
+    {
+        return $this->createQueryBuilder('g')
+            ->where('g.gang = :gangId')
+            ->andWhere('g.alive = true')
+            ->setParameter('gangId', $gangId)
+            ->getQuery()
+            ->getResult();
+    }
 }
