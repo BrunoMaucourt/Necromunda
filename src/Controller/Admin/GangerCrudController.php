@@ -33,6 +33,13 @@ class GangerCrudController extends AbstractCrudController
         return Ganger::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->showEntityActionsInlined()
+        ;
+    }
+    
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
@@ -178,12 +185,15 @@ class GangerCrudController extends AbstractCrudController
         return $actions
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->update(Crud::PAGE_INDEX, Action::DETAIL, function (Action $action) {
-                return $action->setIcon('fa fa-eye');
+                return $action->setIcon('fa fa-eye')
+                   ->setCssClass('btn btn-light btn-remove-margin')
+                ;
             })
             ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
                 $security = $this->security;
                 return $action
                     ->setIcon('fa fa-pen-to-square')
+                   ->setCssClass('btn btn-light btn-remove-margin')
                     ->displayIf(static function ($entity) use ($security) {
                     return self::checkGangsOfCurrentUser($entity, $security);
                 });
@@ -192,6 +202,7 @@ class GangerCrudController extends AbstractCrudController
                 $security = $this->security;
                 return $action
                     ->setIcon('fa fa-trash')
+                    ->setCssClass('btn btn-light btn-remove-margin')
                     ->displayIf(static function ($entity) use ($security) {
                     return self::checkGangsOfCurrentUser($entity, $security);
                 });
@@ -207,7 +218,7 @@ class GangerCrudController extends AbstractCrudController
             ->update(Crud::PAGE_DETAIL, Action::DELETE, function (Action $action) {
                 $security = $this->security;
                 return $action
-                    ->setIcon('fa fa-user')
+                    ->setIcon('fa fa-trash')
                     ->displayIf(static function ($entity) use ($security) {
                     return self::checkGangsOfCurrentUser($entity, $security);
                 });
