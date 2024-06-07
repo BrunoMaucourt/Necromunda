@@ -4,7 +4,7 @@ namespace App\EventListener;
 
 
 use App\Entity\Gang;
-use App\Entity\Territories;
+use App\Entity\Territory;
 use App\Enum\TerritoriesEnum;
 use App\service\CheckValueRangeService;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
@@ -41,7 +41,7 @@ class GangListener
             foreach ($randomNumbers as $randomNumber) {
                 foreach ($territories as $territory) {
                     if ($this->CheckValueRangeService->isBetweenOrEqual($territory->getDicesRange(), (int) $randomNumber)) {
-                        $newTerritory = new Territories();
+                        $newTerritory = new Territory();
                         $newTerritory->setGang($object);
                         $newTerritory->setName($territory);
 

@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\SkillsField;
-use App\Entity\Skills;
+use App\Entity\Skill;
 use App\Enum\SkillsEnum;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -12,9 +12,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bundle\SecurityBundle\Security;
 
 class SkillsCrudController extends AbstractCrudController
@@ -26,7 +23,7 @@ class SkillsCrudController extends AbstractCrudController
     }
     public static function getEntityFqcn(): string
     {
-        return Skills::class;
+        return Skill::class;
     }
 
     public function configureFilters(Filters $filters): Filters
@@ -96,10 +93,10 @@ class SkillsCrudController extends AbstractCrudController
             ;
     }
 
-    public static function checkSkillsOfCurrentUser(Skills $skills, $security): bool
+    public static function checkSkillsOfCurrentUser(Skill $skill, $security): bool
     {
         if(
-            $skills->getGanger()->getGang()->getUser() == $security->getUser()
+            $skill->getGanger()->getGang()->getUser() == $security->getUser()
             || $security->isGranted('ROLE_ADMIN')
         ) {
             return true;

@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Weapons;
+use App\Entity\Weapon;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +17,7 @@ class WeaponForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Weapons::class,
+            'data_class' => Weapon::class,
         ]);
     }
 }

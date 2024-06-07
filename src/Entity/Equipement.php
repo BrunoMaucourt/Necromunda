@@ -7,7 +7,7 @@ use App\Repository\EquipementsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EquipementsRepository::class)]
-class Equipements
+class Equipement
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -26,7 +26,7 @@ class Equipements
 
     #[ORM\ManyToOne(inversedBy: 'equipements')]
     #[ORM\JoinColumn(nullable: true)]
-    private ?Weapons $weapon = null;
+    private ?Weapon $weapon = null;
 
     public function __toString(): string
     {
@@ -77,12 +77,12 @@ class Equipements
         return $this;
     }
 
-    public function getWeapon(): ?Weapons
+    public function getWeapon(): ?Weapon
     {
         return $this->weapon;
     }
 
-    public function setWeapon(?Weapons $weapon): static
+    public function setWeapon(?Weapon $weapon): static
     {
         $this->weapon = $weapon;
 

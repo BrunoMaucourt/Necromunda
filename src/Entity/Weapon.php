@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: WeaponsRepository::class)]
-class Weapons
+class Weapon
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -27,9 +27,9 @@ class Weapons
     private ?int $cost = 0;
 
     /**
-     * @var Collection<int, Equipements>
+     * @var Collection<int, Equipement>
      */
-    #[ORM\OneToMany(targetEntity: Equipements::class, mappedBy: 'weapon')]
+    #[ORM\OneToMany(targetEntity: Equipement::class, mappedBy: 'weapon')]
     #[ORM\JoinColumn(nullable: true)]
     private Collection $equipements;
 
@@ -88,14 +88,14 @@ class Weapons
     }
 
     /**
-     * @return Collection<int, Equipements>
+     * @return Collection<int, Equipement>
      */
     public function getEquipements(): Collection
     {
         return $this->equipements;
     }
 
-    public function addEquipement(Equipements $equipement): static
+    public function addEquipement(Equipement $equipement): static
     {
         if (!$this->equipements->contains($equipement)) {
             $this->equipements->add($equipement);
@@ -106,7 +106,7 @@ class Weapons
     }
 
 
-    public function removeEquipement(Equipements $equipement): static
+    public function removeEquipement(Equipement $equipement): static
     {
         if ($this->equipements->removeElement($equipement)) {
             // set the owning side to null (unless already changed)

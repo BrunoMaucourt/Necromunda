@@ -5,8 +5,8 @@ namespace App\Controller\Admin;
 use App\EasyAdmin\HouseField;
 use App\EasyAdmin\InjuriesField;
 use App\EasyAdmin\WeaponsField;
-use App\Entity\Injuries;
-use App\Entity\Weapons;
+use App\Entity\Injury;
+use App\Entity\Weapon;
 use App\Enum\InjuriesEnum;
 use App\Enum\WeaponsEnum;
 use Doctrine\ORM\EntityRepository;
@@ -28,7 +28,7 @@ class WeaponsCrudController extends AbstractCrudController
     }
     public static function getEntityFqcn(): string
     {
-        return Weapons::class;
+        return Weapon::class;
     }
 
     public function configureFilters(Filters $filters): Filters
@@ -114,7 +114,7 @@ class WeaponsCrudController extends AbstractCrudController
             ;
     }
 
-    public static function checkWeaponsOfCurrentUser(Weapons $weapon, $security): bool
+    public static function checkWeaponsOfCurrentUser(Weapon $weapon, $security): bool
     {
         if(
             $weapon->getGanger()->getGang()->getUser() == $security->getUser()

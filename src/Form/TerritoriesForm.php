@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Territories;
+use App\Entity\Territory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +17,7 @@ class TerritoriesForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Territories::class,
+            'data_class' => Territory::class,
         ]);
     }
 }

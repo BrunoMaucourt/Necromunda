@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\TerritoriesField;
-use App\Entity\Territories;
+use App\Entity\Territory;
 use App\Enum\TerritoriesEnum;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -25,7 +25,7 @@ class TerritoriesCrudController extends AbstractCrudController
 
     public static function getEntityFqcn(): string
     {
-        return Territories::class;
+        return Territory::class;
     }
 
     public function configureFilters(Filters $filters): Filters
@@ -105,10 +105,10 @@ class TerritoriesCrudController extends AbstractCrudController
             ;
     }
 
-    public static function checkTerritoriesOfCurrentUser(Territories $territories, $security): bool
+    public static function checkTerritoriesOfCurrentUser(Territory $territory, $security): bool
     {
         if(
-            $territories->getGang()->getUser() == $security->getUser()
+            $territory->getGang()->getUser() == $security->getUser()
             || $security->isGranted('ROLE_ADMIN')
         ) {
             return true;

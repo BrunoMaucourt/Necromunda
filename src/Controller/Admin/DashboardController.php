@@ -3,15 +3,15 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Advancement;
-use App\Entity\Equipements;
-use App\Entity\Games;
+use App\Entity\Equipement;
+use App\Entity\Game;
 use App\Entity\Gang;
 use App\Entity\Ganger;
-use App\Entity\Injuries;
-use App\Entity\Skills;
-use App\Entity\Territories;
+use App\Entity\Injury;
+use App\Entity\Skill;
+use App\Entity\Territory;
 use App\Entity\User;
-use App\Entity\Weapons;
+use App\Entity\Weapon;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -54,15 +54,15 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('User', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('Users', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Gangs', 'fas fa-users', Gang::class);
         yield MenuItem::linkToCrud('Gangers', 'fas fa-user-secret', Ganger::class);
-        yield MenuItem::linkToCrud('Games', 'fas fa-dice', Games::class);
-        yield MenuItem::linkToCrud('Territories', 'fas fa-warehouse', Territories::class);
-        yield MenuItem::linkToCrud('Injuries', 'fas fa-user-injured', Injuries::class);
-        yield MenuItem::linkToCrud('Skills', 'fas fa-user-graduate', Skills::class);
-        yield MenuItem::linkToCrud('Weapons', 'fas fa-gun', Weapons::class);
-        yield MenuItem::linkToCrud('Equipements', 'fas fa-toolbox', Equipements::class);
+        yield MenuItem::linkToCrud('Games', 'fas fa-dice', Game::class);
+        yield MenuItem::linkToCrud('Territories', 'fas fa-warehouse', Territory::class);
+        yield MenuItem::linkToCrud('Injuries', 'fas fa-user-injured', Injury::class);
+        yield MenuItem::linkToCrud('Skills', 'fas fa-user-graduate', Skill::class);
+        yield MenuItem::linkToCrud('Weapons', 'fas fa-gun', Weapon::class);
+        yield MenuItem::linkToCrud('Equipements', 'fas fa-toolbox', Equipement::class);
         yield MenuItem::linkToCrud('Advancements', 'fas fa-trophy', Advancement::class);
     }
 }

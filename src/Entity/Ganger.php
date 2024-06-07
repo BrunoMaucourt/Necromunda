@@ -63,27 +63,27 @@ class Ganger
     private ?int $rating = null;
 
     /**
-     * @var Collection<int, Injuries>
+     * @var Collection<int, Injury>
      */
-    #[ORM\OneToMany(targetEntity: Injuries::class, mappedBy: 'victim', cascade: ['persist'])]
+    #[ORM\OneToMany(targetEntity: Injury::class, mappedBy: 'victim', cascade: ['persist'])]
     private Collection $injuries;
 
     /**
-     * @var Collection<int, Weapons>
+     * @var Collection<int, Weapon>
      */
-    #[ORM\OneToMany(targetEntity: Weapons::class, mappedBy: 'ganger', cascade: ['persist'])]
+    #[ORM\OneToMany(targetEntity: Weapon::class, mappedBy: 'ganger', cascade: ['persist'])]
     private Collection $weapons;
 
     /**
-     * @var Collection<int, Equipements>
+     * @var Collection<int, Equipement>
      */
-    #[ORM\OneToMany(targetEntity: Equipements::class, mappedBy: 'ganger', cascade: ['persist'])]
+    #[ORM\OneToMany(targetEntity: Equipement::class, mappedBy: 'ganger', cascade: ['persist'])]
     private Collection $equipements;
 
     /**
-     * @var Collection<int, Skills>
+     * @var Collection<int, Skill>
      */
-    #[ORM\OneToMany(targetEntity: Skills::class, mappedBy: 'ganger', cascade: ['persist'])]
+    #[ORM\OneToMany(targetEntity: Skill::class, mappedBy: 'ganger', cascade: ['persist'])]
     private Collection $skills;
 
     #[ORM\ManyToOne(inversedBy: 'gangers')]
@@ -101,9 +101,9 @@ class Ganger
     private Collection $advancement;
 
     /**
-     * @var Collection<int, Games>
+     * @var Collection<int, Game>
      */
-    #[ORM\ManyToMany(targetEntity: Games::class, mappedBy: 'gangers')]
+    #[ORM\ManyToMany(targetEntity: Game::class, mappedBy: 'gangers')]
     private Collection $games;
 
     public function __construct()
@@ -321,14 +321,14 @@ class Ganger
     }
 
     /**
-     * @return Collection<int, Injuries>
+     * @return Collection<int, Injury>
      */
     public function getInjuries(): Collection
     {
         return $this->injuries;
     }
 
-    public function addInjury(Injuries $injury): static
+    public function addInjury(Injury $injury): static
     {
         if (!$this->injuries->contains($injury)) {
             $this->injuries->add($injury);
@@ -338,7 +338,7 @@ class Ganger
         return $this;
     }
 
-    public function removeInjury(Injuries $injury): static
+    public function removeInjury(Injury $injury): static
     {
         if ($this->injuries->removeElement($injury)) {
             // set the owning side to null (unless already changed)
@@ -351,14 +351,14 @@ class Ganger
     }
 
     /**
-     * @return Collection<int, Weapons>
+     * @return Collection<int, Weapon>
      */
     public function getWeapons(): Collection
     {
         return $this->weapons;
     }
 
-    public function addWeapon(Weapons $weapon): static
+    public function addWeapon(Weapon $weapon): static
     {
         if (!$this->weapons->contains($weapon)) {
             $this->weapons->add($weapon);
@@ -368,7 +368,7 @@ class Ganger
         return $this;
     }
 
-    public function removeWeapon(Weapons $weapon): static
+    public function removeWeapon(Weapon $weapon): static
     {
         if ($this->weapons->removeElement($weapon)) {
             // set the owning side to null (unless already changed)
@@ -381,14 +381,14 @@ class Ganger
     }
 
     /**
-     * @return Collection<int, Equipements>
+     * @return Collection<int, Equipement>
      */
     public function getEquipements(): Collection
     {
         return $this->equipements;
     }
 
-    public function addEquipement(Equipements $equipement): static
+    public function addEquipement(Equipement $equipement): static
     {
         if (!$this->equipements->contains($equipement)) {
             $this->equipements->add($equipement);
@@ -398,7 +398,7 @@ class Ganger
         return $this;
     }
 
-    public function removeEquipement(Equipements $equipement): static
+    public function removeEquipement(Equipement $equipement): static
     {
         if ($this->equipements->removeElement($equipement)) {
             // set the owning side to null (unless already changed)
@@ -411,14 +411,14 @@ class Ganger
     }
 
     /**
-     * @return Collection<int, Skills>
+     * @return Collection<int, Skill>
      */
     public function getSkills(): Collection
     {
         return $this->skills;
     }
 
-    public function addSkill(Skills $skill): static
+    public function addSkill(Skill $skill): static
     {
         if (!$this->skills->contains($skill)) {
             $this->skills->add($skill);
@@ -428,7 +428,7 @@ class Ganger
         return $this;
     }
 
-    public function removeSkill(Skills $skill): static
+    public function removeSkill(Skill $skill): static
     {
         if ($this->skills->removeElement($skill)) {
             // set the owning side to null (unless already changed)
@@ -482,14 +482,14 @@ class Ganger
     }
 
     /**
-     * @return Collection<int, Games>
+     * @return Collection<int, Game>
      */
     public function getGames(): Collection
     {
         return $this->games;
     }
 
-    public function addGame(Games $game): static
+    public function addGame(Game $game): static
     {
         if (!$this->games->contains($game)) {
             $this->games->add($game);
@@ -513,7 +513,7 @@ class Ganger
         return $this;
     }
 
-    public function removeGame(Games $game): static
+    public function removeGame(Game $game): static
     {
         if ($this->games->removeElement($game)) {
             $game->removeGanger($this);

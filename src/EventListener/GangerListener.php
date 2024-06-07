@@ -3,7 +3,7 @@
 namespace App\EventListener;
 
 use App\Entity\Ganger;
-use App\Entity\Weapons;
+use App\Entity\Weapon;
 use App\Enum\GangerTypeEnum;
 use App\Enum\WeaponsEnum;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
@@ -67,7 +67,7 @@ class GangerListener
             $ganger->getGang()->setCredits($newGangCredits);
             $ganger->setRating($object->getCost() + $object->getExperience());
 
-            $freeKnife = New Weapons();
+            $freeKnife = New Weapon();
             $freeKnife->setName(WeaponsEnum::KNIFE);
             $freeKnife->setGanger($object);
             $freeKnife->setCost(0);

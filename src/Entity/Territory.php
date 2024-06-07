@@ -6,11 +6,10 @@ use App\Enum\TerritoriesEnum;
 use App\Repository\TerritoriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TerritoriesRepository::class)]
-class Territories
+class Territory
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -26,9 +25,9 @@ class Territories
     private ?Gang $gang = null;
 
     /**
-     * @var Collection<int, Games>
+     * @var Collection<int, Game>
      */
-    #[ORM\ManyToMany(targetEntity: Games::class, mappedBy: 'territories')]
+    #[ORM\ManyToMany(targetEntity: Game::class, mappedBy: 'territories')]
     private Collection $games;
 
     public function __construct()
@@ -95,14 +94,14 @@ class Territories
     }
 
     /**
-     * @return Collection<int, Games>
+     * @return Collection<int, Game>
      */
     public function getGames(): Collection
     {
         return $this->games;
     }
 
-    public function addGame(Games $game): static
+    public function addGame(Game $game): static
     {
         if (!$this->games->contains($game)) {
             $this->games->add($game);
@@ -112,7 +111,7 @@ class Territories
         return $this;
     }
 
-    public function removeGame(Games $game): static
+    public function removeGame(Game $game): static
     {
         if ($this->games->removeElement($game)) {
             $game->removeTerritory($this);

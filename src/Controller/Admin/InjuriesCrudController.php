@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\EasyAdmin\HouseField;
 use App\EasyAdmin\InjuriesField;
-use App\Entity\Injuries;
+use App\Entity\Injury;
 use App\Enum\InjuriesEnum;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -24,7 +24,7 @@ class InjuriesCrudController extends AbstractCrudController
     }
     public static function getEntityFqcn(): string
     {
-        return Injuries::class;
+        return Injury::class;
     }
 
     public function configureFilters(Filters $filters): Filters
@@ -96,10 +96,10 @@ class InjuriesCrudController extends AbstractCrudController
         ;
     }
 
-    public static function checkInjuriesOfCurrentUser(Injuries $injuries, $security): bool
+    public static function checkInjuriesOfCurrentUser(Injury $injury, $security): bool
     {
         if(
-            $injuries->getVictim()->getGang()->getUser() == $security->getUser()
+            $injury->getVictim()->getGang()->getUser() == $security->getUser()
             || $security->isGranted('ROLE_ADMIN')
         ) {
             return true;

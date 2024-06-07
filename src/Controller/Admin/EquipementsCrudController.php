@@ -4,8 +4,8 @@ namespace App\Controller\Admin;
 
 use App\EasyAdmin\EquipementsField;
 use App\EasyAdmin\WeaponsField;
-use App\Entity\Equipements;
-use App\Entity\Weapons;
+use App\Entity\Equipement;
+use App\Entity\Weapon;
 use App\Enum\EquipementsEnum;
 use App\Enum\WeaponsEnum;
 use Doctrine\ORM\EntityRepository;
@@ -27,7 +27,7 @@ class EquipementsCrudController extends AbstractCrudController
     }
     public static function getEntityFqcn(): string
     {
-        return Equipements::class;
+        return Equipement::class;
     }
 
     public function configureFilters(Filters $filters): Filters
@@ -113,10 +113,10 @@ class EquipementsCrudController extends AbstractCrudController
             ;
     }
 
-    public static function checkEquipementsOfCurrentUser(Equipements $equipements, $security): bool
+    public static function checkEquipementsOfCurrentUser(Equipement $equipement, $security): bool
     {
         if(
-            $equipements->getGanger()->getGang()->getUser() == $security->getUser()
+            $equipement->getGanger()->getGang()->getUser() == $security->getUser()
             || $security->isGranted('ROLE_ADMIN')
         ) {
             return true;

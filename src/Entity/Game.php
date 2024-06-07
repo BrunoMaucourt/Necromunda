@@ -11,7 +11,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: GamesRepository::class)]
-class Games
+class Game
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -134,21 +134,21 @@ class Games
     private Collection $gangers;
 
     /**
-     * @var Collection<int, Territories>
+     * @var Collection<int, Territory>
      */
-    #[ORM\ManyToMany(targetEntity: Territories::class, inversedBy: 'games')]
+    #[ORM\ManyToMany(targetEntity: Territory::class, inversedBy: 'games')]
     private Collection $territories;
 
     /**
-     * @var Collection<int, Injuries>
+     * @var Collection<int, Injury>
      */
-    #[ORM\ManyToMany(targetEntity: Injuries::class, inversedBy: 'games')]
+    #[ORM\ManyToMany(targetEntity: Injury::class, inversedBy: 'games')]
     private Collection $injuries;
 
     /**
-     * @var Collection<int, Skills>
+     * @var Collection<int, Skill>
      */
-    #[ORM\ManyToMany(targetEntity: Skills::class, inversedBy: 'games')]
+    #[ORM\ManyToMany(targetEntity: Skill::class, inversedBy: 'games')]
     private Collection $skills;
 
     #[ORM\Column]
@@ -399,14 +399,14 @@ class Games
     }
 
     /**
-     * @return Collection<int, Territories>
+     * @return Collection<int, Territory>
      */
     public function getTerritories(): Collection
     {
         return $this->territories;
     }
 
-    public function addTerritory(Territories $territory): static
+    public function addTerritory(Territory $territory): static
     {
         if (!$this->territories->contains($territory)) {
             $this->territories->add($territory);
@@ -415,7 +415,7 @@ class Games
         return $this;
     }
 
-    public function removeTerritory(Territories $territory): static
+    public function removeTerritory(Territory $territory): static
     {
         $this->territories->removeElement($territory);
 
@@ -423,14 +423,14 @@ class Games
     }
 
     /**
-     * @return Collection<int, Injuries>
+     * @return Collection<int, Injury>
      */
     public function getInjuries(): Collection
     {
         return $this->injuries;
     }
 
-    public function addInjury(Injuries $injury): static
+    public function addInjury(Injury $injury): static
     {
         if (!$this->injuries->contains($injury)) {
             $this->injuries->add($injury);
@@ -439,7 +439,7 @@ class Games
         return $this;
     }
 
-    public function removeInjury(Injuries $injury): static
+    public function removeInjury(Injury $injury): static
     {
         $this->injuries->removeElement($injury);
 
@@ -447,14 +447,14 @@ class Games
     }
 
     /**
-     * @return Collection<int, Skills>
+     * @return Collection<int, Skill>
      */
     public function getSkills(): Collection
     {
         return $this->skills;
     }
 
-    public function addSkill(Skills $skill): static
+    public function addSkill(Skill $skill): static
     {
         if (!$this->skills->contains($skill)) {
             $this->skills->add($skill);
@@ -463,7 +463,7 @@ class Games
         return $this;
     }
 
-    public function removeSkill(Skills $skill): static
+    public function removeSkill(Skill $skill): static
     {
         $this->skills->removeElement($skill);
 

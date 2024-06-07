@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: InjuriesRepository::class)]
-class Injuries
+class Injury
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,9 +28,9 @@ class Injuries
     private ?Ganger $author = null;
 
     /**
-     * @var Collection<int, Games>
+     * @var Collection<int, Game>
      */
-    #[ORM\ManyToMany(targetEntity: Games::class, mappedBy: 'injuries')]
+    #[ORM\ManyToMany(targetEntity: Game::class, mappedBy: 'injuries')]
     private Collection $games;
 
     public function __construct()
@@ -85,14 +85,14 @@ class Injuries
     }
 
     /**
-     * @return Collection<int, Games>
+     * @return Collection<int, Game>
      */
     public function getGames(): Collection
     {
         return $this->games;
     }
 
-    public function addGame(Games $game): static
+    public function addGame(Game $game): static
     {
         if (!$this->games->contains($game)) {
             $this->games->add($game);
@@ -102,7 +102,7 @@ class Injuries
         return $this;
     }
 
-    public function removeGame(Games $game): static
+    public function removeGame(Game $game): static
     {
         if ($this->games->removeElement($game)) {
             $game->removeInjury($this);

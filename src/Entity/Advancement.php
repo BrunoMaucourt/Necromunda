@@ -22,10 +22,10 @@ class Advancement
 
     #[ORM\ManyToOne(inversedBy: 'advancements')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Games $game = null;
+    private ?Game $game = null;
 
     #[ORM\ManyToOne(inversedBy: 'advancements')]
-    private ?Skills $skill = null;
+    private ?Skill $skill = null;
 
     public function getId(): ?int
     {
@@ -56,24 +56,24 @@ class Advancement
         return $this;
     }
 
-    public function getGame(): ?Games
+    public function getGame(): ?Game
     {
         return $this->game;
     }
 
-    public function setGame(?Games $game): static
+    public function setGame(?Game $game): static
     {
         $this->game = $game;
 
         return $this;
     }
 
-    public function getSkill(): ?Skills
+    public function getSkill(): ?Skill
     {
         return $this->skill;
     }
 
-    public function setSkill(?Skills $skill): static
+    public function setSkill(?Skill $skill): static
     {
         $this->skill = $skill;
 

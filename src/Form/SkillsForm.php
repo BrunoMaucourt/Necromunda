@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Skills;
+use App\Entity\Skill;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +17,7 @@ class SkillsForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Skills::class,
+            'data_class' => Skill::class,
         ]);
     }
 }

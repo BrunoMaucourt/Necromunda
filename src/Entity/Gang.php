@@ -43,21 +43,21 @@ class Gang
     private ?User $user = null;
 
     /**
-     * @var Collection<int, Territories>
+     * @var Collection<int, Territory>
      */
-    #[ORM\OneToMany(targetEntity: Territories::class, mappedBy: 'gang', cascade: ['persist'])]
+    #[ORM\OneToMany(targetEntity: Territory::class, mappedBy: 'gang', cascade: ['persist'])]
     private Collection $territories;
 
     /**
-     * @var Collection<int, Games>
+     * @var Collection<int, Game>
      */
-    #[ORM\OneToMany(targetEntity: Games::class, mappedBy: 'gang1', cascade: ['persist'])]
+    #[ORM\OneToMany(targetEntity: Game::class, mappedBy: 'gang1', cascade: ['persist'])]
     private Collection $games;
 
     /**
-     * @var Collection<int, Games>
+     * @var Collection<int, Game>
      */
-    #[ORM\OneToMany(targetEntity: Games::class, mappedBy: 'winner', cascade: ['persist'])]
+    #[ORM\OneToMany(targetEntity: Game::class, mappedBy: 'winner', cascade: ['persist'])]
     private Collection $win;
 
     #[ORM\Column(length: 255, enumType: HouseEnum::class)]
@@ -185,14 +185,14 @@ class Gang
     }
 
     /**
-     * @return Collection<int, Territories>
+     * @return Collection<int, Territory>
      */
     public function getTerritories(): Collection
     {
         return $this->territories;
     }
 
-    public function addTerritory(Territories $territory): static
+    public function addTerritory(Territory $territory): static
     {
         if (!$this->territories->contains($territory)) {
             $this->territories->add($territory);
@@ -202,7 +202,7 @@ class Gang
         return $this;
     }
 
-    public function removeTerritory(Territories $territory): static
+    public function removeTerritory(Territory $territory): static
     {
         if ($this->territories->removeElement($territory)) {
             // set the owning side to null (unless already changed)
@@ -215,14 +215,14 @@ class Gang
     }
 
     /**
-     * @return Collection<int, Games>
+     * @return Collection<int, Game>
      */
     public function getGames(): Collection
     {
         return $this->games;
     }
 
-    public function addGame(Games $game): static
+    public function addGame(Game $game): static
     {
         if (!$this->games->contains($game)) {
             $this->games->add($game);
@@ -232,7 +232,7 @@ class Gang
         return $this;
     }
 
-    public function removeGame(Games $game): static
+    public function removeGame(Game $game): static
     {
         if ($this->games->removeElement($game)) {
             // set the owning side to null (unless already changed)
@@ -245,14 +245,14 @@ class Gang
     }
 
     /**
-     * @return Collection<int, Games>
+     * @return Collection<int, Game>
      */
     public function getWin(): Collection
     {
         return $this->win;
     }
 
-    public function addWin(Games $win): static
+    public function addWin(Game $win): static
     {
         if (!$this->win->contains($win)) {
             $this->win->add($win);
@@ -262,7 +262,7 @@ class Gang
         return $this;
     }
 
-    public function removeWin(Games $win): static
+    public function removeWin(Game $win): static
     {
         if ($this->win->removeElement($win)) {
             // set the owning side to null (unless already changed)
