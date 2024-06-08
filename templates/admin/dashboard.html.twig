@@ -1,0 +1,37 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}Dashboard{% endblock %}
+
+{% block main %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card bg-success rounded-3">
+          <a href="{{ links.addGang }}" class="card-body text-white">
+            <h3 class="card-title">
+              <i class="fas fa-users"></i> Add gang
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-success rounded-3">
+          <a href="{{ links.addGanger }}" class="card-body text-white">
+            <h3 class="card-title">
+              <i class="fas fa-user-secret"></i> Add ganger
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-success rounded-3">
+          <a href="{{ links.addGame }}" class="card-body text-white">
+            <h3 class="card-title">
+              <i class="fas fa-dice"></i> Add game
+            </h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
