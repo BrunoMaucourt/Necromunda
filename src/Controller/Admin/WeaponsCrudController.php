@@ -2,12 +2,8 @@
 
 namespace App\Controller\Admin;
 
-use App\EasyAdmin\HouseField;
-use App\EasyAdmin\InjuriesField;
 use App\EasyAdmin\WeaponsField;
-use App\Entity\Injury;
 use App\Entity\Weapon;
-use App\Enum\InjuriesEnum;
 use App\Enum\WeaponsEnum;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;

@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Enum\ScenariosEnum;
-use App\Enum\TerritoriesEnum;
 use App\Repository\GamesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

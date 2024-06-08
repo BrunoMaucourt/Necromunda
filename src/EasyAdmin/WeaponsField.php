@@ -2,7 +2,6 @@
 
 namespace App\EasyAdmin;
 
-use App\Enum\InjuriesEnum;
 use App\Enum\WeaponsEnum;
 use EasyCorp\Bundle\EasyAdminBundle\Contracts\Field\FieldInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FieldTrait;

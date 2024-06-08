@@ -3,11 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\EquipementsField;
-use App\EasyAdmin\WeaponsField;
 use App\Entity\Equipement;
-use App\Entity\Weapon;
 use App\Enum\EquipementsEnum;
-use App\Enum\WeaponsEnum;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;

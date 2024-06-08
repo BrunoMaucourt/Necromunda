@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\EasyAdmin\HouseField;
 use App\EasyAdmin\InjuriesField;
 use App\Entity\Injury;
 use App\Enum\InjuriesEnum;
