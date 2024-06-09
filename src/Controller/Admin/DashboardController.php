@@ -39,7 +39,9 @@ class DashboardController extends AbstractDashboardController
                         ->setController(GangerCrudController::class)
                         ->setAction('new')
                         ->generateUrl(),
-            'addGame' => $this->generateUrl('choose_gangs'),
+            'addGame' => $this->adminUrlGenerator
+                ->setRoute('choose_gangs')
+                ->generateUrl(),
         ];
 
         return $this->render('admin/dashboard.html.twig', [
