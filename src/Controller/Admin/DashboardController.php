@@ -16,15 +16,21 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-    private $adminUrlGenerator;
+    private AdminUrlGenerator $adminUrlGenerator;
+    private Security $security;
 
-    public function __construct(AdminUrlGenerator $adminUrlGenerator){
+    public function __construct(
+        AdminUrlGenerator $adminUrlGenerator,
+        Security $security
+    ){
         $this->adminUrlGenerator = $adminUrlGenerator;
+        $this->security = $security;
     }
 
     #[Route('/admin', name: 'admin')]
@@ -40,8 +46,48 @@ class DashboardController extends AbstractDashboardController
                         ->setAction('new')
                         ->generateUrl(),
             'addGame' => $this->adminUrlGenerator
-                ->setRoute('choose_gangs')
-                ->generateUrl(),
+                        ->setRoute('choose_gangs')
+                        ->generateUrl(),
+            'showGang' => $this->adminUrlGenerator
+                        ->setController(GangCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+            'showGanger' => $this->adminUrlGenerator
+                        ->setController(GangerCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+            'showGame' => $this->adminUrlGenerator
+                        ->setController(GamesCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+            'showInjuries' => $this->adminUrlGenerator
+                        ->setController(InjuriesCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+            'showAdvancement' => $this->adminUrlGenerator
+                        ->setController(AdvancementCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+            'showEquipements' => $this->adminUrlGenerator
+                        ->setController(EquipementsCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+            'showSkills' => $this->adminUrlGenerator
+                        ->setController(SkillsCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+            'showTerritories' => $this->adminUrlGenerator
+                        ->setController(TerritoriesCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+            'showWeapons' => $this->adminUrlGenerator
+                        ->setController(WeaponsCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+            'showUser' => $this->adminUrlGenerator
+                        ->setController(UserCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
         ];
 
         return $this->render('admin/dashboard.html.twig', [
@@ -58,15 +104,17 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Users', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Gangs', 'fas fa-users', Gang::class);
         yield MenuItem::linkToCrud('Gangers', 'fas fa-user-secret', Ganger::class);
         yield MenuItem::linkToCrud('Games', 'fas fa-dice', Game::class);
-        yield MenuItem::linkToCrud('Territories', 'fas fa-warehouse', Territory::class);
-        yield MenuItem::linkToCrud('Injuries', 'fas fa-user-injured', Injury::class);
-        yield MenuItem::linkToCrud('Skills', 'fas fa-user-graduate', Skill::class);
-        yield MenuItem::linkToCrud('Weapons', 'fas fa-gun', Weapon::class);
-        yield MenuItem::linkToCrud('Equipements', 'fas fa-toolbox', Equipement::class);
-        yield MenuItem::linkToCrud('Advancements', 'fas fa-trophy', Advancement::class);
+        if ($this->security->isGranted('ROLE_ADMIN')) {
+            yield MenuItem::linkToCrud('Advancements', 'fas fa-trophy', Advancement::class);
+            yield MenuItem::linkToCrud('Equipements', 'fas fa-toolbox', Equipement::class);
+            yield MenuItem::linkToCrud('Injuries', 'fas fa-user-injured', Injury::class);
+            yield MenuItem::linkToCrud('Skills', 'fas fa-user-graduate', Skill::class);
+            yield MenuItem::linkToCrud('Territories', 'fas fa-warehouse', Territory::class);
+            yield MenuItem::linkToCrud('Users', 'fas fa-user', User::class);
+            yield MenuItem::linkToCrud('Weapons', 'fas fa-gun', Weapon::class);
+        }
     }
 }

@@ -3,7 +3,9 @@
 {% block content_title %}Dashboard{% endblock %}
 
 {% block main %}
-  <div class="container mt-5">
+  <div class="container">
+
+    <h2 class="mt-5 mb-4">Add</h2>
     <div class="row">
       <div class="col-md-4 mb-3">
         <div class="card bg-success rounded-3">
@@ -33,5 +35,102 @@
         </div>
       </div>
     </div>
+
+    <h2 class="mt-5 mb-4">Show</h2>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card bg-light rounded-3">
+          <a href="{{ links.showGang }}" class="card-body text-dark">
+            <h3 class="card-title">
+              <i class="fas fa-users"></i> Show all gangs
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-light rounded-3">
+          <a href="{{ links.showGanger }}" class="card-body text-dark">
+            <h3 class="card-title">
+              <i class="fas fa-user-secret"></i> Show all gangers
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-light rounded-3">
+          <a href="{{ links.showGame }}" class="card-body text-dark">
+            <h3 class="card-title">
+              <i class="fas fa-dice"></i> Show all games
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-light rounded-3">
+          <a href="{{ links.showAdvancement }}" class="card-body text-dark">
+            <h3 class="card-title">
+              <i class="fas fa-trophy"></i> Show all advancements
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-light rounded-3">
+          <a href="{{ links.showEquipements }}" class="card-body text-dark">
+            <h3 class="card-title">
+              <i class="fas fa-toolbox"></i> Show all equipements
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-light rounded-3">
+          <a href="{{ links.showInjuries }}" class="card-body text-dark">
+            <h3 class="card-title">
+              <i class="fas fa-user-injured"></i> Show all injuries
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-light rounded-3">
+          <a href="{{ links.showSkills }}" class="card-body text-dark">
+            <h3 class="card-title">
+              <i class="fas fa-user-graduate"></i> Show all skills
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-light rounded-3">
+          <a href="{{ links.showTerritories }}" class="card-body text-dark">
+            <h3 class="card-title">
+              <i class="fas fa-warehouse"></i> Show all territories
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-light rounded-3">
+          <a href="{{ links.showWeapons }}" class="card-body text-dark">
+            <h3 class="card-title">
+              <i class="fas fa-gun"></i> Show all weapons
+            </h3>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-light rounded-3">
+          <a href="{{ links.showUser }}" class="card-body text-dark">
+            <h3 class="card-title">
+              <i class="fas fa-user"></i> Show all users
+            </h3>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="mt-5 mb-4">Statistics</h2>
+
   </div>
 {% endblock %}
