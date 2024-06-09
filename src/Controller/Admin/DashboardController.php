@@ -12,6 +12,7 @@ use App\Entity\Skill;
 use App\Entity\Territory;
 use App\Entity\User;
 use App\Entity\Weapon;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -23,13 +24,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractDashboardController
 {
     private AdminUrlGenerator $adminUrlGenerator;
+
+    private EntityManagerInterface $entityManager;
+
     private Security $security;
 
     public function __construct(
         AdminUrlGenerator $adminUrlGenerator,
+        EntityManagerInterface $entityManager,
         Security $security
     ){
         $this->adminUrlGenerator = $adminUrlGenerator;
+        $this->entityManager = $entityManager;
         $this->security = $security;
     }
 
@@ -90,8 +96,16 @@ class DashboardController extends AbstractDashboardController
                         ->generateUrl(),
         ];
 
+        $gangRepository = $this->entityManager->getRepository(Gang::class);
+
+        $statistics = [
+            'highestRating' => $gangRepository->findBy($gangRepository->getGangWithHighestRating()),
+            'highestCredits' => $gangRepository->findBy($gangRepository->getGangWithHighestCredits()),
+        ];
+        
         return $this->render('admin/dashboard.html.twig', [
-            'links' => $links
+            'links' => $links,
+            'statistics' => $statistics,
         ]);
     }
 
@@ -108,7 +122,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Gangers', 'fas fa-user-secret', Ganger::class);
         yield MenuItem::linkToCrud('Games', 'fas fa-dice', Game::class);
         if ($this->security->isGranted('ROLE_ADMIN')) {
-            yield MenuItem::linkToCrud('Advancements', 'fas fa-trophy', Advancement::class);
+            yield MenuItem::linkToCrud('Advancements', 'fas fa-award', Advancement::class);
             yield MenuItem::linkToCrud('Equipements', 'fas fa-toolbox', Equipement::class);
             yield MenuItem::linkToCrud('Injuries', 'fas fa-user-injured', Injury::class);
             yield MenuItem::linkToCrud('Skills', 'fas fa-user-graduate', Skill::class);

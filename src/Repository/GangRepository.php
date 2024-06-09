@@ -16,28 +16,25 @@ class GangRepository extends ServiceEntityRepository
         parent::__construct($registry, Gang::class);
     }
 
-//    /**
-//     * @return Gang[] Returns an array of Gang objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('g')
-//            ->andWhere('g.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('g.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function getGangWithHighestRating(): array
+    {
+        return $this->createQueryBuilder('g')
+            ->select('g.id, SUM(gr.rating) AS hidden rating')
+            ->join('g.gangers', 'gr')
+            ->groupBy('g.id')
+            ->orderBy('rating', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 
-//    public function findOneBySomeField($value): ?Gang
-//    {
-//        return $this->createQueryBuilder('g')
-//            ->andWhere('g.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function getGangWithHighestCredits(): array
+    {
+        return $this->createQueryBuilder('g')
+            ->select('g.id, MAX(g.credits) AS hidden credits')
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }
