@@ -15,11 +15,13 @@ use App\Entity\Weapon;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -130,5 +132,23 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::linkToCrud('Users', 'fas fa-user', User::class);
             yield MenuItem::linkToCrud('Weapons', 'fas fa-gun', Weapon::class);
         }
+    }
+
+    public function configureUserMenu(UserInterface $user): UserMenu
+    {
+        if (!$user instanceof User) {
+            throw new \LogicException('The user must be an instance of '.User::class.'.');
+        }
+
+        $urlCurrentUserEditPage = $this->adminUrlGenerator
+            ->setController(UserCrudController::class)
+            ->setAction('edit')
+            ->setEntityId($user->getId())
+            ->generateUrl();
+
+        return parent::configureUserMenu($user)
+            ->addMenuItems([
+                MenuItem::linkToUrl('Settings', 'fa fa-cog', $urlCurrentUserEditPage),
+        ]);
     }
 }
