@@ -50,6 +50,11 @@ class Territory
         return $this->name;
     }
 
+    public function getNameAsString(): ?string
+    {
+        return $this->name->enumToString();
+    }
+
     public function setName(TerritoriesEnum $name): static
     {
         $this->name = $name;

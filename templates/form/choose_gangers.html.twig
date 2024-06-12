@@ -1,0 +1,40 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}Choose gangers{% endblock %}
+
+{% block main %}
+    <style>
+        .form-check-inline + .form-check-inline {
+            margin-left: 0 !important;
+        }
+    </style>
+    <div class="form__container-EasyAdmin">
+        <div class="form__container-input w-100">
+            {{ form_start(form) }}
+            <fieldset class="mb-3 xl">
+                <legend>Gang 1</legend>
+                <div class="btn-group d-flex flex-column justify-content-between " role="group" aria-label="Gang 1 Gangers">
+                    {% for child in form.gang1 %}
+                        <div class="form-check form-check-inline">
+                            {{ form_label(child, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                            {{ form_widget(child) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <fieldset class="mb-3">
+                <legend>Gang 2</legend>
+                <div class="btn-group d-flex flex-column justify-content-between" role="group" aria-label="Gang 2 Gangers">
+                    {% for child in form.gang2 %}
+                        <div class="form-check form-check-inline">
+                            {{ form_label(child, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                            {{ form_widget(child) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

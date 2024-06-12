@@ -1,0 +1,36 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}Experience Details{% endblock %}
+
+{% block main %}
+    <div class="form__container-EasyAdmin">
+        <p>Experience from wounding hit and scenario (experience for survive and undergogs will be calculated automaticly)</p>
+        <div class="form__container-input">
+            {{ form_start(form) }}
+            <fieldset class="mb-3">
+                <legend>Gang 1</legend>
+                <div class="form-group">
+                    {% for child in form.gang1 %}
+                        <div class="form-group d-flex flex-column">
+                            {{ form_label(child) }}
+                            {{ form_widget(child) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <fieldset class="mb-3">
+                <legend>Gang 2</legend>
+                <div class="form-group">
+                    {% for child in form.gang2 %}
+                        <div class="form-group d-flex flex-column">
+                            {{ form_label(child) }}
+                            {{ form_widget(child) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
