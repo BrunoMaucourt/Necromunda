@@ -24,16 +24,13 @@ class ChooseExperienceForm extends AbstractType
     {
         $gangerRepository = $this->entityManager->getRepository(Ganger::class);
 
-        /** @var Ganger $gangers1 */
         $gangers1 = $options['gangers1'];
-        /** @var Ganger $gangers2 */
         $gangers2 = $options['gangers2'];
 
         $builder->add('gang1', FormType::class, ['label' => false]);
-        foreach ($gangers1 as $index => $ganger) {
-            $currentGanger = $gangerRepository->find($index);
-            $builder->get('gang1')->add($index, IntegerType::class, [
-                'label' => $currentGanger->getName(),
+        foreach ($gangers1 as $ganger) {
+            $builder->get('gang1')->add($ganger->getId(), IntegerType::class, [
+                'label' => $ganger->getName(),
                 'data' => 0,
                 'attr' => [
                     'min' => 0,
@@ -50,10 +47,9 @@ class ChooseExperienceForm extends AbstractType
         }
 
         $builder->add('gang2', FormType::class, ['label' => false]);
-        foreach ($gangers2 as $index => $ganger) {
-            $currentGanger = $gangerRepository->find($index);
-            $builder->get('gang2')->add($index, IntegerType::class, [
-                'label' => $currentGanger->getName(),
+        foreach ($gangers2 as $ganger) {
+            $builder->get('gang2')->add($ganger->getId(), IntegerType::class, [
+                'label' => $ganger->getName(),
                 'data' => 0,
                 'attr' => [
                     'min' => 0,
@@ -69,7 +65,6 @@ class ChooseExperienceForm extends AbstractType
             ]);
         }
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

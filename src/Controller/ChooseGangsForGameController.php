@@ -109,25 +109,6 @@ class ChooseGangsForGameController extends AbstractController
                 return $this->renderViewAndTemplate($form, 'form/choose_gangers.html.twig');
             }
 
-//            // Add injuries
-//            $gang1Injuries = [];
-//            $gang2Injuries = [];
-//
-//
-//            foreach ($data['gang1'] as $gangerID => $gangerStatus) {
-//                if ($gangerStatus === 'involved_injuries') {
-//                    $gang1Injuries[] = $this->addInjury($gangerID);
-//                }
-//            }
-//
-//            foreach ($data['gang2'] as $gangerID => $gangerStatus) {
-//                if ($gangerStatus === 'involved_injuries') {
-//                    $gang2Injuries[] = $this->addInjury($gangerID);
-//                }
-//            }
-//
-//            $this->entityManager->flush();
-
             $this->addFlash(
                 'success',
                 'Injures are calculated'
@@ -135,8 +116,6 @@ class ChooseGangsForGameController extends AbstractController
 
             $session->set('gang1Injuries', $data['gang1']);
             $session->set('gang2Injuries', $data['gang2']);
-//            $session->set('gang1Injuries', $gang1Injuries);
-//            $session->set('gang2Injuries', $gang2Injuries);
 
             $chooseTerritoriesUrl = $this->adminUrlGenerator
                 ->setRoute('choose_territories')
@@ -213,6 +192,14 @@ class ChooseGangsForGameController extends AbstractController
                 ->generateUrl()
             ;
 
+            $this->addFlash(
+                'success',
+                'Incomes from territories are calculated'
+            );
+
+            $session->set('gang1Territories', $data['gang1territories']);
+            $session->set('gang2Territories', $data['gang2territories']);
+
             return $this->redirect($chooseExperienceUrl);
         }
 
@@ -221,68 +208,56 @@ class ChooseGangsForGameController extends AbstractController
             'gang2MaxTerritoriesExploited' => $gang2gangerAvailableToExploitTerritories,
         ]);
     }
+
+    #[Route('/choose-experience/', name: 'choose_experience')]
+    public function chooseExperience(Request $request, SessionInterface $session)
+    {
+        $gangers1Injuries = $session->get('gang1Injuries');
+        $gangers2Injuries = $session->get('gang2Injuries');
+
+        $gangers1 = [];
+        foreach ($gangers1Injuries as $gangerID => $gangerStatus) {
+            if ($gangerStatus === 'involved_safe' || $gangerStatus === 'involved_injuries' || $gangerStatus === 'involved_high_impact_injuries') {
+                $gangers1[] = $this->entityManager->getRepository(Ganger::class)->find($gangerID);
+            }
+        }
+
+        $gangers2 = [];
+        foreach ($gangers2Injuries as $gangerID => $gangerStatus) {
+            if ($gangerStatus === 'involved_safe' || $gangerStatus === 'involved_injuries' || $gangerStatus === 'involved_high_impact_injuries') {
+                $gangers2[] = $this->entityManager->getRepository(Ganger::class)->find($gangerID);
+            }
+        }
+
+        $form = $this->createForm(ChooseExperienceForm::class, null, [
+            'gangers1' => $gangers1,
+            'gangers2' => $gangers2,
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            $session->set('gang1Experiences', $data['gang1']);
+            $session->set('gang2Experiences', $data['gang2']);
+
+            $url = $this->adminUrlGenerator
+                ->setController(GamesCrudController::class)
+                ->setAction('new')
+                ->generateUrl()
+            ;
+
+            return $this->redirect($url);
+        }
+
+        return $this->renderViewAndTemplate($form, 'form/choose_experience.html.twig');
+    }
+
     public function renderViewAndTemplate(FormInterface $form, string $template, array $options = []): Response
     {
         return $this->render($template, [
             'form' => $form->createView(),
             $options
         ]);
-    }
-
-    /**
-     * @param int $ganger
-     * @return Injury
-     */
-    public function addInjury(int $gangerID): Injury
-    {
-        $injuries = InjuriesEnum::cases();
-
-        /** @var Ganger $currentGanger */
-        $currentGanger = $this->entityManager->getRepository(Ganger::class)->find($gangerID);
-        $randomNumbers = [];
-        for ($i = 0; $i < 5; $i++) {
-            $randomNumbers[] = mt_rand(1, 6) . mt_rand(1, 6);
-        }
-
-//        if ($randomNumbers >= 12 && $randomNumbers <= 15) {
-//            $currentGanger->setAlive(false);
-//        } elseif ($randomNumbers == 16) {
-//           $todo = 'todo';
-//            //    The fighter isn't dead but has suffered many serious wounds. Roll a further D3+1 times on this chart. All Dead, Multiple Injuries, Captured and Full Recovery results must be rolled again.
-//        } elseif ($randomNumbers == 21){
-//            $todo = 'todo';
-//            $numberOfGame = mt_rand(1, 3);
-//        } elseif ($randomNumbers == 22){
-//            $newToughness = $currentGanger->getToughness() -1;
-//            $currentGanger->setToughness($newToughness);
-//        } elseif ($randomNumbers == 23){
-//            $newMovement = $currentGanger->getMove() -1;
-//            $currentGanger->setMove($newMovement);
-//        } elseif ($randomNumbers == 24){
-//            $newStrength = $currentGanger->getStrength() -1;
-//            $currentGanger->setStrength($newStrength);
-//        } elseif ($randomNumbers == 25){
-//            $headWound = mt_rand(1, 6);
-//            if ($headWound <= 3) {
-//                $todo = 'todo';
-//            } else {
-//                $todo = 'todo';
-//            }
-//        }
-
-        foreach ($randomNumbers as $randomNumber) {
-            foreach ($injuries as $injury) {
-                if ($this->checkValueRangeService->isBetweenOrEqual($injury->getDicesRange(), (int)$randomNumber)) {
-                    $injuryToAdd = new Injury();
-                    $injuryToAdd->setName($injury);
-                    $injuryToAdd->setVictim($currentGanger);
-
-                    $this->entityManager->persist($injuryToAdd);
-                    break;
-                }
-            }
-        }
-
-        return $injuryToAdd;
     }
 }
