@@ -61,12 +61,19 @@ class Gang
     #[ORM\JoinColumn(nullable: false)]
     private ?HouseEnum $house = null;
 
+    /**
+     * @var Collection<int, Loot>
+     */
+    #[ORM\OneToMany(targetEntity: Loot::class, mappedBy: 'gang')]
+    private Collection $loots;
+
     public function __construct()
     {
         $this->gangers = new ArrayCollection();
         $this->territories = new ArrayCollection();
         $this->games = new ArrayCollection();
         $this->win = new ArrayCollection();
+        $this->loots = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -279,6 +286,36 @@ class Gang
     public function setHouse(HouseEnum $house): static
     {
         $this->house = $house;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Loot>
+     */
+    public function getLoots(): Collection
+    {
+        return $this->loots;
+    }
+
+    public function addLoot(Loot $loot): static
+    {
+        if (!$this->loots->contains($loot)) {
+            $this->loots->add($loot);
+            $loot->setGang($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLoot(Loot $loot): static
+    {
+        if ($this->loots->removeElement($loot)) {
+            // set the owning side to null (unless already changed)
+            if ($loot->getGang() === $this) {
+                $loot->setGang(null);
+            }
+        }
 
         return $this;
     }

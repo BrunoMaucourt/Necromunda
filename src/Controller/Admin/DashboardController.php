@@ -8,6 +8,7 @@ use App\Entity\Game;
 use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Entity\Injury;
+use App\Entity\Loot;
 use App\Entity\Skill;
 use App\Entity\Territory;
 use App\Entity\User;
@@ -80,6 +81,10 @@ class DashboardController extends AbstractDashboardController
                         ->setController(EquipementsCrudController::class)
                         ->setAction('index')
                         ->generateUrl(),
+            'showLoots' => $this->adminUrlGenerator
+                        ->setController(LootCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
             'showSkills' => $this->adminUrlGenerator
                         ->setController(SkillsCrudController::class)
                         ->setAction('index')
@@ -127,6 +132,7 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::linkToCrud('Advancements', 'fas fa-award', Advancement::class);
             yield MenuItem::linkToCrud('Equipements', 'fas fa-toolbox', Equipement::class);
             yield MenuItem::linkToCrud('Injuries', 'fas fa-user-injured', Injury::class);
+            yield MenuItem::linkToCrud('Loots', 'fas fa-gem', Loot::class);
             yield MenuItem::linkToCrud('Skills', 'fas fa-user-graduate', Skill::class);
             yield MenuItem::linkToCrud('Territories', 'fas fa-warehouse', Territory::class);
             yield MenuItem::linkToCrud('Users', 'fas fa-user', User::class);
