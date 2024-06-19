@@ -104,7 +104,9 @@ class Gang
         $rating = 0;
 
         foreach ($gangers as $ganger) {
-            $rating += $ganger->getRating();
+            if ($ganger->isAlive()) {
+                $rating += $ganger->getRating();
+            }
         }
 
         return $rating;
