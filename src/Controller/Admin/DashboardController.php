@@ -45,62 +45,124 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        $links = [
-            'addGang' => $this->adminUrlGenerator
-                        ->setController(GangCrudController::class)
-                        ->setAction('new')
-                        ->generateUrl(),
-            'addGanger' => $this->adminUrlGenerator
-                        ->setController(GangerCrudController::class)
-                        ->setAction('new')
-                        ->generateUrl(),
-            'addGame' => $this->adminUrlGenerator
-                        ->setRoute('choose_gangs')
-                        ->generateUrl(),
-            'showGang' => $this->adminUrlGenerator
-                        ->setController(GangCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
-            'showGanger' => $this->adminUrlGenerator
-                        ->setController(GangerCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
-            'showGame' => $this->adminUrlGenerator
-                        ->setController(GamesCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
-            'showInjuries' => $this->adminUrlGenerator
-                        ->setController(InjuriesCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
-            'showAdvancement' => $this->adminUrlGenerator
-                        ->setController(AdvancementCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
-            'showEquipements' => $this->adminUrlGenerator
-                        ->setController(EquipementsCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
-            'showLoots' => $this->adminUrlGenerator
-                        ->setController(LootCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
-            'showSkills' => $this->adminUrlGenerator
-                        ->setController(SkillsCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
-            'showTerritories' => $this->adminUrlGenerator
-                        ->setController(TerritoriesCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
-            'showWeapons' => $this->adminUrlGenerator
-                        ->setController(WeaponsCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
-            'showUser' => $this->adminUrlGenerator
-                        ->setController(UserCrudController::class)
-                        ->setAction('index')
-                        ->generateUrl(),
+        $linksAdd = [
+            'Gang' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(GangCrudController::class)
+                            ->setAction('new')
+                            ->generateUrl(),
+                'icon' => 'fas fa-users',
+                'text' => 'Add gang',
+            ],
+            'Ganger' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(GangerCrudController::class)
+                            ->setAction('new')
+                            ->generateUrl(),
+                'icon' => 'fas fa-user-secret',
+                'text' => 'Add ganger',
+            ],
+            'Game' => [
+                'url' => $this->adminUrlGenerator
+                            ->setRoute('choose_gangs')
+                            ->generateUrl(),
+                'icon' => 'fas fa-dice',
+                'text' => 'Add game',
+            ],
+        ];
+
+        $linksShowPrincipal = [
+            'Gang' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(GangCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-users',
+                'text' => 'Show all gangs',
+            ],
+            'Ganger' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(GangerCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-user-secret',
+                'text' => 'Show all gangers',
+            ],
+            'Game' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(GamesCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-dice',
+                'text' => 'Show all games',
+            ]
+        ];
+
+        $linksShowSecondary = [
+            'Advancement' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(AdvancementCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-award',
+                'text' => 'Show all advancements',
+            ],
+            'Equipements' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(AdvancementCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-toolbox',
+                'text' => 'Show all equipements',
+            ],
+            'Injuries' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(InjuriesCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-user-injured',
+                'text' => 'Show all injuries',
+            ],
+            'Loots' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(LootCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-gem',
+                'text' => 'Show all loots',
+            ],
+            'Skills' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(SkillsCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-user-graduate',
+                'text' => 'Show all skills',
+            ],
+            'Territories' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(TerritoriesCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-warehouse',
+                'text' => 'Show all territories',
+            ],
+            'Weapons' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(WeaponsCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-gun',
+                'text' => 'Show all weapons',
+            ],
+            'Users' => [
+                'url' => $this->adminUrlGenerator
+                            ->setController(WeaponsCrudController::class)
+                            ->setAction('index')
+                            ->generateUrl(),
+                'icon' => 'fas fa-user',
+                'text' => 'Show all users',
+            ],
         ];
 
         $gangRepository = $this->entityManager->getRepository(Gang::class);
@@ -109,9 +171,11 @@ class DashboardController extends AbstractDashboardController
             'highestRating' => $gangRepository->findBy($gangRepository->getGangWithHighestRating()),
             'highestCredits' => $gangRepository->findBy($gangRepository->getGangWithHighestCredits()),
         ];
-        
+
         return $this->render('admin/dashboard.html.twig', [
-            'links' => $links,
+            'linksAdd' => $linksAdd,
+            'linksShowPrincipal' => $linksShowPrincipal,
+            'linksShowSecondary' => $linksShowSecondary,
             'statistics' => $statistics,
         ]);
     }
