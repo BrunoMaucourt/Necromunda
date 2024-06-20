@@ -23,6 +23,15 @@ class Loot
     #[ORM\JoinColumn(nullable: false)]
     private ?Gang $gang = null;
 
+    #[ORM\ManyToOne(inversedBy: 'loot')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Game $game = null;
+
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +69,18 @@ class Loot
     public function setGang(?Gang $gang): static
     {
         $this->gang = $gang;
+
+        return $this;
+    }
+
+    public function getGame(): ?Game
+    {
+        return $this->game;
+    }
+
+    public function setGame(?Game $game): static
+    {
+        $this->game = $game;
 
         return $this;
     }
