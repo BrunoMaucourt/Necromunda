@@ -30,16 +30,9 @@ class Skill
     #[ORM\OneToMany(targetEntity: Advancement::class, mappedBy: 'skill')]
     private Collection $advancements;
 
-    /**
-     * @var Collection<int, Game>
-     */
-    #[ORM\ManyToMany(targetEntity: Game::class, mappedBy: 'skills')]
-    private Collection $games;
-
     public function __construct()
     {
         $this->advancements = new ArrayCollection();
-        $this->games = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -94,24 +87,6 @@ class Skill
         return $this;
     }
 
-    /**
-     * @return Collection<int, Game>
-     */
-    public function getGames(): Collection
-    {
-        return $this->games;
-    }
-
-    public function addGame(Game $game): static
-    {
-        if (!$this->games->contains($game)) {
-            $this->games->add($game);
-            $game->addSkill($this);
-        }
-
-        return $this;
-    }
-
     public function removeAdvancement(Advancement $advancement): static
     {
         if ($this->advancements->removeElement($advancement)) {
@@ -119,15 +94,6 @@ class Skill
             if ($advancement->getSkill() === $this) {
                 $advancement->setSkill(null);
             }
-        }
-
-        return $this;
-    }
-
-    public function removeGame(Game $game): static
-    {
-        if ($this->games->removeElement($game)) {
-            $game->removeSkill($this);
         }
 
         return $this;
