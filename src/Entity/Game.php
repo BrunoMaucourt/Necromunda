@@ -57,74 +57,26 @@ class Game
     #[ORM\Column]
     private ?int $gang2RatingAfterGame = null;
 
+    #[ORM\Column]
+    private ?int $gang1creditsBeforeGame = null;
+
+    #[ORM\Column]
+    private ?int $gang2creditsBeforeGame = null;
+
+    #[ORM\Column]
+    private ?int $gang1creditsAfterGame = null;
+
+    #[ORM\Column]
+    private ?int $gang2creditsAfterGame = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $summary = null;
+
     /**
-     * @var int|null
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     * gang
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
+     * @var Collection<int, Advancement>
      */
-    #[ORM\Column]
-    private ?int $gang1gain = null;
-
-    #[ORM\Column]
-    private ?int $gang2gain = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $gang1loots = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $gang2loots = null;
+    #[ORM\OneToMany(targetEntity: Advancement::class, mappedBy: 'game',  cascade: ['persist'])]
+    private Collection $advancements;
 
     /**
      * @var Collection<int, Ganger>
