@@ -37,7 +37,7 @@ class GangCrudController extends AbstractCrudController
     {
         return $crud
             ->showEntityActionsInlined()
-            ;
+        ;
     }
 
     public function configureFields(string $pageName): iterable
@@ -59,7 +59,7 @@ class GangCrudController extends AbstractCrudController
                 },
             ]);
         if ($pageName !== Crud::PAGE_NEW) {
-            yield FormField::addPanel('Gange status')
+            yield FormField::addPanel('Gang status')
                 ->setIcon('fa fa-chart-simple')
                 ->collapsible();
             yield IntegerField::new('rating')
