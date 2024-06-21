@@ -11,25 +11,38 @@ use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Events;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 #[AsDoctrineListener(event: Events::prePersist, priority: 500, connection: 'default')]
 class GangListener
 {
-    private CheckValueRangeService $CheckValueRangeService;
+    private CheckValueRangeService $checkValueRangeService;
 
     private EntityManagerInterface $entityManager;
 
-    public function __construct(CheckValueRangeService $CheckValueRangeService, EntityManagerInterface $entityManager){
-        $this->CheckValueRangeService = $CheckValueRangeService;
+    private RequestStack $requestStack;
+
+    public function __construct(
+        CheckValueRangeService $checkValueRangeService,
+        EntityManagerInterface $entityManager,
+        RequestStack $requestStack
+    ){
+        $this->checkValueRangeService = $checkValueRangeService;
         $this->entityManager = $entityManager;
+        $this->requestStack = $requestStack;
     }
 
     public function prePersist(PrePersistEventArgs $event)
     {
-        /** @var Gang $object */
+        $flash = $this->requestStack->getSession()->getFlashBag();
+
         $object = $event->getObject();
 
-        if ($object instanceof Gang) {
+        if ($object instanceof Gang && $object->getId() === null) {
+
+            /** @var Gang $object */
+            $gang = $object;
 
             $randomNumbers = [];
             for ($i = 0; $i < 5; $i++) {
@@ -37,19 +50,25 @@ class GangListener
             }
 
             $territories = TerritoriesEnum::cases();
-
+            $summary = '';
             foreach ($randomNumbers as $randomNumber) {
                 foreach ($territories as $territory) {
-                    if ($this->CheckValueRangeService->isBetweenOrEqual($territory->getDicesRange(), (int) $randomNumber)) {
+                    if ($this->checkValueRangeService->isBetweenOrEqual($territory->getDicesRange(), (int) $randomNumber)) {
                         $newTerritory = new Territory();
-                        $newTerritory->setGang($object);
+                        $newTerritory->setGang($gang);
                         $newTerritory->setName($territory);
 
                         $this->entityManager->persist($newTerritory);
-                        $object->addTerritory($newTerritory);
+                        $gang->addTerritory($newTerritory);
+                        $summary .= '- ' . $newTerritory->getName()->enumToString() . '<br>';
                     }
                 }
             }
+
+            $flash->add(
+                'success',
+                'New gang : ' . $gang->getName() . '<br><br>' . 'New territories for ' . $gang->getName() . ' : <br><br>' . $summary
+            );
         }
     }
 }
