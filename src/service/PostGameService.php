@@ -123,6 +123,87 @@ class PostGameService
         ];
     }
 
+    private function getIncomeValue($income, $numberOfGangers): int
+    {
+        $incomeRanges = [
+            [0, 29],
+            [30, 49],
+            [50, 79],
+            [80, 119],
+            [120, 169],
+            [170, 229],
+            [230, 299],
+            [300, 379],
+            [380, 459],
+            [460, 559],
+            [560, PHP_INT_MAX],
+        ];
+
+        $modelRanges = [
+            [1, 3],
+            [4, 6],
+            [7, 9],
+            [10, 12],
+            [13, 15],
+            [16, 18],
+            [19, PHP_INT_MAX],
+        ];
+
+        $values = [
+            [15, 10, 5, 0, 0, 0, 0],
+            [25, 20, 15, 5, 0, 0, 0],
+            [35, 30, 25, 15, 5, 0, 0],
+            [50, 45, 40, 30, 20, 5, 0],
+            [65, 60, 55, 45, 35, 15, 0],
+            [85, 80, 75, 65, 55, 35, 15],
+            [105, 100, 95, 85, 75, 55, 35],
+            [120, 115, 110, 100, 90, 65, 45],
+            [135, 130, 125, 115, 105, 80, 55],
+            [145, 140, 135, 125, 115, 90, 65],
+            [155, 150, 145, 135, 125, 100, 70],
+        ];
+
+        $incomeIndex = 0;
+        foreach ($incomeRanges as $index => $range) {
+            if ($income >= $range[0] && $income <= $range[1]) {
+                $incomeIndex = $index;
+                break;
+            }
+        }
+
+        $modelIndex = 0;
+        foreach ($modelRanges as $index => $range) {
+            if ($numberOfGangers >= $range[0] && $numberOfGangers <= $range[1]) {
+                $modelIndex = $index;
+                break;
+            }
+        }
+
+        return $values[$incomeIndex][$modelIndex];
+    }
+
+    private function getGiantKillerBonus($gangRatingDifference) {
+        $ratingBonuses = [
+            [1, 49, 5],
+            [50, 99, 10],
+            [100, 149, 15],
+            [150, 199, 20],
+            [200, 249, 25],
+            [250, 499, 50],
+            [500, 749, 100],
+            [750, 999, 150],
+            [1000, 1499, 200],
+            [1500, PHP_INT_MAX, 250],
+        ];
+
+        foreach ($ratingBonuses as $range) {
+            if ($gangRatingDifference >= $range[0] && $gangRatingDifference <= $range[1]) {
+                return $range[2];
+            }
+        }
+
+        return 0;
+    }
         return [
             'gangCreditsGain' => $gangCreditsGain,
             'summary' => $summary,
