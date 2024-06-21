@@ -88,18 +88,23 @@ class PostGameService
             $summary .= '  ' . $currentGain . ' credits for ' . $currentTerritory->enumToString() . '<br><br>';
 
             // Save territory
-//            $game->addTerritory($territory);
+            // ToDo fix bug about persist entity
+            //  $game->addTerritory($territory);
         }
 
         // Calculate giant killer
-        if ($game->getWinner() == $currentGang && $currentGang->getRating() > $otherGang->getRating()) {
-            $gangRatingDifference = $currentGang->getRating() - $otherGang->getRating();
-            $summary .= '  -----------------------<br>   Giant killer bonus (gang rating difference = '. $gangRatingDifference .') <br>';
-            $bonus = $this->getGiantKillerBonus($gangRatingDifference);
-            $gangCreditsGain += $bonus;
-            $summary .= '  '. $bonus .' credits bonus added <br><br>';
+        if ($game->getWinner() == $currentGang) {
+            if ($currentGang->getRating() < $otherGang->getRating()) {
+                $gangRatingDifference = $currentGang->getRating() - $otherGang->getRating();
+                $summary .= '  -----------------------<br>   Giant killer bonus (gang rating difference = '. abs($gangRatingDifference) .') <br>';
+                $bonus = $this->getGiantKillerBonus(abs($gangRatingDifference));
+                $gangCreditsGain += $bonus;
+                $summary .= '  '. $bonus .' credits bonus added <br><br>';
+            } else {
+                $summary .= '  -----------------------<br>   No giant killer bonus added because winner higher gang rating <br><br>';
+            }
         } else {
-            $summary .= '  -----------------------<br>   No giant killer bonus added <br><br>';
+            $summary .= '  -----------------------<br>   No giant killer bonus added because the game is loss<br><br>';
         }
 
         // Calculate Income
@@ -107,9 +112,17 @@ class PostGameService
         $allAliveGangers = $this->entityManager->getRepository(Ganger::class)->findAliveByGang($currentGang->getId());
         $numberOfGanger = count($allAliveGangers);
         $income = $this->getIncomeValue($gangCreditsGain, $numberOfGanger);
-        $summary .= '  ' . $income . ' credits keep after income ('. $numberOfGanger.' gangers in gang)<br><br>';
+        $newCredits = $currentGang->getCredits() + $income;
+        $summary .= '  ' . $income . ' credits keep after income ('. $numberOfGanger.' gangers in gang)<br> '.  $newCredits . ' credits at the end of game (Old credits = '. $currentGang->getCredits() . ' + new credits = ' . $income .')<br><br>';
 
-        dump($summary);
+        $currentGang->setCredits($newCredits);
+
+        return [
+            'gangCreditsGain' => $income,
+            'summary' => $summary,
+        ];
+    }
+
         return [
             'gangCreditsGain' => $gangCreditsGain,
             'summary' => $summary,
