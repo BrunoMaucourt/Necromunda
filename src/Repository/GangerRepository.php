@@ -16,13 +16,28 @@ class GangerRepository extends ServiceEntityRepository
         parent::__construct($registry, Ganger::class);
     }
 
-    public function findAliveByGang($gangId)
+    public function findAliveByGang(int $gangId)
     {
         return $this->createQueryBuilder('g')
             ->where('g.gang = :gangId')
             ->andWhere('g.alive = true')
             ->setParameter('gangId', $gangId)
             ->getQuery()
-            ->getResult();
+            ->getResult()
+        ;
+    }
+
+    public function findAliveByType(int $gangId, string $type)
+    {
+        return $this->createQueryBuilder('g')
+            ->select('count(g.id)')
+            ->where('g.gang = :gangId')
+            ->andWhere('g.alive = true')
+            ->andWhere('g.type = :type')
+            ->setParameter('gangId', $gangId)
+            ->setParameter('type', $type)
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
     }
 }

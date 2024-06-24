@@ -32,11 +32,30 @@ class GangerListener
 
         $object = $event->getObject();
 
-        // ToDo check number of alive leader and heavy
-
         if ($object instanceof Ganger && $object->getId() === null) {
             /** @var Ganger $ganger */
             $ganger = $object;
+            $gangerGang = $ganger->getGang();
+
+            // Check number of alive leader and heavy
+            $gangerRepository = $this->entityManager->getRepository(Ganger::class);
+
+            $numberOfLeader = $gangerRepository->findAliveByType($gangerGang->getId(), 'leader');
+            if ($ganger->getType() == GangerTypeEnum::leader) {
+                $numberOfLeader += 1;
+            }
+            if ($numberOfLeader > 1) {
+                throw new GangerVerificationFailedException();
+            }
+
+            $numberOfHeavy = $gangerRepository->findAliveByType($gangerGang->getId(), 'heavy');
+            if ($ganger->getType() == GangerTypeEnum::heavy) {
+                $numberOfHeavy += 1;
+            }
+            if ($numberOfHeavy > 2) {
+                throw new GangerVerificationFailedException();
+            }
+
             $diceRollExperience = random_int(1, 6);
             switch ($ganger->getType()){
                 case GangerTypeEnum::leader:
