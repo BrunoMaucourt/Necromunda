@@ -10,24 +10,34 @@ use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Events;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 #[AsDoctrineListener(event: Events::prePersist, priority: 500, connection: 'default')]
 class GangerListener
 {
     private EntityManagerInterface $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager){
+    private RequestStack $requestStack;
+
+    public function __construct(
+        EntityManagerInterface $entityManager,
+        RequestStack $requestStack
+    ){
         $this->entityManager = $entityManager;
+        $this->requestStack = $requestStack;
     }
     public function prePersist(PrePersistEventArgs $event)
     {
-        /** @var Ganger $object */
+        $flash = $this->requestStack->getSession()->getFlashBag();
+
         $object = $event->getObject();
 
         // ToDo check number of alive leader and heavy
 
-        if ($object instanceof Ganger) {
+        if ($object instanceof Ganger && $object->getId() === null) {
+            /** @var Ganger $ganger */
             $ganger = $object;
+            $diceRollExperience = random_int(1, 6);
             switch ($ganger->getType()){
                 case GangerTypeEnum::leader:
                     $ganger->setWeaponSkill(4);
@@ -35,7 +45,9 @@ class GangerListener
                     $ganger->setLeadership(8);
                     $ganger->setInitiative(4);
                     $ganger->setCost(120);
-                    $ganger->setExperience(60 + random_int(1, 6));
+                    $newExperience = 60 + $diceRollExperience;
+                    $ganger->setExperience($newExperience);
+                    $experienceMessage = $newExperience . ' (' . 60 . ' + dice roll ' . $diceRollExperience .')';
                     break;
                 case GangerTypeEnum::heavy:
                     $ganger->setWeaponSkill(3);
@@ -43,7 +55,9 @@ class GangerListener
                     $ganger->setLeadership(7);
                     $ganger->setInitiative(3);
                     $ganger->setCost(50);
-                    $ganger->setExperience(60 + random_int(1, 6));
+                    $newExperience = 60 + $diceRollExperience;
+                    $ganger->setExperience($newExperience);
+                    $experienceMessage = $newExperience . ' (' . 60 . ' + dice roll ' . $diceRollExperience .')';
                     break;
                 case GangerTypeEnum::ganger:
                     $ganger->setWeaponSkill(3);
@@ -51,7 +65,9 @@ class GangerListener
                     $ganger->setLeadership(7);
                     $ganger->setInitiative(3);
                     $ganger->setCost(25);
-                    $ganger->setExperience(20 + random_int(1, 6));
+                    $newExperience = 20 + $diceRollExperience;
+                    $ganger->setExperience(60 + $diceRollExperience);
+                    $experienceMessage = $newExperience . ' (' . 20 . ' + dice roll ' . $diceRollExperience .')';
                     break;
                 case GangerTypeEnum::juve:
                     $ganger->setWeaponSkill(2);
@@ -60,6 +76,7 @@ class GangerListener
                     $ganger->setInitiative(3);
                     $ganger->setCost(25);
                     $ganger->setExperience(0);
+                    $experienceMessage = '0';
                     break;
             }
 
@@ -74,6 +91,11 @@ class GangerListener
             $this->entityManager->persist($freeKnife);
 
             $object->addWeapon($freeKnife);
+
+            $flash->add(
+                'success',
+                'New ganger : ' . $ganger->getName() . ' ('. $ganger->getType()->enumToString() .') :<br><br>' . '- experience = '. $experienceMessage .'<br>- free knife<br>'
+            );
         }
     }
 }
