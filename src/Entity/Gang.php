@@ -32,7 +32,7 @@ class Gang
     /**
      * @var Collection<int, Ganger>
      */
-    #[ORM\OneToMany(targetEntity: Ganger::class, mappedBy: 'gang', cascade: ['persist'])]
+    #[ORM\OneToMany(targetEntity: Ganger::class, mappedBy: 'gang', cascade: ['persist', 'remove'])]
     private Collection $gangers;
 
     #[ORM\ManyToOne(inversedBy: 'gang')]
@@ -42,7 +42,7 @@ class Gang
     /**
      * @var Collection<int, Territory>
      */
-    #[ORM\OneToMany(targetEntity: Territory::class, mappedBy: 'gang', cascade: ['persist'])]
+    #[ORM\OneToMany(targetEntity: Territory::class, mappedBy: 'gang', cascade: ['persist', 'remove'])]
     private Collection $territories;
 
     /**
