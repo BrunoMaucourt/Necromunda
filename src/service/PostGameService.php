@@ -317,6 +317,77 @@ class PostGameService
             'summary' => $summary,
         ];
     }
+
+    public function AddAdvancement(array $advancementList, Game $game): array
+    {
+        $summary = '';
+
+        foreach ($advancementList as $advancement) {
+
+            /** @var Ganger $ganger */
+            $ganger = $advancement;
+
+            $dice1RollAdvance = mt_rand(1, 6);
+            $dice2RollAdvance = mt_rand(1, 6);
+            $advancementScore = $dice1RollAdvance + $dice2RollAdvance;
+            $summary .= '- ' . $ganger->getName() . ' ('. $ganger->getType()->enumToString() .')<br>' . 'Advance rolls = '. $advancementScore .' (Dice 1 roll = ' . $dice1RollAdvance . ' + dice 2 roll = ' . $dice2RollAdvance . ')<br>';
+
+            $content = '';
+            if ($advancementScore == 2 || $advancementScore == 12) {
+                $content = 'Choose a new skill in any table';
+            } elseif ($advancementScore == 3 || $advancementScore == 4 || $advancementScore == 10 || $advancementScore == 11) {
+                $content = 'Random skill in standard table';
+            } elseif ($advancementScore == 5) {
+                $diceRoll = mt_rand(1, 6);
+                if ($diceRoll > 3) {
+                    $content = '+ 1 attacks';
+                    $ganger->setAttacks($ganger->getAttacks() + 1);
+                } else {
+                    $content = '+ 1 strength';
+                    $ganger->setStrength($ganger->getStrength() + 1);
+                }
+            } elseif ($advancementScore == 6 || $advancementScore == 8) {
+                $diceRoll = mt_rand(1, 6);
+                if ($diceRoll > 3) {
+                    $content = '+ 1 BS';
+                    $ganger->setBallisticSkill($ganger->getBallisticSkill() + 1);
+                } else {
+                    $content = '+ 1 WS';
+                    $ganger->setWeaponSkill($ganger->getStrength() + 1);
+                }
+            } elseif ($advancementScore == 7) {
+                $diceRoll = mt_rand(1, 6);
+                if ($diceRoll > 3) {
+                    $content = '+ 1 leadership';
+                    $ganger->setLeadership($ganger->getLeadership() + 1);
+                } else {
+                    $content = '+ 1 initiative';
+                    $ganger->setInitiative($ganger->getInitiative() + 1);
+                }
+            } elseif ($advancementScore == 9) {
+                $diceRoll = mt_rand(1, 6);
+                if ($diceRoll > 3) {
+                    $content = '+ 1 toughness';
+                    $ganger->setToughness($ganger->getToughness() + 1);
+                } else {
+                    $content = '+ 1 wounds';
+                    $ganger->setWounds($ganger->getWounds() + 1);
+                }
+            }
+
+            $summary .= $content . '<br><br>';
+            $newAdvancement = new Advancement();
+            $newAdvancement->setGanger($ganger);
+            $newAdvancement->setContent($content);
+
+            $this->entityManager->persist($newAdvancement);
+            $game->addAdvancement($newAdvancement);
+        }
+
+        return [
+            'summary' => $summary,
+        ];
+    }
         return [
             'gangCreditsGain' => $gangCreditsGain,
             'summary' => $summary,
