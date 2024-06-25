@@ -276,6 +276,47 @@ class PostGameService
             'summary' => $summary,
         ];
     }
+    public function AddExperience(Game $game, array $gangers): array
+    {
+        $experienceLevelsForAdvancement = [6, 11, 16, 21, 31, 41, 51, 61, 81, 101, 121, 141, 161, 181, 201, 241, 281, 321, 361, 401];
+        $experienceToBecomeGanger = 21;
+        $summary = '';
+        $advancementsList = [];
+
+        foreach ($gangers as $gangerID => $gangerExperience) {
+            /** @var Ganger $currentGanger */
+            $currentGanger = $this->entityManager->getRepository(Ganger::class)->find($gangerID);
+
+            // Add experience
+            $diceRollExperience = mt_rand(1, 6);
+            $newExperience = $currentGanger->getExperience() + $diceRollExperience + $gangerExperience;
+            $experienceRange = $currentGanger->getExperience() + 1 . '-' . $newExperience;
+            $summary .= '- '. $currentGanger->getName() .' ('. $currentGanger->getType()->enumToString() .')<br> Experience before game = ' . $currentGanger->getExperience() .'<br>Experience after game = ' . $newExperience. ' (dice roll : '. $diceRollExperience .' + bonus : '. $gangerExperience .') <br>';
+
+            // Check for advancement
+            // ToDO avoid that 21 get advancement when start
+            foreach ($experienceLevelsForAdvancement as $experienceLevel) {
+                if ($this->checkValueRangeService->isBetweenOrEqual($experienceRange, $experienceLevel)) {
+                    $advancementsList[] = $currentGanger;
+                    $summary .= 'Add advancement <br>';
+                    if ($experienceLevel == $experienceToBecomeGanger && $currentGanger->getExperience() ==! $experienceToBecomeGanger) {
+                        $currentGanger->setType(GangerTypeEnum::ganger);
+                        $summary .= 'Juve become ganger<br>';
+                    }
+                }
+            }
+
+            $summary .= '<br><br>';
+
+            $currentGanger->setExperience($newExperience);
+            $game->addGanger($currentGanger);
+        }
+
+        return [
+            'advancementsList' => $advancementsList,
+            'summary' => $summary,
+        ];
+    }
         return [
             'gangCreditsGain' => $gangCreditsGain,
             'summary' => $summary,
