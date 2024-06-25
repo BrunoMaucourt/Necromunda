@@ -54,7 +54,12 @@ class ChooseGangsForGameController extends AbstractController
                     'Error: Please choose two different gangs'
                 );
 
-                return $this->redirectToRoute('/choose-gangers/');
+                $chooseGangsUrl = $this->adminUrlGenerator
+                    ->setRoute('choose_gangs')
+                    ->generateUrl()
+                ;
+
+                return $this->redirect($chooseGangsUrl);
             }
 
             $this->addFlash(
