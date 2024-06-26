@@ -221,7 +221,7 @@ class GangerCrudController extends AbstractCrudController
                 $security = $this->security;
                 return $action
                     ->setIcon('fa fa-trash')
-                    ->setCssClass('btn btn-light btn-remove-margin')
+                    ->addCssClass('btn btn-light btn-remove-margin')
                     ->displayIf(static function ($entity) use ($security) {
                     return self::checkGangsOfCurrentUser($entity, $security);
                 });
