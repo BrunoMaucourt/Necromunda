@@ -388,8 +388,65 @@ class PostGameService
             'summary' => $summary,
         ];
     }
+
+    public function AddLoots(Game $game, Gang $gang): array
+    {
+        $numberOfLoots = mt_rand(1, 3);
+        $summary = '-- Number of loots found ' . $numberOfLoots . '<br><br>';
+        $randomNumbers = [];
+
+        for ($i = 0; $i < $numberOfLoots; $i++) {
+            $dicerolls = mt_rand(1, 6) . mt_rand(1, 6);
+
+            $addRoll = [11, 12, 13, 14, 15, 16, 21, 22, 23, 24, 25, 26, 31, 32, 33, 61, 62, 63];
+            $addRoll2 = [316,326,336];
+            if (in_array($dicerolls, $addRoll)) {
+                $dicerolls .= mt_rand(1, 6);
+                if (in_array($addRoll2, $addRoll)) {
+                    $dicerolls .= mt_rand(1, 6);
+                }
+            }
+
+            $randomNumbers[] = $dicerolls;
+        }
+
+        $loots = LootEnum::cases();
+
+        foreach ($randomNumbers as $randomNumber) {
+            $summary .= '- dice roll = '. $randomNumber .'<br>';
+            foreach ($loots as $loot) {
+                if ($this->checkValueRangeService->isBetweenOrEqual($loot->getDicesRange(), (int) $randomNumber)) {
+                    $costVariable = '';
+                    $costSum = 0;
+                    if ($loot == LootEnum::RatskinMap || $loot == LootEnum::MungVase) {
+                        $cost = mt_rand(1, 6) * 10;
+                        $summary .= $loot->enumToString() . ' - cost = '.$cost.'<br><br>';
+                    } else {
+                        for ($dice = 0; $dice < $loot->getVariableIncome(); $dice++) {
+                            $addRoll = mt_rand(1, 6);
+                            $costSum += $addRoll;
+                            $costVariable .= 'dice ' . $addRoll;
+                            if ($dice < $loot->getVariableIncome() - 1) {
+                                $costVariable .= ' + ';
+                            }
+                        }
+
+                        $cost = $loot->getFixedIncome() + $costSum;
+                        $summary .= $loot->enumToString() . ' - cost = '.$cost.' ('.$loot->getFixedIncome().' + ' . $costVariable . ')<br><br>';
+                    }
+
+                    $newLoot = new Loot();
+                    $newLoot->setName($loot->enumToString());
+                    $newLoot->setCost($cost);
+                    $newLoot->setGang($gang);
+
+                    $this->entityManager->persist($newLoot);
+                    $game->addLoots($newLoot);
+                }
+            }
+        }
+
         return [
-            'gangCreditsGain' => $gangCreditsGain,
             'summary' => $summary,
         ];
     }
