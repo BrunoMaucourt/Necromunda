@@ -70,6 +70,10 @@
     margin: 0 !important;
 }
 
+.dashboardCard:hover{
+    opacity: 0.6;
+}
+
 @media (min-width: 800px) {
     .form__container-picture img{
         max-width: 500px;
@@ -93,9 +97,5 @@
 
     .form__container-input form label, .form__container-input form select{
         margin: 10px;
-    }
-
-    .card:hover{
-        opacity: 0.6;
     }
 }
