@@ -106,6 +106,9 @@ class Ganger
     #[ORM\ManyToMany(targetEntity: Game::class, mappedBy: 'gangers')]
     private Collection $games;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $history = null;
+
     public function __construct()
     {
         $this->injuries = new ArrayCollection();
@@ -518,6 +521,18 @@ class Ganger
         if ($this->games->removeElement($game)) {
             $game->removeGanger($this);
         }
+
+        return $this;
+    }
+
+    public function getHistory(): ?string
+    {
+        return $this->history;
+    }
+
+    public function setHistory(string $history): static
+    {
+        $this->history = $history;
 
         return $this;
     }

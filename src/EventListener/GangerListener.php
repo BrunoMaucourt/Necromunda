@@ -6,13 +6,16 @@ use App\Entity\Ganger;
 use App\Entity\Weapon;
 use App\Enum\GangerTypeEnum;
 use App\Enum\WeaponsEnum;
+use App\Exception\GangerVerificationFailedException;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Event\PrePersistEventArgs;
+use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Events;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 #[AsDoctrineListener(event: Events::prePersist, priority: 500, connection: 'default')]
+#[AsDoctrineListener(event: Events::preUpdate, priority: 500, connection: 'default')]
 class GangerListener
 {
     private EntityManagerInterface $entityManager;
@@ -116,5 +119,71 @@ class GangerListener
                 'New ganger : ' . $ganger->getName() . ' ('. $ganger->getType()->enumToString() .') :<br><br>' . '- experience = '. $experienceMessage .'<br>- free knife<br>'
             );
         }
+    }
+
+    public function preUpdate(PreUpdateEventArgs $args)
+    {
+        $entity = $args->getObject();
+
+        if (!$entity instanceof Ganger) {
+            return;
+        }
+
+        $changes = $args->getEntityChangeSet();
+        $historyMessage = "---------------------------------------\n[" . date('Y-m-d H:i:s') . "] Changes:\n";
+
+        foreach ($changes as $field => $change) {
+            if ($field === 'history') {
+                continue;
+            }
+
+            $oldValue = $change[0];
+            $newValue = $change[1];
+            $historyMessage .= sprintf(
+                "Field '%s' changed from '%s' to '%s'\n",
+                $field,
+                $oldValue,
+                $newValue
+            );
+        }
+
+
+        $uow = $this->entityManager->getUnitOfWork();
+        $collections = ['weapons', 'equipments', 'advancements', 'skills', 'injuries'];
+
+        foreach ($collections as $collectionName) {
+
+            // Check items add in collections
+            foreach ($uow->getScheduledCollectionUpdates() as $collection) {
+                if ($collection->getOwner() instanceof Ganger && $collection->getMapping()['fieldName'] === $collectionName) {
+                    foreach ($collection->getInsertDiff() as $item) {
+                        $itemName = method_exists($item, '__toString') ? $item->__toString() : get_class($item);
+                        $historyMessage .= sprintf(
+                            "%s added: %s\n",
+                            ucfirst($collectionName),
+                            $itemName
+                        );
+                    }
+                }
+            }
+
+            // Check items remove from collections
+            foreach ($uow->getScheduledCollectionUpdates() as $collection) {
+                if ($collection->getOwner() instanceof Ganger && $collection->getMapping()['fieldName'] === $collectionName) {
+                    foreach ($collection->getDeleteDiff() as $item) {
+                        $itemName = method_exists($item, '__toString') ? $item->__toString() : get_class($item);
+                        $historyMessage .= sprintf(
+                            "%s removed: %s\n",
+                            ucfirst($collectionName),
+                            $itemName
+                        );
+                    }
+                }
+            }
+        }
+        
+        $currentHistory = $entity->getHistory();
+        $newHistory = $currentHistory ? $currentHistory . "\n" . $historyMessage : $historyMessage;
+        $entity->setHistory($newHistory);
     }
 }
