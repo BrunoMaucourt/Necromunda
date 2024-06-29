@@ -8,6 +8,7 @@ use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Entity\Injury;
 use App\Entity\Loot;
+use App\Enum\GangerTypeEnum;
 use App\Enum\InjuriesEnum;
 use App\Enum\LootEnum;
 use App\Enum\TerritoriesEnum;
@@ -36,7 +37,7 @@ class PostGameService
             /** @var TerritoriesEnum $currentTerritory */
             $currentTerritory = $territory->getName();
             $numberOfDices = $currentTerritory->getVariableIncomeNumberOfDice();
-            $summary .= '- ' . $currentTerritory->enumToString() . '<br>';
+            $summary .= '- ' . $currentTerritory->enumToString() . " \n";
 
             $dicesResults = 0;
             $dicesRolls = [];
@@ -44,40 +45,40 @@ class PostGameService
                 $diceRoll = mt_rand(1, 6);
                 $dicesRolls [] = $diceRoll;
                 $dicesResults += $diceRoll;
-                $summary .= '  dice ' . $numberDice +1 . ' roll : ' . $diceRoll . '<br>';
+                $summary .= "  dice " . $numberDice +1 . " roll : " . $diceRoll . " \n";
             }
 
             // Check for effects
             if (count($dicesRolls) === 2 && $dicesRolls[0] === $dicesRolls[1]) {
                 if ($currentTerritory == TerritoriesEnum::ChemPit) {
-                    $summary .= '  double roll, no incone collected and ganger cause fear <br>';
+                    $summary .= "  double roll, no incone collected and ganger cause fear  \n";
                     $dicesResults = 0;
                 } elseif ($currentTerritory == TerritoriesEnum::GamblingDen) {
-                    $summary .= '  double roll, no incone collected <br>';
+                    $summary .= "  double roll, no incone collected  \n";
                     $dicesResults = 0;
                 } elseif ($currentTerritory == TerritoriesEnum::SporeCave && $dicesRolls[0] === 1) {
-                    $summary .= '  double roll 1, ganger is sick and can take part to next battle on 4+ with a D6 <br>';
+                    $summary .= "  double roll 1, ganger is sick and can take part to next battle on 4+ with a D6  \n";
                 }
             }
 
             if ($currentTerritory == TerritoriesEnum::DrinkingHole) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll == 6) {
-                    $summary .= ' +1 or -1 for next scenario table roll <br>';
+                    $summary .= " +1 or -1 for next scenario table roll  \n";
                 }
             }
 
             if ($currentTerritory == TerritoriesEnum::Settlement) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll == 6) {
-                    $summary .= ' recruit for free a juve <br>';
+                    $summary .= " recruit for free a juve  \n";
                 }
             }
 
             if ($currentTerritory == TerritoriesEnum::MineralOutcrop) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll == 6) {
-                    $summary .= '  ' . $diceRoll * 10 . ' credits are added <br>';
+                    $summary .= '  ' . $diceRoll * 10 . " credits are added  \n";
                     $gangCreditsGain += $diceRoll * 10;
                 }
             }
@@ -85,7 +86,7 @@ class PostGameService
             // Add credits
             $currentGain = $currentTerritory->getFixedIncome() + $dicesResults * $currentTerritory->getVariableIncomeMultiplicator();
             $gangCreditsGain += $currentGain;
-            $summary .= '  ' . $currentGain . ' credits for ' . $currentTerritory->enumToString() . '<br><br>';
+            $summary .= "  " . $currentGain . " credits for " . $currentTerritory->enumToString() . " \n \n";
 
             // Save territory
             // ToDo fix bug about persist entity
@@ -96,24 +97,24 @@ class PostGameService
         if ($game->getWinner() == $currentGang) {
             if ($currentGang->getRating() < $otherGang->getRating()) {
                 $gangRatingDifference = $currentGang->getRating() - $otherGang->getRating();
-                $summary .= '  -----------------------<br>   Giant killer bonus (gang rating difference = '. abs($gangRatingDifference) .') <br>';
+                $summary .= "  ----------------------- \n   Giant killer bonus (gang rating difference = ". abs($gangRatingDifference) .")  \n";
                 $bonus = $this->getGiantKillerBonus(abs($gangRatingDifference));
                 $gangCreditsGain += $bonus;
-                $summary .= '  '. $bonus .' credits bonus added <br><br>';
+                $summary .= "  ". $bonus ." credits bonus added  \n \n";
             } else {
-                $summary .= '  -----------------------<br>   No giant killer bonus added because winner higher gang rating <br><br>';
+                $summary .= "  ----------------------- \n   No giant killer bonus added because winner higher gang rating  \n \n";
             }
         } else {
-            $summary .= '  -----------------------<br>   No giant killer bonus added because the game is loss<br><br>';
+            $summary .= "  ----------------------- \n   No giant killer bonus added because the game is loss \n \n";
         }
 
         // Calculate Income
-        $summary .= '  -----------------------<br>   ' . $gangCreditsGain . ' credits earn for this game <br>';
+        $summary .= "  ----------------------- \n" . $gangCreditsGain . " credits earn for this game  \n";
         $allAliveGangers = $this->entityManager->getRepository(Ganger::class)->findAliveByGang($currentGang->getId());
         $numberOfGanger = count($allAliveGangers);
         $income = $this->getIncomeValue($gangCreditsGain, $numberOfGanger);
         $newCredits = $currentGang->getCredits() + $income;
-        $summary .= '  ' . $income . ' credits keep after income ('. $numberOfGanger.' gangers in gang)<br> '.  $newCredits . ' credits at the end of game (Old credits = '. $currentGang->getCredits() . ' + new credits = ' . $income .')<br><br>';
+        $summary .= $income . " credits keep after income (". $numberOfGanger." gangers in gang) \n ".  $newCredits . " credits at the end of game (Old credits = ". $currentGang->getCredits() . ' + new credits = ' . $income .") \n \n";
 
         $currentGang->setCredits($newCredits);
 
@@ -213,14 +214,15 @@ class PostGameService
         /** @var Ganger $currentGanger */
         $currentGanger = $this->entityManager->getRepository(Ganger::class)->find($gangerID);
         $dicesRoll = mt_rand(1, 6) . mt_rand(1, 6);
-        $summary = '  - ' . $currentGanger->getName() . '<br>   dices roll = ' . $dicesRoll . '<br>';
+        $summary = "  - " . $currentGanger->getName() . " \ndices roll = " . $dicesRoll . " \n";
 
         if ($dicesRoll >= 12 && $dicesRoll <= 15) {
             $currentGanger->setAlive(false);
         } elseif ($dicesRoll == 16) {
-            $todo = 'todo';
+            $todo = "todo";
+            //    The fighter isn't dead but has suffered many serious wounds. Roll a further D3+1 times on this chart. All Dead, Multiple Injuries, Captured and Full Recovery results must be rolled again.
         } elseif ($dicesRoll == 21){
-            $todo = 'todo';
+            $todo = "todo";
             $numberOfGame = mt_rand(1, 3);
         } elseif ($dicesRoll == 22){
             $newToughness = $currentGanger->getToughness() -1;
@@ -234,9 +236,9 @@ class PostGameService
         } elseif ($dicesRoll == 25){
             $headWound = mt_rand(1, 6);
             if ($headWound <= 3) {
-                $todo = 'todo';
+                $todo = "todo";
             } else {
-                $todo = 'todo';
+                $todo = "todo";
             }
         } elseif ($dicesRoll == 26){
             $newBallisticSkill = $currentGanger->getBallisticSkill() -1;
@@ -265,7 +267,7 @@ class PostGameService
                 $injuryToAdd->setName($injury);
                 $injuryToAdd->setVictim($currentGanger);
 
-                $summary .= ' ' . $injury->enumToString() . ' is added <br>';
+                $summary .= " " . $injury->enumToString() . " is added  \n";
                 $this->entityManager->persist($injuryToAdd);
                 $game->addInjury($injuryToAdd);
             }
@@ -290,23 +292,23 @@ class PostGameService
             // Add experience
             $diceRollExperience = mt_rand(1, 6);
             $newExperience = $currentGanger->getExperience() + $diceRollExperience + $gangerExperience;
-            $experienceRange = $currentGanger->getExperience() + 1 . '-' . $newExperience;
-            $summary .= '- '. $currentGanger->getName() .' ('. $currentGanger->getType()->enumToString() .')<br> Experience before game = ' . $currentGanger->getExperience() .'<br>Experience after game = ' . $newExperience. ' (dice roll : '. $diceRollExperience .' + bonus : '. $gangerExperience .') <br>';
+            $experienceRange = $currentGanger->getExperience() + 1 . "-" . $newExperience;
+            $summary .= "- ". $currentGanger->getName() ." (". $currentGanger->getType()->enumToString() .") \nExperience before game = " . $currentGanger->getExperience() ." \nExperience after game = " . $newExperience. " (dice roll : ". $diceRollExperience ." + bonus : ". $gangerExperience .")  \n";
 
             // Check for advancement
             // ToDO avoid that 21 get advancement when start
             foreach ($experienceLevelsForAdvancement as $experienceLevel) {
                 if ($this->checkValueRangeService->isBetweenOrEqual($experienceRange, $experienceLevel)) {
                     $advancementsList[] = $currentGanger;
-                    $summary .= 'Add advancement <br>';
+                    $summary .= "Add advancement  \n";
                     if ($experienceLevel == $experienceToBecomeGanger && $currentGanger->getExperience() ==! $experienceToBecomeGanger) {
                         $currentGanger->setType(GangerTypeEnum::ganger);
-                        $summary .= 'Juve become ganger<br>';
+                        $summary .= "Juve become ganger \n";
                     }
                 }
             }
 
-            $summary .= '<br><br>';
+            $summary .= " \n \n";
 
             $currentGanger->setExperience($newExperience);
             $game->addGanger($currentGanger);
@@ -330,52 +332,52 @@ class PostGameService
             $dice1RollAdvance = mt_rand(1, 6);
             $dice2RollAdvance = mt_rand(1, 6);
             $advancementScore = $dice1RollAdvance + $dice2RollAdvance;
-            $summary .= '- ' . $ganger->getName() . ' ('. $ganger->getType()->enumToString() .')<br>' . 'Advance rolls = '. $advancementScore .' (Dice 1 roll = ' . $dice1RollAdvance . ' + dice 2 roll = ' . $dice2RollAdvance . ')<br>';
+            $summary .= "- " . $ganger->getName() . " (". $ganger->getType()->enumToString() .") \n" . "Advance rolls = ". $advancementScore ." (Dice 1 roll = " . $dice1RollAdvance . " + dice 2 roll = " . $dice2RollAdvance . ") \n";
 
-            $content = '';
+            $content = "";
             if ($advancementScore == 2 || $advancementScore == 12) {
-                $content = 'Choose a new skill in any table';
+                $content = "Choose a new skill in any table";
             } elseif ($advancementScore == 3 || $advancementScore == 4 || $advancementScore == 10 || $advancementScore == 11) {
-                $content = 'Random skill in standard table';
+                $content = "Random skill in standard table";
             } elseif ($advancementScore == 5) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll > 3) {
-                    $content = '+ 1 attacks';
+                    $content = "+ 1 attacks";
                     $ganger->setAttacks($ganger->getAttacks() + 1);
                 } else {
-                    $content = '+ 1 strength';
+                    $content = "+ 1 strength";
                     $ganger->setStrength($ganger->getStrength() + 1);
                 }
             } elseif ($advancementScore == 6 || $advancementScore == 8) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll > 3) {
-                    $content = '+ 1 BS';
+                    $content = "+ 1 BS";
                     $ganger->setBallisticSkill($ganger->getBallisticSkill() + 1);
                 } else {
-                    $content = '+ 1 WS';
+                    $content = "+ 1 WS";
                     $ganger->setWeaponSkill($ganger->getStrength() + 1);
                 }
             } elseif ($advancementScore == 7) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll > 3) {
-                    $content = '+ 1 leadership';
+                    $content = "+ 1 leadership";
                     $ganger->setLeadership($ganger->getLeadership() + 1);
                 } else {
-                    $content = '+ 1 initiative';
+                    $content = "+ 1 initiative";
                     $ganger->setInitiative($ganger->getInitiative() + 1);
                 }
             } elseif ($advancementScore == 9) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll > 3) {
-                    $content = '+ 1 toughness';
+                    $content = "+ 1 toughness";
                     $ganger->setToughness($ganger->getToughness() + 1);
                 } else {
-                    $content = '+ 1 wounds';
+                    $content = "+ 1 wounds";
                     $ganger->setWounds($ganger->getWounds() + 1);
                 }
             }
 
-            $summary .= $content . '<br><br>';
+            $summary .= $content . " \n \n";
             $newAdvancement = new Advancement();
             $newAdvancement->setGanger($ganger);
             $newAdvancement->setContent($content);
@@ -392,7 +394,7 @@ class PostGameService
     public function AddLoots(Game $game, Gang $gang): array
     {
         $numberOfLoots = mt_rand(1, 3);
-        $summary = '-- Number of loots found ' . $numberOfLoots . '<br><br>';
+        $summary = "-- Number of loots found " . $numberOfLoots . " \n \n";
         $randomNumbers = [];
 
         for ($i = 0; $i < $numberOfLoots; $i++) {
@@ -413,26 +415,26 @@ class PostGameService
         $loots = LootEnum::cases();
 
         foreach ($randomNumbers as $randomNumber) {
-            $summary .= '- dice roll = '. $randomNumber .'<br>';
+            $summary .= "- dice roll = ". $randomNumber ." \n";
             foreach ($loots as $loot) {
                 if ($this->checkValueRangeService->isBetweenOrEqual($loot->getDicesRange(), (int) $randomNumber)) {
                     $costVariable = '';
                     $costSum = 0;
                     if ($loot == LootEnum::RatskinMap || $loot == LootEnum::MungVase) {
                         $cost = mt_rand(1, 6) * 10;
-                        $summary .= $loot->enumToString() . ' - cost = '.$cost.'<br><br>';
+                        $summary .= $loot->enumToString() . " - cost = ".$cost." \n \n";
                     } else {
                         for ($dice = 0; $dice < $loot->getVariableIncome(); $dice++) {
                             $addRoll = mt_rand(1, 6);
                             $costSum += $addRoll;
-                            $costVariable .= 'dice ' . $addRoll;
+                            $costVariable .= "dice " . $addRoll;
                             if ($dice < $loot->getVariableIncome() - 1) {
-                                $costVariable .= ' + ';
+                                $costVariable .= " + ";
                             }
                         }
 
                         $cost = $loot->getFixedIncome() + $costSum;
-                        $summary .= $loot->enumToString() . ' - cost = '.$cost.' ('.$loot->getFixedIncome().' + ' . $costVariable . ')<br><br>';
+                        $summary .= $loot->enumToString() . " - cost = ".$cost." (".$loot->getFixedIncome()." + " . $costVariable . ") \n \n";
                     }
 
                     $newLoot = new Loot();
