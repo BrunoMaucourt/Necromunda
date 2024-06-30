@@ -300,12 +300,14 @@ class PostGameService
             $summary .= "- ". $currentGanger->getName() ." (". $currentGanger->getType()->enumToString() .") \nExperience before game = " . $currentGanger->getExperience() ." \nExperience after game = " . $newExperience. " (dice roll : ". $diceRollExperience ." + bonus : ". $gangerExperience .")  \n";
 
             // Check for advancement
-            // ToDO avoid that 21 get advancement when start
             foreach ($experienceLevelsForAdvancement as $experienceLevel) {
                 if ($this->checkValueRangeService->isBetweenOrEqual($experienceRange, $experienceLevel)) {
                     $advancementsList[] = $currentGanger;
-                    $summary .= "Add advancement  \n";
-                    if ($experienceLevel == $experienceToBecomeGanger && $currentGanger->getExperience() ==! $experienceToBecomeGanger) {
+                    $summary .= "Add advancement - level ". $experienceLevel ."\n";
+                    if (
+                        $experienceLevel == $experienceToBecomeGanger &&
+                        $currentGanger->getType() === GangerTypeEnum::juve
+                    ) {
                         $currentGanger->setType(GangerTypeEnum::ganger);
                         $summary .= "Juve become ganger \n";
                     }
