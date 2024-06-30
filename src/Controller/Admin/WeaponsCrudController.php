@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\WeaponsField;
+use App\Entity\Ganger;
 use App\Entity\Weapon;
 use App\Enum\WeaponsEnum;
 use Doctrine\ORM\EntityRepository;
@@ -38,21 +39,44 @@ class WeaponsCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        $object = $this->getContext()->getEntity()->getInstance();
+
         yield WeaponsField::new('name', 'Name')
             ->formatValue(static function (WeaponsEnum $weaponsEnums): string {
                 return $weaponsEnums->enumToString();
             })
             ->setColumns(4);
-        yield AssociationField::new('ganger')
-            ->setColumns(4)
-            ->setFormTypeOptions([
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('g')
-                        ->join('g.gang', 'gang')
-                        ->where('gang.user = :user')
-                        ->setParameter('user', $this->getUser());
-                },
-            ]);
+        if (
+            $pageName === Crud::PAGE_NEW &&
+            $object instanceof Ganger
+        ) {
+                $ganger = $object;
+
+                yield AssociationField::new('ganger')
+                    ->setColumns(4)
+                    ->setFormTypeOptions([
+                        'query_builder' => function (EntityRepository $er) use ($ganger) {
+                            return $er->createQueryBuilder('g')
+                                ->where('g.id = :id')
+                                ->setParameter('id', $ganger->getId())
+                            ;
+                        },
+                        'data' => $ganger,
+                    ]);
+        } else {
+            yield AssociationField::new('ganger')
+                ->setColumns(4)
+                ->setFormTypeOptions([
+                    'query_builder' => function (EntityRepository $er)  {
+                        return $er->createQueryBuilder('g')
+                            ->join('g.gang', 'gang')
+                            ->where('gang.user = :user')
+                            ->setParameter('user', $this->getUser())
+                        ;
+                    },
+                ])
+            ;
+        }
         yield AssociationField::new('equipements')
             ->setColumns(4)
             ->setFormTypeOptions([

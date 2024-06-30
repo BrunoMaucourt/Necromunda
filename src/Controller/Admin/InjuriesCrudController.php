@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\InjuriesField;
+use App\Entity\Ganger;
 use App\Entity\Injury;
 use App\Enum\InjuriesEnum;
 use Doctrine\ORM\EntityRepository;
@@ -35,21 +36,44 @@ class InjuriesCrudController extends AbstractCrudController
     }
     public function configureFields(string $pageName): iterable
     {
+        $object = $this->getContext()->getEntity()->getInstance();
+
         yield InjuriesField::new('name', 'Name')
             ->formatValue(static function (InjuriesEnum $injuriesEnum): string {
                 return $injuriesEnum->enumToString();
             })
             ->setColumns(4);
-        yield AssociationField::new('victim')
-            ->setColumns(4)
-            ->setFormTypeOptions([
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('g')
-                        ->join('g.gang', 'gang')
-                        ->where('gang.user = :user')
-                        ->setParameter('user', $this->getUser());
-                },
-            ]);
+        if (
+            $pageName === Crud::PAGE_NEW &&
+            $object instanceof Ganger
+        ) {
+            $victim = $object;
+
+            yield AssociationField::new('victim')
+                ->setColumns(4)
+                ->setFormTypeOptions([
+                    'query_builder' => function (EntityRepository $er) use ($victim) {
+                        return $er->createQueryBuilder('g')
+                            ->where('g.id = :id')
+                            ->setParameter('id', $victim->getId())
+                            ;
+                    },
+                    'data' => $victim,
+                ]);
+        } else {
+            yield AssociationField::new('victim')
+                ->setColumns(4)
+                ->setFormTypeOptions([
+                    'query_builder' => function (EntityRepository $er)  {
+                        return $er->createQueryBuilder('g')
+                            ->join('g.gang', 'gang')
+                            ->where('gang.user = :user')
+                            ->setParameter('user', $this->getUser())
+                            ;
+                    },
+                ])
+            ;
+        }
         yield AssociationField::new('author')
             ->setColumns(4);
     }
