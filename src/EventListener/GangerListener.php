@@ -2,6 +2,7 @@
 
 namespace App\EventListener;
 
+use App\Entity\Equipement;
 use App\Entity\Ganger;
 use App\Entity\Weapon;
 use App\Enum\GangerTypeEnum;
@@ -149,7 +150,7 @@ class GangerListener
 
 
         $uow = $this->entityManager->getUnitOfWork();
-        $collections = ['weapons', 'equipments', 'advancements', 'skills', 'injuries'];
+        $collections = ['weapons', 'equipements', 'advancements', 'skills', 'injuries'];
 
         foreach ($collections as $collectionName) {
 
@@ -158,6 +159,12 @@ class GangerListener
                 if ($collection->getOwner() instanceof Ganger && $collection->getMapping()['fieldName'] === $collectionName) {
                     foreach ($collection->getInsertDiff() as $item) {
                         $itemName = method_exists($item, '__toString') ? $item->__toString() : get_class($item);
+                        if (
+                            $item instanceof Weapon ||
+                            $item instanceof Equipement
+                        ) {
+                            $itemName .= " - " . $item->getCost() . " credits";
+                        }
                         $historyMessage .= sprintf(
                             "%s added: %s\n",
                             ucfirst($collectionName),
@@ -181,7 +188,7 @@ class GangerListener
                 }
             }
         }
-        
+
         $currentHistory = $entity->getHistory();
         $newHistory = $currentHistory ? $currentHistory . "\n" . $historyMessage : $historyMessage;
         $entity->setHistory($newHistory);
