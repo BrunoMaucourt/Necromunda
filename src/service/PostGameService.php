@@ -51,34 +51,38 @@ class PostGameService
             // Check for effects
             if (count($dicesRolls) === 2 && $dicesRolls[0] === $dicesRolls[1]) {
                 if ($currentTerritory == TerritoriesEnum::ChemPit) {
-                    $summary .= "  double roll, no incone collected and ganger cause fear  \n";
+                    $summary .= "  double roll, no incone collected and ganger cause fear \n";
                     $dicesResults = 0;
                 } elseif ($currentTerritory == TerritoriesEnum::GamblingDen) {
-                    $summary .= "  double roll, no incone collected  \n";
+                    $summary .= "  double roll, no incone collected \n";
                     $dicesResults = 0;
                 } elseif ($currentTerritory == TerritoriesEnum::SporeCave && $dicesRolls[0] === 1) {
-                    $summary .= "  double roll 1, ganger is sick and can take part to next battle on 4+ with a D6  \n";
+                    $summary .= "  double roll 1, ganger is sick and can take part to next battle on 4+ with a D6 \n";
                 }
             }
 
             if ($currentTerritory == TerritoriesEnum::DrinkingHole) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll == 6) {
-                    $summary .= " +1 or -1 for next scenario table roll  \n";
+                    $summary .= " dice roll " . $diceRoll .", +1 or -1 for next scenario table roll \n";
+                } else {
+                    $summary .= " dice roll " . $diceRoll .", no bonus for next scenario table roll \n";
                 }
             }
 
             if ($currentTerritory == TerritoriesEnum::Settlement) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll == 6) {
-                    $summary .= " recruit for free a juve  \n";
+                    $summary .= " dice roll " . $diceRoll .", recruit a free juve \n";
+                } else {
+                    $summary .= " dice roll " . $diceRoll .", no free juve \n";
                 }
             }
 
             if ($currentTerritory == TerritoriesEnum::MineralOutcrop) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll == 6) {
-                    $summary .= '  ' . $diceRoll * 10 . " credits are added  \n";
+                    $summary .= '  ' . $diceRoll * 10 . " credits are added \n";
                     $gangCreditsGain += $diceRoll * 10;
                 }
             }
@@ -97,24 +101,24 @@ class PostGameService
         if ($game->getWinner() == $currentGang) {
             if ($currentGang->getRating() < $otherGang->getRating()) {
                 $gangRatingDifference = $currentGang->getRating() - $otherGang->getRating();
-                $summary .= "  ----------------------- \n   Giant killer bonus (gang rating difference = ". abs($gangRatingDifference) .")  \n";
+                $summary .= "  ----------------------- \n Giant killer bonus (gang rating difference = ". abs($gangRatingDifference) .") \n";
                 $bonus = $this->getGiantKillerBonus(abs($gangRatingDifference));
                 $gangCreditsGain += $bonus;
                 $summary .= "  ". $bonus ." credits bonus added  \n \n";
             } else {
-                $summary .= "  ----------------------- \n   No giant killer bonus added because winner higher gang rating  \n \n";
+                $summary .= "  ----------------------- \n No giant killer bonus added because winner has higher gang rating \n \n";
             }
         } else {
-            $summary .= "  ----------------------- \n   No giant killer bonus added because the game is loss \n \n";
+            $summary .= "  ----------------------- \n No giant killer bonus added because the game is loss \n \n";
         }
 
         // Calculate Income
-        $summary .= "  ----------------------- \n" . $gangCreditsGain . " credits earn for this game  \n";
+        $summary .= "  ----------------------- \n" . $gangCreditsGain . " credits earn for this game \n";
         $allAliveGangers = $this->entityManager->getRepository(Ganger::class)->findAliveByGang($currentGang->getId());
         $numberOfGanger = count($allAliveGangers);
         $income = $this->getIncomeValue($gangCreditsGain, $numberOfGanger);
         $newCredits = $currentGang->getCredits() + $income;
-        $summary .= $income . " credits keep after income (". $numberOfGanger." gangers in gang) \n ".  $newCredits . " credits at the end of game (Old credits = ". $currentGang->getCredits() . ' + new credits = ' . $income .") \n \n";
+        $summary .= $income . " credits keep after income (". $numberOfGanger." gangers in gang) \n ".  $newCredits . " credits at the end of game (old credits = ". $currentGang->getCredits() . ' + new credits = ' . $income .") \n \n";
 
         $currentGang->setCredits($newCredits);
 
