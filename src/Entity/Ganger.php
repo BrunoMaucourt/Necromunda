@@ -65,7 +65,7 @@ class Ganger
     /**
      * @var Collection<int, Injury>
      */
-    #[ORM\OneToMany(targetEntity: Injury::class, mappedBy: 'victim', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: Injury::class, mappedBy: 'victim', cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $injuries;
 
     /**
@@ -77,13 +77,13 @@ class Ganger
     /**
      * @var Collection<int, Equipement>
      */
-    #[ORM\OneToMany(targetEntity: Equipement::class, mappedBy: 'ganger', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: Equipement::class, mappedBy: 'ganger', cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $equipements;
 
     /**
      * @var Collection<int, Skill>
      */
-    #[ORM\OneToMany(targetEntity: Skill::class, mappedBy: 'ganger', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: Skill::class, mappedBy: 'ganger', cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $skills;
 
     #[ORM\ManyToOne(inversedBy: 'gangers')]
