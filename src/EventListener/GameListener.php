@@ -47,6 +47,7 @@ class GameListener
             /** @var Gang $gang2 */
             $gang2 = $gangRepository->find($session->get('gang2'));
 
+            $scenario = $session->get('scenario');
             $gang1GangersInvolved = $session->get('gang1Injuries');
             $gang2GangersInvolved = $session->get('gang2Injuries');
             $gang1GangersExperiences = $session->get('gang1Experiences');
@@ -57,7 +58,7 @@ class GameListener
             $gang2CreditsBeforeGame = $gang2->getCredits();
 
             // Historic
-            $summary = '';
+            $summary = "";
 
             // Exploited territories
             $gang1Territories = $session->get('gang1Territories');
@@ -123,6 +124,7 @@ class GameListener
             $gang2RatingAfterGame = $gang2->getRating();
 
             // Save game
+            $object->setScenario($scenario);
             $object->setGang1($gang1);
             $object->setGang2($gang2);
             $object->setGang1ratingBeforeGame($gang1RatingBeforeGame);

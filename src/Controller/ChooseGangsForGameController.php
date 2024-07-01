@@ -72,6 +72,7 @@ class ChooseGangsForGameController extends AbstractController
                 ->generateUrl()
             ;
 
+            $session->set('scenario', $data['scenario']);
             $session->set('gang1', $data['gang1']->getId());
             $session->set('gang2', $data['gang2']->getId());
 
