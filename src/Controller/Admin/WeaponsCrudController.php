@@ -136,11 +136,20 @@ class WeaponsCrudController extends AbstractCrudController
 
     public static function checkWeaponsOfCurrentUser(Weapon $weapon, $security): bool
     {
-        if(
-            $weapon->getGanger()->getGang()->getUser() == $security->getUser()
-            || $security->isGranted('ROLE_ADMIN')
-        ) {
+        if( $security->isGranted('ROLE_ADMIN') ) {
             return true;
+        }
+
+        if( $weapon->getGanger() ) {
+            if ( $weapon->getGanger()->getGang()->getUser() == $security->getUser() ) {
+                return true;
+            }
+        }
+
+        if( $weapon->getStash() ) {
+            if ( $weapon->getStash()->getUser() == $security->getUser() ) {
+                return true;
+            }
         }
 
         return false;

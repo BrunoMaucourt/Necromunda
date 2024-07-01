@@ -20,7 +20,7 @@ class Weapon
     private ?WeaponsEnum $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'weapons')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Ganger $ganger = null;
 
     #[ORM\Column]
@@ -32,6 +32,10 @@ class Weapon
     #[ORM\OneToMany(targetEntity: Equipement::class, mappedBy: 'weapon')]
     #[ORM\JoinColumn(nullable: true)]
     private Collection $equipements;
+
+    #[ORM\ManyToOne(inversedBy: 'weapons')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Gang $stash = null;
 
     public function __construct()
     {
@@ -114,6 +118,18 @@ class Weapon
                 $equipement->setWeapon(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStash(): ?Gang
+    {
+        return $this->stash;
+    }
+
+    public function setStash(?Gang $stash): static
+    {
+        $this->stash = $stash;
 
         return $this;
     }
