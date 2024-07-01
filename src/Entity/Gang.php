@@ -64,8 +64,17 @@ class Gang
     /**
      * @var Collection<int, Loot>
      */
-    #[ORM\OneToMany(targetEntity: Loot::class, mappedBy: 'gang')]
+    #[ORM\OneToMany(targetEntity: Loot::class, mappedBy: 'gang',  cascade: ['persist'])]
     private Collection $loots;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $history = "";
+
+    /**
+     * @var Collection<int, Weapon>
+     */
+    #[ORM\OneToMany(targetEntity: Weapon::class, mappedBy: 'stash')]
+    private Collection $weapons;
 
     public function __construct()
     {
@@ -74,6 +83,7 @@ class Gang
         $this->games = new ArrayCollection();
         $this->win = new ArrayCollection();
         $this->loots = new ArrayCollection();
+        $this->weapons = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -316,6 +326,48 @@ class Gang
             // set the owning side to null (unless already changed)
             if ($loot->getGang() === $this) {
                 $loot->setGang(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getHistory(): ?string
+    {
+        return $this->history;
+    }
+
+    public function setHistory(?string $history): static
+    {
+        $this->history = $history;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Weapon>
+     */
+    public function getWeapons(): Collection
+    {
+        return $this->weapons;
+    }
+
+    public function addWeapon(Weapon $weapon): static
+    {
+        if (!$this->weapons->contains($weapon)) {
+            $this->weapons->add($weapon);
+            $weapon->setStash($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWeapon(Weapon $weapon): static
+    {
+        if ($this->weapons->removeElement($weapon)) {
+            // set the owning side to null (unless already changed)
+            if ($weapon->getStash() === $this) {
+                $weapon->setStash(null);
             }
         }
 
