@@ -68,11 +68,10 @@ class ChooseGangsForGameController extends AbstractController
             );
 
             $chooseGangersUrl = $this->adminUrlGenerator
-                ->setRoute('choose_gangers')
+                ->setRoute('choose_scenario')
                 ->generateUrl()
             ;
 
-            $session->set('scenario', $data['scenario']);
             $session->set('gang1', $data['gang1']->getId());
             $session->set('gang2', $data['gang2']->getId());
 

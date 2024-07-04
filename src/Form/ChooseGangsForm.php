@@ -15,13 +15,6 @@ class ChooseGangsForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('scenario', ChoiceType::class, [
-                'choices' => $this->getScenarioChoices(),
-                'label' => 'Choose Scenario',
-                'attr' => [
-                    'class' => 'm-5',
-                ],
-            ])
             ->add('gang1', EntityType::class, [
                 'class' => Gang::class,
                 'choice_label' => 'name',
@@ -39,15 +32,6 @@ class ChooseGangsForm extends AbstractType
                 ],
             ])
         ;
-    }
-
-    private function getScenarioChoices(): array
-    {
-        $choices = [];
-        foreach (ScenariosEnum::cases() as $scenario) {
-            $choices[$scenario->enumToString()] = $scenario;
-        }
-        return $choices;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
