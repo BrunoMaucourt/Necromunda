@@ -15,12 +15,12 @@ class ChooseTerritoriesForm extends AbstractType
             ->add('gang1territories', ChoiceType::class, [
                 'choices' => $options['gang1territories'],
                 'choice_label' => function($territory) {
-                    return $territory->getNameAsString() . '<br>'. $territory->getIncomeAsString() . '<br>'. $territory->getEffect();
+                    return $territory->getNameAsString() . '<br>'. 'credits = ' . $territory->getIncomeAsString() . '<br>'. $territory->getEffect();
                 },
                 'choice_value' => function($territory) {
                     return $territory ? $territory->getId() : '';
                 },
-                'label' => 'Choose Gang 1 Territories (max ' . $options['gang1MaxTerritoriesExploited'] . ')',
+                'label' => "Choose gang 1 territories (max " . $options['gang1MaxTerritoriesExploited'] . ")",
                 'multiple' => true,
                 'expanded' => true,
                 'attr' => [
@@ -30,12 +30,12 @@ class ChooseTerritoriesForm extends AbstractType
             ->add('gang2territories', ChoiceType::class, [
                 'choices' => $options['gang2territories'],
                 'choice_label' => function($territory) {
-                    return $territory->getNameAsString() . '<br>'. $territory->getIncomeAsString() . '<br>'. $territory->getEffect();
+                    return $territory->getNameAsString() . '<br>'. 'credits = ' . $territory->getIncomeAsString() . '<br>'. $territory->getEffect();
                 },
                 'choice_value' => function($territory) {
                     return $territory ? $territory->getId() : '';
                 },
-                'label' => 'Choose Gang 2 Territories (max ' . $options['gang2MaxTerritoriesExploited'] . ')',
+                'label' => "Choose gang 2 territories (max " . $options['gang2MaxTerritoriesExploited'] . ")",
                 'multiple' => true,
                 'expanded' => true,
                 'attr' => [

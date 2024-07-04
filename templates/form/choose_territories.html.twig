@@ -7,34 +7,48 @@
         .form-check-inline + .form-check-inline {
             margin-left: 0 !important;
         }
+        .form-check {
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .form-check-inline {
+            display: flex;
+            align-items: center;
+        }
     </style>
-    <div class="form__container-EasyAdmin">
-        <div class="form__container-input w-100">
-            {{ form_start(form) }}
-            <fieldset class="mb-3 xl">
-                {{ form.gang1territories.vars.label }}
-                <div class="d-flex flex-column justify-content-between" role="group" aria-label="Gang 1 Territories">
-                    {% for child in form.gang1territories %}
-                        <div class="form-check form-check-inline">
-                            {{ form_widget(child) }}
-                            {{ form_label(child, null, {'label_attr': {'class': 'form-check-label'}, 'label_html': true}) }}
+    <div class="d-flex justify-content-center align-content-center w-100 h-100">
+        <div class="d-flex justify-content-between align-content-center p-3">
+            <div class="card bg-light rounded-3 p-3">
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    <fieldset class="mb-3 xl">
+                        {{ form.gang1territories.vars.label }}
+                        <div class="d-flex flex-column justify-content-between" role="group" aria-label="Gang 1 Territories">
+                            {% for child in form.gang1territories %}
+                                <div class="form-check form-check-inline">
+                                    {{ form_widget(child) }}
+                                    {{ form_label(child, null, {'label_attr': {'class': 'form-check-label'}, 'label_html': true}) }}
+                                </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
-                </div>
-            </fieldset>
-            <fieldset class="mb-3">
-                {{ form.gang2territories.vars.label }}
-                <div class="d-flex flex-column justify-content-between" role="group" aria-label="Gang 2 Territories">
-                    {% for child in form.gang2territories %}
-                        <div class="form-check form-check-inline">
-                            {{ form_widget(child) }}
-                            {{ form_label(child, null, {'label_attr': {'class': 'form-check-label'}, 'label_html': true}) }}
+                    </fieldset>
+                    <fieldset class="mb-3">
+                        {{ form.gang2territories.vars.label }}
+                        <div class="d-flex flex-column justify-content-between" role="group" aria-label="Gang 2 Territories">
+                            {% for child in form.gang2territories %}
+                                <div class="form-check form-check-inline">
+                                    {{ form_widget(child) }}
+                                    {{ form_label(child, null, {'label_attr': {'class': 'form-check-label'}, 'label_html': true}) }}
+                                </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
+                    </fieldset>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">Next</button>
+                    </div>
+                    {{ form_end(form) }}
                 </div>
-            </fieldset>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            {{ form_end(form) }}
+            </div>
         </div>
     </div>
 {% endblock %}
