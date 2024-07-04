@@ -157,7 +157,7 @@ class DashboardController extends AbstractDashboardController
             ],
             'Users' => [
                 'url' => $this->adminUrlGenerator
-                            ->setController(WeaponsCrudController::class)
+                            ->setController(UserCrudController::class)
                             ->setAction('index')
                             ->generateUrl(),
                 'icon' => 'fas fa-user',
