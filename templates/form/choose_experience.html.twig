@@ -3,34 +3,46 @@
 {% block content_title %}Experience Details{% endblock %}
 
 {% block main %}
-    <div class="form__container-EasyAdmin">
-        <p>Experience from wounding hit and scenario (experience for survive and undergogs will be calculated automaticly)</p>
-        <div class="form__container-input">
-            {{ form_start(form) }}
-            <fieldset class="mb-3">
-                <legend>Gang 1</legend>
-                <div class="form-group">
-                    {% for child in form.gang1 %}
-                        <div class="form-group d-flex flex-column">
-                            {{ form_label(child) }}
-                            {{ form_widget(child) }}
-                        </div>
-                    {% endfor %}
+    <style>
+        .form-group {
+            justify-content: center;
+            align-items: center;
+        }.form-group input {
+            width: 150px;
+        }
+    </style>
+    <div class="d-flex justify-content-center align-content-center w-100 h-100">
+        <div class="d-flex justify-content-between align-content-center p-3">
+            <div class="card bg-light rounded-3 p-3">
+                <p>Experience from wounding hit and scenario (experience for survive and undergogs will be calculated automaticly)</p>
+                {{ form_start(form) }}
+                <fieldset class="mb-3">
+                    <legend>Gang 1</legend>
+                    <div class="form-group">
+                        {% for child in form.gang1 %}
+                            <div class="form-group d-flex flex-column">
+                                {{ form_label(child) }}
+                                {{ form_widget(child) }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </fieldset>
+                <fieldset class="mb-3">
+                    <legend>Gang 2</legend>
+                    <div class="form-group">
+                        {% for child in form.gang2 %}
+                            <div class="form-group d-flex flex-column">
+                                {{ form_label(child) }}
+                                {{ form_widget(child) }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </fieldset>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Next</button>
                 </div>
-            </fieldset>
-            <fieldset class="mb-3">
-                <legend>Gang 2</legend>
-                <div class="form-group">
-                    {% for child in form.gang2 %}
-                        <div class="form-group d-flex flex-column">
-                            {{ form_label(child) }}
-                            {{ form_widget(child) }}
-                        </div>
-                    {% endfor %}
-                </div>
-            </fieldset>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            {{ form_end(form) }}
+                {{ form_end(form) }}
+            </div>
         </div>
     </div>
 {% endblock %}

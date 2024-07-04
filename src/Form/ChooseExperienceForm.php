@@ -30,7 +30,7 @@ class ChooseExperienceForm extends AbstractType
         $builder->add('gang1', FormType::class, ['label' => false]);
         foreach ($gangers1 as $ganger) {
             $builder->get('gang1')->add($ganger->getId(), IntegerType::class, [
-                'label' => $ganger->getName(),
+                'label' => $ganger->getName() . ' - ' . $ganger->getType()->enumToString(),
                 'data' => 0,
                 'attr' => [
                     'min' => 0,
@@ -49,7 +49,7 @@ class ChooseExperienceForm extends AbstractType
         $builder->add('gang2', FormType::class, ['label' => false]);
         foreach ($gangers2 as $ganger) {
             $builder->get('gang2')->add($ganger->getId(), IntegerType::class, [
-                'label' => $ganger->getName(),
+                'label' => $ganger->getName() . ' - ' . $ganger->getType()->enumToString(),
                 'data' => 0,
                 'attr' => [
                     'min' => 0,
