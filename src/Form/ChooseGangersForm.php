@@ -17,33 +17,36 @@ class ChooseGangersForm extends AbstractType
         /** @var Ganger $gangers2 */
         $gangers2 = $options['gangers2'];
 
+        $allChoices = [
+            'Not involved' => 'not_involved',
+            'Involved and safe' => 'involved_safe',
+            'Involved and injuries' => 'involved_injuries',
+            'Involved and high impact injuries' => 'involved_high_impact_injuries'
+        ];
+
         $builder->add('gang1', FormType::class, ['label' => false]);
         foreach ($gangers1 as $ganger) {
             $builder->get('gang1')->add($ganger->getId(), ChoiceType::class, [
-                'label' => $ganger->getName(),
-                'choices' => [
-                    'Not involved' => 'not_involved',
-                    'Involved and safe' => 'involved_safe',
-                    'Involved and injuries' => 'involved_injuries',
-                    'Involved and high impact injuries' => 'involved_high_impact_injuries'
-                ],
+                'label' => $ganger->getName() . ' - ' . $ganger->getType()->enumToString(),
+                'choices' => $allChoices,
                 'expanded' => true,
-                'multiple' => false
+                'multiple' => false,
+                'attr' => [
+                    'class' => 'mt-2 mb-3',
+                ],
             ]);
         }
 
         $builder->add('gang2', FormType::class, ['label' => false]);
         foreach ($gangers2 as $ganger) {
             $builder->get('gang2')->add($ganger->getId(), ChoiceType::class, [
-                'label' => $ganger->getName(),
-                'choices' => [
-                    'Not involved' => 'not_involved',
-                    'Involved and safe' => 'involved_safe',
-                    'Involved and injuries' => 'involved_injuries',
-                    'Involved and high impact injuries' => 'involved_high_impact_injuries'
-                ],
+                'label' => $ganger->getName() . ' - ' . $ganger->getType()->enumToString(),
+                'choices' => $allChoices,
                 'expanded' => true,
-                'multiple' => false
+                'multiple' => false,
+                'attr' => [
+                    'class' => 'mt-2 mb-3',
+                ],
             ]);
         }
     }
