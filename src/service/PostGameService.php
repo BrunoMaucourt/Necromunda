@@ -427,8 +427,9 @@ class PostGameService
                     $costVariable = '';
                     $costSum = 0;
                     if ($loot == LootEnum::RatskinMap || $loot == LootEnum::MungVase) {
-                        $cost = mt_rand(1, 6) * 10;
-                        $summary .= $loot->enumToString() . " - cost = ".$cost." \n \n";
+                        $dice = mt_rand(1, 6);
+                        $cost = $dice * 10;
+                        $summary .= $loot->enumToString() . " - cost = ".$cost." (" . $dice . " x 10) \n \n";
                     } else {
                         for ($dice = 0; $dice < $loot->getVariableIncome(); $dice++) {
                             $addRoll = mt_rand(1, 6);
