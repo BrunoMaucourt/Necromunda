@@ -11,6 +11,7 @@ use App\Enum\InjuriesEnum;
 use App\Form\ChooseGangersForm;
 use App\Form\ChooseGangsForm;
 use App\Form\ChooseExperienceForm;
+use App\Form\ChooseScenarioForm;
 use App\Form\ChooseTerritoriesForm;
 use App\Repository\GangerRepository;
 use App\service\CheckValueRangeService;
@@ -79,6 +80,76 @@ class ChooseGangsForGameController extends AbstractController
         }
 
         return $this->renderViewAndTemplate($form, 'form/choose_gangs.html.twig');
+    }
+
+    #[Route('/admin/choose-scenario', name: 'choose_scenario')]
+    public function chooseScenario(Request $request, SessionInterface $session): Response
+    {
+        /** @var Gang $gang1 */
+        $gang1 = $this->entityManager->getRepository(Gang::class)->find($session->get('gang1'));
+        /** @var Gang $gang2 */
+        $gang2 = $this->entityManager->getRepository(Gang::class)->find($session->get('gang2'));
+
+        // gang rating
+        if ($gang1->getRating() > $gang2->getRating()) {
+            $higherGangRating = $gang1;
+            $lowerGangRating = $gang2;
+        } else {
+            $higherGangRating = $gang2;
+            $lowerGangRating = $gang1;
+        }
+
+        // battle rolls
+        $gang1NumberOfGangers = count($gang1->getGangers());
+        $gang2NumberOfGangers = count($gang2->getGangers());
+        $battleRolls = [
+          'gang1' => "<h4 class='text-white'>" . $gang1->getName() . "</h4><br>" . $gang1NumberOfGangers . " gangers -> battle roll = " . ceil($gang1NumberOfGangers * 0.25) . " / " . $gang1NumberOfGangers,
+          'gang2' => "<h4 class='text-white'>" . $gang2->getName() . "</h4><br>" . $gang2NumberOfGangers . " gangers -> battle roll = " . ceil($gang2NumberOfGangers * 0.25) . " / " . $gang2NumberOfGangers,
+        ];
+
+        // scenario
+        $dice1RollScenario = mt_rand(1, 6);
+        $dice2RollScenario = mt_rand(1, 6);
+        $dicesRoll = $dice1RollScenario + $dice2RollScenario;
+        $scenarioMessage = "Scenario dice rolls" . $dicesRoll . "(" . $dice1RollScenario . " + " . $dice1RollScenario . ")\n";
+
+        if ($dicesRoll === 2) {
+            $scenarioMessage = "Dices roll (". $dice1RollScenario . " + " . $dice2RollScenario . " = " . $dicesRoll . ") Scenario chooses by player with higher gang rating: ". $higherGangRating ."(wounding hits experience doubled and full recovery convert to bitter ennemy)";
+        } elseif ($dicesRoll === 3 || $dicesRoll === 4) {
+            $scenarioMessage = "Dices roll (". $dice1RollScenario . " + " . $dice2RollScenario . " = " . $dicesRoll . ") Scenario chooses by player with higher gang rating: " . $higherGangRating;
+        } elseif ($dicesRoll === 5 || $dicesRoll === 6) {
+            $scenarioMessage = "Dices roll (". $dice1RollScenario . " + " . $dice2RollScenario . " = " . $dicesRoll . ") Gang fight scenario";
+        } elseif ($dicesRoll === 7 || $dicesRoll === 8 || $dicesRoll === 9 || $dicesRoll === 10 || $dicesRoll === 11) {
+            $scenarioMessage = "Dices roll (". $dice1RollScenario . " + " . $dice2RollScenario . " = " . $dicesRoll . ") Scenario chooses by player with lower gang rating: " . $lowerGangRating;
+        } elseif ($dicesRoll === 12) {
+            $scenarioMessage = "Dices roll (". $dice1RollScenario . " + " . $dice2RollScenario . " = " . $dicesRoll . ") Scenario chooses by player with lower gang rating: ".$lowerGangRating." (wounding hits experience doubled and full recovery convert to bitter ennemy)";
+        }
+
+        $form = $this->createForm(ChooseScenarioForm::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            $this->addFlash(
+                'success',
+                'You have successfully chosen scenario ' . $data['scenario']->enumToString()
+            );
+
+            $chooseGangersUrl = $this->adminUrlGenerator
+                ->setRoute('choose_gangers')
+                ->generateUrl()
+            ;
+
+            $session->set('scenario', $data['scenario']);
+
+            return $this->redirect($chooseGangersUrl);
+        }
+
+        return $this->renderViewAndTemplate($form, 'form/choose_scenario.html.twig', [
+            'battleRolls' => $battleRolls,
+            'scenarioMessage' => $scenarioMessage,
+        ]);
     }
 
     #[Route('/choose-gangers/', name: 'choose_gangers')]
