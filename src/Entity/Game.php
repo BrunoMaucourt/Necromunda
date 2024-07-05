@@ -39,17 +39,11 @@ class Game
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $background = null;
 
-    /**
-     * @var Collection<int, Advancement>
-     */
-    #[ORM\OneToMany(targetEntity: Advancement::class, mappedBy: 'game')]
-    private Collection $advancements;
-
     #[ORM\Column]
     private ?int $gang1RatingBeforeGame = null;
 
     #[ORM\Column]
-    private ?int $gang1RAtingAfterGame = null;
+    private ?int $gang1RatingAfterGame = null;
 
     #[ORM\Column]
     private ?int $gang2RatingBeforeGame = null;
@@ -75,38 +69,35 @@ class Game
     /**
      * @var Collection<int, Advancement>
      */
-    #[ORM\OneToMany(targetEntity: Advancement::class, mappedBy: 'game',  cascade: ['persist'])]
+    #[ORM\OneToMany(targetEntity: Advancement::class, mappedBy: 'game', cascade: ['persist', 'remove'])]
     private Collection $advancements;
 
     /**
      * @var Collection<int, Ganger>
      */
-    #[ORM\ManyToMany(targetEntity: Ganger::class, inversedBy: 'games')]
+    #[ORM\ManyToMany(targetEntity: Ganger::class, inversedBy: 'games', cascade: ['persist'])]
     private Collection $gangers;
 
     /**
      * @var Collection<int, Territory>
      */
-    #[ORM\ManyToMany(targetEntity: Territory::class, inversedBy: 'games')]
+    #[ORM\ManyToMany(targetEntity: Territory::class, inversedBy: 'games', cascade: ['persist', 'remove'])]
     private Collection $territories;
 
     /**
      * @var Collection<int, Injury>
      */
-    #[ORM\ManyToMany(targetEntity: Injury::class, inversedBy: 'games')]
+    #[ORM\ManyToMany(targetEntity: Injury::class, inversedBy: 'games', cascade: ['persist', 'remove'])]
     private Collection $injuries;
 
     /**
-     * @var Collection<int, Skill>
+     * @var Collection<int, Loot>
      */
-    #[ORM\ManyToMany(targetEntity: Skill::class, inversedBy: 'games')]
-    private Collection $skills;
+    #[ORM\OneToMany(targetEntity: Loot::class, mappedBy: 'game', cascade: ['persist', 'remove'])]
+    private Collection $loots;
 
-    #[ORM\Column]
-    private ?int $gang1creditsBeforeGame = null;
-
-    #[ORM\Column]
-    private ?int $gang2creditsBeforeGame = null;
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $history = null;
 
     public function __construct()
     {
@@ -114,12 +105,12 @@ class Game
         $this->gangers = new ArrayCollection();
         $this->territories = new ArrayCollection();
         $this->injuries = new ArrayCollection();
-        $this->skills = new ArrayCollection();
+        $this->loots = new ArrayCollection();
     }
 
     public function __toString(): string
     {
-        return $this->date . ' - ' . $this->scenario->enumToString();
+        return $this->date->format('Y-m-d') . ' - ' . $this->scenario->enumToString();
     }
 
     public function getId(): ?int
@@ -229,14 +220,14 @@ class Game
         return $this;
     }
 
-    public function getGang1RAtingAfterGame(): ?int
+    public function getGang1RatingAfterGame(): ?int
     {
-        return $this->gang1RAtingAfterGame;
+        return $this->gang1RatingAfterGame;
     }
 
-    public function setGang1RAtingAfterGame(int $gang1RAtingAfterGame): static
+    public function setGang1RatingAfterGame(int $gang1RatingAfterGame): static
     {
-        $this->gang1RAtingAfterGame = $gang1RAtingAfterGame;
+        $this->gang1RatingAfterGame = $gang1RatingAfterGame;
 
         return $this;
     }
@@ -265,50 +256,26 @@ class Game
         return $this;
     }
 
-    public function getGang1gain(): ?int
+    public function getGang1creditsAfterGame(): ?int
     {
-        return $this->gang1gain;
+        return $this->gang1creditsAfterGame;
     }
 
-    public function setGang1gain(int $gang1gain): static
+    public function setGang1creditsAfterGame(int $gang1creditsAfterGame): static
     {
-        $this->gang1gain = $gang1gain;
+        $this->gang1creditsAfterGame = $gang1creditsAfterGame;
 
         return $this;
     }
 
-    public function getGang2gain(): ?int
+    public function getGang2creditsAfterGame(): ?int
     {
-        return $this->gang2gain;
+        return $this->gang2creditsAfterGame;
     }
 
-    public function setGang2gain(int $gang2gain): static
+    public function setGang2creditsAfterGame(int $gang2creditsAfterGame): static
     {
-        $this->gang2gain = $gang2gain;
-
-        return $this;
-    }
-
-    public function getGang1loots(): ?string
-    {
-        return $this->gang1loots;
-    }
-
-    public function setGang1loots(string $gang1loots): static
-    {
-        $this->gang1loots = $gang1loots;
-
-        return $this;
-    }
-
-    public function getGang2loots(): ?string
-    {
-        return $this->gang2loots;
-    }
-
-    public function setGang2loots(string $gang2loots): static
-    {
-        $this->gang2loots = $gang2loots;
+        $this->gang2creditsAfterGame = $gang2creditsAfterGame;
 
         return $this;
     }
@@ -359,6 +326,7 @@ class Game
 
     public function addTerritory(Territory $territory): static
     {
+        dump($territory);
         if (!$this->territories->contains($territory)) {
             $this->territories->add($territory);
         }
@@ -397,30 +365,6 @@ class Game
         return $this;
     }
 
-    /**
-     * @return Collection<int, Skill>
-     */
-    public function getSkills(): Collection
-    {
-        return $this->skills;
-    }
-
-    public function addSkill(Skill $skill): static
-    {
-        if (!$this->skills->contains($skill)) {
-            $this->skills->add($skill);
-        }
-
-        return $this;
-    }
-
-    public function removeSkill(Skill $skill): static
-    {
-        $this->skills->removeElement($skill);
-
-        return $this;
-    }
-
     public function getGang1creditsBeforeGame(): ?int
     {
         return $this->gang1creditsBeforeGame;
@@ -441,6 +385,60 @@ class Game
     public function setGang2creditsBeforeGame(int $gang2creditsBeforeGame): static
     {
         $this->gang2creditsBeforeGame = $gang2creditsBeforeGame;
+
+        return $this;
+    }
+
+    public function getSummary(): ?string
+    {
+        return $this->summary;
+    }
+
+    public function setSummary(string $summary): static
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Loot>
+     */
+    public function getLoots(): Collection
+    {
+        return $this->loots;
+    }
+
+    public function addLoots(Loot $loots): static
+    {
+        if (!$this->loots->contains($loots)) {
+            $this->loots->add($loots);
+            $loots->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLoots(Loot $loots): static
+    {
+        if ($this->loots->removeElement($loots)) {
+            // set the owning side to null (unless already changed)
+            if ($loots->getGame() === $this) {
+                $loots->setGame(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getHistory(): ?string
+    {
+        return $this->history;
+    }
+
+    public function setHistory(?string $history): static
+    {
+        $this->history = $history;
 
         return $this;
     }
