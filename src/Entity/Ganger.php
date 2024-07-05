@@ -530,7 +530,7 @@ class Ganger
         return $this->history;
     }
 
-    public function setHistory(string $history): static
+    public function setHistory(?string $history): static
     {
         $this->history = $history;
 
