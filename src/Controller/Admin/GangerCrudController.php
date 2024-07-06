@@ -184,7 +184,8 @@ class GangerCrudController extends AbstractCrudController
                 yield CollectionField::new('weapons')
                     ->setColumns(6)
                     ->hideOnIndex()
-                    ->useEntryCrudForm(WeaponsCrudController::class);
+                    ->useEntryCrudForm(WeaponsCrudController::class)
+                    ->addCssClass('weaponCollectionContainer');
                 yield CollectionField::new('equipements')
                     ->setColumns(6)
                     ->hideOnIndex()

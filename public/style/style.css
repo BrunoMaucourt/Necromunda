@@ -99,3 +99,12 @@
         margin: 10px;
     }
 }
+
+.weaponCollectionContainer .form-fieldset-body.without-header.show .row, .weaponCollectionContainer .form-fieldset-body.without-header.show .row .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.weaponCollectionContainer .form-fieldset-body.without-header.show .row .form-group input, .weaponCollectionContainer .form-fieldset-body.without-header.show .row .form-group select {
+    min-width: 150px;
+}
