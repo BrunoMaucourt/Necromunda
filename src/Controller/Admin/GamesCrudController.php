@@ -2,17 +2,55 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Games;
+use App\EasyAdmin\ScenarioField;
+use App\Entity\Game;
+use App\Enum\ScenariosEnum;
+use App\Repository\GangRepository;
+use Doctrine\ORM\EntityRepository;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class GamesCrudController extends AbstractCrudController
 {
+    private Security $security;
+    private AdminUrlGenerator $adminUrlGenerator;
+
+    private RequestStack $requestStack;
+
+    public function __construct(
+        RequestStack $requestStack,
+        Security $security,
+        GangRepository $gangRepository,
+        AdminUrlGenerator $adminUrlGenerator
+    ){
+        $this->security = $security;
+        $this->requestStack = $requestStack;
+        $this->gangRepository = $gangRepository;
+        $this->adminUrlGenerator = $adminUrlGenerator;
+    }
+
     public static function getEntityFqcn(): string
     {
-        return Games::class;
+        return Game::class;
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->showEntityActionsInlined()
+        ;
     }
 
     public function configureFields(string $pageName): iterable
@@ -255,13 +293,14 @@ class GamesCrudController extends AbstractCrudController
             ->add(Crud::PAGE_INDEX, $customNewGameAction)
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->update(Crud::PAGE_INDEX, Action::DETAIL, function (Action $action) {
-                return $action->setIcon('fa fa-eye');
+                return $action->setIcon('fa fa-eye')
+                    ->setCssClass('btn btn-light btn-remove-margin');
             })
             ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
                 $security = $this->security;
                 return $action
                     ->setIcon('fa fa-pen-to-square')
-
+                    ->setCssClass('btn btn-light btn-remove-margin')
                     ->displayIf(static function ($entity) use ($security) {
                         return self::checkGamesOfCurrentUser($entity, $security);
                     });
@@ -270,6 +309,7 @@ class GamesCrudController extends AbstractCrudController
                 $security = $this->security;
                 return $action
                     ->setIcon('fa fa-trash')
+                    ->addCssClass('btn btn-light btn-remove-margin')
                     ->displayIf(static function ($entity) use ($security) {
                         return self::checkGamesOfCurrentUser($entity, $security);
                     });
@@ -294,7 +334,7 @@ class GamesCrudController extends AbstractCrudController
         ;
     }
 
-    public static function checkGamesOfCurrentUser(Games $game, $security): bool
+    public static function checkGamesOfCurrentUser(Game $game, $security): bool
     {
         if(
             $game->getGang1()->getUser() == $security->getUser()
