@@ -85,11 +85,11 @@ class GangCrudController extends AbstractCrudController
                     ->hideOnIndex();
             } else {
                 yield CollectionField::new('gangers')
-                    ->setColumns(6)
+                    ->setColumns(12)
                     ->hideOnIndex()
                     ->useEntryCrudForm(GangerCrudController::class);
                 yield CollectionField::new('territories')
-                    ->setColumns(6)
+                    ->setColumns(12)
                     ->hideOnIndex()
                     ->useEntryCrudForm(TerritoriesCrudController::class);
             }
