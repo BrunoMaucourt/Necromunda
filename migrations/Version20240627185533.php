@@ -22,7 +22,7 @@ final class Version20240627185533 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE game ADD history LONGTEXT DEFAULT NULL');
         $this->addSql('ALTER TABLE gang ADD history LONGTEXT DEFAULT NULL');
-        $this->addSql('ALTER TABLE ganger CHANGE history history LONGTEXT DEFAULT NULL');
+        $this->addSql('ALTER TABLE ganger ADD history LONGTEXT DEFAULT NULL');
         $this->addSql('ALTER TABLE weapon CHANGE ganger_id ganger_id INT DEFAULT NULL');
     }
 
