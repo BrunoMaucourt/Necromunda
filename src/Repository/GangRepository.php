@@ -16,7 +16,7 @@ class GangRepository extends ServiceEntityRepository
         parent::__construct($registry, Gang::class);
     }
 
-    public function getGangWithHighestRating(): array
+    public function getGangWithHighestRating(): ?array
     {
         return $this->createQueryBuilder('g')
             ->select('g.id, SUM(gr.rating) AS hidden rating')
@@ -29,12 +29,15 @@ class GangRepository extends ServiceEntityRepository
         ;
     }
 
-    public function getGangWithHighestCredits(): array
+    public function getGangWithHighestCredits(): ?array
     {
         return $this->createQueryBuilder('g')
-            ->select('g.id, MAX(g.credits) AS hidden credits')
-            ->getQuery()
-            ->getOneOrNullResult()
+        ->select('g.id, g.credits')
+        ->where('g.credits > 0')
+        ->orderBy('g.credits', 'DESC')
+        ->setMaxResults(1)
+        ->getQuery()
+        ->getOneOrNullResult()
         ;
     }
 }

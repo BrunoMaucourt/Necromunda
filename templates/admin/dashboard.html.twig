@@ -51,30 +51,20 @@
 
     <h2 class="mt-5 mb-4">Statistics</h2>
     <div class="row">
-      <div class="col-md-4 mb-3">
-        <div class="card bg-light rounded-3">
-          <div class="dashboardCard card-body text-dark">
-            <h3 class="card-title">
-              <i class="fas fa-trophy"></i> Highest gang rating
-            </h3>
-            <h4>
-              {{ statistics.highestRating[0].getName }} - {{ statistics.highestRating[0].getRating }}
-            </h4>
+    {% for statistic in statistics %}
+        <div class="col-md-4 mb-3">
+          <div class="card bg-light rounded-3">
+            <div class="dashboardCard card-body text-dark">
+              <h3 class="card-title">
+                <i class="fas fa-trophy"></i> {{ statistic['message'] }}
+              </h3>
+              <h4>
+                {{ statistic['gang'] }} - {{ statistic['data'] }}
+              </h4>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card bg-light rounded-3">
-          <div class="dashboardCard card-body text-dark">
-            <h3 class="card-title">
-              <i class="fas fa-trophy"></i> Highest gang credits
-            </h3>
-            <h4>
-              {{ statistics.highestCredits[0].getName }} - {{ statistics.highestCredits[0].getCredits }}
-            </h4>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 {% endblock %}

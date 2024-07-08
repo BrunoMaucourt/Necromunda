@@ -165,11 +165,33 @@ class DashboardController extends AbstractDashboardController
             ],
         ];
 
+        // Statistics
+        $errorMessageNoData = 'no data';
         $gangRepository = $this->entityManager->getRepository(Gang::class);
 
+        $highestRating['message'] = 'Highest gang rating';
+        if ($gangRepository->getGangWithHighestRating() ==! null) {
+            $gang = $gangRepository->find($gangRepository->getGangWithHighestRating());
+            $highestRating['gang'] = $gang->getName();
+            $highestRating['data'] = $gang->getRatings();
+        } else {
+            $highestRating['gang'] = '';
+            $highestRating['data'] = $errorMessageNoData;
+        };
+
+        $highestCredits['message'] = 'Highest gang credits';
+        if ($gangRepository->getGangWithHighestCredits() ==! null) {
+            $gang = $gangRepository->find($gangRepository->getGangWithHighestCredits());
+            $highestCredits['gang'] = $gang->getName();
+            $highestCredits['data'] = $gang->getCredits();
+        } else {
+            $highestCredits['gang'] = '';
+            $highestCredits['data'] = $errorMessageNoData;
+        };
+
         $statistics = [
-            'highestRating' => $gangRepository->findBy($gangRepository->getGangWithHighestRating()),
-            'highestCredits' => $gangRepository->findBy($gangRepository->getGangWithHighestCredits()),
+            'highestRating' => $highestRating,
+            'highestCredits' => $highestCredits,
         ];
 
         return $this->render('admin/dashboard.html.twig', [
