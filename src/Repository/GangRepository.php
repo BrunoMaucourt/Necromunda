@@ -32,12 +32,12 @@ class GangRepository extends ServiceEntityRepository
     public function getGangWithHighestCredits(): ?array
     {
         return $this->createQueryBuilder('g')
-        ->select('g.id, g.credits')
-        ->where('g.credits > 0')
-        ->orderBy('g.credits', 'DESC')
-        ->setMaxResults(1)
-        ->getQuery()
-        ->getOneOrNullResult()
+            ->select('g.id')
+            ->where('g.credits > 0')
+            ->orderBy('g.credits', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
         ;
     }
 }
