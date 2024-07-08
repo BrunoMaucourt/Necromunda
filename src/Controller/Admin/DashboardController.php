@@ -173,7 +173,7 @@ class DashboardController extends AbstractDashboardController
         if ($gangRepository->getGangWithHighestRating() ==! null) {
             $gang = $gangRepository->find($gangRepository->getGangWithHighestRating());
             $highestRating['gang'] = $gang->getName();
-            $highestRating['data'] = $gang->getRatings();
+            $highestRating['data'] = $gang->getRating();
         } else {
             $highestRating['gang'] = '';
             $highestRating['data'] = $errorMessageNoData;
