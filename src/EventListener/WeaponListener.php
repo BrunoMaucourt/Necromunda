@@ -28,6 +28,7 @@ class WeaponListener
             return;
         }
 
+        $this->updateGangCredits($object);
         $this->removeOrphanWeapon($object);
     }
 
@@ -39,6 +40,7 @@ class WeaponListener
             return;
         }
 
+        $this->updateGangCredits($object);
         $this->removeOrphanWeapon($object);
     }
 
@@ -46,7 +48,7 @@ class WeaponListener
      * @param Weapon $weapon
      * @return void
      */
-    public function removeOrphanWeapon(Weapon $weapon): void
+    private function removeOrphanWeapon(Weapon $weapon): void
     {
         /**
          * $this->entityManager->remove($weapon)
@@ -61,5 +63,17 @@ class WeaponListener
         }
 
         $this->entityManager->commit();
+    }
+
+    private function updateGangCredits(Weapon $weapon)
+    {
+        $ganger = $weapon->getGanger();
+        if ($ganger) {
+            $gang = $ganger->getGang();
+            if ($gang) {
+                $newGangCredits = $gang->getCredits() - $weapon->getCost();
+                $gang->setCredits($newGangCredits);
+            }
+        }
     }
 }
