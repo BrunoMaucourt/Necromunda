@@ -164,11 +164,13 @@ class GangerCrudController extends AbstractCrudController
                 yield CollectionField::new('injuries')
                     ->setColumns(6)
                     ->hideOnIndex()
-                    ->useEntryCrudForm(InjuriesCrudController::class);
+                    ->useEntryCrudForm(InjuriesCrudController::class)
+                    ->addCssClass('crudResponsive');
                 yield CollectionField::new('skills')
                     ->setColumns(6)
                     ->hideOnIndex()
-                    ->useEntryCrudForm(SkillsCrudController::class);
+                    ->useEntryCrudForm(SkillsCrudController::class)
+                    ->addCssClass('crudResponsive');
             }
             yield FormField::addPanel('Weapons and equipements')
                 ->setIcon('fa fa-gun')
@@ -185,11 +187,12 @@ class GangerCrudController extends AbstractCrudController
                     ->setColumns(6)
                     ->hideOnIndex()
                     ->useEntryCrudForm(WeaponsCrudController::class)
-                    ->addCssClass('weaponCollectionContainer');
+                    ->addCssClass('crudResponsive');
                 yield CollectionField::new('equipements')
                     ->setColumns(6)
                     ->hideOnIndex()
-                    ->useEntryCrudForm(EquipementsCrudController::class);
+                    ->useEntryCrudForm(EquipementsCrudController::class)
+                    ->addCssClass('crudResponsive');
             }
             yield FormField::addPanel('Ganger background')
                 ->setIcon('fa fa-book')
