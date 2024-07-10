@@ -6,6 +6,13 @@ namespace App\Enum;
 
 enum WeaponsEnum: string
 {
+    const PISTOLS = 'Pistols';
+    const BASIC_WEAPONS = 'Basic weapons';
+    const SPECIAL_WEAPONS = 'Special weapons';
+    const HEAVY_WEAPONS = 'Heavy weapons';
+    const HAND_TO_HANDS_WEAPONS = 'Hand-to-hands weapons';
+    const GRENADES = 'Grenades';
+
     // Pistols
     case STUB_GUN = 'Stub Gun';
     case AUTOPISTOL = 'Autopistol';
@@ -129,61 +136,61 @@ enum WeaponsEnum: string
     {
         return match ($this) {
             // Pistols
-            WeaponsEnum::STUB_GUN => 'Pistols',
-            WeaponsEnum::AUTOPISTOL => 'Pistols',
-            WeaponsEnum::LASPISTOL => 'Pistols',
-            WeaponsEnum::HAND_FLAMER => 'Pistols',
-            WeaponsEnum::BOLT_PISTOL => 'Pistols',
-            WeaponsEnum::PLASMA_PISTOL => 'Pistols',
-            WeaponsEnum::NEEDLE_PISTOL => 'Pistols',
-            WeaponsEnum::WEB_PISTOL => 'Pistols',
+            WeaponsEnum::STUB_GUN => self::PISTOLS,
+            WeaponsEnum::AUTOPISTOL => self::PISTOLS,
+            WeaponsEnum::LASPISTOL => self::PISTOLS,
+            WeaponsEnum::HAND_FLAMER => self::PISTOLS,
+            WeaponsEnum::BOLT_PISTOL => self::PISTOLS,
+            WeaponsEnum::PLASMA_PISTOL => self::PISTOLS,
+            WeaponsEnum::NEEDLE_PISTOL => self::PISTOLS,
+            WeaponsEnum::WEB_PISTOL => self::PISTOLS,
             // Basic Weapons
-            WeaponsEnum::AUTOGUN => 'Basic weapons',
-            WeaponsEnum::SHOTGUN_SOLID_SLUG => 'Basic weapons',
-            WeaponsEnum::SHOTGUN_SCATTER_SHOT => 'Basic weapons',
-            WeaponsEnum::SHOTGUN_MANSTOPPER => 'Basic weapons',
-            WeaponsEnum::SHOTGUN_HOT_SHOT => 'Basic weapons',
-            WeaponsEnum::SHOTGUN_BOLT => 'Basic weapons',
-            WeaponsEnum::HUNTING_RIFLE => 'Basic weapons',
-            WeaponsEnum::LASGUN => 'Basic weapons',
-            WeaponsEnum::BOLTGUN => 'Basic weapons',
+            WeaponsEnum::AUTOGUN => self::BASIC_WEAPONS,
+            WeaponsEnum::SHOTGUN_SOLID_SLUG => self::BASIC_WEAPONS,
+            WeaponsEnum::SHOTGUN_SCATTER_SHOT => self::BASIC_WEAPONS,
+            WeaponsEnum::SHOTGUN_MANSTOPPER => self::BASIC_WEAPONS,
+            WeaponsEnum::SHOTGUN_HOT_SHOT => self::BASIC_WEAPONS,
+            WeaponsEnum::SHOTGUN_BOLT => self::BASIC_WEAPONS,
+            WeaponsEnum::HUNTING_RIFLE => self::BASIC_WEAPONS,
+            WeaponsEnum::LASGUN => self::BASIC_WEAPONS,
+            WeaponsEnum::BOLTGUN => self::BASIC_WEAPONS,
             // Special Weapons
-            WeaponsEnum::AUTOSLUGGER => 'Special weapons',
-            WeaponsEnum::FLAMER => 'Special weapons',
-            WeaponsEnum::GRENADE_LAUNCHER => 'Special weapons',
-            WeaponsEnum::PLASMA_GUN => 'Special weapons',
-            WeaponsEnum::MELTAGUN => 'Special weapons',
-            WeaponsEnum::NEEDLE_RIFLE => 'Special weapons',
+            WeaponsEnum::AUTOSLUGGER => self::SPECIAL_WEAPONS,
+            WeaponsEnum::FLAMER => self::SPECIAL_WEAPONS,
+            WeaponsEnum::GRENADE_LAUNCHER => self::SPECIAL_WEAPONS,
+            WeaponsEnum::PLASMA_GUN => self::SPECIAL_WEAPONS,
+            WeaponsEnum::MELTAGUN => self::SPECIAL_WEAPONS,
+            WeaponsEnum::NEEDLE_RIFLE => self::SPECIAL_WEAPONS,
             // Heavy Weapons
-            WeaponsEnum::HEAVY_FLAMER => 'Heavy weapons',
-            WeaponsEnum::HEAVY_STUBBER => 'Heavy weapons',
-            WeaponsEnum::HEAVY_BOLTER => 'Heavy weapons',
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => 'Heavy weapons',
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => 'Heavy weapons',
-            WeaponsEnum::HEAVY_PLASMA_GUN => 'Heavy weapons',
-            WeaponsEnum::AUTOCANNON => 'Heavy weapons',
-            WeaponsEnum::LASCANNON => 'Heavy weapons',
+            WeaponsEnum::HEAVY_FLAMER => self::HEAVY_WEAPONS,
+            WeaponsEnum::HEAVY_STUBBER => self::HEAVY_WEAPONS,
+            WeaponsEnum::HEAVY_BOLTER => self::HEAVY_WEAPONS,
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => self::HEAVY_WEAPONS,
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => self::HEAVY_WEAPONS,
+            WeaponsEnum::HEAVY_PLASMA_GUN => self::HEAVY_WEAPONS,
+            WeaponsEnum::AUTOCANNON => self::HEAVY_WEAPONS,
+            WeaponsEnum::LASCANNON => self::HEAVY_WEAPONS,
             // Hand-to-Hand Weapons
-            WeaponsEnum::KNIFE => 'Hand-to-hands weapons',
-            WeaponsEnum::CHAIN_FLAIL => 'Hand-to-hands weapons',
-            WeaponsEnum::CLUB_MAUL_BLUDGEON => 'Hand-to-hands weapons',
-            WeaponsEnum::MASSIVE_WEAPON => 'Hand-to-hands weapons',
-            WeaponsEnum::SWORD => 'Hand-to-hands weapons',
-            WeaponsEnum::CHAIN_SWORD => 'Hand-to-hands weapons',
-            WeaponsEnum::POWER_AXE => 'Hand-to-hands weapons',
-            WeaponsEnum::SHOCK_MAUL => 'Hand-to-hands weapons',
-            WeaponsEnum::POWER_SWORD => 'Hand-to-hands weapons',
-            WeaponsEnum::POWER_FIST => 'Hand-to-hands weapons',
+            WeaponsEnum::KNIFE => self::HAND_TO_HANDS_WEAPONS,
+            WeaponsEnum::CHAIN_FLAIL => self::HAND_TO_HANDS_WEAPONS,
+            WeaponsEnum::CLUB_MAUL_BLUDGEON => self::HAND_TO_HANDS_WEAPONS,
+            WeaponsEnum::MASSIVE_WEAPON => self::HAND_TO_HANDS_WEAPONS,
+            WeaponsEnum::SWORD => self::HAND_TO_HANDS_WEAPONS,
+            WeaponsEnum::CHAIN_SWORD => self::HAND_TO_HANDS_WEAPONS,
+            WeaponsEnum::POWER_AXE => self::HAND_TO_HANDS_WEAPONS,
+            WeaponsEnum::SHOCK_MAUL => self::HAND_TO_HANDS_WEAPONS,
+            WeaponsEnum::POWER_SWORD => self::HAND_TO_HANDS_WEAPONS,
+            WeaponsEnum::POWER_FIST => self::HAND_TO_HANDS_WEAPONS,
             // Grenades
-            WeaponsEnum::SMOKE_BOMBS => 'Grenades',
-            WeaponsEnum::CHOKE_GAS => 'Grenades',
-            WeaponsEnum::SCARE_GAS => 'Grenades',
-            WeaponsEnum::PHOTON_FLARES => 'Grenades',
-            WeaponsEnum::FRAG_GRENADE => 'Grenades',
-            WeaponsEnum::PLASMA_GRENADE => 'Grenades',
-            WeaponsEnum::KRAK_GRENADE => 'Grenades',
-            WeaponsEnum::MELTA_BOMBS => 'Grenades',
-            WeaponsEnum::HALLUCINOGEN_GAS => 'Grenades',
+            WeaponsEnum::SMOKE_BOMBS => self::GRENADES,
+            WeaponsEnum::CHOKE_GAS => self::GRENADES,
+            WeaponsEnum::SCARE_GAS => self::GRENADES,
+            WeaponsEnum::PHOTON_FLARES => self::GRENADES,
+            WeaponsEnum::FRAG_GRENADE => self::GRENADES,
+            WeaponsEnum::PLASMA_GRENADE => self::GRENADES,
+            WeaponsEnum::KRAK_GRENADE => self::GRENADES,
+            WeaponsEnum::MELTA_BOMBS => self::GRENADES,
+            WeaponsEnum::HALLUCINOGEN_GAS => self::GRENADES,
         };
     }
 

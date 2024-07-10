@@ -25,6 +25,9 @@ final class WeaponsField implements FieldInterface
                 'choice_label' => static function (\UnitEnum $choice): string {
                     return $choice->value;
                 },
+                'group_by' => function(WeaponsEnum $choice) {
+                    return $choice->getWeaponType();
+                },
             ])
         ;
     }
