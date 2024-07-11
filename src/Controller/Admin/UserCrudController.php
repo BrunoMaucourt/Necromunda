@@ -39,8 +39,19 @@ class UserCrudController extends AbstractCrudController
         $entityInstance = $this->getContext()->getEntity()->getInstance();
 
         if ($entityInstance == $this->security->getUser() || $this->security->isGranted('ROLE_ADMIN')) {
-            yield TextField::new('password')
-                ->hideOnIndex();
+            $passwordField = TextField::new('temporaryPassword')
+                ->setLabel('Password')
+                ->onlyOnForms()
+                ->setColumns(6)
+                ->setFormTypeOption('required', false);
+
+            if ($pageName === Crud::PAGE_EDIT) {
+                $passwordField->setFormTypeOption('help', 'Leave blank if you don\'t want to change the password');
+            } else {
+                $passwordField->setFormTypeOption('required', true);
+            }
+
+            yield $passwordField;
         }
     }
 

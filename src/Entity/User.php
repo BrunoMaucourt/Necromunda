@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use App\service\PasswordHasherService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -33,6 +35,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    #[ORM\Column]
+    private ?string $temporaryPassword = null;
 
     #[ORM\OneToMany(targetEntity: Gang::class, mappedBy: 'user')]
     private Collection $gang;
@@ -111,6 +116,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTemporaryPassword(): ?string
+    {
+        return null;
+    }
+
+    /**
+     * @param string|null $temporaryPassword
+     */
+    public function setTemporaryPassword(?string $temporaryPassword): void
+    {
+        $this->temporaryPassword = $temporaryPassword;
     }
 
     /**
