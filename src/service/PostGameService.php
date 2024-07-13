@@ -104,7 +104,7 @@ class PostGameService
                 $summary .= "  ----------------------- \n Giant killer bonus (gang rating difference = ". abs($gangRatingDifference) .") \n";
                 $bonus = $this->getGiantKillerBonus(abs($gangRatingDifference));
                 $gangCreditsGain += $bonus;
-                $summary .= "  ". $bonus ." credits bonus added  \n \n";
+                $summary .= "  ". $bonus ." credits bonus added as extra income \n \n";
             } else {
                 $summary .= "  ----------------------- \n No giant killer bonus added because winner has higher gang rating \n \n";
             }
