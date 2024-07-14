@@ -8,6 +8,7 @@ use App\Entity\Weapon;
 use App\Enum\GangerTypeEnum;
 use App\Enum\WeaponsEnum;
 use App\Exception\GangerVerificationFailedException;
+use App\service\HistoryService;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Event\PrePersistEventArgs;
@@ -21,13 +22,17 @@ class GangerListener
 {
     private EntityManagerInterface $entityManager;
 
+    private HistoryService $historyService;
+
     private RequestStack $requestStack;
 
     public function __construct(
         EntityManagerInterface $entityManager,
+        HistoryService $historyService,
         RequestStack $requestStack
     ){
         $this->entityManager = $entityManager;
+        $this->historyService = $historyService;
         $this->requestStack = $requestStack;
     }
     public function prePersist(PrePersistEventArgs $event)
@@ -131,63 +136,10 @@ class GangerListener
         }
 
         $changes = $args->getEntityChangeSet();
-        $historyMessage = "---------------------------------------\n[" . date('Y-m-d H:i:s') . "] Changes:\n";
-
-        foreach ($changes as $field => $change) {
-            if ($field === 'history') {
-                continue;
-            }
-
-            $oldValue = $change[0];
-            $newValue = $change[1];
-            $historyMessage .= sprintf(
-                "Field '%s' changed from '%s' to '%s'\n",
-                $field,
-                $oldValue,
-                $newValue
-            );
-        }
-
-
         $uow = $this->entityManager->getUnitOfWork();
-        $collections = ['weapons', 'equipements', 'advancements', 'skills', 'injuries'];
-
-        foreach ($collections as $collectionName) {
-
-            // Check items add in collections
-            foreach ($uow->getScheduledCollectionUpdates() as $collection) {
-                if ($collection->getOwner() instanceof Ganger && $collection->getMapping()['fieldName'] === $collectionName) {
-                    foreach ($collection->getInsertDiff() as $item) {
-                        $itemName = method_exists($item, '__toString') ? $item->__toString() : get_class($item);
-                        if (
-                            $item instanceof Weapon ||
-                            $item instanceof Equipement
-                        ) {
-                            $itemName .= " - " . $item->getCost() . " credits";
-                        }
-                        $historyMessage .= sprintf(
-                            "%s added: %s\n",
-                            ucfirst($collectionName),
-                            $itemName
-                        );
-                    }
-                }
-            }
-
-            // Check items remove from collections
-            foreach ($uow->getScheduledCollectionUpdates() as $collection) {
-                if ($collection->getOwner() instanceof Ganger && $collection->getMapping()['fieldName'] === $collectionName) {
-                    foreach ($collection->getDeleteDiff() as $item) {
-                        $itemName = method_exists($item, '__toString') ? $item->__toString() : get_class($item);
-                        $historyMessage .= sprintf(
-                            "%s removed: %s\n",
-                            ucfirst($collectionName),
-                            $itemName
-                        );
-                    }
-                }
-            }
-        }
+        $collectionsToCheck = ['games', 'weapons', 'equipements', 'advancements', 'skills', 'injuries'];
+        $historyMessage = $this->historyService->historyMessageFromChanges($changes);
+        $historyMessage .= $this->historyService->historyMessageFromCollections($collectionsToCheck, $uow);
 
         $currentHistory = $entity->getHistory();
         $newHistory = $currentHistory ? $currentHistory . "\n" . $historyMessage : $historyMessage;
