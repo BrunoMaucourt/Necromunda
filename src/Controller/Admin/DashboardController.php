@@ -98,72 +98,76 @@ class DashboardController extends AbstractDashboardController
             ]
         ];
 
-        $linksShowSecondary = [
-            'Advancement' => [
-                'url' => $this->adminUrlGenerator
-                            ->setController(AdvancementCrudController::class)
-                            ->setAction('index')
-                            ->generateUrl(),
-                'icon' => 'fas fa-award',
-                'text' => 'Show all advancements',
-            ],
-            'Equipements' => [
-                'url' => $this->adminUrlGenerator
-                            ->setController(AdvancementCrudController::class)
-                            ->setAction('index')
-                            ->generateUrl(),
-                'icon' => 'fas fa-toolbox',
-                'text' => 'Show all equipements',
-            ],
-            'Injuries' => [
-                'url' => $this->adminUrlGenerator
-                            ->setController(InjuriesCrudController::class)
-                            ->setAction('index')
-                            ->generateUrl(),
-                'icon' => 'fas fa-user-injured',
-                'text' => 'Show all injuries',
-            ],
-            'Loots' => [
-                'url' => $this->adminUrlGenerator
-                            ->setController(LootCrudController::class)
-                            ->setAction('index')
-                            ->generateUrl(),
-                'icon' => 'fas fa-gem',
-                'text' => 'Show all loots',
-            ],
-            'Skills' => [
-                'url' => $this->adminUrlGenerator
-                            ->setController(SkillsCrudController::class)
-                            ->setAction('index')
-                            ->generateUrl(),
-                'icon' => 'fas fa-user-graduate',
-                'text' => 'Show all skills',
-            ],
-            'Territories' => [
-                'url' => $this->adminUrlGenerator
-                            ->setController(TerritoriesCrudController::class)
-                            ->setAction('index')
-                            ->generateUrl(),
-                'icon' => 'fas fa-warehouse',
-                'text' => 'Show all territories',
-            ],
-            'Weapons' => [
-                'url' => $this->adminUrlGenerator
-                            ->setController(WeaponsCrudController::class)
-                            ->setAction('index')
-                            ->generateUrl(),
-                'icon' => 'fas fa-gun',
-                'text' => 'Show all weapons',
-            ],
-            'Users' => [
-                'url' => $this->adminUrlGenerator
-                            ->setController(UserCrudController::class)
-                            ->setAction('index')
-                            ->generateUrl(),
-                'icon' => 'fas fa-user',
-                'text' => 'Show all users',
-            ],
-        ];
+        if ($this->security->isGranted('ROLE_ADMIN')) {
+            $linksShowSecondary = [
+                'Advancement' => [
+                    'url' => $this->adminUrlGenerator
+                        ->setController(AdvancementCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+                    'icon' => 'fas fa-award',
+                    'text' => 'Show all advancements',
+                ],
+                'Equipements' => [
+                    'url' => $this->adminUrlGenerator
+                        ->setController(AdvancementCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+                    'icon' => 'fas fa-toolbox',
+                    'text' => 'Show all equipements',
+                ],
+                'Injuries' => [
+                    'url' => $this->adminUrlGenerator
+                        ->setController(InjuriesCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+                    'icon' => 'fas fa-user-injured',
+                    'text' => 'Show all injuries',
+                ],
+                'Loots' => [
+                    'url' => $this->adminUrlGenerator
+                        ->setController(LootCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+                    'icon' => 'fas fa-gem',
+                    'text' => 'Show all loots',
+                ],
+                'Skills' => [
+                    'url' => $this->adminUrlGenerator
+                        ->setController(SkillsCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+                    'icon' => 'fas fa-user-graduate',
+                    'text' => 'Show all skills',
+                ],
+                'Territories' => [
+                    'url' => $this->adminUrlGenerator
+                        ->setController(TerritoriesCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+                    'icon' => 'fas fa-warehouse',
+                    'text' => 'Show all territories',
+                ],
+                'Weapons' => [
+                    'url' => $this->adminUrlGenerator
+                        ->setController(WeaponsCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+                    'icon' => 'fas fa-gun',
+                    'text' => 'Show all weapons',
+                ],
+                'Users' => [
+                    'url' => $this->adminUrlGenerator
+                        ->setController(UserCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+                    'icon' => 'fas fa-user',
+                    'text' => 'Show all users',
+                ],
+            ];
+        } else {
+            $linksShowSecondary = [];
+        }
 
         // Statistics
         $errorMessageNoData = 'no data';
