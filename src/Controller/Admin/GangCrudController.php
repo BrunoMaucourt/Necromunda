@@ -120,6 +120,14 @@ class GangCrudController extends AbstractCrudController
         yield TextareaField::new('background')
             ->setColumns(12)
             ->hideOnIndex();
+        yield FormField::addPanel('Gang history')
+            ->setIcon('fa-solid fa-clock-rotate-left')
+            ->hideWhenCreating()
+            ->collapsible();
+        yield TextareaField::new('history')
+            ->setColumns(12)
+            ->hideWhenCreating()
+            ->hideOnIndex();
     }
 
     public function configureActions(Actions $actions): Actions

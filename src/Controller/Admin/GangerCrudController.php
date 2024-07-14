@@ -201,7 +201,7 @@ class GangerCrudController extends AbstractCrudController
                 ->setColumns(12)
                 ->hideOnIndex();
 
-            yield FormField::addPanel('Ganger background')
+            yield FormField::addPanel('Ganger history')
                 ->setIcon('fa-solid fa-clock-rotate-left')
                 ->collapsible();
             yield TextareaField::new('history')
