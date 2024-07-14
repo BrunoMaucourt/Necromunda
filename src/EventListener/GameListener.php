@@ -4,29 +4,36 @@ namespace App\EventListener;
 
 use App\Entity\Game;
 use App\Entity\Gang;
+use App\service\HistoryService;
 use App\service\PostGameService;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Event\PrePersistEventArgs;
+use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Events;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 #[AsDoctrineListener(event: Events::prePersist, priority: 500, connection: 'default')]
+#[AsDoctrineListener(event: Events::preUpdate, priority: 500, connection: 'default')]
 class GameListener
 {
-    private PostGameService $gameService;
-
     private EntityManagerInterface $entityManager;
+
+    private HistoryService $historyService;
+
+    private PostGameService $gameService;
 
     private RequestStack $requestStack;
 
     public function __construct(
-        PostGameService $gameService,
         EntityManagerInterface $entityManager,
+        HistoryService $historyService,
+        PostGameService $gameService,
         RequestStack $requestStack
     ){
-        $this->gameService = $gameService;
         $this->entityManager = $entityManager;
+        $this->historyService = $historyService;
+        $this->gameService = $gameService;
         $this->requestStack = $requestStack;
     }
 
@@ -147,5 +154,24 @@ class GameListener
             $session->remove('gang1Experiences');
             $session->remove('gang2Experiences');
         }
+    }
+
+    public function preUpdate(PreUpdateEventArgs $args)
+    {
+        $entity = $args->getObject();
+
+        if (!$entity instanceof Game) {
+            return;
+        }
+
+        $changes = $args->getEntityChangeSet();
+        $uow = $this->entityManager->getUnitOfWork();
+        $collectionsToCheck = ['advancements', 'gangers', 'injuries', 'loots', 'territories'];
+        $historyMessage = $this->historyService->historyMessageFromChanges($changes);
+        $historyMessage .= $this->historyService->historyMessageFromCollections($collectionsToCheck, $uow);
+
+        $currentHistory = $entity->getHistory();
+        $newHistory = $currentHistory ? $currentHistory . "\n" . $historyMessage : $historyMessage;
+        $entity->setHistory($newHistory);
     }
 }

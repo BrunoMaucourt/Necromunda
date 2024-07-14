@@ -278,6 +278,10 @@ class GamesCrudController extends AbstractCrudController
             ->hideWhenCreating()
             ->hideOnIndex()
             ->renderAsHtml();
+        yield TextareaField::new('history')
+            ->setColumns(12)
+            ->hideWhenCreating()
+            ->hideOnIndex();
     }
     public function configureActions(Actions $actions): Actions
     {
