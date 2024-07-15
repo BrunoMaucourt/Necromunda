@@ -8,12 +8,14 @@ use App\service\HistoryService;
 use App\service\PostGameService;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Event\PostPersistEventArgs;
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Events;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 #[AsDoctrineListener(event: Events::prePersist, priority: 500, connection: 'default')]
+#[AsDoctrineListener(event: Events::postPersist, priority: 500, connection: 'default')]
 #[AsDoctrineListener(event: Events::preUpdate, priority: 500, connection: 'default')]
 class GameListener
 {
@@ -24,6 +26,8 @@ class GameListener
     private PostGameService $gameService;
 
     private RequestStack $requestStack;
+
+    private array $territoriesToAdd = [];
 
     public function __construct(
         EntityManagerInterface $entityManager,
@@ -72,11 +76,13 @@ class GameListener
             $summary .= "Territories \n ================ \n Gang 1 \n\n";
             $gang1ExploitedTerritoriesResults = $this->gameService->exploitTerritories($object, $gang1, $gang2, $gang1Territories);
             $summary .= $gang1ExploitedTerritoriesResults['summary'];
+            $this->territoriesToAdd = array_merge($this->territoriesToAdd, $session->get('gang1Territories'));
 
             $gang2Territories = $session->get('gang2Territories');
             $summary .= "================ \n Gang 2 \n\n";
             $gang2ExploitedTerritoriesResults = $this->gameService->exploitTerritories($object, $gang2, $gang1, $gang2Territories);
             $summary .= $gang2ExploitedTerritoriesResults['summary'];
+            $this->territoriesToAdd = array_merge($this->territoriesToAdd, $session->get('gang2Territories'));
 
             // Add injuries
             $summary .= "Injuries \n ================ \n Gang 1 \n\n";
@@ -154,6 +160,19 @@ class GameListener
             $session->remove('gang1Experiences');
             $session->remove('gang2Experiences');
         }
+    }
+
+    public function postPersist(PostPersistEventArgs $event)
+    {
+        $object = $event->getObject();
+
+        if (!$object instanceof Game || empty($this->territoriesToAdd)) {
+            return;
+        }
+
+        $this->gameService->addTerritoriesToGame($object, $this->territoriesToAdd);
+
+        $this->territoriesToAdd = [];
     }
 
     public function preUpdate(PreUpdateEventArgs $args)

@@ -91,10 +91,6 @@ class PostGameService
             $currentGain = $currentTerritory->getFixedIncome() + $dicesResults * $currentTerritory->getVariableIncomeMultiplicator();
             $gangCreditsGain += $currentGain;
             $summary .= "  " . $currentGain . " credits for " . $currentTerritory->enumToString() . " \n \n";
-
-            // Save territory
-            // ToDo fix bug about persist entity
-            //  $game->addTerritory($territory);
         }
 
         // Calculate giant killer
@@ -209,6 +205,7 @@ class PostGameService
 
         return 0;
     }
+
     /**
      * @param int $ganger
      * @return array
@@ -458,5 +455,23 @@ class PostGameService
         return [
             'summary' => $summary,
         ];
+    }
+
+    public function addTerritoriesToGame(Game $game, array $territories): void
+    {
+        $connection = $this->entityManager->getConnection();
+        $queryBuilder = $connection->createQueryBuilder();
+        foreach ($territories as $territory) {
+            $queryBuilder
+                ->insert('game_territory')
+                ->values([
+                    'game_id' => ':game_id',
+                    'territory_id' => ':territory_id',
+                ])
+                ->setParameter('game_id', $game->getId())
+                ->setParameter('territory_id', $territory->getId())
+                ->execute()
+            ;
+        }
     }
 }
