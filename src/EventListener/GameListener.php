@@ -43,10 +43,12 @@ class GameListener
 
     public function prePersist(PrePersistEventArgs $event)
     {
-        /** @var Gang $object */
         $object = $event->getObject();
 
         if ($object instanceof Game && $object->getId() === null) {
+
+            /** @var Game $object */
+            $game = $object;
 
             // Get data from sessions
             $session = $this->requestStack->getSession();
@@ -74,13 +76,13 @@ class GameListener
             // Exploited territories
             $gang1Territories = $session->get('gang1Territories');
             $summary .= "Territories \n ================ \n Gang 1 \n\n";
-            $gang1ExploitedTerritoriesResults = $this->gameService->exploitTerritories($object, $gang1, $gang2, $gang1Territories);
+            $gang1ExploitedTerritoriesResults = $this->gameService->exploitTerritories($game, $gang1, $gang2, $gang1Territories);
             $summary .= $gang1ExploitedTerritoriesResults['summary'];
             $this->territoriesToAdd = array_merge($this->territoriesToAdd, $session->get('gang1Territories'));
 
             $gang2Territories = $session->get('gang2Territories');
             $summary .= "================ \n Gang 2 \n\n";
-            $gang2ExploitedTerritoriesResults = $this->gameService->exploitTerritories($object, $gang2, $gang1, $gang2Territories);
+            $gang2ExploitedTerritoriesResults = $this->gameService->exploitTerritories($game, $gang2, $gang1, $gang2Territories);
             $summary .= $gang2ExploitedTerritoriesResults['summary'];
             $this->territoriesToAdd = array_merge($this->territoriesToAdd, $session->get('gang2Territories'));
 
@@ -88,7 +90,7 @@ class GameListener
             $summary .= "Injuries \n ================ \n Gang 1 \n\n";
             foreach ($gang1GangersInvolved as $gangerID => $gangerStatus) {
                 if ($gangerStatus === 'involved_injuries') {
-                    $result = $this->gameService->addInjury($object, $gangerID);
+                    $result = $this->gameService->addInjury($game, $gangerID);
                     $gang1Injuries = $result['injury'];
                     $summary .= $result['summary'] . "\n";
                 }
@@ -97,7 +99,7 @@ class GameListener
             $summary .= "================ \n Gang 2 \n\n";
             foreach ($gang2GangersInvolved as $gangerID => $gangerStatus) {
                 if ($gangerStatus === 'involved_injuries') {
-                    $result = $this->gameService->addInjury($object, $gangerID);
+                    $result = $this->gameService->addInjury($game, $gangerID);
                     $gang2Injuries = $result['injury'];
                     $summary .= $result['summary'] . "\n";
                 }
@@ -105,31 +107,31 @@ class GameListener
 
             // Add gangers involved and experience
             $summary .= "Gangers \n ================ \n Gang 1 \n\n";
-            $result = $this->gameService->AddExperience($object, $gang1GangersExperiences);
+            $result = $this->gameService->AddExperience($game, $gang1GangersExperiences);
             $summary .= $result['summary'];
             $gang1AdvancementsList = $result['advancementsList'];
 
             $summary .= "================ \n Gang 2 \n\n";
-            $result = $this->gameService->AddExperience($object, $gang2GangersExperiences);
+            $result = $this->gameService->AddExperience($game, $gang2GangersExperiences);
             $summary .= $result['summary'];
             $gang2AdvancementsList = $result['advancementsList'];
 
             // Add advancements
             $summary .= "Advancements \n ================ \n Gang 1 \n\n";
-            $result = $this->gameService->AddAdvancement($gang1AdvancementsList, $object);
+            $result = $this->gameService->AddAdvancement($gang1AdvancementsList, $game);
             $summary .= $result['summary'] . "\n";
 
             $summary .= "================ \n Gang 2\n\n";
-            $result = $this->gameService->AddAdvancement($gang2AdvancementsList, $object);
+            $result = $this->gameService->AddAdvancement($gang2AdvancementsList, $game);
             $summary .= $result['summary'] . "\n";
 
             // Add loots
             $summary .= "Loots\n================\nGang 1 \n\n";
-            $result = $this->gameService->AddLoots($object, $gang1);
+            $result = $this->gameService->AddLoots($game, $gang1);
             $summary .= $result['summary'] . "\n";
 
             $summary .= "================ \n Gang 2 \n\n";
-            $result = $this->gameService->AddLoots($object, $gang2);
+            $result = $this->gameService->AddLoots($game, $gang2);
             $summary .= $result['summary'] . "\n";
 
             // Add gang rating
@@ -137,18 +139,18 @@ class GameListener
             $gang2RatingAfterGame = $gang2->getRating();
 
             // Save game
-            $object->setScenario($scenario);
-            $object->setGang1($gang1);
-            $object->setGang2($gang2);
-            $object->setGang1ratingBeforeGame($gang1RatingBeforeGame);
-            $object->setGang2ratingBeforeGame($gang2RatingBeforeGame);
-            $object->setGang1RatingAfterGame($gang1RatingAfterGame);
-            $object->setGang2RatingAfterGame($gang2RatingAfterGame);
-            $object->setGang1creditsBeforeGame($gang1CreditsBeforeGame);
-            $object->setGang2creditsBeforeGame($gang2CreditsBeforeGame);
-            $object->setGang1creditsAfterGame($gang1->getCredits());
-            $object->setGang2creditsAfterGame($gang2->getCredits());
-            $object->setSummary($summary);
+            $game->setScenario($scenario);
+            $game->setGang1($gang1);
+            $game->setGang2($gang2);
+            $game->setGang1ratingBeforeGame($gang1RatingBeforeGame);
+            $game->setGang2ratingBeforeGame($gang2RatingBeforeGame);
+            $game->setGang1RatingAfterGame($gang1RatingAfterGame);
+            $game->setGang2RatingAfterGame($gang2RatingAfterGame);
+            $game->setGang1creditsBeforeGame($gang1CreditsBeforeGame);
+            $game->setGang2creditsBeforeGame($gang2CreditsBeforeGame);
+            $game->setGang1creditsAfterGame($gang1->getCredits());
+            $game->setGang2creditsAfterGame($gang2->getCredits());
+            $game->setSummary($summary);
 
             // Remove sessions
             $session->remove('gang1');
