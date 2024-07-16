@@ -8,7 +8,9 @@ enum InjuriesEnum: string
 {
     case Dead = 'Dead';
     case MultipleInjuries = 'Multiple injuries';
-    case InfectedWound = 'Infected wound';
+    case InfectedWound1 = 'Infected wound 1 game';
+    case InfectedWound2 = 'Infected wound 2 games';
+    case InfectedWound3 = 'Infected wound 3 games';
     case ChestWound = 'Chest wound';
     case LegWound = 'Leg wound';
     case ArmWound = 'Arm wound';
@@ -31,7 +33,9 @@ enum InjuriesEnum: string
         {
             self::Dead => InjuriesEnum::Dead->value,
             self::MultipleInjuries => InjuriesEnum::MultipleInjuries->value,
-            self::InfectedWound => InjuriesEnum::InfectedWound->value,
+            self::InfectedWound1 => InjuriesEnum::InfectedWound1->value,
+            self::InfectedWound2 => InjuriesEnum::InfectedWound2->value,
+            self::InfectedWound3 => InjuriesEnum::InfectedWound3->value,
             self::ChestWound => InjuriesEnum::ChestWound->value,
             self::LegWound => InjuriesEnum::LegWound->value,
             self::ArmWound => InjuriesEnum::ArmWound->value,
@@ -56,7 +60,9 @@ enum InjuriesEnum: string
         {
             self::Dead => '11-15',
             self::MultipleInjuries => '16-16',
-            self::InfectedWound => '21-21',
+            self::InfectedWound1 => '211-211',
+            self::InfectedWound2 => '212-212',
+            self::InfectedWound3 => '213-213',
             self::ChestWound => '22-22',
             self::LegWound => '23-23',
             self::ArmWound => '24-24',
@@ -81,7 +87,9 @@ enum InjuriesEnum: string
         {
             self::Dead => '',
             self::MultipleInjuries => '',
-            self::InfectedWound => '',
+            self::InfectedWound1 => '',
+            self::InfectedWound2 => '',
+            self::InfectedWound3 => '',
             self::ChestWound => '',
             self::LegWound => '',
             self::ArmWound => '',
