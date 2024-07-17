@@ -215,62 +215,83 @@ class PostGameService
         /** @var Ganger $currentGanger */
         $currentGanger = $this->entityManager->getRepository(Ganger::class)->find($gangerID);
         $dicesRoll = mt_rand(1, 6) . mt_rand(1, 6);
-        $summary = "  - " . $currentGanger->getName() . " \ndices roll = " . $dicesRoll . " \n";
+        $summary = "- " . $currentGanger->getName() . " \n dices roll = " . $dicesRoll . " \n";
+        // multiple injuries
+        if ($dicesRoll == 16) {
+            $rollInjuries = mt_rand(1, 3);
+            $numberOfInjuries = $rollInjuries + 1;
+            $summary .= " multiple injuries \n " . $numberOfInjuries . " injuries to add (dice roll ". $rollInjuries ." + 1 )\n";
+            $injuriesToAdd = 0;
 
-        if ($dicesRoll >= 12 && $dicesRoll <= 15) {
-            $currentGanger->setAlive(false);
-        } elseif ($dicesRoll == 16) {
-            $todo = "todo";
-            //    The fighter isn't dead but has suffered many serious wounds. Roll a further D3+1 times on this chart. All Dead, Multiple Injuries, Captured and Full Recovery results must be rolled again.
-        } elseif ($dicesRoll == 21){
-            $todo = "todo";
-            $numberOfGame = mt_rand(1, 3);
-        } elseif ($dicesRoll == 22){
-            $newToughness = $currentGanger->getToughness() -1;
-            $currentGanger->setToughness($newToughness);
-        } elseif ($dicesRoll == 23){
-            $newMovement = $currentGanger->getMove() -1;
-            $currentGanger->setMove($newMovement);
-        } elseif ($dicesRoll == 24){
-            $newStrength = $currentGanger->getStrength() -1;
-            $currentGanger->setStrength($newStrength);
-        } elseif ($dicesRoll == 25){
-            $headWound = mt_rand(1, 6);
-            if ($headWound <= 3) {
-                $todo = "todo";
-            } else {
-                $todo = "todo";
+            while ($injuriesToAdd < $numberOfInjuries) {
+                $currentDicesRoll = mt_rand(1, 6) . mt_rand(1, 6);
+                if (
+                    ($currentDicesRoll >= 11 && $currentDicesRoll <= 16) ||
+                    ($currentDicesRoll >= 41 && $currentDicesRoll <= 55) ||
+                    ($currentDicesRoll >= 61 && $currentDicesRoll <= 63)
+                ) {
+                    continue;
+                } else {
+                    $injuriesToAdd++;
+                    dump($injuriesToAdd);
+                    $dicesRolls[] = $currentDicesRoll;
+                    $summary .= " Injury " . $injuriesToAdd . " - dices roll = " . $currentDicesRoll . " \n";
+                }
             }
-        } elseif ($dicesRoll == 26){
-            $newBallisticSkill = $currentGanger->getBallisticSkill() -1;
-            $currentGanger->setBallisticSkill($newBallisticSkill);
-        } elseif ($dicesRoll == 31){
-            $newInitiative = $currentGanger->getInitiative() -1;
-            $currentGanger->setInitiative($newInitiative);
-        } elseif ($dicesRoll == 32){
-            $newLeadership = $currentGanger->getLeadership() -1;
-            $currentGanger->setLeadership($newLeadership);
-        } elseif ($dicesRoll == 33){
-            $newWeaponskill = $currentGanger->getWeaponskill() -1;
-            $currentGanger->setWeaponskill($newWeaponskill);
-        } elseif ($dicesRoll == 65){
-            $newLeadership = $currentGanger->getLeadership() +1;
-            $currentGanger->setLeadership($newLeadership);
-        } elseif ($dicesRoll == 66){
-            $newExperience = $currentGanger->getExperience() + mt_rand(1, 6) + mt_rand(1, 6);
-            $currentGanger->setExperience($newExperience);
+        } else {
+            $dicesRolls = [$dicesRoll];
         }
 
         $injuries = InjuriesEnum::cases();
-        foreach ($injuries as $injury) {
-            if ($this->checkValueRangeService->isBetweenOrEqual($injury->getDicesRange(), $dicesRoll)) {
-                $injuryToAdd = new Injury();
-                $injuryToAdd->setName($injury);
-                $injuryToAdd->setVictim($currentGanger);
+        foreach ($dicesRolls as $dicesRoll) {
+            foreach ($injuries as $injury) {
+                // Check infected wound
+                if ($dicesRoll == 21) {
+                    $numberOfGame = mt_rand(1, 3);
+                    $dicesRoll = $dicesRoll . $numberOfGame;
+                    $summary .= " Infected wound - dice roll ". $numberOfGame ." games\n";
+                }
 
-                $summary .= " " . $injury->enumToString() . " is added  \n";
-                $this->entityManager->persist($injuryToAdd);
-                $game->addInjury($injuryToAdd);
+                if ($this->checkValueRangeService->isBetweenOrEqual($injury->getDicesRange(), $dicesRoll)) {
+                    if ($dicesRoll >= 11 && $dicesRoll <= 15) {
+                        $currentGanger->setAlive(false);
+                    } elseif ($dicesRoll == 22){
+                        $newToughness = $currentGanger->getToughness() -1;
+                        $currentGanger->setToughness($newToughness);
+                    } elseif ($dicesRoll == 23){
+                        $newMovement = $currentGanger->getMove() -1;
+                        $currentGanger->setMove($newMovement);
+                    } elseif ($dicesRoll == 24){
+                        $newStrength = $currentGanger->getStrength() -1;
+                        $currentGanger->setStrength($newStrength);
+                    } elseif ($dicesRoll == 26){
+                        $newBallisticSkill = $currentGanger->getBallisticSkill() -1;
+                        $currentGanger->setBallisticSkill($newBallisticSkill);
+                    } elseif ($dicesRoll == 31){
+                        $newInitiative = $currentGanger->getInitiative() -1;
+                        $currentGanger->setInitiative($newInitiative);
+                    } elseif ($dicesRoll == 32){
+                        $newLeadership = $currentGanger->getLeadership() -1;
+                        $currentGanger->setLeadership($newLeadership);
+                    } elseif ($dicesRoll == 33){
+                        $newWeaponskill = $currentGanger->getWeaponskill() -1;
+                        $currentGanger->setWeaponskill($newWeaponskill);
+                    } elseif ($dicesRoll == 65){
+                        $newLeadership = $currentGanger->getLeadership() +1;
+                        $currentGanger->setLeadership($newLeadership);
+                    } elseif ($dicesRoll == 66){
+                        $newExperience = $currentGanger->getExperience() + mt_rand(1, 6) + mt_rand(1, 6);
+                        $currentGanger->setExperience($newExperience);
+                    }
+
+                    $injuryToAdd = new Injury();
+                    $injuryToAdd->setName($injury);
+                    $injuryToAdd->setVictim($currentGanger);
+
+                    $summary .= " " . $injury->enumToString() . " is added  \n";
+                    $this->entityManager->persist($injuryToAdd);
+                    $game->addInjury($injuryToAdd);
+                }
             }
         }
 
