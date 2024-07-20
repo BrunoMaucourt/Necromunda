@@ -93,6 +93,12 @@ class GangCrudController extends AbstractCrudController
                     ->hideOnIndex()
                     ->useEntryCrudForm(TerritoriesCrudController::class);
             }
+            yield FormField::addPanel('Weapons stash')
+                ->setIcon('fa fa-gun')
+                ->collapsible();
+            yield CollectionField::new('weapons')
+                ->setColumns(6)
+                ->hideOnIndex();
             yield FormField::addPanel('Gang fights')
                 ->setIcon('fa fa-dice')
                 ->collapsible();
