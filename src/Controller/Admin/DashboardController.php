@@ -20,6 +20,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -246,5 +247,16 @@ class DashboardController extends AbstractDashboardController
             ->addMenuItems([
                 MenuItem::linkToUrl('Settings', 'fa fa-cog', $urlCurrentUserEditPage),
         ]);
+    }
+
+    #[Route('/admin-context/{route}/{id}', name: 'admin-context')]
+    public function adminContext(string $route, int $id): RedirectResponse
+    {
+        $url = $this->adminUrlGenerator
+            ->setRoute($route, ['id' => $id])
+            ->generateUrl()
+        ;
+
+        return $this->redirect($url);
     }
 }

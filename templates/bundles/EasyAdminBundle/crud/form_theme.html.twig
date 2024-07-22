@@ -42,6 +42,15 @@
                                     <a href="{{ path('add_weapon_in_stash', {'id': value.id}) }}" class="btn btn-primary">Add to stash</a>
                                 {% endif %}
                             {% endif %}
+
+                            {%
+                                if "_Gang_weapons_entry" in block_prefixes
+                            %}
+                                {% if data is not null %}
+                                    <a href="{{ path('admin-context', {'route': 'remove_weapon_from_stash', 'id': data.id
+                                    }) }}" class="btn btn-primary">Add to a ganger</a>
+                                {% endif %}
+                            {% endif %}
                             {{ form_widget(form) }}
                         </div>
                     </div>
