@@ -61,18 +61,24 @@ class InjuriesCrudController extends AbstractCrudController
                     'data' => $victim,
                 ]);
         } else {
-            yield AssociationField::new('victim')
-                ->setColumns(4)
-                ->setFormTypeOptions([
-                    'query_builder' => function (EntityRepository $er)  {
-                        return $er->createQueryBuilder('g')
-                            ->join('g.gang', 'gang')
-                            ->where('gang.user = :user')
-                            ->setParameter('user', $this->getUser())
-                            ;
-                    },
-                ])
-            ;
+            if ($this->security->isGranted('ROLE_ADMIN')) {
+                yield AssociationField::new('victim')
+                    ->setColumns(4)
+                ;
+            } else {
+                yield AssociationField::new('victim')
+                    ->setColumns(4)
+                    ->setFormTypeOptions([
+                        'query_builder' => function (EntityRepository $er)  {
+                            return $er->createQueryBuilder('g')
+                                ->join('g.gang', 'gang')
+                                ->where('gang.user = :user')
+                                ->setParameter('user', $this->getUser())
+                                ;
+                        },
+                    ])
+                ;
+            }
         }
         yield AssociationField::new('author')
             ->setColumns(4);

@@ -61,18 +61,24 @@ class SkillsCrudController extends AbstractCrudController
                     'data' => $ganger,
                 ]);
         } else {
-            yield AssociationField::new('ganger')
-                ->setColumns(4)
-                ->setFormTypeOptions([
-                    'query_builder' => function (EntityRepository $er)  {
-                        return $er->createQueryBuilder('g')
-                            ->join('g.gang', 'gang')
-                            ->where('gang.user = :user')
-                            ->setParameter('user', $this->getUser())
+            if ($this->security->isGranted('ROLE_ADMIN')) {
+                yield AssociationField::new('ganger')
+                    ->setColumns(4)
+                ;
+            } else {
+                yield AssociationField::new('ganger')
+                    ->setColumns(4)
+                    ->setFormTypeOptions([
+                        'query_builder' => function (EntityRepository $er)  {
+                            return $er->createQueryBuilder('g')
+                                ->join('g.gang', 'gang')
+                                ->where('gang.user = :user')
+                                ->setParameter('user', $this->getUser())
                             ;
-                    },
-                ])
-            ;
+                        },
+                    ])
+                ;
+            }
         }
     }
     public function configureActions(Actions $actions): Actions
