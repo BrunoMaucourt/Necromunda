@@ -249,11 +249,11 @@ class DashboardController extends AbstractDashboardController
         ]);
     }
 
-    #[Route('/admin-context/{route}/{id}', name: 'admin-context')]
-    public function adminContext(string $route, int $id): RedirectResponse
+    #[Route('/admin-context/{route}/{id}/{type}', name: 'admin-context')]
+    public function adminContext(string $route, int $id, string $type = ''): RedirectResponse
     {
         $url = $this->adminUrlGenerator
-            ->setRoute($route, ['id' => $id])
+            ->setRoute($route, ['id' => $id, 'type' => $type])
             ->generateUrl()
         ;
 

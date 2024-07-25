@@ -39,7 +39,8 @@
                                 or "_Gang_gangers_entry_weapons_entry" in block_prefixes
                             %}
                                 {% if value is not null %}
-                                    <a href="{{ path('add_weapon_in_stash', {'id': value.id}) }}" class="btn btn-primary">Add to stash</a>
+                                    <a href="{{ path('add_weapon_in_stash', {'id': value.id}) }}" class="btn btn-primary my-2"><i class="fa-solid fa-warehouse"></i> Add to stash</a>
+                                    <a href="{{ path('admin-context', {'route': 'sell_item', 'id': data.id, 'type': 'weapon' }) }}" class="btn btn-danger my-2"><i class="fa-solid fa-sack-dollar"></i> Sell weapon</a>
                                 {% endif %}
                             {% endif %}
 
