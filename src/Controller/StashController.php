@@ -49,7 +49,7 @@ class StashController extends AbstractController
 
         $this->addFlash(
             'success',
-            'Weapon: '. $weapon->getName().' is added to stash'
+            'Weapon: '. $weapon->getName()->enumToString() .' is added to stash'
         );
 
         $chooseGangURL = $this->adminUrlGenerator
