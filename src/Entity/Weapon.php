@@ -41,6 +41,8 @@ class Weapon
     #[ORM\JoinColumn(nullable: true)]
     private ?Gang $stash = null;
 
+    private ?bool $free = false;
+
     public function __construct()
     {
         $this->equipements = new ArrayCollection();
@@ -145,6 +147,18 @@ class Weapon
     public function setStash(?Gang $stash): static
     {
         $this->stash = $stash;
+
+        return $this;
+    }
+
+    public function isFree(): ?bool
+    {
+        return $this->free;
+    }
+
+    public function setFree(bool $free): static
+    {
+        $this->free = $free;
 
         return $this;
     }

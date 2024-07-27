@@ -28,7 +28,13 @@ class WeaponListener
             return;
         }
 
-        $this->updateGangCredits($object);
+        $weaponCost = $object->getName()->getWeaponFixedCost();
+        $object->setCost($weaponCost);
+
+        if (!$object->isFree()) {
+            $this->updateGangCredits($object);
+        }
+
         $this->removeOrphanWeapon($object);
     }
 

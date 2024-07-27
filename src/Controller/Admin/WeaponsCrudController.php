@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use Symfony\Bundle\SecurityBundle\Security;
 
@@ -62,7 +63,11 @@ class WeaponsCrudController extends AbstractCrudController
                         ;
                     },
                     'data' => $ganger,
-                ]);
+                ])
+            ;
+            yield BooleanField::new('free')
+                ->setColumns(4)
+            ;
         } else {
             if ($this->security->isGranted('ROLE_ADMIN')) {
                 yield AssociationField::new('ganger')
@@ -82,6 +87,9 @@ class WeaponsCrudController extends AbstractCrudController
                     ])
                 ;
             }
+            yield IntegerField::new('cost')
+                ->setColumns(4)
+            ;
         }
         yield AssociationField::new('equipements')
             ->setColumns(4)
@@ -95,8 +103,10 @@ class WeaponsCrudController extends AbstractCrudController
                         ->setParameter('user', $this->getUser());
                 },
             ]);
-        yield IntegerField::new('cost')
-            ->setColumns(4);
+        yield BooleanField::new('free')
+            ->setColumns(4)
+            ->onlyWhenCreating()
+        ;
     }
     public function configureActions(Actions $actions): Actions
     {
