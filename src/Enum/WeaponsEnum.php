@@ -198,7 +198,7 @@ enum WeaponsEnum: string
     {
         return match ($this) {
             // Pistols
-            WeaponsEnum::STUB_GUN => 120,
+            WeaponsEnum::STUB_GUN => 12,
             WeaponsEnum::AUTOPISTOL => 15,
             WeaponsEnum::LASPISTOL => 15,
             WeaponsEnum::HAND_FLAMER => 25,
