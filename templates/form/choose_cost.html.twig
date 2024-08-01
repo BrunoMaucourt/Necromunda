@@ -1,0 +1,19 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}Choose variable cost{% endblock %}
+
+{% block main %}
+    <div class="d-flex justify-content-center align-content-center w-100 h-100">
+        <div class="d-flex justify-content-between align-content-center p-3">
+            <div class="card bg-light rounded-3 p-3">
+                <p class="mb-3">Choose variable cost for {{ weapon.getName.enumToString }}</p>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-primary">Pay</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

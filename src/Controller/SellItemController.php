@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Controller\Admin\GangCrudController;
 use App\Entity\Equipement;
 use App\Entity\Weapon;
-use App\Form\ChooseYesNoForm;
+use App\Form\ChooseCost;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -47,7 +47,7 @@ class SellItemController extends AbstractController
         $cost = $item->getCost();
         $creditsToEarn = round($cost / 2);
 
-        $form = $this->createForm(ChooseYesNoForm::class, null, []);
+        $form = $this->createForm(ChooseCost::class, null, []);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
