@@ -81,10 +81,10 @@ composer install
 ## Configuration
 
 
-### .env file
+### .env.local file
 
 
-Create a .env file at the root of the project based on the .env.example file. Update the database connection information:
+Create a .env.local file at the root of the project for installation-specific variables and specify the database URL:
 
 
 ``` bash
@@ -241,13 +241,10 @@ composer install
 ## Configuration
 
 
-### Fichier .env
+### Fichier .env.local
 
 
-Créez un fichier .env à la racine du projet en vous basant sur le fichier .env example. Mettez à jour les informations de connexion à la base de données :
-
-
-###  .env
+Créez un fichier .env.local à la racine du projet pour les variables spécifiques à l'installation et spécifiez l'URL de la base de données :
 
 
 ``` bash
