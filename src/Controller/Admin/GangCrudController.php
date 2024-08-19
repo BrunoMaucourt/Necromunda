@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\EasyAdmin\HouseField;
 use App\Entity\Gang;
+use App\Entity\Loot;
 use App\Enum\HouseEnum;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -42,6 +43,12 @@ class GangCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        $gang = $this->getContext()->getEntity()->getInstance();
+
+        if ($gang instanceof Gang) {
+            $gangId = $gang->getId() ? $gang->getId() : null;
+        }
+
         yield HouseField::new('house', 'House')
             ->formatValue(static function (HouseEnum $houseEnum): string {
                 return $houseEnum->enumToString();
@@ -99,6 +106,14 @@ class GangCrudController extends AbstractCrudController
             yield CollectionField::new('weapons')
                 ->setColumns(6)
                 ->hideOnIndex();
+            yield FormField::addPanel('Loots')
+                ->setIcon('fa fa-gem')
+                ->collapsible();
+            yield CollectionField::new('loots')
+                ->hideWhenCreating()
+                ->hideOnIndex()
+                ->setColumns(12)
+                ->useEntryCrudForm(LootCrudController::class);
             yield FormField::addPanel('Gang fights')
                 ->setIcon('fa fa-dice')
                 ->collapsible();
