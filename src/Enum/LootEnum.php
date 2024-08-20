@@ -6,6 +6,10 @@ namespace App\Enum;
 
 enum LootEnum: string
 {
+    const EQUIPMENT_FOR_GANGER = 'Equipment for ganger';
+    const EQUIPMENT_FOR_WEAPON = 'Equipment for weapon';
+    const WEAPON = 'Weapon';
+    
     case PowerWeaponPowerSword = 'Power Weapon - Power Sword';
     case PowerWeaponPowerAxe = 'Power Weapon - Power Axe';
     case PowerWeaponPowerFist = 'Power Weapon - Power Fist';
@@ -275,6 +279,59 @@ enum LootEnum: string
             self::StingerPouch => 3,
             self::RatskinMap => 0,
             self::MungVase => 0,
+        };
+    }
+
+    public function getType(): string
+    {
+        return match($this) {
+            self::PowerWeaponPowerSword => self::WEAPON,
+            self::PowerWeaponPowerAxe => self::WEAPON,
+            self::PowerWeaponPowerFist => self::WEAPON,
+            self::RareWeaponNeedleRifle => self::WEAPON,
+            self::RareWeaponNeedlePistol => self::WEAPON,
+            self::RareWeaponWebPistol => self::WEAPON,
+            self::RareWeaponOneInAMillionWeapon => self::EQUIPMENT_FOR_WEAPON,
+            self::GasGrenadesChoke => self::WEAPON,
+            self::GasGrenadesScare => self::WEAPON,
+            self::GasGrenadesHallucinogen => self::WEAPON,
+            self::GrenadesMeltaBombs => self::WEAPON,
+            self::GrenadesPhotonFlashFlares => self::WEAPON,
+            self::GrenadesPlasmaGrenades => self::WEAPON,
+            self::GrenadesSmokeBombs => self::WEAPON,
+            self::AmmoHotshotLaserPowerPacks => self::EQUIPMENT_FOR_WEAPON,
+            self::AmmoDrumMagazine => self::EQUIPMENT_FOR_WEAPON,
+            self::AmmoHellfireBolts => self::EQUIPMENT_FOR_WEAPON,
+            self::GunsightRedDotLaser => self::EQUIPMENT_FOR_WEAPON,
+            self::GunsightMonoSight => self::EQUIPMENT_FOR_WEAPON,
+            self::GunsightTelescopicSight => self::EQUIPMENT_FOR_WEAPON,
+            self::GunsightInfraRedSight => self::EQUIPMENT_FOR_WEAPON,
+            self::HeavyGearAutoRepairer => self::EQUIPMENT_FOR_GANGER,
+            self::HeavyGearSuspensor => self::EQUIPMENT_FOR_GANGER,
+            self::ArmourFlak => self::EQUIPMENT_FOR_GANGER,
+            self::ArmourMesh => self::EQUIPMENT_FOR_GANGER,
+            self::ExoticArmourCarapace => self::EQUIPMENT_FOR_GANGER,
+            self::ExoticArmourForceField => self::EQUIPMENT_FOR_GANGER,
+            self::MediPack => self::EQUIPMENT_FOR_GANGER,
+            self::IsotropicFuelRod => self::EQUIPMENT_FOR_GANGER,
+            self::Bionic => self::EQUIPMENT_FOR_GANGER,
+            self::SkullChip => self::EQUIPMENT_FOR_GANGER,
+            self::ShockMaul => self::WEAPON,
+            self::Grapnel => self::EQUIPMENT_FOR_GANGER,
+            self::GravChute => self::EQUIPMENT_FOR_GANGER,
+            self::BioScanner => self::EQUIPMENT_FOR_GANGER,
+            self::BioBooster => self::EQUIPMENT_FOR_GANGER,
+            self::ConcealedBlade => self::EQUIPMENT_FOR_GANGER,
+            self::Respirator => self::EQUIPMENT_FOR_GANGER,
+            self::PhotoVisor => self::EQUIPMENT_FOR_GANGER,
+            self::BerserkerChip => self::EQUIPMENT_FOR_GANGER,
+            self::BlindSnakePouch => self::EQUIPMENT_FOR_GANGER,
+            self::InfraRedGoggles => self::EQUIPMENT_FOR_GANGER,
+            self::RaidGearSilencer => self::EQUIPMENT_FOR_WEAPON,
+            self::RaidGearScreamersOrStummers => self::EQUIPMENT_FOR_GANGER,
+            self::StingerPouch => self::EQUIPMENT_FOR_GANGER,
+            self::RatskinMap => self::EQUIPMENT_FOR_GANGER,
+            self::MungVase => self::EQUIPMENT_FOR_GANGER,
         };
     }
 }
