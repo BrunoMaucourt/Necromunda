@@ -6,7 +6,7 @@ use App\Controller\Admin\GangCrudController;
 use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Entity\Weapon;
-use App\Form\selectGangerForItems;
+use App\Form\SelectGangerForItems;
 use App\Form\ChooseScenarioForm;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
@@ -69,7 +69,7 @@ class StashController extends AbstractController
         $gang = $weapon->getStash();
         $allGangersAvailable = $gangerRepo->findAliveByGang($gang->getId());
 
-        $form = $this->createForm(selectGangerForItems::class, null, ['gangers' => $allGangersAvailable]);
+        $form = $this->createForm(SelectGangerForItems::class, null, ['gangers' => $allGangersAvailable]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

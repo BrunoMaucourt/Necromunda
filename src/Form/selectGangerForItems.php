@@ -10,7 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\Ganger;
 
-class selectGangerForItems extends AbstractType
+class SelectGangerForItems extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
