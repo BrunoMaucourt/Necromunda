@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\LootEnum;
 use App\Repository\LootRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -14,7 +15,7 @@ class Loot
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private ?LootEnum $name = null;
 
     #[ORM\Column]
     private ?int $cost = null;
@@ -29,7 +30,7 @@ class Loot
 
     public function __toString(): string
     {
-        return $this->name;
+        return $this->name->enumToString();
     }
 
     public function getId(): ?int
@@ -37,12 +38,12 @@ class Loot
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): ?LootEnum
     {
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(LootEnum $name): static
     {
         $this->name = $name;
 
