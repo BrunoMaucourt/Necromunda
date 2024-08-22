@@ -15,4 +15,16 @@ class WeaponsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Weapon::class);
     }
+
+    public function findAllWeaponsByGang(int $gangId)
+    {
+        return $this->createQueryBuilder('g')
+            ->leftjoin('g.ganger', 'f')
+            ->where('g.stash = :gangId')
+            ->orWhere('f.gang = :gangId')
+            ->setParameter('gangId', $gangId)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
