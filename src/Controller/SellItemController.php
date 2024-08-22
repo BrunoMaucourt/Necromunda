@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Controller\Admin\GangCrudController;
-use App\Entity\Equipement;
 use App\Entity\Weapon;
 use App\Form\ChooseCost;
 use Doctrine\ORM\EntityManagerInterface;

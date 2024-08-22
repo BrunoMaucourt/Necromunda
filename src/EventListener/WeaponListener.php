@@ -2,7 +2,6 @@
 
 namespace App\EventListener;
 
-use App\Controller\Admin\DashboardController;
 use App\Entity\Weapon;
 use App\service\WeaponService;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;

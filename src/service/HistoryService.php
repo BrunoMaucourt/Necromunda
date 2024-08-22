@@ -2,17 +2,9 @@
 
 namespace App\service;
 
-use App\Entity\Advancement;
 use App\Entity\Equipement;
-use App\Entity\Gang;
 use App\Entity\Ganger;
-use App\Entity\Injury;
-use App\Entity\Loot;
-use App\Entity\Territory;
 use App\Entity\Weapon;
-use App\Enum\ScenariosEnum;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\UnitOfWork;
 
 class HistoryService

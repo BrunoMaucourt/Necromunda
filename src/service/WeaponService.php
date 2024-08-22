@@ -5,7 +5,6 @@ namespace App\service;
 use App\Entity\Gang;
 use App\Entity\Weapon;
 use Doctrine\ORM\EntityManagerInterface;
-use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
 class WeaponService
 {

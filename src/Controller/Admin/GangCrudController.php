@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\EasyAdmin\HouseField;
 use App\Entity\Gang;
-use App\Entity\Loot;
 use App\Enum\HouseEnum;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;

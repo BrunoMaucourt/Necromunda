@@ -2,7 +2,6 @@
 
 namespace App\EventListener;
 
-use App\Entity\Equipement;
 use App\Entity\Ganger;
 use App\Entity\Weapon;
 use App\Enum\GangerTypeEnum;
