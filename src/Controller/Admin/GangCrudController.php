@@ -104,7 +104,8 @@ class GangCrudController extends AbstractCrudController
                 ->collapsible();
             yield CollectionField::new('weapons')
                 ->setColumns(6)
-                ->hideOnIndex();
+                ->hideOnIndex()
+                ->allowAdd(false);
             yield FormField::addPanel('Loots')
                 ->setIcon('fa fa-gem')
                 ->collapsible();
