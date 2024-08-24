@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
@@ -153,12 +154,19 @@ class GangCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
+        $downloadGangSheet = Action::new('downloadGangSheetAction', 'Download')
+            ->setIcon('fa-solid fa-download')
+            ->addCssClass('btn btn-light btn-remove-margin')
+            ->linkToCrudAction('downloadGangSheet')
+       ;
+
         return $actions
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->update(Crud::PAGE_INDEX, Action::DETAIL, function (Action $action) {
                 return $action->setIcon('fa fa-eye')
                     ->setCssClass('btn btn-light btn-remove-margin');
             })
+            ->add(Crud::PAGE_INDEX, $downloadGangSheet)
             ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
                 $security = $this->security;
                 return $action
@@ -206,5 +214,16 @@ class GangCrudController extends AbstractCrudController
         }
 
         return false;
+    }
+
+    public function downloadGangSheet(AdminContext $context)
+    {
+        $entity = $context->getEntity()->getInstance();
+
+        $url = $this->generateUrl('generate_gang_table', [
+            'id' => $entity->getId()
+        ]);
+
+        return $this->redirect($url);
     }
 }
