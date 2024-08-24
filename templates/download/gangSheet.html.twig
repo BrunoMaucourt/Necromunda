@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Gang Sheet - {{ gang.name }}</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                font-size: 12px;
+            }
+            h1, h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .gang-info, .territories, .gangers {
+                margin-bottom: 20px;
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .gang-info th, .gang-info td,
+            .territories th, .territories td,
+            .gangers th, .gangers td {
+                padding: 6px;
+                text-align: left;
+                border: 1px solid #ccc;
+            }
+            .gang-info th, .territories th, .gangers th {
+                background-color: #f4f4f4;
+            }
+            .ganger-details {
+                text-align: left;
+            }
+            .numeric {
+                text-align: center;
+            }
+
+            @media print {
+                body {
+                    margin: 10mm;
+                }
+                table, th, td {
+                    font-size: 10px;
+                }
+                h1 {
+                    font-size: 18px;
+                }
+                h2 {
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+
+                .gang-info {
+                    page-break-after: avoid;
+                }
+                .territories {
+                    page-break-after: avoid;
+                }
+                .gangers {
+                    page-break-inside: auto;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+    <h1>{{ gang.name }}</h1>
+
+    <h2>Gang Information</h2>
+    <table class="gang-info">
+        <thead>
+        <tr>
+            <th>Credits</th>
+            <th>Active</th>
+            <th>House</th>
+            <th>Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ gang.credits }}</td>
+            <td>{{ gang.active ? 'Yes' : 'No' }}</td>
+            <td>{{ gang.house.enumToString }}</td>
+            <td>{{ gang.rating }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Territories</h2>
+    <table class="territories">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Effects</th>
+            <th>Credits</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for territory in gang.territories %}
+            <tr>
+                <td>{{ territory.name.enumToString }}</td>
+                <td>{{ territory.getEffect | default('None') }}</td>
+                <td>{{ territory.incomeAsString }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Gangers</h2>
+    <table class="gangers">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th class="numeric">M</th>
+            <th class="numeric">WS</th>
+            <th class="numeric">BS</th>
+            <th class="numeric">S</th>
+            <th class="numeric">T</th>
+            <th class="numeric">W</th>
+            <th class="numeric">I</th>
+            <th class="numeric">A</th>
+            <th class="numeric">L</th>
+            <th class="numeric">Exp</th>
+            <th class="numeric">Cost</th>
+            <th class="numeric">Rating</th>
+            <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ganger in gang.gangers %}
+            <tr>
+                <td>{{ ganger.name }}</td>
+                <td>{{ ganger.type.enumToString }}</td>
+                <td class="numeric">{{ ganger.move }}</td>
+                <td class="numeric">{{ ganger.weaponSkill }}</td>
+                <td class="numeric">{{ ganger.ballisticSkill }}</td>
+                <td class="numeric">{{ ganger.strength }}</td>
+                <td class="numeric">{{ ganger.toughness }}</td>
+                <td class="numeric">{{ ganger.wounds }}</td>
+                <td class="numeric">{{ ganger.initiative }}</td>
+                <td class="numeric">{{ ganger.attacks }}</td>
+                <td class="numeric">{{ ganger.leadership }}</td>
+                <td class="numeric">{{ ganger.experience }}</td>
+                <td class="numeric">{{ ganger.cost }}</td>
+                <td class="numeric">{{ ganger.rating }}</td>
+                <td class="ganger-details">
+                    <strong>Weapons:</strong> {{ ganger.weapons | join(', ') }}<br>
+                    <strong>Skills:</strong> {{ ganger.skills | join(', ') }}<br>
+                    <strong>Equipment:</strong> {{ ganger.equipements | join(', ') }}<br>
+                    <strong>Injuries:</strong> {{ ganger.injuries | join(', ') }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    </body>
+</html>
