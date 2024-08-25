@@ -34,6 +34,14 @@
             .numeric {
                 text-align: center;
             }
+            .below-reference {
+                color: red;
+                font-weight: bold;
+            }
+            .above-reference {
+                color: #32c632;
+                font-weight: bold;
+            }
 
             @media print {
                 body {
@@ -132,15 +140,15 @@
             <tr>
                 <td>{{ ganger.name }}</td>
                 <td>{{ ganger.type.enumToString }}</td>
-                <td class="numeric">{{ ganger.move }}</td>
-                <td class="numeric">{{ ganger.weaponSkill }}</td>
-                <td class="numeric">{{ ganger.ballisticSkill }}</td>
-                <td class="numeric">{{ ganger.strength }}</td>
-                <td class="numeric">{{ ganger.toughness }}</td>
-                <td class="numeric">{{ ganger.wounds }}</td>
-                <td class="numeric">{{ ganger.initiative }}</td>
-                <td class="numeric">{{ ganger.attacks }}</td>
-                <td class="numeric">{{ ganger.leadership }}</td>
+                <td class="numeric {{ ganger.move < referenceValues[ganger.type.enumToString]['move'] ? 'below-reference' : (ganger.move == referenceValues[ganger.type.enumToString]['move'] ? 'at-reference' : 'above-reference') }}">{{ ganger.move }}</td>
+                <td class="numeric {{ ganger.weaponSkill < referenceValues[ganger.type.enumToString]['weaponSkill'] ? 'below-reference' : (ganger.weaponSkill == referenceValues[ganger.type.enumToString]['weaponSkill'] ? 'at-reference' : 'above-reference') }}">{{ ganger.weaponSkill }}</td>
+                <td class="numeric {{ ganger.ballisticSkill < referenceValues[ganger.type.enumToString]['ballisticSkill'] ? 'below-reference' : (ganger.ballisticSkill == referenceValues[ganger.type.enumToString]['ballisticSkill'] ? 'at-reference' : 'above-reference') }}">{{ ganger.ballisticSkill }}</td>
+                <td class="numeric {{ ganger.strength < referenceValues[ganger.type.enumToString]['strength'] ? 'below-reference' : (ganger.strength == referenceValues[ganger.type.enumToString]['strength'] ? 'at-reference' : 'above-reference') }}">{{ ganger.strength }}</td>
+                <td class="numeric {{ ganger.toughness < referenceValues[ganger.type.enumToString]['toughness'] ? 'below-reference' : (ganger.toughness == referenceValues[ganger.type.enumToString]['toughness'] ? 'at-reference' : 'above-reference') }}">{{ ganger.toughness }}</td>
+                <td class="numeric {{ ganger.wounds < referenceValues[ganger.type.enumToString]['wounds'] ? 'below-reference' : (ganger.wounds == referenceValues[ganger.type.enumToString]['wounds'] ? 'at-reference' : 'above-reference') }}">{{ ganger.wounds }}</td>
+                <td class="numeric {{ ganger.initiative < referenceValues[ganger.type.enumToString]['initiative'] ? 'below-reference' : (ganger.initiative == referenceValues[ganger.type.enumToString]['initiative'] ? 'at-reference' : 'above-reference') }}">{{ ganger.initiative }}</td>
+                <td class="numeric {{ ganger.attacks < referenceValues[ganger.type.enumToString]['attacks'] ? 'below-reference' : (ganger.attacks == referenceValues[ganger.type.enumToString]['attacks'] ? 'at-reference' : 'above-reference') }}">{{ ganger.attacks }}</td>
+                <td class="numeric {{ ganger.leadership < referenceValues[ganger.type.enumToString]['leadership'] ? 'below-reference' : (ganger.leadership == referenceValues[ganger.type.enumToString]['leadership'] ? 'at-reference' : 'above-reference') }}">{{ ganger.leadership }}</td>
                 <td class="numeric">{{ ganger.experience }}</td>
                 <td class="numeric">{{ ganger.cost }}</td>
                 <td class="numeric">{{ ganger.rating }}</td>
