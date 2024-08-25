@@ -15,4 +15,16 @@ class EquipementsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Equipement::class);
     }
+
+    public function findAllEquipmentsByGang(int $gangId)
+    {
+        return $this->createQueryBuilder('g')
+            ->leftjoin('g.ganger', 'f')
+            ->Where('f.gang = :gangId')
+            ->setParameter('gangId', $gangId)
+            ->groupBy('g.name')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
