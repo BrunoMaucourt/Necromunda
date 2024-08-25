@@ -35,4 +35,16 @@ enum EquipementsEnum: string
             self::WeaponReload => 0,
         };
     }
+
+    public function getDescription(): string
+    {
+        return match($this)
+        {
+            self::ClipHarness => 'Prevents falls when climbing. Roll a D6 if you would fall; on a 4+, you stay in place',
+            self::FilterPlugs => 'Grants immunity to gas weapons and toxic effects',
+            self::LoboChip => 'Grants immunity to psychology but reduces Initiative by 1',
+            self::PhotoContacts => 'The user is immune to the effects of flash grenades and gains +1 to hit in low-light conditions',
+            self::WeaponReload => 'Once per game, reroll a failed Ammo Roll',
+        };
+    }
 }
