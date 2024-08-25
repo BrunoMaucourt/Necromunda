@@ -15,4 +15,16 @@ class InjuriesRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Injury::class);
     }
+
+    public function findAllInjuriesByGang(int $gangId)
+    {
+        return $this->createQueryBuilder('g')
+            ->leftjoin('g.victim', 'f')
+            ->Where('f.gang = :gangId')
+            ->setParameter('gangId', $gangId)
+            ->groupBy('g.name')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
