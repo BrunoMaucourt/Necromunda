@@ -15,4 +15,16 @@ class SkillsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Skill::class);
     }
+
+    public function findAllSkillsByGang(int $gangId)
+    {
+        return $this->createQueryBuilder('g')
+            ->leftjoin('g.ganger', 'f')
+            ->Where('f.gang = :gangId')
+            ->setParameter('gangId', $gangId)
+            ->groupBy('g.name')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
