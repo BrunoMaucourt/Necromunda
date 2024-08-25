@@ -100,6 +100,55 @@ enum SkillsEnum: string
         };
     }
 
+    public function getDescription(): string
+    {
+        return match($this)
+        {
+            self::AgilityCatfall => 'Safely land after a fall with an Initiative test; can jump from any height',
+            self::AgilityDodge => 'Grants a 6+ special save against shooting and close combat hits',
+            self::AgilityJumpBack => 'Allows disengagement from close combat by jumping back 2"',
+            self::AgilityLeap => 'Adds D6" to movement if running or charging; can add the leap distance to jumps across gaps',
+            self::AgilityQuickWitted => 'Before the game starts, allows an extra move phase action',
+            self::AgilitySprint => 'Triples movement rate when running or charging',
+            self::CombatCombatMaster => 'Negates enemy bonuses for multiple attackers; instead, the bonuses apply to the Combat Master',
+            self::CombatCounterAttack => 'The fighter can re-roll one of his Attack dice in each hand-to-hand combat',
+            self::CombatDeflect => 'Allows the fighter to force an opponent to re-roll one Attack dice in hand-to-hand combat',
+            self::CombatDisarm => 'Test Initiative to force an opponent to fight with only a knife for a turn',
+            self::CombatFeint => 'The first fumble in combat is treated as a critical hit, giving a +1 bonus to Combat Score',
+            self::CombatStepAside => 'Grants a 4+ special save against hits in close combat',
+            self::FerocityBerserkCharge => 'Adds D3 Attack dice when charging',
+            self::FerocityImpetuous => 'Increases movement from 2" to 4" when pinned, down, or using a follow-up move',
+            self::FerocityIronWill => 'Re-rolls failed nerve tests and Bottle rolls if the fighter\'s Leadership is used',
+            self::FerocityKillerReputation => 'Causes fear due to the fighter\'s fearsome reputation',
+            self::FerocityNervesofSteel => 'Allows early escape from pinning; if already allowed, re-rolls failed Initiative tests',
+            self::FerocityTrueGrit => 'Treats a roll of 1-2 as a flesh wound on the injury chart',
+            self::MuscleBodySlam => 'If the model charges, reduce the opponent\'s Weapon Skill to 1',
+            self::MuscleBulgingBiceps => 'Grants a +1 Strength bonus',
+            self::MuscleHardasNails => 'On a 5+, the fighter avoids serious injury and is treated as Fully Recovered',
+            self::MuscleHurlOpponent => 'Allows throwing an opponent D6" in a chosen direction, pinning them',
+            self::MuscleIronJaw => 'Reduces the Strength of close combat or short-range hits by 1',
+            self::MuscleJuggernaut => 'Can ignore hits from overwatch if the Strength test is passed',
+            self::ShootingCrackShot => 'Increases the chance to take an enemy out of action when making injury rolls from ranged attacks',
+            self::ShootingFastShot => 'Allows overwatch even after moving, except if the model ran or charged',
+            self::ShootingGunfighter => 'Enables firing a pistol in each hand for an additional attack',
+            self::ShootingHipShooting => 'Allows shooting after running with a penalty to hit',
+            self::ShootingMarksman => 'Allows ignoring the nearest target restriction with a successful Leadership test',
+            self::ShootingRapidFire => 'Re-rolls failed to-hit dice if the model didn\'t move and is using a pistol or basic weapon',
+            self::StealthAmbush => 'Allows the model to hide and go on overwatch in the same turn',
+            self::StealthDive => 'Allows running and hiding in the same turn',
+            self::StealthEscapeArtist => 'Automatically escapes if captured, treated as Full Recovery',
+            self::StealthEvade => 'Reduces enemy shooting accuracy by -2 at short range and -1 at long range',
+            self::StealthInfiltration => 'Allows deployment anywhere on the battlefield after the first turn, but not within 8" of an enemy',
+            self::StealthSneakUp => 'Reduces the shooter’s Initiative to 1 when targeting this model on overwatch',
+            self::TechnoArmourer => 'Ignores the first Ammo roll failure if the fighter wasn\'t taken out of action in the last game',
+            self::TechnoFixer => 'Allows re-rolling the rarity value of one item when offered a rare item after the last game',
+            self::TechnoInventor => 'Has a chance to invent a rare item after each battle if not taken out of action',
+            self::TechnoMedic => 'Re-rolls one result on the Serious Injury table after the battle for another fighter',
+            self::TechnoSpecialist => 'Allows the use of special weapons for fighters without access to them',
+            self::TechnoWeaponsmith => ' Ignores failed Ammo rolls and weapon explosions on a D6 roll of 4+',
+        };
+    }
+
     public function getAgilitySkills(): int
     {
         return match($this) {
