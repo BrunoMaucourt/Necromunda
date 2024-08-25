@@ -81,30 +81,30 @@ enum InjuriesEnum: string
         };
     }
 
-    public function getEffect(): string
+    public function getDescription(): string
     {
         return match($this)
         {
-            self::Dead => '',
-            self::MultipleInjuries => '',
-            self::InfectedWound1 => '',
-            self::InfectedWound2 => '',
-            self::InfectedWound3 => '',
-            self::ChestWound => '',
-            self::LegWound => '',
-            self::ArmWound => '',
-            self::HeadWound => '',
-            self::BlindedInOneEye => '',
-            self::PartiallyDeafened => '',
-            self::ShellShock => '',
-            self::HandInjury => '',
-            self::OldBattleWound => '',
-            self::FullRecovery => '',
-            self::BitterEnmity => '',
-            self::Captured => '',
-            self::HorribleScar => '',
-            self::ImpressiveScars => '',
-            self::SurvivesAgainstTheOdds => '',
+            self::Dead => 'The fighter is killed, and all weapons and equipment are lost. This result cannot be modified',
+            self::MultipleInjuries => 'The fighter suffers multiple wounds, requiring additional rolls on the injury chart',
+            self::InfectedWound1 => 'The fighter recovers but misses the next game',
+            self::InfectedWound2 => 'The fighter recovers but misses the next 2 games',
+            self::InfectedWound3 => 'The fighter recovers but misses the next 3 games',
+            self::ChestWound => 'Toughness is reduced by -1',
+            self::LegWound => 'Movement is reduced by -1',
+            self::ArmWound => 'Strength is reduced by -1',
+            self::HeadWound => 'The fighter suffers from either stupidity or frenzy before each game',
+            self::BlindedInOneEye => 'Ballistic Skill is reduced by -1. If both eyes are blinded, the fighter dies',
+            self::PartiallyDeafened => 'Initiative is reduced by -1',
+            self::ShellShock => 'Leadership is reduced by -1',
+            self::HandInjury => 'Weapon Skill is reduced by -1',
+            self::OldBattleWound => 'The fighter may miss a game if the old wound flares up',
+            self::FullRecovery => 'The fighter fully recovers from minor injuries',
+            self::BitterEnmity => 'The fighter develops hatred towards the enemy responsible for the injury, either the individual or the enemy leader',
+            self::Captured => 'The fighter is captured, and players must negotiate for their release or sell them to slavers',
+            self::HorribleScar => 'The fighter causes fear due to disfigurement',
+            self::ImpressiveScars => 'The fighter gains a +1 Leadership bonus',
+            self::SurvivesAgainstTheOdds => 'The fighter makes a full recovery and gains +2D6 Experience points',
         };
     }
 }
