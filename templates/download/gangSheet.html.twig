@@ -47,6 +47,35 @@
                 font-weight: bold;
             }
 
+            .leader td {
+                background-color: #FFB6C1;
+            }
+
+            .heavy td {
+                background-color: #FFD580;
+            }
+
+            .ganger td {
+                background-color: #FFFACD;
+            }
+
+            .juve td {
+                background-color: #C3E6CB;
+            }
+
+            .hired-gun td {
+                background-color: #ADD8E6;
+            }
+
+            .equipments tr:nth-child(even),
+            .injuries tr:nth-child(even),
+            .skills tr:nth-child(even),
+            .specials tr:nth-child(even),
+            .territories tr:nth-child(even),
+            .weapons tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
             @media print {
                 body {
                     margin: 10mm;
@@ -141,8 +170,20 @@
         </tr>
         </thead>
         <tbody>
-        {% for ganger in gang.gangers %}
-            <tr>
+        {% for ganger in gangers %}
+            <tr class="
+                {% if ganger.type.enumToString == 'leader'%}
+                    leader
+                {% elseif ganger.type.enumToString == 'heavy' %}
+                    heavy
+                {% elseif ganger.type.enumToString == 'ganger' %}
+                    ganger
+                {% elseif ganger.type.enumToString == 'juve' %}
+                    juve
+                {% elseif ganger.type.enumToString == 'hired-gun' %}
+                    hired-gun
+                {% endif %}
+            ">
                 <td>{{ ganger.name }}</td>
                 <td>{{ ganger.type.enumToString }}</td>
                 <td class="numeric {{ ganger.move < referenceValues[ganger.type.enumToString]['move'] ? 'below-reference' : (ganger.move == referenceValues[ganger.type.enumToString]['move'] ? 'at-reference' : 'above-reference') }}">{{ ganger.move }}</td>
