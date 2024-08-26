@@ -827,7 +827,7 @@ enum WeaponsEnum: string
             // Basic Weapons
             WeaponsEnum::AUTOGUN => ' - ',
             WeaponsEnum::SHOTGUN_SOLID_SLUG => 'Knock-back',
-            WeaponsEnum::SHOTGUN_SCATTER_SHOT => 'Pellets',
+            WeaponsEnum::SHOTGUN_SCATTER_SHOT => 'Saturation',
             WeaponsEnum::SHOTGUN_MANSTOPPER => 'Knock-back',
             WeaponsEnum::SHOTGUN_HOT_SHOT => 'Knock-back, Catch Fire (5+)',
             WeaponsEnum::SHOTGUN_BOLT => ' - ',
@@ -842,7 +842,7 @@ enum WeaponsEnum: string
             WeaponsEnum::MELTAGUN => 'High Impact',
             WeaponsEnum::NEEDLE_RIFLE => 'Toxic Dart, Injuries, Silent',
             // Heavy Weapons
-            WeaponsEnum::HEAVY_FLAMER => 'Flamer, A. Roll, C. Fire (3+), M.&Fire',
+            WeaponsEnum::HEAVY_FLAMER => 'Flamer, Ammo Roll, Catch Fire (3+), Move And Fire',
             WeaponsEnum::HEAVY_STUBBER => 'Sustained Fire (2)',
             WeaponsEnum::HEAVY_BOLTER => 'Sustained Fire (2)',
             WeaponsEnum::MISSILE_LAUNCHER_FRAG => 'Gas Cloud',
@@ -854,7 +854,7 @@ enum WeaponsEnum: string
             WeaponsEnum::KNIFE => ' - ',
             WeaponsEnum::CHAIN_FLAIL => 'Nullify, Clumsy',
             WeaponsEnum::CLUB_MAUL_BLUDGEON => ' - ',
-            WeaponsEnum::MASSIVE_WEAPON => '2hand, Draw, M.Blow',
+            WeaponsEnum::MASSIVE_WEAPON => 'Two-handed, Draw, Mighty Blow',
             WeaponsEnum::SWORD => 'Parry',
             WeaponsEnum::CHAIN_SWORD => 'Parry, Noisy',
             WeaponsEnum::POWER_AXE => 'Dual-handed',
@@ -870,7 +870,7 @@ enum WeaponsEnum: string
             WeaponsEnum::PLASMA_GRENADE => 'Blast, Plasma Ball',
             WeaponsEnum::KRAK_GRENADE => '-1 Hit, Demolition',
             WeaponsEnum::MELTA_BOMBS => 'Demolition',
-            WeaponsEnum::HALLUCINOGEN_GAS => 'Gas Cloud, Halluc',
+            WeaponsEnum::HALLUCINOGEN_GAS => 'Gas Cloud, Hallucinogen',
         };
     }
 }
