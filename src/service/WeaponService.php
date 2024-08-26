@@ -4,6 +4,7 @@ namespace App\service;
 
 use App\Entity\Gang;
 use App\Entity\Weapon;
+use App\Enum\SpecialWeaponEnum;
 use Doctrine\ORM\EntityManagerInterface;
 
 class WeaponService
@@ -56,5 +57,35 @@ class WeaponService
         }
 
         return null;
+    }
+
+    public function getSpecialForWeapon(array $listOfWeapons): ?array
+    {
+        $allSpecials = SpecialWeaponEnum::cases();
+        $listOfSpecialsToFind = [];
+        $specialDescription = [];
+
+        foreach ($listOfWeapons as $weapon) {
+            $special = $weapon->getName()->getSpecial();
+            if ($special !== " - ") {
+                $listOfSpecial = explode(',', $special);
+                foreach ($listOfSpecial as $item) {
+                    $listOfSpecialsToFind[] = trim($item);
+                }
+            }
+        }
+
+        $listOfSpecialsToFind = array_unique($listOfSpecialsToFind);
+        sort($listOfSpecialsToFind);
+
+        foreach ($listOfSpecialsToFind as $special) {
+            foreach ($allSpecials as $specialName) {
+                if ($special === $specialName->enumToString()) {
+                    $specialDescription[$specialName->enumToString()] = $specialName->getDescription();
+                }
+            }
+        }
+
+        return $specialDescription;
     }
 }

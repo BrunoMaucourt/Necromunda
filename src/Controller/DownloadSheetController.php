@@ -8,6 +8,7 @@ use App\Entity\Ganger;
 use App\Entity\Injury;
 use App\Entity\Skill;
 use App\Entity\Weapon;
+use App\service\WeaponService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,10 +18,14 @@ class DownloadSheetController extends AbstractController
 {
     private EntityManagerInterface $entityManager;
 
+    private WeaponService $weaponService;
+
     public function __construct(
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        WeaponService $weaponService
     ){
         $this->entityManager = $entityManager;
+        $this->weaponService = $weaponService;
     }
 
     #[Route('/admin/generateGangTable/{id}', name: 'generate_gang_table')]
@@ -87,12 +92,17 @@ class DownloadSheetController extends AbstractController
             ],
         ];
 
+        $gangers = $this->sortGangersByType($gangers);
+
+        $specials = $this->weaponService->getSpecialForWeapon($weapons);
+
         return $this->render('download/gangSheet.html.twig', [
             'equipments' => $equipments,
             'gang' => $gang,
             'gangers' => $gangers,
             'injuries' => $injuries,
             'referenceValues' => $referenceValues,
+            'specials' => $specials,
             'skills' => $skills,
             'weapons' => $weapons,
         ]);
