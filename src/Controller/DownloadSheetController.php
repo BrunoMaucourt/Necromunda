@@ -90,6 +90,17 @@ class DownloadSheetController extends AbstractController
                 'attacks' => 1,
                 'leadership' => 6,
             ],
+            'underhive scum' => [
+                'move' => 4,
+                'weaponSkill' => 3,
+                'ballisticSkill' => 3,
+                'strength' => 3,
+                'toughness' => 3,
+                'wounds' => 1,
+                'initiative' => 3,
+                'attacks' => 1,
+                'leadership' => 7,
+            ],
         ];
 
         $gangers = $this->sortGangersByType($gangers);
