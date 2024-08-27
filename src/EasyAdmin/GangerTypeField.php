@@ -25,6 +25,9 @@ final class GangerTypeField implements FieldInterface
                 'choice_label' => static function (\UnitEnum $choice): string {
                     return $choice->value;
                 },
+                'group_by' => function(GangerTypeEnum $choice) {
+                    return $choice->getType();
+                },
             ])
         ;
     }
