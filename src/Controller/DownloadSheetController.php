@@ -141,4 +141,23 @@ class DownloadSheetController extends AbstractController
             'weapons' => $weapons,
         ]);
     }
+
+    public function sortGangersByType(array $ListOfGangers): array
+    {
+        $order = [
+            GangerTypeEnum::leader->value => 1,
+            GangerTypeEnum::heavy->value  => 2,
+            GangerTypeEnum::ganger->value => 3,
+            GangerTypeEnum::juve->value => 4,
+            GangerTypeEnum::underhive_scum->value => 5,
+            GangerTypeEnum::bounty_hunter->value => 6,
+            GangerTypeEnum::ratskin_scout->value => 7,
+        ];
+
+        usort($ListOfGangers, function($a, $b) use ($order) {
+            return $order[$a->getType()->enumToString()] <=> $order[$b->getType()->enumToString()];
+        });
+
+        return $ListOfGangers;
+    }
 }
