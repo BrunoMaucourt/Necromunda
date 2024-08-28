@@ -105,6 +105,37 @@ class GangerListener
                     $ganger->setExperience(0);
                     $experienceMessage = '0';
                     break;
+                case GangerTypeEnum::underhive_scum:
+                    $ganger->setWeaponSkill(3);
+                    $ganger->setBallisticSkill(3);
+                    $ganger->setLeadership(7);
+                    $ganger->setInitiative(3);
+                    $ganger->setCost(15);
+                    $ganger->setExperience(0);
+                    $experienceMessage = '0';
+                    $advancements = 6;
+                    break;
+                case GangerTypeEnum::bounty_hunter:
+                    $ganger->setWeaponSkill(4);
+                    $ganger->setBallisticSkill(4);
+                    $ganger->setLeadership(8);
+                    $ganger->setInitiative(4);
+                    $ganger->setWounds(2);
+                    $ganger->setCost(35);
+                    $ganger->setExperience(0);
+                    $experienceMessage = '0';
+                    $advancements = 4;
+                    break;
+                case GangerTypeEnum::ratskin_scout:
+                    $ganger->setWeaponSkill(3);
+                    $ganger->setBallisticSkill(3);
+                    $ganger->setLeadership(7);
+                    $ganger->setInitiative(3);
+                    $ganger->setCost(15);
+                    $ganger->setExperience(0);
+                    $experienceMessage = '0';
+                    $advancements = 3;
+                    break;
             }
 
             $newGangCredits = $ganger->getGang()->getCredits() - $ganger->getCost();
