@@ -8,6 +8,7 @@ use App\Entity\Ganger;
 use App\Entity\Injury;
 use App\Entity\Skill;
 use App\Entity\Weapon;
+use App\Enum\GangerTypeEnum;
 use App\service\WeaponService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -46,7 +47,7 @@ class DownloadSheetController extends AbstractController
         $weapons = $weaponRepo->findAllWeaponsTypeByGang($id);
 
         $referenceValues = [
-            'leader' => [
+            GangerTypeEnum::leader->value => [
                 'move' => 4,
                 'weaponSkill' => 4,
                 'ballisticSkill' => 4,
@@ -57,7 +58,7 @@ class DownloadSheetController extends AbstractController
                 'attacks' => 1,
                 'leadership' => 8,
             ],
-            'heavy' => [
+            GangerTypeEnum::heavy->value => [
                 'move' => 4,
                 'weaponSkill' => 3,
                 'ballisticSkill' => 3,
@@ -68,7 +69,7 @@ class DownloadSheetController extends AbstractController
                 'attacks' => 1,
                 'leadership' => 7,
             ],
-            'ganger' => [
+            GangerTypeEnum::ganger->value => [
                 'move' => 4,
                 'weaponSkill' => 3,
                 'ballisticSkill' => 3,
@@ -79,7 +80,7 @@ class DownloadSheetController extends AbstractController
                 'attacks' => 1,
                 'leadership' => 7,
             ],
-            'juve' => [
+            GangerTypeEnum::juve->value => [
                 'move' => 4,
                 'weaponSkill' => 2,
                 'ballisticSkill' => 2,
@@ -90,7 +91,29 @@ class DownloadSheetController extends AbstractController
                 'attacks' => 1,
                 'leadership' => 6,
             ],
-            'underhive scum' => [
+            GangerTypeEnum::underhive_scum->value => [
+                'move' => 4,
+                'weaponSkill' => 3,
+                'ballisticSkill' => 3,
+                'strength' => 3,
+                'toughness' => 3,
+                'wounds' => 1,
+                'initiative' => 3,
+                'attacks' => 1,
+                'leadership' => 7,
+            ],
+            GangerTypeEnum::bounty_hunter->value => [
+                'move' => 4,
+                'weaponSkill' => 4,
+                'ballisticSkill' => 4,
+                'strength' => 3,
+                'toughness' => 3,
+                'wounds' => 2,
+                'initiative' => 4,
+                'attacks' => 1,
+                'leadership' => 8,
+            ],
+            GangerTypeEnum::ratskin_scout->value => [
                 'move' => 4,
                 'weaponSkill' => 3,
                 'ballisticSkill' => 3,
