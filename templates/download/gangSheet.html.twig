@@ -180,7 +180,7 @@
                     ganger
                 {% elseif ganger.type.enumToString == 'juve' %}
                     juve
-                {% elseif ganger.type.enumToString == 'underhive scum' %}
+                {% elseif ganger.type.enumToString in ['underhive scum', 'bounty hunter', 'ratskin scout'] %}
                     hired-gun
                 {% endif %}
             ">
