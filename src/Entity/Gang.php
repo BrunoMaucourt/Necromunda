@@ -42,7 +42,7 @@ class Gang
     /**
      * @var Collection<int, Territory>
      */
-    #[ORM\OneToMany(targetEntity: Territory::class, mappedBy: 'gang', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: Territory::class, mappedBy: 'gang', cascade: ['persist', 'remove'], orphanRemoval: 'true')]
     private Collection $territories;
 
     /**

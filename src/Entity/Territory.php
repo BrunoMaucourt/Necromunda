@@ -21,7 +21,7 @@ class Territory
     private ?TerritoriesEnum $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'territories')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete:'cascade')]
     private ?Gang $gang = null;
 
     /**
