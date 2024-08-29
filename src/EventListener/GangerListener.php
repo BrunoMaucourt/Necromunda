@@ -148,6 +148,7 @@ class GangerListener
             $freeKnife->setName(WeaponsEnum::KNIFE);
             $freeKnife->setGanger($object);
             $freeKnife->setCost(0);
+            $freeKnife->setFree(true);
             $this->entityManager->persist($freeKnife);
 
             $object->addWeapon($freeKnife);
