@@ -268,7 +268,124 @@ class GangerListener
             if ($ganger->getType() === GangerTypeEnum::bounty_hunter) {
                 while ($advancements > 0) {
 
-                    $advancements--;
+                    $dice1 = mt_rand(1, 6);
+                    $dicesResults = $dice1;
+                    if ($dice1 === 1 || $dice1 === 2) {
+                        $dice2 = mt_rand(1, 6);
+                        $dicesResults .= $dice2;
+                        if ($dice2 >= 5) {
+                            $dice3 = mt_rand(1, 6);
+                            $dicesResults .= $dice3;
+                        }
+                    } else {
+                        $dice2 = mt_rand(1, 6);
+                        $dicesResults .= $dice2;
+                        if ($dice2 >= 5) {
+                            $dice3 = mt_rand(1, 6);
+                            $dicesResults .= $dice3;
+                    }
+
+                    // Check to avoid have 2 time the same skill
+                    if (
+                        in_array($dicesResults, $oldDicesResultsHiredGun) &&
+                        $dicesResults > 31
+                    ) {
+                        continue;
+                    }
+                    $oldDicesResultsHiredGun[] = $dicesResults;
+
+                        switch ($dicesResults) {
+                            case 11: case 21:
+                                $ganger->setWeaponSkill($ganger->getWeaponSkill() + 1);
+                                $dicesResultsMessage = "+1 Ws";
+                                break;
+                            case 12: case 22:
+                                $ganger->setBallisticSkill($ganger->getBallisticSkill() + 1);
+                                $dicesResultsMessage = "+1 Bs";
+                                break;
+                            case 13: case 23:
+                                $ganger->setInitiative($ganger->getInitiative() + 1);
+                                $dicesResultsMessage = "+1 I";
+                                break;
+                            case 14: case 24:
+                                $ganger->setLeadership($ganger->getLeadership() + 1);
+                                $dicesResultsMessage = "+1 Le";
+                                break;
+                            case 151: case 152: case 153: case 251: case 252: case 253:
+                                $ganger->setStrength($ganger->getStrength() + 1);
+                                $dicesResultsMessage = "+1 S";
+                                break;
+                            case 154: case 155: case 156: case 254: case 255: case 256:
+                                $ganger->setToughness($ganger->getToughness() + 1);
+                                $dicesResultsMessage = "+1 T";
+                                break;
+                            case 161: case 162: case 163: case 261: case 262: case 263:
+                                $ganger->setWounds($ganger->getWounds() + 1);
+                                $dicesResultsMessage = "+1 W";
+                                break;
+                            case 164: case 165: case 166: case 264: case 265: case 266:
+                                $ganger->setAttacks($ganger->getToughness() + 1);
+                                $dicesResultsMessage = "+1 A";
+                                break;
+                            case 31: case 41: case 51: case 61:
+                                $crackShot = new Skill();
+                                $crackShot->setName(SkillsEnum::ShootingCrackShot);
+                                $ganger->addSkill($crackShot);
+                                $dicesResultsMessage = "skill - crack shot (Shooting)";
+                                break;
+                            case 32: case 42: case 52: case 62:
+                                $nervesOfSteel = new Skill();
+                                $nervesOfSteel->setName(SkillsEnum::FerocityNervesofSteel);
+                                $ganger->addSkill($nervesOfSteel);
+                                $dicesResultsMessage = "Skill - nerves of steel (Ferocity)";
+                                break;
+                            case 33: case 43: case 53: case 63:
+                                $marksman = new Skill();
+                                $marksman->setName(SkillsEnum::ShootingMarksman);
+                                $ganger->addSkill($marksman);
+                                $dicesResultsMessage = "skill - Marksman (Shooting)";
+                                break;
+                            case 341: case 441: case 541: case 641: case 351: case 451: case 551: case 651: case 361: case 461: case 561: case 661:
+                                $dodge = new Skill();
+                                $dodge->setName(SkillsEnum::AgilityDodge);
+                                $ganger->addSkill($dodge);
+                                $dicesResultsMessage = "skill - dodge (Agility)";
+                                break;
+                            case 342: case 442: case 542: case 642: case 352: case 452: case 552: case 652: case 362: case 462: case 562: case 662:
+                                $weaponSmith = new Skill();
+                                $weaponSmith->setName(SkillsEnum::TechnoWeaponsmith);
+                                $ganger->addSkill($weaponSmith);
+                                $dicesResultsMessage = "skill - weapon smith (Technology)";
+                                break;
+                            case 343: case 443: case 543: case 643: case 353: case 453: case 553: case 653: case 363: case 463: case 563: case 663:
+                                $trueGrit = new Skill();
+                                $trueGrit->setName(SkillsEnum::FerocityTrueGrit);
+                                $ganger->addSkill($trueGrit);
+                                $dicesResultsMessage = "skill - true grit (Ferocity)";
+                                break;
+                            case 344: case 444: case 544: case 644: case 354: case 454: case 554: case 654: case 364: case 464: case 564: case 664:
+                                $quickWitted = new Skill();
+                                $quickWitted->setName(SkillsEnum::AgilityQuickWitted);
+                                $ganger->addSkill($quickWitted);
+                                $dicesResultsMessage = "skill - quick witted (Agility)";
+                                break;
+                            case 345: case 445: case 545: case 645: case 355: case 455: case 555: case 655: case 365: case 465: case 565: case 665:
+                                $ironWill = new Skill();
+                                $ironWill->setName(SkillsEnum::AgilityDodge);
+                                $ganger->addSkill($ironWill);
+                                $dicesResultsMessage = "skill - iron will (Ferocity)";
+                                break;
+                            case 346: case 446: case 546: case 646: case 356: case 456: case 556: case 656: case 366: case 466: case 566: case 666:
+                                $killerReputation = new Skill();
+                                $killerReputation->setName(SkillsEnum::FerocityKillerReputation);
+                                $ganger->addSkill($killerReputation);
+                                $dicesResultsMessage = "skill - killer reputation (Ferocity)";
+                                break;
+                        }
+
+                        $hiredGunMessage .= "advancement dice result - " . $dicesResults . " : " .$dicesResultsMessage . "\n";
+                        $advancements--;
+                    }
                 }
             }
 
