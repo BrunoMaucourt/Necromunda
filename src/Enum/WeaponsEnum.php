@@ -120,7 +120,7 @@ enum WeaponsEnum: string
             WeaponsEnum::POWER_SWORD => WeaponsEnum::POWER_SWORD->value,
             WeaponsEnum::POWER_FIST => WeaponsEnum::POWER_FIST->value,
             // Grenades
-            WeaponsEnum::SMOKE_BOMBS => WeaponsEnum::POWER_FIST->value,
+            WeaponsEnum::SMOKE_BOMBS => WeaponsEnum::SMOKE_BOMBS->value,
             WeaponsEnum::CHOKE_GAS => WeaponsEnum::CHOKE_GAS->value,
             WeaponsEnum::SCARE_GAS => WeaponsEnum::SCARE_GAS->value,
             WeaponsEnum::PHOTON_FLARES => WeaponsEnum::PHOTON_FLARES->value,
