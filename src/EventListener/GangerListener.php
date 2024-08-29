@@ -83,7 +83,7 @@ class GangerListener
                     $ganger->setBallisticSkill(3);
                     $ganger->setLeadership(7);
                     $ganger->setInitiative(3);
-                    $ganger->setCost(50);
+                    $ganger->setCost(60);
                     $newExperience = 60 + $diceRollExperience;
                     $ganger->setExperience($newExperience);
                     $experienceMessage = $newExperience . ' (' . 60 . ' + dice roll ' . $diceRollExperience .')';
@@ -93,7 +93,7 @@ class GangerListener
                     $ganger->setBallisticSkill(3);
                     $ganger->setLeadership(7);
                     $ganger->setInitiative(3);
-                    $ganger->setCost(25);
+                    $ganger->setCost(50);
                     $newExperience = 20 + $diceRollExperience;
                     $ganger->setExperience(60 + $diceRollExperience);
                     $experienceMessage = $newExperience . ' (' . 20 . ' + dice roll ' . $diceRollExperience .')';
