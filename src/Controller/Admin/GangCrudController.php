@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
@@ -110,11 +111,18 @@ class GangCrudController extends AbstractCrudController
             yield FormField::addPanel('Loots')
                 ->setIcon('fa fa-gem')
                 ->collapsible();
-            yield CollectionField::new('loots')
-                ->hideWhenCreating()
-                ->hideOnIndex()
-                ->setColumns(12)
-                ->useEntryCrudForm(LootCrudController::class);
+            if ($pageName == Crud::PAGE_DETAIL) {
+                yield ArrayField::new('loots')
+                    ->hideWhenCreating()
+                    ->hideOnIndex()
+                    ->setColumns(12);
+            } else {
+                yield CollectionField::new('loots')
+                    ->hideWhenCreating()
+                    ->hideOnIndex()
+                    ->setColumns(12)
+                    ->useEntryCrudForm(LootCrudController::class);
+            }
             yield FormField::addPanel('Gang fights')
                 ->setIcon('fa fa-dice')
                 ->collapsible();
