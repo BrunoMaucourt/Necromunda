@@ -95,7 +95,7 @@ class GangerListener
                     $ganger->setInitiative(3);
                     $ganger->setCost(50);
                     $newExperience = 20 + $diceRollExperience;
-                    $ganger->setExperience(60 + $diceRollExperience);
+                    $ganger->setExperience($diceRollExperience);
                     $experienceMessage = $newExperience . ' (' . 20 . ' + dice roll ' . $diceRollExperience .')';
                     break;
                 case GangerTypeEnum::juve:
