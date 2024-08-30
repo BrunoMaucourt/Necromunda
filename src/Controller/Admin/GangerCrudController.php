@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\GangerTypeField;
+use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Enum\GangerTypeEnum;
 use Doctrine\ORM\EntityRepository;
@@ -52,6 +53,8 @@ class GangerCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        $context = $this->getContext()->getEntity()->getInstance();
+
         if ($pageName === Crud::PAGE_NEW) {
             yield TextField::new('name')
                 ->setColumns(6);
@@ -161,16 +164,31 @@ class GangerCrudController extends AbstractCrudController
                     ->setColumns(6)
                     ->hideOnIndex();
             } else {
-                yield CollectionField::new('injuries')
-                    ->setColumns(6)
-                    ->hideOnIndex()
-                    ->useEntryCrudForm(InjuriesCrudController::class)
-                    ->addCssClass('crudResponsive');
-                yield CollectionField::new('skills')
-                    ->setColumns(6)
-                    ->hideOnIndex()
-                    ->useEntryCrudForm(SkillsCrudController::class)
-                    ->addCssClass('crudResponsive');
+                if ($context instanceof Gang) {
+                    yield CollectionField::new('injuries')
+                        ->setColumns(6)
+                        ->hideOnIndex()
+                        ->useEntryCrudForm(InjuriesCrudController::class)
+                        ->setFormTypeOption('disabled', 'disabled')
+                        ->addCssClass('crudResponsive');
+                    yield CollectionField::new('skills')
+                        ->setColumns(6)
+                        ->hideOnIndex()
+                        ->useEntryCrudForm(SkillsCrudController::class)
+                        ->setFormTypeOption('disabled', 'disabled')
+                        ->addCssClass('crudResponsive');
+                } else {
+                    yield CollectionField::new('injuries')
+                        ->setColumns(6)
+                        ->hideOnIndex()
+                        ->useEntryCrudForm(InjuriesCrudController::class)
+                        ->addCssClass('crudResponsive');
+                    yield CollectionField::new('skills')
+                        ->setColumns(6)
+                        ->hideOnIndex()
+                        ->useEntryCrudForm(SkillsCrudController::class)
+                        ->addCssClass('crudResponsive');
+                }
             }
             yield FormField::addPanel('Weapons and equipements')
                 ->setIcon('fa fa-gun')
@@ -183,16 +201,31 @@ class GangerCrudController extends AbstractCrudController
                     ->setColumns(6)
                     ->hideOnIndex();
             } else {
-                yield CollectionField::new('weapons')
-                    ->setColumns(6)
-                    ->hideOnIndex()
-                    ->useEntryCrudForm(WeaponsCrudController::class)
-                    ->addCssClass('crudResponsive');
-                yield CollectionField::new('equipements')
-                    ->setColumns(6)
-                    ->hideOnIndex()
-                    ->useEntryCrudForm(EquipementsCrudController::class)
-                    ->addCssClass('crudResponsive');
+                if ($context instanceof Gang) {
+                    yield CollectionField::new('weapons')
+                        ->setColumns(6)
+                        ->hideOnIndex()
+                        ->useEntryCrudForm(WeaponsCrudController::class)
+                        ->addCssClass('crudResponsive')
+                        ->setFormTypeOption('disabled', 'disabled');
+                    yield CollectionField::new('equipements')
+                        ->setColumns(6)
+                        ->hideOnIndex()
+                        ->useEntryCrudForm(EquipementsCrudController::class)
+                        ->addCssClass('crudResponsive')
+                        ->setFormTypeOption('disabled', 'disabled');
+                } else {
+                    yield CollectionField::new('weapons')
+                        ->setColumns(6)
+                        ->hideOnIndex()
+                        ->useEntryCrudForm(WeaponsCrudController::class)
+                        ->addCssClass('crudResponsive');
+                    yield CollectionField::new('equipements')
+                        ->setColumns(6)
+                        ->hideOnIndex()
+                        ->useEntryCrudForm(EquipementsCrudController::class)
+                        ->addCssClass('crudResponsive');
+                }
             }
             yield FormField::addPanel('Ganger background')
                 ->setIcon('fa fa-book')
