@@ -29,7 +29,7 @@ class DownloadSheetController extends AbstractController
         $this->weaponService = $weaponService;
     }
 
-    #[Route('/admin/generateGangTable/{id}', name: 'generate_gang_table')]
+    #[Route('/{_locale<%app.supported_locales%>}/admin/generateGangTable/{id}', name: 'generate_gang_table')]
     public function generateGangTable(int $id): Response
     {
         $equipmentRepo = $this->entityManager->getRepository(Equipement::class);

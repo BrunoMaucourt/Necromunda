@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>Gang Sheet - {{ gang.name }}</title>
+        <title>{{ 'Gang Sheet'|trans }} - {{ gang.name }}</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -108,14 +108,14 @@
     <h1>{{ gang.name }}</h1>
     <p class="date">{{ "now" | date("d/m/Y") }}</p>
 
-    <h2>Gang Information</h2>
+    <h2>{{ 'Gang Information'|trans }}</h2>
     <table class="gang-info">
         <thead>
         <tr>
-            <th>Credits</th>
-            <th>Active</th>
-            <th>House</th>
-            <th>Rating</th>
+            <th>{{ 'Credits'|trans }}></th>
+            <th>{{ 'Active'|trans }}></th>
+            <th>{{ 'House'|trans }}</th>
+            <th>{{ 'Rating'|trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -128,13 +128,13 @@
         </tbody>
     </table>
 
-    <h2>Territories</h2>
+    <h2>{{ 'Territories'|trans }}</h2>
     <table class="territories">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Effects</th>
-            <th>Credits</th>
+            <th>{{ 'Name'|trans }}</th>
+            <th>{{ 'Effects'|trans }}</th>
+            <th>{{ 'Credits'|trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -148,12 +148,12 @@
         </tbody>
     </table>
 
-    <h2>Gangers</h2>
+    <h2>{{ 'Gangers'|trans }}</h2>
     <table class="gangers">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Type</th>
+            <th>{{ 'Name'|trans }}</th>
+            <th>{{ 'Type'|trans }}</th>
             <th class="numeric">M</th>
             <th class="numeric">WS</th>
             <th class="numeric">BS</th>
@@ -164,9 +164,9 @@
             <th class="numeric">A</th>
             <th class="numeric">L</th>
             <th class="numeric">Exp</th>
-            <th class="numeric">Cost</th>
-            <th class="numeric">Rating</th>
-            <th>Details</th>
+            <th class="numeric">{{ 'Cost'|trans }}</th>
+            <th class="numeric">{{ 'Rating'|trans }}</th>
+            <th>{{ 'Details'|trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -209,20 +209,20 @@
         </tbody>
     </table>
 
-    <h2>Weapons</h2>
+    <h2>{{ 'Weapons'|trans }}</h2>
     <table class="weapons">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Short range</th>
-            <th>Long range</th>
-            <th>Bonus to hit short range</th>
-            <th>Bonus to hit long range</th>
-            <th>Strength</th>
-            <th>Damage</th>
-            <th>Save modifier</th>
-            <th>Ammo roll</th>
-            <th>Special</th>
+            <th>{{ 'Name'|trans }}</th>
+            <th>{{ 'Short range'|trans }}</th>
+            <th>{{ 'Long range'|trans }}</th>
+            <th>{{ 'Bonus to hit short range'|trans }}</th>
+            <th>{{ 'Bonus to hit long range'|trans }}</th>
+            <th>{{ 'Strength'|trans }}</th>
+            <th>{{ 'Damage'|trans }}</th>
+            <th>{{ 'Save modifier'|trans }}</th>
+            <th>{{ 'Ammo roll'|trans }}</th>
+            <th>{{ 'Special'|trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -243,12 +243,12 @@
         </tbody>
     </table>
 
-    <h2>Weapons special</h2>
+    <h2>{{ 'Weapons special'|trans }}</h2>
     <table class="specials">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Description</th>
+            <th>{{ 'Name'|trans }}</th>
+            <th>{{ 'Description'|trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -261,12 +261,12 @@
         </tbody>
     </table>
 
-    <h2>Skills</h2>
+    <h2>{{ 'Skills'|trans }}</h2>
     <table class="skills">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Description</th>
+            <th>{{ 'Name'|trans }}</th>
+            <th>{{ 'Description'|trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -279,12 +279,12 @@
         </tbody>
     </table>
 
-    <h2>Equipments</h2>
+    <h2>{{ 'Equipments'|trans }}</h2>
     <table class="equipments">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Description</th>
+            <th>{{ 'Name'|trans }}</th>
+            <th>{{ 'Description'|trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -297,12 +297,12 @@
         </tbody>
     </table>
 
-    <h2>Injuries</h2>
+    <h2>{{ 'Injuries'|trans }}</h2>
     <table class="injuries">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Description</th>
+            <th>{{ 'Name'|trans }}</th>
+            <th>{{ 'Description'|trans }}</th>
         </tr>
         </thead>
         <tbody>

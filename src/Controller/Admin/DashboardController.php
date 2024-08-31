@@ -62,9 +62,7 @@ class DashboardController extends AbstractDashboardController
         dump($locale);
 
         $this->translator->setLocale($locale);
-
-        $translatedMessage = $this->translator->trans('message.hello_world');
-
+        
         $linksAdd = [
             'Gang' => [
                 'url' => $this->adminUrlGenerator

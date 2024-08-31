@@ -129,6 +129,98 @@
         <source>Settings</source>
         <target>Paramètres</target>
       </trans-unit>
+      <trans-unit id="s3QGtBJ" resname="Gang Sheet">
+        <source>Gang Sheet</source>
+        <target>Fiche de gang</target>
+      </trans-unit>
+      <trans-unit id="Dr5g3t4" resname="Gang Information">
+        <source>Gang Information</source>
+        <target>Informations sur le gang</target>
+      </trans-unit>
+      <trans-unit id="KmskrSh" resname="Credits">
+        <source>Credits</source>
+        <target>Crédits</target>
+      </trans-unit>
+      <trans-unit id="kjQGlYm" resname="Active">
+        <source>Active</source>
+        <target>Actif</target>
+      </trans-unit>
+      <trans-unit id="JSbGIMG" resname="House">
+        <source>House</source>
+        <target>Maison</target>
+      </trans-unit>
+      <trans-unit id="nylTBGT" resname="Rating">
+        <source>Rating</source>
+        <target>Classement</target>
+      </trans-unit>
+      <trans-unit id="3NHVIj9" resname="Name">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="NYURyMC" resname="Effects">
+        <source>Effects</source>
+        <target>Effets</target>
+      </trans-unit>
+      <trans-unit id="uq3fcPt" resname="Type">
+        <source>Type</source>
+        <target>Type</target>
+      </trans-unit>
+      <trans-unit id="IEpess0" resname="Cost">
+        <source>Cost</source>
+        <target>Coût</target>
+      </trans-unit>
+      <trans-unit id="RZid5J_" resname="Details">
+        <source>Details</source>
+        <target>Détails</target>
+      </trans-unit>
+      <trans-unit id="GJ.1wKy" resname="Short range">
+        <source>Short range</source>
+        <target>Courte portée</target>
+      </trans-unit>
+      <trans-unit id="0xK4ATV" resname="Long range">
+        <source>Long range</source>
+        <target>Longue portée</target>
+      </trans-unit>
+      <trans-unit id="ZE7VwLY" resname="Bonus to hit short range">
+        <source>Bonus to hit short range</source>
+        <target>Bonus pour toucher à courte portée</target>
+      </trans-unit>
+      <trans-unit id="cvhHIkZ" resname="Bonus to hit long range">
+        <source>Bonus to hit long range</source>
+        <target>Bonus pour toucher à longue portée</target>
+      </trans-unit>
+      <trans-unit id="Y_46G5Z" resname="Strength">
+        <source>Strength</source>
+        <target>Force</target>
+      </trans-unit>
+      <trans-unit id="DIdPWBp" resname="Damage">
+        <source>Damage</source>
+        <target>Dégâts</target>
+      </trans-unit>
+      <trans-unit id="2gjJApb" resname="Save modifier">
+        <source>Save modifier</source>
+        <target>Modificateur de sauvegarde</target>
+      </trans-unit>
+      <trans-unit id="CO7.sNp" resname="Ammo roll">
+        <source>Ammo roll</source>
+        <target>Jet de munitions</target>
+      </trans-unit>
+      <trans-unit id="mXxUTxv" resname="Special">
+        <source>Special</source>
+        <target>Spécial</target>
+      </trans-unit>
+      <trans-unit id="qt54mxj" resname="Weapons special">
+        <source>Weapons special</source>
+        <target>Spécial des armes</target>
+      </trans-unit>
+      <trans-unit id="Um4Ah8w" resname="Description">
+        <source>Description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="499pXXl" resname="Equipments">
+        <source>Equipments</source>
+        <target>Équipements</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
