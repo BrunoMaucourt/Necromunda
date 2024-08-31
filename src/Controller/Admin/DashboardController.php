@@ -21,9 +21,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -31,21 +33,38 @@ class DashboardController extends AbstractDashboardController
 
     private EntityManagerInterface $entityManager;
 
+    private RequestStack $requestStack;
+
     private Security $security;
+
+    private TranslatorInterface $translator;
 
     public function __construct(
         AdminUrlGenerator $adminUrlGenerator,
         EntityManagerInterface $entityManager,
-        Security $security
+        RequestStack $requestStack,
+        Security $security,
+        TranslatorInterface $translator,
     ){
         $this->adminUrlGenerator = $adminUrlGenerator;
         $this->entityManager = $entityManager;
+        $this->requestStack = $requestStack;
         $this->security = $security;
+        $this->translator = $translator;
     }
 
     #[Route('/{_locale<%app.supported_locales%>}/admin', name: 'admin')]
     public function index(): Response
     {
+        $request = $this->requestStack->getCurrentRequest();
+        $locale = $request ? $request->getLocale() : 'en';
+
+        dump($locale);
+
+        $this->translator->setLocale($locale);
+
+        $translatedMessage = $this->translator->trans('message.hello_world');
+
         $linksAdd = [
             'Gang' => [
                 'url' => $this->adminUrlGenerator
@@ -53,7 +72,7 @@ class DashboardController extends AbstractDashboardController
                             ->setAction('new')
                             ->generateUrl(),
                 'icon' => 'fas fa-users',
-                'text' => 'Add gang',
+                'text' => $this->translator->trans('Add gang'),
             ],
             'Ganger' => [
                 'url' => $this->adminUrlGenerator
@@ -61,14 +80,14 @@ class DashboardController extends AbstractDashboardController
                             ->setAction('new')
                             ->generateUrl(),
                 'icon' => 'fas fa-user-secret',
-                'text' => 'Add ganger',
+                'text' => $this->translator->trans('Add ganger'),
             ],
             'Game' => [
                 'url' => $this->adminUrlGenerator
                             ->setRoute('choose_gangs')
                             ->generateUrl(),
                 'icon' => 'fas fa-dice',
-                'text' => 'Add game',
+                'text' => $this->translator->trans('Add game'),
             ],
         ];
 
@@ -79,7 +98,7 @@ class DashboardController extends AbstractDashboardController
                             ->setAction('index')
                             ->generateUrl(),
                 'icon' => 'fas fa-users',
-                'text' => 'Show all gangs',
+                'text' => $this->translator->trans('Show all gangs'),
             ],
             'Ganger' => [
                 'url' => $this->adminUrlGenerator
@@ -87,7 +106,7 @@ class DashboardController extends AbstractDashboardController
                             ->setAction('index')
                             ->generateUrl(),
                 'icon' => 'fas fa-user-secret',
-                'text' => 'Show all gangers',
+                'text' => $this->translator->trans('Show all gangers'),
             ],
             'Game' => [
                 'url' => $this->adminUrlGenerator
@@ -95,7 +114,7 @@ class DashboardController extends AbstractDashboardController
                             ->setAction('index')
                             ->generateUrl(),
                 'icon' => 'fas fa-dice',
-                'text' => 'Show all games',
+                'text' => $this->translator->trans('Show all games'),
             ]
         ];
 
@@ -107,7 +126,7 @@ class DashboardController extends AbstractDashboardController
                         ->setAction('index')
                         ->generateUrl(),
                     'icon' => 'fas fa-award',
-                    'text' => 'Show all advancements',
+                    'text' => $this->translator->trans('Show all advancements'),
                 ],
                 'Equipements' => [
                     'url' => $this->adminUrlGenerator
@@ -115,7 +134,7 @@ class DashboardController extends AbstractDashboardController
                         ->setAction('index')
                         ->generateUrl(),
                     'icon' => 'fas fa-toolbox',
-                    'text' => 'Show all equipements',
+                    'text' => $this->translator->trans('Show all equipements'),
                 ],
                 'Injuries' => [
                     'url' => $this->adminUrlGenerator
@@ -123,7 +142,7 @@ class DashboardController extends AbstractDashboardController
                         ->setAction('index')
                         ->generateUrl(),
                     'icon' => 'fas fa-user-injured',
-                    'text' => 'Show all injuries',
+                    'text' => $this->translator->trans('Show all injuries'),
                 ],
                 'Loots' => [
                     'url' => $this->adminUrlGenerator
@@ -131,7 +150,7 @@ class DashboardController extends AbstractDashboardController
                         ->setAction('index')
                         ->generateUrl(),
                     'icon' => 'fas fa-gem',
-                    'text' => 'Show all loots',
+                    'text' => $this->translator->trans('Show all loots'),
                 ],
                 'Skills' => [
                     'url' => $this->adminUrlGenerator
@@ -139,7 +158,7 @@ class DashboardController extends AbstractDashboardController
                         ->setAction('index')
                         ->generateUrl(),
                     'icon' => 'fas fa-user-graduate',
-                    'text' => 'Show all skills',
+                    'text' => $this->translator->trans('Show all skills'),
                 ],
                 'Territories' => [
                     'url' => $this->adminUrlGenerator
@@ -147,7 +166,7 @@ class DashboardController extends AbstractDashboardController
                         ->setAction('index')
                         ->generateUrl(),
                     'icon' => 'fas fa-warehouse',
-                    'text' => 'Show all territories',
+                    'text' => $this->translator->trans('Show all territories'),
                 ],
                 'Weapons' => [
                     'url' => $this->adminUrlGenerator
@@ -155,7 +174,7 @@ class DashboardController extends AbstractDashboardController
                         ->setAction('index')
                         ->generateUrl(),
                     'icon' => 'fas fa-gun',
-                    'text' => 'Show all weapons',
+                    'text' => $this->translator->trans('Show all weapons'),
                 ],
                 'Users' => [
                     'url' => $this->adminUrlGenerator
@@ -163,7 +182,7 @@ class DashboardController extends AbstractDashboardController
                         ->setAction('index')
                         ->generateUrl(),
                     'icon' => 'fas fa-user',
-                    'text' => 'Show all users',
+                    'text' => $this->translator->trans('Show all users'),
                 ],
             ];
         } else {
@@ -215,19 +234,19 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Gangs', 'fas fa-users', Gang::class);
-        yield MenuItem::linkToCrud('Gangers', 'fas fa-user-secret', Ganger::class);
-        yield MenuItem::linkToCrud('Games', 'fas fa-dice', Game::class);
+        yield MenuItem::linkToDashboard($this->translator->trans('Dashboard'), 'fa fa-home');
+        yield MenuItem::linkToCrud($this->translator->trans('Gangs'), 'fas fa-users', Gang::class);
+        yield MenuItem::linkToCrud($this->translator->trans('Gangers'), 'fas fa-user-secret', Ganger::class);
+        yield MenuItem::linkToCrud($this->translator->trans('Games'), 'fas fa-dice', Game::class);
         if ($this->security->isGranted('ROLE_ADMIN')) {
-            yield MenuItem::linkToCrud('Advancements', 'fas fa-award', Advancement::class);
-            yield MenuItem::linkToCrud('Equipements', 'fas fa-toolbox', Equipement::class);
-            yield MenuItem::linkToCrud('Injuries', 'fas fa-user-injured', Injury::class);
-            yield MenuItem::linkToCrud('Loots', 'fas fa-gem', Loot::class);
-            yield MenuItem::linkToCrud('Skills', 'fas fa-user-graduate', Skill::class);
-            yield MenuItem::linkToCrud('Territories', 'fas fa-warehouse', Territory::class);
-            yield MenuItem::linkToCrud('Users', 'fas fa-user', User::class);
-            yield MenuItem::linkToCrud('Weapons', 'fas fa-gun', Weapon::class);
+            yield MenuItem::linkToCrud($this->translator->trans('Advancements'), 'fas fa-award', Advancement::class);
+            yield MenuItem::linkToCrud($this->translator->trans('Equipements'), 'fas fa-toolbox', Equipement::class);
+            yield MenuItem::linkToCrud($this->translator->trans('Injuries'), 'fas fa-user-injured', Injury::class);
+            yield MenuItem::linkToCrud($this->translator->trans('Loots'), 'fas fa-gem', Loot::class);
+            yield MenuItem::linkToCrud($this->translator->trans('Skills'), 'fas fa-user-graduate', Skill::class);
+            yield MenuItem::linkToCrud($this->translator->trans('Territories'), 'fas fa-warehouse', Territory::class);
+            yield MenuItem::linkToCrud($this->translator->trans('Users'), 'fas fa-user', User::class);
+            yield MenuItem::linkToCrud($this->translator->trans('Weapons'), 'fas fa-gun', Weapon::class);
         }
     }
 
@@ -245,7 +264,7 @@ class DashboardController extends AbstractDashboardController
 
         return parent::configureUserMenu($user)
             ->addMenuItems([
-                MenuItem::linkToUrl('Settings', 'fa fa-cog', $urlCurrentUserEditPage),
+                MenuItem::linkToUrl($this->translator->trans('Settings'), 'fa fa-cog', $urlCurrentUserEditPage),
         ]);
     }
 

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="7QUR4b1" resname="message.hello_world">
+        <source>message.hello_world</source>
+        <target>message.bonjour_monde</target>
+      </trans-unit>
+      <trans-unit id="bQybgDu" resname="Add gang">
+        <source>Add gang</source>
+        <target>Ajouter un gang</target>
+      </trans-unit>
+      <trans-unit id="zGcEdJy" resname="Add ganger">
+        <source>Add ganger</source>
+        <target>Ajouter un membre de gang</target>
+      </trans-unit>
+      <trans-unit id="DPV55WB" resname="Add game">
+        <source>Add game</source>
+        <target>Ajouter une partie</target>
+      </trans-unit>
+      <trans-unit id="xH0UQJa" resname="Show all gangs">
+        <source>Show all gangs</source>
+        <target>Afficher tous les gangs</target>
+      </trans-unit>
+      <trans-unit id="Gamlgy6" resname="Show all gangers">
+        <source>Show all gangers</source>
+        <target>Afficher tous les membres de gang</target>
+      </trans-unit>
+      <trans-unit id=".Yx5uXk" resname="Show all games">
+        <source>Show all games</source>
+        <target>Afficher toutes les parties</target>
+      </trans-unit>
+      <trans-unit id="PbX5zep" resname="Show all advancements">
+        <source>Show all advancements</source>
+        <target>Afficher toutes les avancées</target>
+      </trans-unit>
+      <trans-unit id="utPm3Mk" resname="Show all equipements">
+        <source>Show all equipements</source>
+        <target>Afficher tous les équipements</target>
+      </trans-unit>
+      <trans-unit id="ZRE1wi4" resname="Show all injuries">
+        <source>Show all injuries</source>
+        <target>Afficher toutes les blessures</target>
+      </trans-unit>
+      <trans-unit id="njnwRiZ" resname="Show all loots">
+        <source>Show all loots</source>
+        <target>Afficher tous les butins</target>
+      </trans-unit>
+      <trans-unit id="Iy9Jxuy" resname="Show all skills">
+        <source>Show all skills</source>
+        <target>Afficher toutes les compétences</target>
+      </trans-unit>
+      <trans-unit id="l3CdbNe" resname="Show all territories">
+        <source>Show all territories</source>
+        <target>Afficher tous les territoires</target>
+      </trans-unit>
+      <trans-unit id="HbWJGgv" resname="Show all weapons">
+        <source>Show all weapons</source>
+        <target>Afficher toutes les armes</target>
+      </trans-unit>
+      <trans-unit id="1_n19cN" resname="Show all users">
+        <source>Show all users</source>
+        <target>Afficher tous les utilisateurs</target>
+      </trans-unit>
+      <trans-unit id="Z7aWRoY" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>Tableau de bord</target>
+      </trans-unit>
+      <trans-unit id="1SRPnRn" resname="Gangs">
+        <source>Gangs</source>
+        <target>Gangs</target>
+      </trans-unit>
+      <trans-unit id="4AEC8Eo" resname="Gangers">
+        <source>Gangers</source>
+        <target>Membres de gang</target>
+      </trans-unit>
+      <trans-unit id="2drngQO" resname="Games">
+        <source>Games</source>
+        <target>Parties</target>
+      </trans-unit>
+      <trans-unit id="0TXYvkK" resname="Advancements">
+        <source>Advancements</source>
+        <target>Avancées</target>
+      </trans-unit>
+      <trans-unit id="lwP6B6C" resname="Equipements">
+        <source>Equipements</source>
+        <target>Équipements</target>
+      </trans-unit>
+      <trans-unit id="f7oF8uE" resname="Injuries">
+        <source>Injuries</source>
+        <target>Blessures</target>
+      </trans-unit>
+      <trans-unit id="g4MfTvY" resname="Loots">
+        <source>Loots</source>
+        <target>Butins</target>
+      </trans-unit>
+      <trans-unit id="ZtD1I6N" resname="Skills">
+        <source>Skills</source>
+        <target>Compétences</target>
+      </trans-unit>
+      <trans-unit id="zq3Sr0d" resname="Territories">
+        <source>Territories</source>
+        <target>Territoires</target>
+      </trans-unit>
+      <trans-unit id="awzJBNC" resname="Users">
+        <source>Users</source>
+        <target>Utilisateurs</target>
+      </trans-unit>
+      <trans-unit id="qvx7Dpu" resname="Weapons">
+        <source>Weapons</source>
+        <target>Armes</target>
+      </trans-unit>
+      <trans-unit id="n9coxmy" resname="Add">
+        <source>Add</source>
+        <target>Ajouter</target>
+      </trans-unit>
+      <trans-unit id="DfbxytN" resname="Show">
+        <source>Show</source>
+        <target>Afficher</target>
+      </trans-unit>
+      <trans-unit id="plYQfpn" resname="Statistics">
+        <source>Statistics</source>
+        <target>Statistiques</target>
+      </trans-unit>
+      <trans-unit id="dKiDoDe" resname="Settings">
+        <source>Settings</source>
+        <target>Paramètres</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
