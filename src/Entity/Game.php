@@ -326,7 +326,6 @@ class Game
 
     public function addTerritory(Territory $territory): static
     {
-        dump($territory);
         if (!$this->territories->contains($territory)) {
             $this->territories->add($territory);
         }

@@ -233,7 +233,6 @@ class PostGameService
                     continue;
                 } else {
                     $injuriesToAdd++;
-                    dump($injuriesToAdd);
                     $dicesRolls[] = $currentDicesRoll;
                     $summary .= " Injury " . $injuriesToAdd . " - dices roll = " . $currentDicesRoll . " \n";
                 }

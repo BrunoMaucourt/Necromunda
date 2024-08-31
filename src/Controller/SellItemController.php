@@ -52,7 +52,6 @@ class SellItemController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             if ($form->getClickedButton()->getConfig()->getName() === 'yes') {
 
-                dump($item);
                 if ($item instanceof Weapon) {
                     if ($item->getGanger()->getGang()) {
                         $gang->removeWeapon($item);

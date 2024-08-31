@@ -59,8 +59,6 @@ class DashboardController extends AbstractDashboardController
         $request = $this->requestStack->getCurrentRequest();
         $locale = $request ? $request->getLocale() : 'en';
 
-        dump($locale);
-
         $this->translator->setLocale($locale);
         
         $linksAdd = [
