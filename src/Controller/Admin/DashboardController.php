@@ -60,7 +60,7 @@ class DashboardController extends AbstractDashboardController
         $locale = $request ? $request->getLocale() : 'en';
 
         $this->translator->setLocale($locale);
-        
+
         $linksAdd = [
             'Gang' => [
                 'url' => $this->adminUrlGenerator
@@ -189,7 +189,7 @@ class DashboardController extends AbstractDashboardController
         $errorMessageNoData = 'no data';
         $gangRepository = $this->entityManager->getRepository(Gang::class);
 
-        $highestRating['message'] = 'Highest gang rating';
+        $highestRating['message'] = $this->translator->trans('Highest gang rating');
         if ($gangRepository->getGangWithHighestRating() ==! null) {
             $gang = $gangRepository->find($gangRepository->getGangWithHighestRating());
             $highestRating['gang'] = $gang->getName();
@@ -199,7 +199,7 @@ class DashboardController extends AbstractDashboardController
             $highestRating['data'] = $errorMessageNoData;
         };
 
-        $highestCredits['message'] = 'Highest gang credits';
+        $highestCredits['message'] = $this->translator->trans('Highest gang credits');
         if ($gangRepository->getGangWithHighestCredits() ==! null) {
             $gang = $gangRepository->find($gangRepository->getGangWithHighestCredits());
             $highestCredits['gang'] = $gang->getName();

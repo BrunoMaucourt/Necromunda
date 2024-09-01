@@ -385,6 +385,78 @@
         <source>gang2</source>
         <target>gang2</target>
       </trans-unit>
+      <trans-unit id="PhfA0NC" resname="gang">
+        <source>gang</source>
+        <target>gang</target>
+      </trans-unit>
+      <trans-unit id="eaaeXVF" resname="Ganger type">
+        <source>Ganger type</source>
+        <target>Type de combatants</target>
+      </trans-unit>
+      <trans-unit id="E1.HoJ2" resname="alive">
+        <source>alive</source>
+        <target>Vivant</target>
+      </trans-unit>
+      <trans-unit id="3XKcdk5" resname="Characteristics">
+        <source>Characteristics</source>
+        <target>Caractéristiques</target>
+      </trans-unit>
+      <trans-unit id="U_Xnxai" resname="experience">
+        <source>experience</source>
+        <target>Expérience</target>
+      </trans-unit>
+      <trans-unit id="815KBfR" resname="Injuries and skills">
+        <source>Injuries and skills</source>
+        <target>Blessures et compétences</target>
+      </trans-unit>
+      <trans-unit id="kn2UF7w" resname="injuries">
+        <source>injuries</source>
+        <target>Blessures</target>
+      </trans-unit>
+      <trans-unit id="MsHPSaL" resname="skills">
+        <source>skills</source>
+        <target>Compétences</target>
+      </trans-unit>
+      <trans-unit id="EB8k6P4" resname="Weapons and equipements">
+        <source>Weapons and equipements</source>
+        <target>Armes et équipements</target>
+      </trans-unit>
+      <trans-unit id="RqD66DJ" resname="equipements">
+        <source>equipements</source>
+        <target>Équipements</target>
+      </trans-unit>
+      <trans-unit id="hleNu6S" resname="Ganger background">
+        <source>Ganger background</source>
+        <target>Contexte du gangster</target>
+      </trans-unit>
+      <trans-unit id="d9lJt9u" resname="Ganger history">
+        <source>Ganger history</source>
+        <target>Histoire du gangster</target>
+      </trans-unit>
+      <trans-unit id="4r33frZ" resname="Highest gang rating">
+        <source>Highest gang rating</source>
+        <target>Évaluation la plus élevée du gang</target>
+      </trans-unit>
+      <trans-unit id="dq6LH9B" resname="Highest gang credits">
+        <source>Highest gang credits</source>
+        <target>Crédits les plus élevés du gang</target>
+      </trans-unit>
+      <trans-unit id="FveKfWM" resname="username">
+        <source>username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="Zs9VE7N" resname="roles">
+        <source>roles</source>
+        <target>Rôles</target>
+      </trans-unit>
+      <trans-unit id="TZiP3ik" resname="Leave blank if you don't want to change the password">
+        <source>Leave blank if you don't want to change the password</source>
+        <target>Laissez vide si vous ne voulez pas changer le mot de passe</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -11,13 +11,20 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserCrudController extends AbstractCrudController
 {
     private Security $security;
 
-    public function __construct(Security $security){
+    private TranslatorInterface $translator;
+
+    public function __construct(
+        Security $security,
+        TranslatorInterface $translator
+    ){
         $this->security = $security;
+        $this->translator = $translator;
     }
 
     public static function getEntityFqcn(): string
@@ -27,12 +34,12 @@ class UserCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('username')
+        yield TextField::new('username', $this->translator->trans('username'))
             ->setColumns(6);
-        yield AssociationField::new('gang')
+        yield AssociationField::new('gang', $this->translator->trans('gang'))
             ->setColumns(6);
         if($this->isGranted('ROLE_ADMIN')){
-            yield ArrayField::new('roles')
+            yield ArrayField::new('roles', $this->translator->trans('roles'))
                 ->setColumns(6);
         }
 
@@ -40,13 +47,13 @@ class UserCrudController extends AbstractCrudController
 
         if ($entityInstance == $this->security->getUser() || $this->security->isGranted('ROLE_ADMIN')) {
             $passwordField = TextField::new('temporaryPassword')
-                ->setLabel('Password')
+                ->setLabel($this->translator->trans('Password'))
                 ->onlyOnForms()
                 ->setColumns(6)
                 ->setFormTypeOption('required', false);
 
             if ($pageName === Crud::PAGE_EDIT) {
-                $passwordField->setFormTypeOption('help', 'Leave blank if you don\'t want to change the password');
+                $passwordField->setFormTypeOption('help', $this->translator->trans('Leave blank if you don\'t want to change the password'));
             } else {
                 $passwordField->setFormTypeOption('required', true);
             }
