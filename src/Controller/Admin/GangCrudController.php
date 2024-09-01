@@ -20,14 +20,21 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GangCrudController extends AbstractCrudController
 {
     private $security;
 
-    public function __construct(Security $security)
+    private TranslatorInterface $translator;
+
+    public function __construct(
+        Security $security,
+        TranslatorInterface $translator,
+    )
     {
         $this->security = $security;
+        $this->translator = $translator;
     }
 
     public static function getEntityFqcn(): string
@@ -50,14 +57,14 @@ class GangCrudController extends AbstractCrudController
             $gangId = $gang->getId() ? $gang->getId() : null;
         }
 
-        yield HouseField::new('house', 'House')
+        yield HouseField::new('house', $this->translator->trans('house'))
             ->formatValue(static function (HouseEnum $houseEnum): string {
                 return $houseEnum->enumToString();
             })
             ->setColumns(4);
-        yield TextField::new('name')
+        yield TextField::new('name', $this->translator->trans('name'))
             ->setColumns(4);
-        yield AssociationField::new('user')
+        yield AssociationField::new('user', $this->translator->trans('user'))
             ->setColumns(4)
             ->setFormTypeOptions([
                 'query_builder' => function (EntityRepository $er) {
@@ -67,94 +74,94 @@ class GangCrudController extends AbstractCrudController
                 },
             ]);
         if ($pageName !== Crud::PAGE_NEW) {
-            yield FormField::addPanel('Gang status')
+            yield FormField::addPanel('Gang status', $this->translator->trans('Gang status'))
                 ->setIcon('fa fa-chart-simple')
                 ->collapsible();
-            yield IntegerField::new('rating')
+            yield IntegerField::new('rating', $this->translator->trans('rating'))
                 ->setColumns(4)
                 ->setFormTypeOption('disabled','disabled')
                 ->setThousandsSeparator(' ');
-            yield IntegerField::new('credits')
+            yield IntegerField::new('credits', $this->translator->trans('credits'))
                 ->setColumns(4)
                 ->setThousandsSeparator(' ');
-            yield BooleanField::new('active')
+            yield BooleanField::new('active', $this->translator->trans('active'))
                 ->setColumns(4)
                 ->renderAsSwitch(false);
-            yield FormField::addPanel('Gangers and territories')
+            yield FormField::addPanel('Gangers and territories', $this->translator->trans('Gangers and territories'))
                 ->setIcon('fa fa-user-secret')
                 ->collapsible();
 
             if ($pageName == Crud::PAGE_DETAIL) {
-                yield CollectionField::new('gangers')
+                yield CollectionField::new('gangers', $this->translator->trans('gangers'))
                     ->setColumns(6)
                     ->hideOnIndex();
-                yield CollectionField::new('territories')
+                yield CollectionField::new('territories', $this->translator->trans('territories'))
                     ->setColumns(6)
                     ->hideOnIndex();
             } else {
-                yield CollectionField::new('gangers')
+                yield CollectionField::new('gangers', $this->translator->trans('gangers'))
                     ->setColumns(12)
                     ->hideOnIndex()
                     ->useEntryCrudForm(GangerCrudController::class);
-                yield CollectionField::new('territories')
+                yield CollectionField::new('territories', $this->translator->trans('territories'))
                     ->setColumns(12)
                     ->hideOnIndex()
                     ->useEntryCrudForm(TerritoriesCrudController::class);
             }
-            yield FormField::addPanel('Weapons stash')
+            yield FormField::addPanel('Weapons stash', $this->translator->trans('Weapons stash'))
                 ->setIcon('fa fa-gun')
                 ->collapsible();
-            yield CollectionField::new('weapons')
+            yield CollectionField::new('weapons', $this->translator->trans('weapons'))
                 ->setColumns(6)
                 ->hideOnIndex()
                 ->allowAdd(false);
-            yield FormField::addPanel('Loots')
+            yield FormField::addPanel('Loots', $this->translator->trans('Loots'))
                 ->setIcon('fa fa-gem')
                 ->collapsible();
             if ($pageName == Crud::PAGE_DETAIL) {
-                yield ArrayField::new('loots')
+                yield ArrayField::new('loots', $this->translator->trans('loots'))
                     ->hideWhenCreating()
                     ->hideOnIndex()
                     ->setColumns(12);
             } else {
-                yield CollectionField::new('loots')
+                yield CollectionField::new('loots', $this->translator->trans('loots'))
                     ->hideWhenCreating()
                     ->hideOnIndex()
                     ->setColumns(12)
                     ->useEntryCrudForm(LootCrudController::class);
             }
-            yield FormField::addPanel('Gang fights')
+            yield FormField::addPanel('Gang fights', $this->translator->trans('Gang fights'))
                 ->setIcon('fa fa-dice')
                 ->collapsible();
             if ($pageName == Crud::PAGE_DETAIL) {
-                yield CollectionField::new('games')
+                yield CollectionField::new('games', $this->translator->trans('games'))
                     ->setColumns(6)
                     ->hideOnIndex();
-                yield CollectionField::new('win')
+                yield CollectionField::new('win', $this->translator->trans('win'))
                     ->setColumns(6)
                     ->hideOnIndex();
             } else {
-                yield CollectionField::new('games')
+                yield CollectionField::new('games', $this->translator->trans('games'))
                     ->setColumns(6)
                     ->hideOnIndex()
                     ->setFormTypeOption('disabled','disabled');
-                yield CollectionField::new('win')
+                yield CollectionField::new('win', $this->translator->trans('win'))
                     ->setColumns(6)
                     ->hideOnIndex()
                     ->setFormTypeOption('disabled','disabled');
             }
         }
-        yield FormField::addPanel('Gang background')
+        yield FormField::addPanel('Gang background', $this->translator->trans('Gang background'))
             ->setIcon('fa fa-book')
             ->collapsible();
-        yield TextareaField::new('background')
+        yield TextareaField::new('background', $this->translator->trans('background'))
             ->setColumns(12)
             ->hideOnIndex();
-        yield FormField::addPanel('Gang history')
+        yield FormField::addPanel('Gang history', $this->translator->trans('Gang history'))
             ->setIcon('fa-solid fa-clock-rotate-left')
             ->hideWhenCreating()
             ->collapsible();
-        yield TextareaField::new('history')
+        yield TextareaField::new('history', $this->translator->trans('history'))
             ->setColumns(12)
             ->hideWhenCreating()
             ->hideOnIndex();
@@ -162,7 +169,7 @@ class GangCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        $downloadGangSheet = Action::new('downloadGangSheetAction', 'Download')
+        $downloadGangSheet = Action::new('downloadGangSheetAction', $this->translator->trans('Download'))
             ->setIcon('fa-solid fa-download')
             ->addCssClass('btn btn-light btn-remove-margin')
             ->linkToCrudAction('downloadGangSheet')

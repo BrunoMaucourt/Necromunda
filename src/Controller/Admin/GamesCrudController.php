@@ -20,23 +20,27 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GamesCrudController extends AbstractCrudController
 {
     private Security $security;
+
     private AdminUrlGenerator $adminUrlGenerator;
 
     private RequestStack $requestStack;
 
+    private TranslatorInterface $translator;
+
     public function __construct(
         RequestStack $requestStack,
         Security $security,
-        GangRepository $gangRepository,
+        TranslatorInterface $translator,
         AdminUrlGenerator $adminUrlGenerator
     ){
         $this->security = $security;
         $this->requestStack = $requestStack;
-        $this->gangRepository = $gangRepository;
+        $this->translator = $translator;
         $this->adminUrlGenerator = $adminUrlGenerator;
     }
 
@@ -77,19 +81,19 @@ class GamesCrudController extends AbstractCrudController
 
         $gangs = [$gang1Id, $gang2Id];
 
-        yield ScenarioField::new('scenario', 'Scenario')
+        yield ScenarioField::new('scenario', $this->translator->trans('Scenario'))
             ->hideWhenCreating()
             ->formatValue(static function (ScenariosEnum $scenariosEnum): string {
                 return $scenariosEnum->enumToString();
             })
             ->setColumns(6);
-        yield DateField::new('date')
+        yield DateField::new('date', $this->translator->trans('date'))
             ->setColumns(6);
-        yield FormField::addPanel('Players')
+        yield FormField::addPanel('Players', $this->translator->trans('Players'))
             ->hideWhenCreating()
             ->setIcon('fa fa-users')
             ->collapsible();
-        yield AssociationField::new('gang1')
+        yield AssociationField::new('gang1', $this->translator->trans('gang1'))
             ->hideWhenCreating()
             ->setColumns(6)
             ->setFormTypeOption('disabled','disabled')
@@ -100,7 +104,7 @@ class GamesCrudController extends AbstractCrudController
                         ->setParameter('id', $gang1Id);
                 },
             ]);
-        yield AssociationField::new('gang2')
+        yield AssociationField::new('gang2', $this->translator->trans('gang2'))
             ->hideWhenCreating()
             ->setColumns(6)
             ->setFormTypeOption('disabled','disabled')
@@ -139,12 +143,11 @@ class GamesCrudController extends AbstractCrudController
 //                        ->setParameter('gang', $gang2Id);
 //                },
 //            ]);
-        yield FormField::addPanel('Injuries during game')
+        yield FormField::addPanel($this->translator->trans('Injuries during game'))
             ->hideWhenCreating()
             ->setIcon('fa fa-user-injured')
             ->collapsible();
-        yield AssociationField::new('injuries')
-            ->setLabel('Gang 1')
+        yield AssociationField::new('injuries', $this->translator->trans('injuries gang 1'))
             ->hideWhenCreating()
             ->hideOnIndex()
             ->setColumns(6)->setColumns(6)->setFormTypeOptions([
@@ -154,8 +157,7 @@ class GamesCrudController extends AbstractCrudController
                         ->setParameter('id', $gang1Id);
                 },
             ]);
-        yield AssociationField::new('injuries')
-            ->setLabel('Gang 2')
+        yield AssociationField::new('injuries', $this->translator->trans('injuries gang 2'))
             ->hideWhenCreating()
             ->hideOnIndex()
             ->setColumns(6)->setColumns(6)->setFormTypeOptions([
@@ -189,45 +191,43 @@ class GamesCrudController extends AbstractCrudController
 //                        ->setParameter('gang', $gang2Id);
 //                },
 //            ]);
-        yield FormField::addPanel('Score')
+        yield FormField::addPanel('Score', $this->translator->trans('Score'))
             ->hideWhenCreating()
             ->setIcon('fa fa-list-ol')
             ->collapsible();
-        yield IntegerField::new('getGang1RatingBeforeGame')
+        yield IntegerField::new('getGang1RatingBeforeGame', $this->translator->trans('getGang1RatingBeforeGame'))
             ->hideOnIndex()
             ->hideWhenCreating()
             ->setColumns(6)
             ->hideOnIndex();
-        yield IntegerField::new('getGang1RatingAfterGame')
+        yield IntegerField::new('getGang1RatingAfterGame', $this->translator->trans('Gang 1 rating after game'))
             ->hideWhenCreating()
-            ->setLabel('Gang 1 rating after game')
             ->setColumns(6);
-        yield IntegerField::new('getGang2RatingBeforeGame')
+        yield IntegerField::new('getGang2RatingBeforeGame', $this->translator->trans('getGang2RatingBeforeGame'))
             ->hideOnIndex()
             ->hideWhenCreating()
             ->setColumns(6);
-        yield IntegerField::new('getGang2RatingAfterGame')
+        yield IntegerField::new('getGang2RatingAfterGame', $this->translator->trans('Gang 2 rating after game'))
             ->hideWhenCreating()
-            ->setLabel('Gang 2 rating after game')
             ->setColumns(6);
-        yield FormField::addPanel('Credits and loots')
+        yield FormField::addPanel('Credits and loots', $this->translator->trans('Credits and loots'))
             ->hideWhenCreating()
             ->setIcon('fa fa-gem')
             ->collapsible();
-        yield NumberField::new('gang1creditsBeforeGame')
+        yield NumberField::new('gang1creditsBeforeGame', $this->translator->trans('gang1creditsBeforeGame'))
             ->hideOnIndex()
             ->hideWhenCreating()
             ->setColumns(6)
             ->hideOnIndex();
-        yield NumberField::new('gang2creditsBeforeGame')
+        yield NumberField::new('gang2creditsBeforeGame', $this->translator->trans('gang2creditsBeforeGame'))
             ->hideOnIndex()
             ->hideWhenCreating()
             ->setColumns(6)
             ->hideOnIndex();
-        yield NumberField::new('gang1creditsAfterGame')
+        yield NumberField::new('gang1creditsAfterGame', $this->translator->trans('gang1creditsAfterGame'))
             ->hideWhenCreating()
             ->setColumns(6);
-        yield NumberField::new('gang2creditsAfterGame')
+        yield NumberField::new('gang2creditsAfterGame', $this->translator->trans('gang2creditsAfterGame'))
             ->hideWhenCreating()
             ->setColumns(6);
 //        yield AssociationField::new('loots')
@@ -254,10 +254,10 @@ class GamesCrudController extends AbstractCrudController
 //                        ->setParameter('gang', $gang2Id);
 //                },
 //            ]);
-        yield FormField::addPanel('Winner')
+        yield FormField::addPanel($this->translator->trans('Winner'))
             ->setIcon('fa fa-trophy')
             ->collapsible();
-        yield AssociationField::new('winner')
+        yield AssociationField::new('winner', $this->translator->trans('Winner'))
             ->setColumns(6)
             ->setFormTypeOptions([
                 'query_builder' => function (EntityRepository $er) use ($gangs) {
@@ -266,18 +266,18 @@ class GamesCrudController extends AbstractCrudController
                         ->setParameter('ids', $gangs);
                 },
             ]);
-        yield FormField::addPanel('Game background and details')
+        yield FormField::addPanel($this->translator->trans('Game background and details'))
             ->setIcon('fa fa-book')
             ->collapsible();
-        yield TextareaField::new('background')
+        yield TextareaField::new('background', $this->translator->trans('background'))
             ->setColumns(12)
             ->hideOnIndex();
-        yield TextareaField::new('summary')
+        yield TextareaField::new('summary', $this->translator->trans('summary'))
             ->setColumns(12)
             ->hideWhenCreating()
             ->hideOnIndex()
             ->renderAsHtml();
-        yield TextareaField::new('history')
+        yield TextareaField::new('history', $this->translator->trans('history'))
             ->setColumns(12)
             ->hideWhenCreating()
             ->hideOnIndex();

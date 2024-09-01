@@ -15,13 +15,20 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class EquipementsCrudController extends AbstractCrudController
 {
     private Security $security;
 
-    public function __construct(Security $security){
+    private TranslatorInterface $translator;
+
+    public function __construct(
+        Security $security,
+        TranslatorInterface $translator
+    ){
         $this->security = $security;
+        $this->translator = $translator;
     }
     public static function getEntityFqcn(): string
     {
@@ -41,7 +48,7 @@ class EquipementsCrudController extends AbstractCrudController
     {
         $object = $this->getContext()->getEntity()->getInstance();
 
-        yield EquipementsField::new('name', 'Name')
+        yield EquipementsField::new('name', $this->translator->trans('Name'))
             ->formatValue(static function (EquipementsEnum $equipementsEnum): string {
                 return $equipementsEnum->enumToString();
             })

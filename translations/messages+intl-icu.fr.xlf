@@ -5,10 +5,6 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="7QUR4b1" resname="message.hello_world">
-        <source>message.hello_world</source>
-        <target>message.bonjour_monde</target>
-      </trans-unit>
       <trans-unit id="bQybgDu" resname="Add gang">
         <source>Add gang</source>
         <target>Ajouter un gang</target>
@@ -195,7 +191,7 @@
       </trans-unit>
       <trans-unit id="DIdPWBp" resname="Damage">
         <source>Damage</source>
-        <target>Dégâts</target>
+        <target>Dommages</target>
       </trans-unit>
       <trans-unit id="2gjJApb" resname="Save modifier">
         <source>Save modifier</source>
@@ -203,7 +199,171 @@
       </trans-unit>
       <trans-unit id="CO7.sNp" resname="Ammo roll">
         <source>Ammo roll</source>
-        <target>Jet de munitions</target>
+        <target>Lancer de munitions</target>
+      </trans-unit>
+      <trans-unit id="1uIShmI" resname="house">
+        <source>house</source>
+        <target>Maison</target>
+      </trans-unit>
+      <trans-unit id="gqNTf.D" resname="name">
+        <source>name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="BPiZbad" resname="user">
+        <source>user</source>
+        <target>Utilisateur</target>
+      </trans-unit>
+      <trans-unit id="yd9iKnK" resname="Gang status">
+        <source>Gang status</source>
+        <target>Statut du gang</target>
+      </trans-unit>
+      <trans-unit id="ESiV169" resname="rating">
+        <source>rating</source>
+        <target>Éqvaluation</target>
+      </trans-unit>
+      <trans-unit id="vjeaMPG" resname="credits">
+        <source>credits</source>
+        <target>Crédits</target>
+      </trans-unit>
+      <trans-unit id="loeWEWU" resname="active">
+        <source>active</source>
+        <target>Actif</target>
+      </trans-unit>
+      <trans-unit id="pfOpLQW" resname="Gangers and territories">
+        <source>Gangers and territories</source>
+        <target>Combatants et territoires</target>
+      </trans-unit>
+      <trans-unit id="g7iahlz" resname="gangers">
+        <source>gangers</source>
+        <target>Combatants</target>
+      </trans-unit>
+      <trans-unit id="cuMI8QF" resname="territories">
+        <source>territories</source>
+        <target>Territoires</target>
+      </trans-unit>
+      <trans-unit id="c8P1Bxv" resname="Weapons stash">
+        <source>Weapons stash</source>
+        <target>Cache d'armes</target>
+      </trans-unit>
+      <trans-unit id="Fnp5tdQ" resname="weapons">
+        <source>weapons</source>
+        <target>Armes</target>
+      </trans-unit>
+      <trans-unit id="5ot3XaM" resname="loots">
+        <source>loots</source>
+        <target>Butins</target>
+      </trans-unit>
+      <trans-unit id="7ZgpQtM" resname="Gang fights">
+        <source>Gang fights</source>
+        <target>Combats de gang</target>
+      </trans-unit>
+      <trans-unit id="zXrExh." resname="games">
+        <source>games</source>
+        <target>Jeux</target>
+      </trans-unit>
+      <trans-unit id="gjoxgNr" resname="win">
+        <source>win</source>
+        <target>Victoire</target>
+      </trans-unit>
+      <trans-unit id="._lnRJ9" resname="Gang background">
+        <source>Gang background</source>
+        <target>Contexte du gang</target>
+      </trans-unit>
+      <trans-unit id="ibkd8Z2" resname="background">
+        <source>background</source>
+        <target>Contexte</target>
+      </trans-unit>
+      <trans-unit id="fy8O8sf" resname="Gang history">
+        <source>Gang history</source>
+        <target>Histoire du gang</target>
+      </trans-unit>
+      <trans-unit id="JZqo75i" resname="history">
+        <source>history</source>
+        <target>Histoire</target>
+      </trans-unit>
+      <trans-unit id="1ur_gjW" resname="Download">
+        <source>Download</source>
+        <target>Télécharger</target>
+      </trans-unit>
+      <trans-unit id="L8tdN0a" resname="Scenario">
+        <source>Scenario</source>
+        <target>Scénario</target>
+      </trans-unit>
+      <trans-unit id="DodjLNR" resname="date">
+        <source>date</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="hOEqxlX" resname="Players">
+        <source>Players</source>
+        <target>Joueurs</target>
+      </trans-unit>
+      <trans-unit id="y.jhO3b" resname="gang1">
+        <source>gang1</source>
+        <target>gang1</target>
+      </trans-unit>
+      <trans-unit id="Freag4g" resname="Injuries during game">
+        <source>Injuries during game</source>
+        <target>Blessures pendant le jeu</target>
+      </trans-unit>
+      <trans-unit id="HiyUkoj" resname="injuries gang 1">
+        <source>injuries gang 1</source>
+        <target>Blessures gang 1</target>
+      </trans-unit>
+      <trans-unit id="_u5oyn2" resname="injuries gang 2">
+        <source>injuries gang 2</source>
+        <target>Blessures gang 2</target>
+      </trans-unit>
+      <trans-unit id="OOWkbLx" resname="Score">
+        <source>Score</source>
+        <target>Score</target>
+      </trans-unit>
+      <trans-unit id="1zvblKY" resname="getGang1RatingBeforeGame">
+        <source>getGang1RatingBeforeGame</source>
+        <target>Classement du Gang 1 avant le jeu</target>
+      </trans-unit>
+      <trans-unit id="9RwWXic" resname="Gang 1 rating after game">
+        <source>Gang 1 rating after game</source>
+        <target>Classement du Gang 1 après le jeu</target>
+      </trans-unit>
+      <trans-unit id="ZnChHfY" resname="getGang2RatingBeforeGame">
+        <source>getGang2RatingBeforeGame</source>
+        <target>Classement du Gang 2 avant le jeu</target>
+      </trans-unit>
+      <trans-unit id="4L5.wMr" resname="Gang 2 rating after game">
+        <source>Gang 2 rating after game</source>
+        <target>Classement du Gang 2 après le jeu</target>
+      </trans-unit>
+      <trans-unit id="cGHEXYd" resname="Credits and loots">
+        <source>Credits and loots</source>
+        <target>Crédits et butins</target>
+      </trans-unit>
+      <trans-unit id="a0_RMYE" resname="gang1creditsBeforeGame">
+        <source>gang1creditsBeforeGame</source>
+        <target>Crédits du Gang 1 avant le jeu</target>
+      </trans-unit>
+      <trans-unit id="z6HZsqn" resname="gang2creditsBeforeGame">
+        <source>gang2creditsBeforeGame</source>
+        <target>Crédits du Gang 2 avant le jeu</target>
+      </trans-unit>
+      <trans-unit id="EjfYT09" resname="gang1creditsAfterGame">
+        <source>gang1creditsAfterGame</source>
+        <target>Crédits du Gang 1 après le jeu</target>
+      </trans-unit>
+      <trans-unit id="NUCWLyF" resname="gang2creditsAfterGame">
+        <source>gang2creditsAfterGame</source>
+        <target>Crédits du Gang 2 après le jeu</target>
+      </trans-unit>
+      <trans-unit id="EF3HSkX" resname="Winner">
+        <source>Winner</source>
+        <target>Gagnant</target>
+      </trans-unit>
+      <trans-unit id="axzA7n_" resname="Game background and details">
+        <source>Game background and details</source>
+        <target>Contexte et détails du jeu</target>
+      </trans-unit>
+      <trans-unit id="dht62K1" resname="summary">
+        <source>summary</source>
+        <target>Résumé</target>
       </trans-unit>
       <trans-unit id="mXxUTxv" resname="Special">
         <source>Special</source>
@@ -220,6 +380,10 @@
       <trans-unit id="499pXXl" resname="Equipments">
         <source>Equipments</source>
         <target>Équipements</target>
+      </trans-unit>
+      <trans-unit id="zxcmjg9" resname="gang2">
+        <source>gang2</source>
+        <target>gang2</target>
       </trans-unit>
     </body>
   </file>
