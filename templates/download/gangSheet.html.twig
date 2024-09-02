@@ -199,10 +199,10 @@
                 <td class="numeric">{{ ganger.cost }}</td>
                 <td class="numeric">{{ ganger.rating }}</td>
                 <td class="ganger-details">
-                    <strong>Weapons:</strong> {{ ganger.weapons | join(', ') }}<br>
-                    <strong>Skills:</strong> {{ ganger.skills | join(', ') }}<br>
-                    <strong>Equipment:</strong> {{ ganger.equipements | join(', ') }}<br>
-                    <strong>Injuries:</strong> {{ ganger.injuries | join(', ') }}
+                    <strong>{{ 'Weapons'|trans }}:</strong> {{ ganger.weapons | join(', ') }}<br>
+                    <strong>{{ 'Skills'|trans }}:</strong> {{ ganger.skills | join(', ') }}<br>
+                    <strong>{{ 'Equipment'|trans }}:</strong> {{ ganger.equipements | join(', ') }}<br>
+                    <strong>{{ 'Injuries'|trans }}:</strong> {{ ganger.injuries | join(', ') }}
                 </td>
             </tr>
         {% endfor %}
