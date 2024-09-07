@@ -11,7 +11,7 @@
       </trans-unit>
       <trans-unit id="zGcEdJy" resname="Add ganger">
         <source>Add ganger</source>
-        <target>Ajouter un membre de gang</target>
+        <target>Ajouter un combattant</target>
       </trans-unit>
       <trans-unit id="DPV55WB" resname="Add game">
         <source>Add game</source>
@@ -23,7 +23,7 @@
       </trans-unit>
       <trans-unit id="Gamlgy6" resname="Show all gangers">
         <source>Show all gangers</source>
-        <target>Afficher tous les membres de gang</target>
+        <target>Afficher tous les combattants</target>
       </trans-unit>
       <trans-unit id=".Yx5uXk" resname="Show all games">
         <source>Show all games</source>
@@ -71,7 +71,7 @@
       </trans-unit>
       <trans-unit id="4AEC8Eo" resname="Gangers">
         <source>Gangers</source>
-        <target>Membres de gang</target>
+        <target>Combattants</target>
       </trans-unit>
       <trans-unit id="2drngQO" resname="Games">
         <source>Games</source>
@@ -79,7 +79,7 @@
       </trans-unit>
       <trans-unit id="0TXYvkK" resname="Advancements">
         <source>Advancements</source>
-        <target>Avancées</target>
+        <target>Avancements</target>
       </trans-unit>
       <trans-unit id="lwP6B6C" resname="Equipements">
         <source>Equipements</source>
@@ -171,19 +171,19 @@
       </trans-unit>
       <trans-unit id="GJ.1wKy" resname="Short range">
         <source>Short range</source>
-        <target>Courte portée</target>
+        <target>Portée courte</target>
       </trans-unit>
       <trans-unit id="0xK4ATV" resname="Long range">
         <source>Long range</source>
-        <target>Longue portée</target>
+        <target>Portée longue</target>
       </trans-unit>
       <trans-unit id="ZE7VwLY" resname="Bonus to hit short range">
         <source>Bonus to hit short range</source>
-        <target>Bonus pour toucher à courte portée</target>
+        <target>Bonus pour toucher à portée courte</target>
       </trans-unit>
       <trans-unit id="cvhHIkZ" resname="Bonus to hit long range">
         <source>Bonus to hit long range</source>
-        <target>Bonus pour toucher à longue portée</target>
+        <target>Bonus pour toucher à portée longue</target>
       </trans-unit>
       <trans-unit id="Y_46G5Z" resname="Strength">
         <source>Strength</source>
@@ -191,7 +191,7 @@
       </trans-unit>
       <trans-unit id="DIdPWBp" resname="Damage">
         <source>Damage</source>
-        <target>Dommages</target>
+        <target>Dommage</target>
       </trans-unit>
       <trans-unit id="2gjJApb" resname="Save modifier">
         <source>Save modifier</source>
@@ -199,7 +199,7 @@
       </trans-unit>
       <trans-unit id="CO7.sNp" resname="Ammo roll">
         <source>Ammo roll</source>
-        <target>Lancer de munitions</target>
+        <target>Jet de munitions</target>
       </trans-unit>
       <trans-unit id="1uIShmI" resname="house">
         <source>house</source>
@@ -219,7 +219,7 @@
       </trans-unit>
       <trans-unit id="ESiV169" resname="rating">
         <source>rating</source>
-        <target>Éqvaluation</target>
+        <target>Évaluation</target>
       </trans-unit>
       <trans-unit id="vjeaMPG" resname="credits">
         <source>credits</source>
@@ -231,11 +231,11 @@
       </trans-unit>
       <trans-unit id="pfOpLQW" resname="Gangers and territories">
         <source>Gangers and territories</source>
-        <target>Combatants et territoires</target>
+        <target>Combattants et territoires</target>
       </trans-unit>
       <trans-unit id="g7iahlz" resname="gangers">
         <source>gangers</source>
-        <target>Combatants</target>
+        <target>Combattants</target>
       </trans-unit>
       <trans-unit id="cuMI8QF" resname="territories">
         <source>territories</source>
@@ -275,11 +275,11 @@
       </trans-unit>
       <trans-unit id="fy8O8sf" resname="Gang history">
         <source>Gang history</source>
-        <target>Histoire du gang</target>
+        <target>Histoirique du gang</target>
       </trans-unit>
       <trans-unit id="JZqo75i" resname="history">
         <source>history</source>
-        <target>Histoire</target>
+        <target>Histoirique</target>
       </trans-unit>
       <trans-unit id="1ur_gjW" resname="Download">
         <source>Download</source>
@@ -457,499 +457,1118 @@
         <source>Password</source>
         <target>Mot de passe</target>
       </trans-unit>
-     <!-- Enums       -->
-      <trans-unit id="enum.ganger_type_leader">
+      <trans-unit id="fyRlrHz" resname="Equipment">
+        <source>Equipment</source>
+        <target>Équipment</target>
+      </trans-unit>
+      <trans-unit id="ak6b8LY" resname="enum.ganger_type_leader">
         <source>enum.ganger_type_leader</source>
         <target>Leader</target>
       </trans-unit>
-      <trans-unit id="enum.ganger_type_heavy">
+      <trans-unit id="8wh1e5d" resname="enum.ganger_type_heavy">
         <source>enum.ganger_type_heavy</source>
         <target>Balèze</target>
       </trans-unit>
-      <trans-unit id="enum.ganger_type_ganger">
+      <trans-unit id="iaIbcTQ" resname="enum.ganger_type_ganger">
         <source>enum.ganger_type_ganger</source>
         <target>Ganger</target>
       </trans-unit>
-      <trans-unit id="enum.ganger_type_juve">
+      <trans-unit id="BQwaUxo" resname="enum.ganger_type_juve">
         <source>enum.ganger_type_juve</source>
         <target>Kid</target>
       </trans-unit>
-      <trans-unit id="enum.ganger_type_underhive_scum">
+      <trans-unit id="GDLY7VX" resname="enum.ganger_type_underhive_scum">
         <source>enum.ganger_type_underhive_scum</source>
         <target>Racaille</target>
       </trans-unit>
-      <trans-unit id="enum.ganger_type_bounty_hunter">
+      <trans-unit id="IV0hDyf" resname="enum.ganger_type_bounty_hunter">
         <source>enum.ganger_type_bounty_hunter</source>
         <target>Chasseur de primes</target>
       </trans-unit>
-      <trans-unit id="enum.ganger_type_ratskin_scout">
+      <trans-unit id="9zHrv_p" resname="enum.ganger_type_ratskin_scout">
         <source>enum.ganger_type_ratskin_scout</source>
         <target>Scout Ratskin</target>
       </trans-unit>
-      <trans-unit id="enum.ganger_type_gang">
+      <trans-unit id="ak6b9LY" resname="leader">
+        <source>leader</source>
+        <target>Leader</target>
+      </trans-unit>
+      <trans-unit id="8wh1e4d" resname="heavy">
+        <source>heavy</source>
+        <target>Balèze</target>
+      </trans-unit>
+      <trans-unit id="iaIbcTE" resname="ganger">
+        <source>ganger</source>
+        <target>Ganger</target>
+      </trans-unit>
+      <trans-unit id="BRwaUxo" resname="juve">
+        <source>juve</source>
+        <target>Kid</target>
+      </trans-unit>
+      <trans-unit id="GODL7VX" resname="underhive_scum">
+        <source>underhive_scum</source>
+        <target>Racaille</target>
+      </trans-unit>
+      <trans-unit id="IV9hDyf" resname="bounty_hunter">
+        <source>bounty_hunter</source>
+        <target>Chasseur de primes</target>
+      </trans-unit>
+      <trans-unit id="93Hrv_p" resname="ratskin_scout">
+        <source>ratskin_scout</source>
+        <target>Scout Ratskin</target>
+      </trans-unit>
+      <trans-unit id="Z39PSn." resname="enum.ganger_type_gang">
         <source>enum.ganger_type_gang</source>
         <target>gang</target>
       </trans-unit>
-      <trans-unit id="enum.ganger_type_hired_guns">
+      <trans-unit id="aldaHpg" resname="enum.ganger_type_hired_guns">
         <source>enum.ganger_type_hired_guns</source>
         <target>Mercenaires</target>
       </trans-unit>
-        <trans-unit id="enum.weapon_types.Pistols">
-           <source>enum.weapon_types.Pistols</source>
-           <target>Pitolets</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_types.Basic_weapons">
-           <source>enum.weapon_types.Basic_weapons</source>
-           <target>Armes de base</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_types.Special_weapons">
-           <source>enum.weapon_types.Special_weapons</source>
-           <target>Armes spéciales</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_types.Heavy_weapons">
-           <source>enum.weapon_types.Heavy_weapons</source>
-           <target>Armes lourdes</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_types.Hand-to-hands_weapons">
-           <source>enum.weapon_types.Hand-to-hands_weapons</source>
-           <target>Armes de corps à corps</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_types.Grenades">
-           <source>enum.weapon_types.Grenades</source>
-           <target>Grenades</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Stub_Gun">
-           <source>enum.weapon_Stub_Gun</source>
-           <target>Revolver</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Autopistol">
-           <source>enum.weapon_Autopistol</source>
-           <target>Pistolet mitrailleur</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Laspistol">
-           <source>enum.weapon_Laspistol</source>
-           <target>Pistolet laser</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Hand_Flamer">
-           <source>enum.weapon_Hand_Flamer</source>
-           <target>Lance-flammes léger</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Bolt_Pistol">
-           <source>enum.weapon_Bolt_Pistol</source>
-           <target>Pistolet bolter</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Plasma_Pistol">
-           <source>enum.weapon_Plasma_Pistol</source>
-           <target>Pistolet Plasma</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Needle_Pistol">
-           <source>enum.weapon_Needle_Pistol</source>
-           <target>Pistolet à aiguilles</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Web_Pistol">
-           <source>enum.weapon_Web_Pistol</source>
-           <target>Pistolet à toile</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Autogun">
-           <source>enum.weapon_Autogun</source>
-           <target>Fusil mitrailleur</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Shotgun_(Solid_Slug)">
-           <source>enum.weapon_Shotgun_(Solid_Slug)</source>
-           <target>Fusil à pompe (balle à tête pleine)</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Shotgun_(Scatter_Shot)">
-           <source>enum.weapon_Shotgun_(Scatter_Shot)</source>
-           <target>Fusil à pompe (cartouche à disperion)</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Shotgun_(Manstopper)">
-           <source>enum.weapon_Shotgun_(Manstopper)</source>
-           <target>Fusil à pompe (balle anti-personnel)</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Shotgun_(Hot_Shot)">
-           <source>enum.weapon_Shotgun_(Hot_Shot)</source>
-           <target>Fusil à pompe (cartouche incendiaire)</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Shotgun_(Bolt)">
-           <source>enum.weapon_Shotgun_(Bolt)</source>
-           <target>Fusil à pompe (cartouche Bolt)</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Hunting_Rifle">
-           <source>enum.weapon_Hunting_Rifle</source>
-           <target>Fusil de chasse</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Lasgun">
-           <source>enum.weapon_Lasgun</source>
-           <target>Fusil laser</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Boltgun">
-           <source>enum.weapon_Boltgun</source>
-           <target>Fusil laser</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Bolter">
-           <source>enum.weapon_Bolter</source>
-           <target>Bolter</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Autoslugger">
-           <source>enum.weapon_Autoslugger</source>
-           <target>Mitrailleuse légère</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Flamer">
-           <source>enum.weapon_Flamer</source>
-           <target>Lance-flammes</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Grenade_Launcher">
-           <source>enum.weapon_Grenade_Launcher</source>
-           <target>Lance-grenades</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Plasma_Gun">
-           <source>enum.weapon_Plasma_Gun</source>
-           <target>Lance-plasma</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Meltagun">
-           <source>enum.weapon_Meltagun</source>
-           <target>Fuseur</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Needle_Rifle">
-           <source>enum.weapon_Needle_Rifle</source>
-           <target>Fusil à aiguilles</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Heavy_Flamer">
-           <source>enum.weapon_Heavy_Flamer</source>
-           <target>Lance-flammes lourd</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Heavy_Stubber">
-           <source>enum.weapon_Heavy_Stubber</source>
-           <target>Mitrailleuse lourde</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Heavy_Bolter">
-           <source>enum.weapon_Heavy_Bolter</source>
-           <target>Bolter lourd</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Missile_Launcher_(Frag)">
-           <source>enum.weapon_Missile_Launcher_(Frag)</source>
-           <target>Lance-missiles (Frag)</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Missile_Launcher_(Krak)">
-           <source>enum.weapon_Missile_Launcher_(Krak)</source>
-           <target>Lance-missiles (Super Krak)</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Heavy_Plasma_Gun">
-           <source>enum.weapon_Heavy_Plasma_Gun</source>
-           <target>Lance-plasma lourd</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Autocannon">
-           <source>enum.weapon_Autocannon</source>
-           <target>Autocanon</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Lascannon">
-           <source>enum.weapon_Lascannon</source>
-           <target>Canon laser</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Knife">
-           <source>enum.weapon_Knife</source>
-           <target>Couteau</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Chain,_Flail">
-           <source>enum.weapon_Chain,_Flail</source>
-           <target>Chaîne ou Fléau</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Club,_Maul,_Bludgeon">
-           <source>enum.weapon_Club,_Maul,_Bludgeon</source>
-           <target>Gourdin</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Massive_Weapon">
-           <source>enum.weapon_Massive_Weapon</source>
-           <target>Arme à deux mains</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Sword">
-           <source>enum.weapon_Sword</source>
-           <target>Épée</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Chainsword">
-           <source>enum.weapon_Chainsword</source>
-           <target>Épée tronçonneuse</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Power_Axe">
-           <source>enum.weapon_Power_Axe</source>
-           <target>Hache énergétique</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Shock_Maul">
-           <source>enum.weapon_Shock_Maul</source>
-           <target>Matraque électrique</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Power_Sword">
-           <source>enum.weapon_Power_Sword</source>
-           <target>Épée énergétique</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Power_Fist">
-           <source>enum.weapon_Power_Fist</source>
-           <target>Gantelets Hache énergétiques</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Smoke_Bombs">
-           <source>enum.weapon_Smoke_Bombs</source>
-           <target>Grenade fumigène</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Choke_Gas">
-           <source>enum.weapon_Choke_Gas</source>
-           <target>Grenade suffocante</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Scare_Gas">
-           <source>enum.weapon_Scare_Gas</source>
-           <target>Grenade terrifiante</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Photon_Flares">
-           <source>enum.weapon_Photon_Flares</source>
-           <target>Grenade flash</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Frag_Grenade">
-           <source>enum.weapon_Frag_Grenade</source>
-           <target>Grenade Frag</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Plasma_Grenade">
-           <source>enum.weapon_Plasma_Grenade</source>
-           <target>Grenade à Plasma</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Krak_Grenade">
-           <source>enum.weapon_Krak_Grenade</source>
-           <target>Grenade Krak</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Melta_Bombs">
-           <source>enum.weapon_Melta_Bombs</source>
-           <target>Bombe à fusion</target>
-        </trans-unit>
-        <trans-unit id="enum.weapon_Hallucinogen_Gas">
-           <source>enum.weapon_Hallucinogen_Gas</source>
-           <target>Grenade hallucinogène</target>
-        </trans-unit>
-        <trans-unit id="Pistols">
-           <source>Pistols</source>
-           <target>Pitolets</target>
-        </trans-unit>
-        <trans-unit id="Basic weapons">
-           <source>Basic weapons</source>
-           <target>Armes de base</target>
-        </trans-unit>
-        <trans-unit id="Special weapons">
-           <source>Special weapons</source>
-           <target>Armes spéciales</target>
-        </trans-unit>
-        <trans-unit id="Heavy weapons">
-           <source>Heavy weapons</source>
-           <target>Armes lourdes</target>
-        </trans-unit>
-        <trans-unit id="Hand-to-hands weapons">
-           <source>Hand-to-hands weapons</source>
-           <target>Armes de corps à corps</target>
-        </trans-unit>
-        <trans-unit id="Grenades">
-           <source>Grenades</source>
-           <target>Grenades</target>
-        </trans-unit>
-        <trans-unit id="Stub Gun">
-           <source>Stub Gun</source>
-           <target>Revolver</target>
-        </trans-unit>
-        <trans-unit id="Autopistol">
-           <source>Autopistol</source>
-           <target>Pistolet mitrailleur</target>
-        </trans-unit>
-        <trans-unit id="Laspistol">
-           <source>Laspistol</source>
-           <target>Pistolet laser</target>
-        </trans-unit>
-        <trans-unit id="Hand Flamer">
-           <source>Hand Flamer</source>
-           <target>Lance-flammes léger</target>
-        </trans-unit>
-        <trans-unit id="Bolt Pistol">
-           <source>Bolt Pistol</source>
-           <target>Pistolet bolter</target>
-        </trans-unit>
-        <trans-unit id="Plasma Pistol">
-           <source>Plasma Pistol</source>
-           <target>Pistolet Plasma</target>
-        </trans-unit>
-        <trans-unit id="Needle Pistol">
-           <source>Needle Pistol</source>
-           <target>Pistolet à aiguilles</target>
-        </trans-unit>
-        <trans-unit id="Web Pistol">
-           <source>Web Pistol</source>
-           <target>Pistolet à toile</target>
-        </trans-unit>
-        <trans-unit id="Autogun">
-           <source>Autogun</source>
-           <target>Fusil mitrailleur</target>
-        </trans-unit>
-        <trans-unit id="Shotgun (Solid Slug)">
-           <source>Shotgun (Solid Slug)</source>
-           <target>Fusil à pompe (balle à tête pleine)</target>
-        </trans-unit>
-        <trans-unit id="Shotgun (Scatter Shot)">
-           <source>Shotgun (Scatter Shot)</source>
-           <target>Fusil à pompe (cartouche à disperion)</target>
-        </trans-unit>
-        <trans-unit id="Shotgun (Manstopper)">
-           <source>Shotgun (Manstopper)</source>
-           <target>Fusil à pompe (balle anti-personnel)</target>
-        </trans-unit>
-        <trans-unit id="Shotgun (Hot Shot)">
-           <source>Shotgun (Hot Shot)</source>
-           <target>Fusil à pompe (cartouche incendiaire)</target>
-        </trans-unit>
-        <trans-unit id="Shotgun (Bolt)">
-           <source>Shotgun (Bolt)</source>
-           <target>Fusil à pompe (cartouche Bolt)</target>
-        </trans-unit>
-        <trans-unit id="Hunting Rifle">
-           <source>Hunting Rifle</source>
-           <target>Fusil de chasse</target>
-        </trans-unit>
-        <trans-unit id="Lasgun">
-           <source>Lasgun</source>
-           <target>Fusil laser</target>
-        </trans-unit>
-        <trans-unit id="Boltgun">
-           <source>Boltgun</source>
-           <target>Fusil laser</target>
-        </trans-unit>
-        <trans-unit id="Bolter">
-           <source>Bolter</source>
-           <target>Bolter</target>
-        </trans-unit>
-        <trans-unit id="Autoslugger">
-           <source>Autoslugger</source>
-           <target>Mitrailleuse légère</target>
-        </trans-unit>
-        <trans-unit id="Flamer">
-           <source>Flamer</source>
-           <target>Lance-flammes</target>
-        </trans-unit>
-        <trans-unit id="Grenade Launcher">
-           <source>Grenade Launcher</source>
-           <target>Lance-grenades</target>
-        </trans-unit>
-        <trans-unit id="Plasma Gun">
-           <source>Plasma Gun</source>
-           <target>Lance-plasma</target>
-        </trans-unit>
-        <trans-unit id="Meltagun">
-           <source>Meltagun</source>
-           <target>Fuseur</target>
-        </trans-unit>
-        <trans-unit id="Needle Rifle">
-           <source>Needle Rifle</source>
-           <target>Fusil à aiguilles</target>
-        </trans-unit>
-        <trans-unit id="Heavy Flamer">
-           <source>Heavy Flamer</source>
-           <target>Lance-flammes lourd</target>
-        </trans-unit>
-        <trans-unit id="Heavy Stubber">
-           <source>Heavy Stubber</source>
-           <target>Mitrailleuse lourde</target>
-        </trans-unit>
-        <trans-unit id="Heavy Bolter">
-           <source>Heavy Bolter</source>
-           <target>Bolter lourd</target>
-        </trans-unit>
-        <trans-unit id="Missile Launcher (Frag)">
-           <source>Missile Launcher (Frag)</source>
-           <target>Lance-missiles (Frag)</target>
-        </trans-unit>
-        <trans-unit id="Missile Launcher (Krak)">
-           <source>Missile Launcher (Krak)</source>
-           <target>Lance-missiles (Super Krak)</target>
-        </trans-unit>
-        <trans-unit id="Heavy Plasma Gun">
-           <source>Heavy Plasma Gun</source>
-           <target>Lance-plasma lourd</target>
-        </trans-unit>
-        <trans-unit id="Autocannon">
-           <source>Autocannon</source>
-           <target>Autocanon</target>
-        </trans-unit>
-        <trans-unit id="Lascannon">
-           <source>Lascannon</source>
-           <target>Canon laser</target>
-        </trans-unit>
-        <trans-unit id="Knife">
-           <source>Knife</source>
-           <target>Couteau</target>
-        </trans-unit>
-        <trans-unit id="Chain, Flail">
-           <source>Chain, Flail</source>
-           <target>Chaîne ou Fléau</target>
-        </trans-unit>
-        <trans-unit id="Club, Maul, Bludgeon">
-           <source>Club, Maul, Bludgeon</source>
-           <target>Gourdin</target>
-        </trans-unit>
-        <trans-unit id="Massive Weapon">
-           <source>Massive Weapon</source>
-           <target>Arme à deux mains</target>
-        </trans-unit>
-        <trans-unit id="Sword">
-           <source>Sword</source>
-           <target>Épée</target>
-        </trans-unit>
-        <trans-unit id="Chainsword">
-           <source>Chainsword</source>
-           <target>Épée tronçonneuse</target>
-        </trans-unit>
-        <trans-unit id="Power Axe">
-           <source>Power Axe</source>
-           <target>Hache énergétique</target>
-        </trans-unit>
-        <trans-unit id="Shock Maul">
-           <source>Shock Maul</source>
-           <target>Matraque électrique</target>
-        </trans-unit>
-        <trans-unit id="Power Sword">
-           <source>Power Sword</source>
-           <target>Épée énergétique</target>
-        </trans-unit>
-        <trans-unit id="Power Fist">
-           <source>Power Fist</source>
-           <target>Gantelets Hache énergétiques</target>
-        </trans-unit>
-        <trans-unit id="Smoke Bombs">
-           <source>Smoke Bombs</source>
-           <target>Grenade fumigène</target>
-        </trans-unit>
-        <trans-unit id="Choke Gas">
-           <source>Choke Gas</source>
-           <target>Grenade suffocante</target>
-        </trans-unit>
-        <trans-unit id="Scare Gas">
-           <source>Scare Gas</source>
-           <target>Grenade terrifiante</target>
-        </trans-unit>
-        <trans-unit id="Photon Flares">
-           <source>Photon Flares</source>
-           <target>Grenade flash</target>
-        </trans-unit>
-        <trans-unit id="Frag Grenade">
-           <source>Frag Grenade</source>
-           <target>Grenade Frag</target>
-        </trans-unit>
-        <trans-unit id="Plasma Grenade">
-           <source>Plasma Grenade</source>
-           <target>Grenade à Plasma</target>
-        </trans-unit>
-        <trans-unit id="Krak Grenade">
-           <source>Krak Grenade</source>
-           <target>Grenade Krak</target>
-        </trans-unit>
-        <trans-unit id="Melta Bombs">
-           <source>Melta Bombs</source>
-           <target>Bombe à fusion</target>
-        </trans-unit>
-        <trans-unit id="Hallucinogen Gas">
-           <source>Hallucinogen Gas</source>
-           <target>Grenade hallucinogène</target>
-        </trans-unit>
+      <trans-unit id="d.Mo4mM" resname="clip_harness">
+        <source>clip_harness</source>
+        <target>Harnais</target>
+      </trans-unit>
+      <trans-unit id="F.JFfX5" resname="La figurine peut s’attacher pendant sa phase de mouvement en restant immobile. Empêche les chutes.">
+        <source>La figurine peut s’attacher pendant sa phase de mouvement en restant immobile. Empêche les chutes.</source>
+        <target>La figurine peut s’attacher pendant sa phase de mouvement en restant immobile. Empêche les chutes.</target>
+      </trans-unit>
+      <trans-unit id="bcur3XD" resname="filter_plugs">
+        <source>filter_plugs</source>
+        <target>Masque à filtre</target>
+      </trans-unit>
+      <trans-unit id="Rq2ZhBq" resname="Peut relancer les jets d’endurance (T) pour résister à l’effet d’un gaz.">
+        <source>Peut relancer les jets d’endurance (T) pour résister à l’effet d’un gaz.</source>
+        <target>Peut relancer les jets d’endurance (T) pour résister à l’effet d’un gaz.</target>
+      </trans-unit>
+      <trans-unit id="5VPWj0b" resname="lobo_chip">
+        <source>lobo_chip</source>
+        <target>Puce lobotomisante</target>
+      </trans-unit>
+      <trans-unit id="XZ1fjBh" resname="Immunité à stupidité, fureur, haine et brisé mais initiative (I) définitivement réduite à 1.">
+        <source>Immunité à stupidité, fureur, haine et brisé mais initiative (I) définitivement réduite à 1.</source>
+        <target>Immunité à stupidité, fureur, haine et brisé mais initiative (I) définitivement réduite à 1.</target>
+      </trans-unit>
+      <trans-unit id="sxnQGVp" resname="photo_contacts">
+        <source>photo_contacts</source>
+        <target>Photo-lentilles</target>
+      </trans-unit>
+      <trans-unit id="YLaLU2W" resname="Immunité à l’aveuglement et vision dans le noir améliorée.">
+        <source>Immunité à l’aveuglement et vision dans le noir améliorée.</source>
+        <target>Immunité à l’aveuglement et vision dans le noir améliorée.</target>
+      </trans-unit>
+      <trans-unit id="CcUok9u" resname="weapon_reload">
+        <source>weapon_reload</source>
+        <target>Chargeur supplémentaire</target>
+      </trans-unit>
+      <trans-unit id="DLgHLUz" resname="Lance un D6 après un jet de munitions raté : le jet de munitions est réussi sur 4+. Une utilisation par bataille.">
+        <source>Lance un D6 après un jet de munitions raté : le jet de munitions est réussi sur 4+. Une utilisation par bataille.</source>
+        <target>Lance un D6 après un jet de munitions raté : le jet de munitions est réussi sur 4+. Une utilisation par bataille.</target>
+      </trans-unit>
+      <trans-unit id="ZDQCX0V" resname="weapon_power - Épée énergétique">
+        <source>weapon_power - Épée énergétique</source>
+        <target>Arme énergétique - Épée énergétique</target>
+      </trans-unit>
+      <trans-unit id="rcKZB_i" resname="weapon_power - Hache énergétique">
+        <source>weapon_power - Hache énergétique</source>
+        <target>Arme énergétique - Hache énergétique</target>
+      </trans-unit>
+      <trans-unit id="9ymbtt1" resname="weapon_power - Gantelets énergétiques">
+        <source>weapon_power - Gantelets énergétiques</source>
+        <target>Arme énergétique - Gantelets énergétiques</target>
+      </trans-unit>
+      <trans-unit id="LS.jff4" resname="rare_weapon - Fusil à aiguille">
+        <source>rare_weapon - Fusil à aiguille</source>
+        <target>Arme rare - Fusil à aiguille</target>
+      </trans-unit>
+      <trans-unit id="pj07FES" resname="rare_weapon - Pistolet à aiguille">
+        <source>rare_weapon - Pistolet à aiguille</source>
+        <target>Arme rare - Pistolet à aiguille</target>
+      </trans-unit>
+      <trans-unit id="iyo_L66" resname="rare_weapon - Pistolet à toile">
+        <source>rare_weapon - Pistolet à toile</source>
+        <target>Arme rare - Pistolet à toile</target>
+      </trans-unit>
+      <trans-unit id="huooVjU" resname="rare_weapon - Une sur un million">
+        <source>rare_weapon - Une sur un million</source>
+        <target>Arme rare - Une sur un million</target>
+      </trans-unit>
+      <trans-unit id="aNEYa1o" resname="gas_grenades - Suffocantes">
+        <source>gas_grenades - Suffocantes</source>
+        <target>Grenades à gaz - Suffocantes</target>
+      </trans-unit>
+      <trans-unit id="8HNDnxi" resname="gas_grenades - Terrifiantes">
+        <source>gas_grenades - Terrifiantes</source>
+        <target>Grenades à gaz - Terrifiantes</target>
+      </trans-unit>
+      <trans-unit id="Nq5BFsb" resname="gas_grenades - Hallucinogènes">
+        <source>gas_grenades - Hallucinogènes</source>
+        <target>Grenades à gaz - Hallucinogènes</target>
+      </trans-unit>
+      <trans-unit id="J5h3n66" resname="Grenades - Bombes à fusion">
+        <source>Grenades - Bombes à fusion</source>
+        <target>Grenades - Bombes à fusion</target>
+      </trans-unit>
+      <trans-unit id="WxlzmfO" resname="Grenades - Grenades Flash">
+        <source>Grenades - Grenades Flash</source>
+        <target>Grenades - Grenades Flash</target>
+      </trans-unit>
+      <trans-unit id="fn4loy3" resname="Grenades - Grenades à plasma">
+        <source>Grenades - Grenades à plasma</source>
+        <target>Grenades - Grenades à plasma</target>
+      </trans-unit>
+      <trans-unit id="nGTOnaJ" resname="Grenades - Grenades fumigènes">
+        <source>Grenades - Grenades fumigènes</source>
+        <target>Grenades - Grenades fumigènes</target>
+      </trans-unit>
+      <trans-unit id="1tGwZ9U" resname="ammo - Pack laser incendiaire">
+        <source>ammo - Pack laser incendiaire</source>
+        <target>Munitions - Pack laser incendiaire</target>
+      </trans-unit>
+      <trans-unit id="ETHHNhX" resname="ammo - Chargeur tambour">
+        <source>ammo - Chargeur tambour</source>
+        <target>Munitions - Chargeur tambour</target>
+      </trans-unit>
+      <trans-unit id="YPQ0hj5" resname="ammo - Bolts Feu d’enfer">
+        <source>ammo - Bolts Feu d’enfer</source>
+        <target>Munitions - Bolts Feu d’enfer</target>
+      </trans-unit>
+      <trans-unit id="ynLsVkt" resname="gunsight - gunsight laser">
+        <source>gunsight - gunsight laser</source>
+        <target>Viseur - Viseur laser</target>
+      </trans-unit>
+      <trans-unit id="kSoYzJM" resname="gunsight - Mono-viseur">
+        <source>gunsight - Mono-viseur</source>
+        <target>Viseur - Mono-viseur</target>
+      </trans-unit>
+      <trans-unit id="H73OkNq" resname="gunsight - gunsight téléscopique">
+        <source>gunsight - gunsight téléscopique</source>
+        <target>Viseur - Viseur téléscopique</target>
+      </trans-unit>
+      <trans-unit id="jl2Tcis" resname="gunsight - gunsight infra-rouge">
+        <source>gunsight - gunsight infra-rouge</source>
+        <target>Viseur - Viseur infra-rouge</target>
+      </trans-unit>
+      <trans-unit id="7C5k.7x" resname="heavy_gear - Auto-réparateur">
+        <source>heavy_gear - Auto-réparateur</source>
+        <target>Équipement lourd - Auto-réparateur</target>
+      </trans-unit>
+      <trans-unit id="b5oYqi2" resname="heavy_gear - Suspenseur">
+        <source>heavy_gear - Suspenseur</source>
+        <target>Équipement lourd - Suspenseur</target>
+      </trans-unit>
+      <trans-unit id="HDQx_Q_" resname="armour - Flak">
+        <source>armour - Flak</source>
+        <target>Armure - Flak</target>
+      </trans-unit>
+      <trans-unit id="XmUb3cw" resname="armour - armour composite">
+        <source>armour - armour composite</source>
+        <target>Armure - Armure composite</target>
+      </trans-unit>
+      <trans-unit id="ZoYIjt9" resname="exotic_armour - Carapace">
+        <source>exotic_armour - Carapace</source>
+        <target>Armure exotique - Carapace</target>
+      </trans-unit>
+      <trans-unit id="VOd_PzK" resname="exotic_armour - Champs de force">
+        <source>exotic_armour - Champs de force</source>
+        <target>Armure exotique - Champs de force</target>
+      </trans-unit>
+      <trans-unit id=".Na8NZ2" resname="Medi-pack">
+        <source>Medi-pack</source>
+        <target>Medi-pack</target>
+      </trans-unit>
+      <trans-unit id="lCFCyiJ" resname="isotropic_fuel_rod">
+        <source>isotropic_fuel_rod</source>
+        <target>Pile d’essence isotrope</target>
+      </trans-unit>
+      <trans-unit id="JTZq3ct" resname="bionic - bras, oeil, jambe, torse, Implant">
+        <source>bionic - bras, oeil, jambe, torse, Implant</source>
+        <target>Bionique - bras, oeil, jambe, torse, Implant</target>
+      </trans-unit>
+      <trans-unit id="G7Hep8c" resname="skull_chip">
+        <source>skull_chip</source>
+        <target>Puce cérébrale</target>
+      </trans-unit>
+      <trans-unit id="UajmEi3" resname="grapnel">
+        <source>grapnel</source>
+        <target>Grappin</target>
+      </trans-unit>
+      <trans-unit id="5sFTGpY" resname="grav_chute">
+        <source>grav_chute</source>
+        <target>Chute antigrav</target>
+      </trans-unit>
+      <trans-unit id="1O9L8EA" resname="Bio_scanner">
+        <source>Bio_scanner</source>
+        <target>Bio-scanner</target>
+      </trans-unit>
+      <trans-unit id="vQ4cmHG" resname="Bio_booster">
+        <source>Bio_booster</source>
+        <target>Bio-booster</target>
+      </trans-unit>
+      <trans-unit id="1S59I5k" resname="concealed_blade">
+        <source>concealed_blade</source>
+        <target>Lame cachée</target>
+      </trans-unit>
+      <trans-unit id="pG5KGy5" resname="respirator">
+        <source>respirator</source>
+        <target>Respirateur</target>
+      </trans-unit>
+      <trans-unit id="zPROKNl" resname="photo_visor">
+        <source>photo_visor</source>
+        <target>Photo-viseur</target>
+      </trans-unit>
+      <trans-unit id="vovbd0m" resname="berserker_chip">
+        <source>berserker_chip</source>
+        <target>Puce de Berserker</target>
+      </trans-unit>
+      <trans-unit id="ffkWEYL" resname="blindsnake_pouch">
+        <source>blindsnake_pouch</source>
+        <target>Poche du serpent aveugle</target>
+      </trans-unit>
+      <trans-unit id="clyZLPG" resname="infra_red_goggles">
+        <source>infra_red_goggles</source>
+        <target>Lunettes infra-rouges</target>
+      </trans-unit>
+      <trans-unit id="iw6WURS" resname="raid_gear - Silencieux">
+        <source>raid_gear - Silencieux</source>
+        <target>Matériel d’incursion - Silencieux</target>
+      </trans-unit>
+      <trans-unit id="E.FfaZw" resname="raid_gear - Hurleurs ou Bloqueurs">
+        <source>raid_gear - Hurleurs ou Bloqueurs</source>
+        <target>Matériel d’incursion - Hurleurs ou Bloqueurs</target>
+      </trans-unit>
+      <trans-unit id="Al9jhuz" resname="stinger_pouch">
+        <source>stinger_pouch</source>
+        <target>Poche médicinale</target>
+      </trans-unit>
+      <trans-unit id="KZ2yBPk" resname="ratskin_map">
+        <source>ratskin_map</source>
+        <target>Carte Ratskin</target>
+      </trans-unit>
+      <trans-unit id="fqzvvvT" resname="mung_vase">
+        <source>mung_vase</source>
+        <target>Vase Mung</target>
+      </trans-unit>
+      <trans-unit id="Ex_F1C7" resname="Agility_-_catfall">
+        <source>Agility_-_catfall</source>
+        <target>Agilité - Chute féline</target>
+      </trans-unit>
+      <trans-unit id="E7PAyUG" resname="Lors d’une chute, la réussite d’un jet d’initiative (I) permet d'atterrir sans danger. Les descente peuvent être supérieure à 3’’">
+        <source>Lors d’une chute, la réussite d’un jet d’initiative (I) permet d'atterrir sans danger. Les descente peuvent être supérieure à 3’’</source>
+        <target>Lors d’une chute, la réussite d’un jet d’initiative (I) permet d'atterrir sans danger. Les descente peuvent être supérieure à 3’’</target>
+      </trans-unit>
+      <trans-unit id="4WZS8f2" resname="Agility_-_dodge">
+        <source>Agility_-_dodge</source>
+        <target>Agilité - Esquive</target>
+      </trans-unit>
+      <trans-unit id="aG9rUg1" resname="Gagne une sauvegarde spéciale de 6+ contre les blessures au corps à corps et à distance">
+        <source>Gagne une sauvegarde spéciale de 6+ contre les blessures au corps à corps et à distance</source>
+        <target>Gagne une sauvegarde spéciale de 6+ contre les blessures au corps à corps et à distance</target>
+      </trans-unit>
+      <trans-unit id="_dDIVgN" resname="Agility_-_jump_back">
+        <source>Agility_-_jump_back</source>
+        <target>Agilité - Désengagement</target>
+      </trans-unit>
+      <trans-unit id="jtInKcQ" resname="Au début du tour, la figurine peut se désengager à 2” d’un corps à corps">
+        <source>Au début du tour, la figurine peut se désengager à 2” d’un corps à corps</source>
+        <target>Au début du tour, la figurine peut se désengager à 2” d’un corps à corps</target>
+      </trans-unit>
+      <trans-unit id="D78Ps3W" resname="Agility_-_leap">
+        <source>Agility_-_leap</source>
+        <target>Agilité - Saut</target>
+      </trans-unit>
+      <trans-unit id="CtvItch" resname="Peut ajouter un D6” de déplacement lors d’une charge ou d’une course. Le D6 est lancé avant de choisir le déplacement">
+        <source>Peut ajouter un D6” de déplacement lors d’une charge ou d’une course. Le D6 est lancé avant de choisir le déplacement</source>
+        <target>Peut ajouter un D6” de déplacement lors d’une charge ou d’une course. Le D6 est lancé avant de choisir le déplacement</target>
+      </trans-unit>
+      <trans-unit id="RGW4X8C" resname="Agility_-_quick_witted">
+        <source>Agility_-_quick_witted</source>
+        <target>Agilité - Esprit vif</target>
+      </trans-unit>
+      <trans-unit id="Of71F2n" resname="Réalisation d’une phase de mouvement avant le 1er tour">
+        <source>Réalisation d’une phase de mouvement avant le 1er tour</source>
+        <target>Réalisation d’une phase de mouvement avant le 1er tour</target>
+      </trans-unit>
+      <trans-unit id="8sZJTFD" resname="Agility_-_Sprint">
+        <source>Agility_-_Sprint</source>
+        <target>Agilité - Sprint</target>
+      </trans-unit>
+      <trans-unit id="aUKqvm." resname="Triple la caractéristique que mouvement (M) pour les charges et les courses">
+        <source>Triple la caractéristique que mouvement (M) pour les charges et les courses</source>
+        <target>Triple la caractéristique que mouvement (M) pour les charges et les courses</target>
+      </trans-unit>
+      <trans-unit id="g86px2H" resname="Combat_-_combat_master">
+        <source>Combat_-_combat_master</source>
+        <target>Combat - Maître du combat</target>
+      </trans-unit>
+      <trans-unit id="fAJpbgp" resname="Vole les bonus de combat multiple de ses adversaires si la figurine combat seule">
+        <source>Vole les bonus de combat multiple de ses adversaires si la figurine combat seule</source>
+        <target>Vole les bonus de combat multiple de ses adversaires si la figurine combat seule</target>
+      </trans-unit>
+      <trans-unit id="tC_QCsn" resname="Combat_-_counter_attack">
+        <source>Combat_-_counter_attack</source>
+        <target>Combat - Counter-attaque</target>
+      </trans-unit>
+      <trans-unit id="TcKmehe" resname="Peut relancer un de ses dés d’attaque">
+        <source>Peut relancer un de ses dés d’attaque</source>
+        <target>Peut relancer un de ses dés d’attaque</target>
+      </trans-unit>
+      <trans-unit id="jOpEZzh" resname="Combat_-_deflect">
+        <source>Combat_-_deflect</source>
+        <target>Combat - Blocage</target>
+      </trans-unit>
+      <trans-unit id="MUNB2nm" resname="Peut forcer un adversaire à relancer un dé d’attaque">
+        <source>Peut forcer un adversaire à relancer un dé d’attaque</source>
+        <target>Peut forcer un adversaire à relancer un dé d’attaque</target>
+      </trans-unit>
+      <trans-unit id="3SX6es3" resname="Combat_-_disarm">
+        <source>Combat_-_disarm</source>
+        <target>Combat - Désarmement</target>
+      </trans-unit>
+      <trans-unit id="RybGIPM" resname="Au corps à corps, la réussite d’un jet d’initiative force l’adversaire à n’utiliser qu’un couteau">
+        <source>Au corps à corps, la réussite d’un jet d’initiative force l’adversaire à n’utiliser qu’un couteau</source>
+        <target>Au corps à corps, la réussite d’un jet d’initiative force l’adversaire à n’utiliser qu’un couteau</target>
+      </trans-unit>
+      <trans-unit id="1k_KPqs" resname="Combat_-_feint">
+        <source>Combat_-_feint</source>
+        <target>Combat - Feinte</target>
+      </trans-unit>
+      <trans-unit id="N9yD5mI" resname="Le premier échec critique de la figurine confère un bonus de +1 au score de combat">
+        <source>Le premier échec critique de la figurine confère un bonus de +1 au score de combat</source>
+        <target>Le premier échec critique de la figurine confère un bonus de +1 au score de combat</target>
+      </trans-unit>
+      <trans-unit id="_KEvWyh" resname="Combat_-_step_aside">
+        <source>Combat_-_step_aside</source>
+        <target>Combat - Évitement</target>
+      </trans-unit>
+      <trans-unit id="8hgag9O" resname="Obtient une sauvegarde spéciale de 4+ contre les blessures au corps à corps">
+        <source>Obtient une sauvegarde spéciale de 4+ contre les blessures au corps à corps</source>
+        <target>Obtient une sauvegarde spéciale de 4+ contre les blessures au corps à corps</target>
+      </trans-unit>
+      <trans-unit id="DXwxS4I" resname="Ferocity_-_berserk_charge">
+        <source>Ferocity_-_berserk_charge</source>
+        <target>Ferocité - Charge berserk</target>
+      </trans-unit>
+      <trans-unit id="mbCy7yU" resname="Ajoute un D3 dés d’attaque contre un seul adversaire lors d’une charge">
+        <source>Ajoute un D3 dés d’attaque contre un seul adversaire lors d’une charge</source>
+        <target>Ajoute un D3 dés d’attaque contre un seul adversaire lors d’une charge</target>
+      </trans-unit>
+      <trans-unit id="o40fTFA" resname="Ferocity_-_impetuous">
+        <source>Ferocity_-_impetuous</source>
+        <target>Ferocité - Impétueux</target>
+      </trans-unit>
+      <trans-unit id="s9dwkEL" resname="Peut se déplacer jusqu’à 4” lors d’un mouvement de poursuite ou en étant cloué ou tombé">
+        <source>Peut se déplacer jusqu’à 4” lors d’un mouvement de poursuite ou en étant cloué ou tombé</source>
+        <target>Peut se déplacer jusqu’à 4” lors d’un mouvement de poursuite ou en étant cloué ou tombé</target>
+      </trans-unit>
+      <trans-unit id="TXtM6xF" resname="Ferocity_-_iron_will">
+        <source>Ferocity_-_iron_will</source>
+        <target>Ferocité - Volonté de fer</target>
+      </trans-unit>
+      <trans-unit id="bJbqIiv" resname="Peut relancer ses jets de commandement (Ld)">
+        <source>Peut relancer ses jets de commandement (Ld)</source>
+        <target>Peut relancer ses jets de commandement (Ld)</target>
+      </trans-unit>
+      <trans-unit id="jepEdMy" resname="Ferocity_-_killer_reputation">
+        <source>Ferocity_-_killer_reputation</source>
+        <target>Ferocité - Réputation de tueur</target>
+      </trans-unit>
+      <trans-unit id="LPvMW9r" resname="Cause la peur">
+        <source>Cause la peur</source>
+        <target>Cause la peur</target>
+      </trans-unit>
+      <trans-unit id="iWTWxBM" resname="Ferocity_-_nerves_of_steal">
+        <source>Ferocity_-_nerves_of_steal</source>
+        <target>Ferocité - Nerfs d’acier</target>
+      </trans-unit>
+      <trans-unit id="7Utqopk" resname="N’a pas besoin d’allié pour tenter de se relever d’un clouage au début du tour. Si la figurine pouvait déjà se relever, elle peut relancer son jet d’initiative (I)">
+        <source>N’a pas besoin d’allié pour tenter de se relever d’un clouage au début du tour. Si la figurine pouvait déjà se relever, elle peut relancer son jet d’initiative (I)</source>
+        <target>N’a pas besoin d’allié pour tenter de se relever d’un clouage au début du tour. Si la figurine pouvait déjà se relever, elle peut relancer son jet d’initiative (I)</target>
+      </trans-unit>
+      <trans-unit id="oZNdCqJ" resname="Ferocity_-_true_grit">
+        <source>Ferocity_-_true_grit</source>
+        <target>Ferocité - Courage sans faille</target>
+      </trans-unit>
+      <trans-unit id="a1unIY5" resname="Peut traiter les résultats de 1-2 comme une blessure superficielle">
+        <source>Peut traiter les résultats de 1-2 comme une blessure superficielle</source>
+        <target>Peut traiter les résultats de 1-2 comme une blessure superficielle</target>
+      </trans-unit>
+      <trans-unit id="khkwiM2" resname="Muscle_-_body_slam">
+        <source>Muscle_-_body_slam</source>
+        <target>Muscle - Plaquage</target>
+      </trans-unit>
+      <trans-unit id="ss4nKPE" resname="Lors d’une charge, la réussite d’un jet de force (S) réduit la capacité de combat (WS) de l’adversaire à 1">
+        <source>Lors d’une charge, la réussite d’un jet de force (S) réduit la capacité de combat (WS) de l’adversaire à 1</source>
+        <target>Lors d’une charge, la réussite d’un jet de force (S) réduit la capacité de combat (WS) de l’adversaire à 1</target>
+      </trans-unit>
+      <trans-unit id="V8GqU6D" resname="Muscle_-_muscle">
+        <source>Muscle_-_muscle</source>
+        <target>Muscle - Culturiste</target>
+      </trans-unit>
+      <trans-unit id="byVLDuc" resname="Augmente la caractéristique de force (S) de +1">
+        <source>Augmente la caractéristique de force (S) de +1</source>
+        <target>Augmente la caractéristique de force (S) de +1</target>
+      </trans-unit>
+      <trans-unit id="90Mpuf." resname="Muscle_-_hard_as_nails">
+        <source>Muscle_-_hard_as_nails</source>
+        <target>Muscle - Robuste</target>
+      </trans-unit>
+      <trans-unit id="DEnJE_n" resname="Si la figurine est hors d’action, elle lance un D6. Sur 5+, elle obtient une récupération complète">
+        <source>Si la figurine est hors d’action, elle lance un D6. Sur 5+, elle obtient une récupération complète</source>
+        <target>Si la figurine est hors d’action, elle lance un D6. Sur 5+, elle obtient une récupération complète</target>
+      </trans-unit>
+      <trans-unit id="Jo.0Itb" resname="Muscle_-_hurl_opponent">
+        <source>Muscle_-_hurl_opponent</source>
+        <target>Muscle - Projection</target>
+      </trans-unit>
+      <trans-unit id="woU5LO_" resname="Peut lancer un adversaire à un D6” en réussissant un test de force. La victime est clouée">
+        <source>Peut lancer un adversaire à un D6” en réussissant un test de force. La victime est clouée</source>
+        <target>Peut lancer un adversaire à un D6” en réussissant un test de force. La victime est clouée</target>
+      </trans-unit>
+      <trans-unit id="ThriEAs" resname="Muscle_-_iron_jaw">
+        <source>Muscle_-_iron_jaw</source>
+        <target>Muscle - Peau de fer</target>
+      </trans-unit>
+      <trans-unit id="Ecfgzvr" resname="Les attaques au corps à corps et les tirs à moins de 12” ont une force (S) réduite de 1">
+        <source>Les attaques au corps à corps et les tirs à moins de 12” ont une force (S) réduite de 1</source>
+        <target>Les attaques au corps à corps et les tirs à moins de 12” ont une force (S) réduite de 1</target>
+      </trans-unit>
+      <trans-unit id="b2iM1DF" resname="Muscle_-_juggernaut">
+        <source>Muscle_-_juggernaut</source>
+        <target>Muscle - Mastodonte</target>
+      </trans-unit>
+      <trans-unit id="Xo5wSNa" resname="Peut ignorer un tir de surveillance en réussissant un test de force (S)">
+        <source>Peut ignorer un tir de surveillance en réussissant un test de force (S)</source>
+        <target>Peut ignorer un tir de surveillance en réussissant un test de force (S)</target>
+      </trans-unit>
+      <trans-unit id="PxwYaoW" resname="Shooting_-_crack_shot">
+        <source>Shooting_-_crack_shot</source>
+        <target>Tir - Visée précise</target>
+      </trans-unit>
+      <trans-unit id="QKpXuly" resname="Les blessures infligées à distance mettent hors d’action sur 5-6">
+        <source>Les blessures infligées à distance mettent hors d’action sur 5-6</source>
+        <target>Les blessures infligées à distance mettent hors d’action sur 5-6</target>
+      </trans-unit>
+      <trans-unit id="My64Gnv" resname="Shooting_-_fast_shot">
+        <source>Shooting_-_fast_shot</source>
+        <target>Tir - Tir réflexe</target>
+      </trans-unit>
+      <trans-unit id="cYi.8L." resname="Peut se déplacer et se mettre en surveillance lors du même tour">
+        <source>Peut se déplacer et se mettre en surveillance lors du même tour</source>
+        <target>Peut se déplacer et se mettre en surveillance lors du même tour</target>
+      </trans-unit>
+      <trans-unit id="2JZQ69_" resname="Shooting_-_gunfigther">
+        <source>Shooting_-_gunfigther</source>
+        <target>Tir - Pistolero</target>
+      </trans-unit>
+      <trans-unit id="tGN7VqF" resname="Obtient une attaque à distance supplémentaire lors de l’utilisation de deux pistolets">
+        <source>Obtient une attaque à distance supplémentaire lors de l’utilisation de deux pistolets</source>
+        <target>Obtient une attaque à distance supplémentaire lors de l’utilisation de deux pistolets</target>
+      </trans-unit>
+      <trans-unit id="yWjXoWt" resname="Shooting_-_hip_shooting">
+        <source>Shooting_-_hip_shooting</source>
+        <target>Tir - Tir au jugé</target>
+      </trans-unit>
+      <trans-unit id="7nzaEbz" resname="Peut courir et tirer avec un pistolet (malus de -1 au tir) ou une arme de base (malus de -2 au tir)">
+        <source>Peut courir et tirer avec un pistolet (malus de -1 au tir) ou une arme de base (malus de -2 au tir)</source>
+        <target>Peut courir et tirer avec un pistolet (malus de -1 au tir) ou une arme de base (malus de -2 au tir)</target>
+      </trans-unit>
+      <trans-unit id="yS7VegU" resname="Shooting_-_marksman">
+        <source>Shooting_-_marksman</source>
+        <target>Tir - Tireur d’élite</target>
+      </trans-unit>
+      <trans-unit id="4bgAs.r" resname="La réussite d’un jet de commandement (Ld) permet de choisir la cible d’un tir">
+        <source>La réussite d’un jet de commandement (Ld) permet de choisir la cible d’un tir</source>
+        <target>La réussite d’un jet de commandement (Ld) permet de choisir la cible d’un tir</target>
+      </trans-unit>
+      <trans-unit id="kVfM94K" resname="Shooting_-_rapid_fire">
+        <source>Shooting_-_rapid_fire</source>
+        <target>Tir - Tir rapide</target>
+      </trans-unit>
+      <trans-unit id="d7K38f9" resname="Si la figurine est restée immobile, elle peut relancer un tir manqué avec un pistolet ou une arme de base">
+        <source>Si la figurine est restée immobile, elle peut relancer un tir manqué avec un pistolet ou une arme de base</source>
+        <target>Si la figurine est restée immobile, elle peut relancer un tir manqué avec un pistolet ou une arme de base</target>
+      </trans-unit>
+      <trans-unit id="INFLUTt" resname="Stealth_-_ambush">
+        <source>Stealth_-_ambush</source>
+        <target>Furtivité - Embuscade</target>
+      </trans-unit>
+      <trans-unit id="GrGvse8" resname="Peut se dissimuler et se mettre en surveillance lors du même tour">
+        <source>Peut se dissimuler et se mettre en surveillance lors du même tour</source>
+        <target>Peut se dissimuler et se mettre en surveillance lors du même tour</target>
+      </trans-unit>
+      <trans-unit id="I1fjBRy" resname="Stealth_-_dive">
+        <source>Stealth_-_dive</source>
+        <target>Furtivité - Plongeon</target>
+      </trans-unit>
+      <trans-unit id="VZiO8Lq" resname="Peut courir et se dissimuler lors du même tour">
+        <source>Peut courir et se dissimuler lors du même tour</source>
+        <target>Peut courir et se dissimuler lors du même tour</target>
+      </trans-unit>
+      <trans-unit id="JHLwkhW" resname="Stealth - Maître de l’évasion">
+        <source>Stealth - Maître de l’évasion</source>
+        <target>Furtivité - Maître de l’évasion</target>
+      </trans-unit>
+      <trans-unit id="L_rdLJg" resname="Les captures sont traitées comme des récupérations complètes">
+        <source>Les captures sont traitées comme des récupérations complètes</source>
+        <target>Les captures sont traitées comme des récupérations complètes</target>
+      </trans-unit>
+      <trans-unit id="P9uBlB1" resname="Stealth - Cible difficile">
+        <source>Stealth - Cible difficile</source>
+        <target>Furtivité - Cible difficile</target>
+      </trans-unit>
+      <trans-unit id="y8rUyim" resname="Les tirs adverses souffrent d’un malus de -2 à courte portée et de -1 à longue portée pour toucher la figurine si elle est à découvert">
+        <source>Les tirs adverses souffrent d’un malus de -2 à courte portée et de -1 à longue portée pour toucher la figurine si elle est à découvert</source>
+        <target>Les tirs adverses souffrent d’un malus de -2 à courte portée et de -1 à longue portée pour toucher la figurine si elle est à découvert</target>
+      </trans-unit>
+      <trans-unit id="h10z7n9" resname="Stealth - Infiltration">
+        <source>Stealth - Infiltration</source>
+        <target>Furtivité - Infiltration</target>
+      </trans-unit>
+      <trans-unit id="Xpd5Mkf" resname="Peut se déployer n’importe où à plus de 8” d’un adversaire">
+        <source>Peut se déployer n’importe où à plus de 8” d’un adversaire</source>
+        <target>Peut se déployer n’importe où à plus de 8” d’un adversaire</target>
+      </trans-unit>
+      <trans-unit id="pLmjELg" resname="Stealth - Discret">
+        <source>Stealth - Discret</source>
+        <target>Furtivité - Discret</target>
+      </trans-unit>
+      <trans-unit id="RXS44hv" resname="En cible fugace, impose un malus de -1 à l’intiative (I) adverse pour un tir de surveillance">
+        <source>En cible fugace, impose un malus de -1 à l’intiative (I) adverse pour un tir de surveillance</source>
+        <target>En cible fugace, impose un malus de -1 à l’initiative (I) adverse pour un tir de surveillance</target>
+      </trans-unit>
+      <trans-unit id="FizsWM8" resname="Techno - Armurier">
+        <source>Techno - Armurier</source>
+        <target>Techno - Armurier</target>
+      </trans-unit>
+      <trans-unit id="Rav.0i7" resname="Ignore le premier jet de munitions de la bataille (si la figurine n’était pas hors d’action à la dernière bataille)">
+        <source>Ignore le premier jet de munitions de la bataille (si la figurine n’était pas hors d’action à la dernière bataille)</source>
+        <target>Ignore le premier jet de munitions de la bataille (si la figurine n’était pas hors d’action à la dernière bataille)</target>
+      </trans-unit>
+      <trans-unit id="LZQ6q7c" resname="Techno - Courtier">
+        <source>Techno - Courtier</source>
+        <target>Techno - Courtier</target>
+      </trans-unit>
+      <trans-unit id="wdmqR0N" resname="Peut relancer le prix d’un butin rare (si la figurine n’était pas hors d’action à la dernière bataille)">
+        <source>Peut relancer le prix d’un butin rare (si la figurine n’était pas hors d’action à la dernière bataille)</source>
+        <target>Peut relancer le prix d’un butin rare (si la figurine n’était pas hors d’action à la dernière bataille)</target>
+      </trans-unit>
+      <trans-unit id="Ip8p3q1" resname="Techno - Inventeur">
+        <source>Techno - Inventeur</source>
+        <target>Techno - Inventeur</target>
+      </trans-unit>
+      <trans-unit id="OrkOe85" resname="Lancer un D6. Sur un résultat de 6 la figurine obtient un butin rare aléatoire (si elle n’était pas hors d’action à la dernière bataille)">
+        <source>Lancer un D6. Sur un résultat de 6 la figurine obtient un butin rare aléatoire (si elle n’était pas hors d’action à la dernière bataille)</source>
+        <target>Lancer un D6. Sur un résultat de 6 la figurine obtient un butin rare aléatoire (si elle n’était pas hors d’action à la dernière bataille)</target>
+      </trans-unit>
+      <trans-unit id="GdL2Awc" resname="Techno - Médecin">
+        <source>Techno - Médecin</source>
+        <target>Techno - Médecin</target>
+      </trans-unit>
+      <trans-unit id="f2mvu1B" resname="Peut relancer la blessure grave d’une autre figurine (si elle n’était pas hors d’action à la dernière bataille)">
+        <source>Peut relancer la blessure grave d’une autre figurine (si elle n’était pas hors d’action à la dernière bataille)</source>
+        <target>Peut relancer la blessure grave d’une autre figurine (si elle n’était pas hors d’action à la dernière bataille)</target>
+      </trans-unit>
+      <trans-unit id="N_9b2HI" resname="Techno - Specialiste">
+        <source>Techno - Specialiste</source>
+        <target>Techno - Spécialiste</target>
+      </trans-unit>
+      <trans-unit id="sNvA83T" resname="Donne accès aux armes spéciales">
+        <source>Donne accès aux armes spéciales</source>
+        <target>Donne accès aux armes spéciales</target>
+      </trans-unit>
+      <trans-unit id="XU.zxVr" resname="Techno - Artisan">
+        <source>Techno - Artisan</source>
+        <target>Techno - Artisan</target>
+      </trans-unit>
+      <trans-unit id="R8U6n2C" resname="Ignore ses jets de munitions et d’explosion ratés sur 4+">
+        <source>Ignore ses jets de munitions et d’explosion ratés sur 4+</source>
+        <target>Ignore ses jets de munitions et d’explosion ratés sur 4+</target>
+      </trans-unit>
+      <trans-unit id="0nbbTCn" resname="Mort">
+        <source>Mort</source>
+        <target>Mort</target>
+      </trans-unit>
+      <trans-unit id="QqnesuR" resname="The fighter is killed, and all weapons and equipment are lost. This result cannot be modified.">
+        <source>The fighter is killed, and all weapons and equipment are lost. This result cannot be modified.</source>
+        <target>Le combattant est tué, et toutes ses armes et équipements sont perdus. Ce résultat ne peut pas être modifié.</target>
+      </trans-unit>
+      <trans-unit id="uB2FXWL" resname="Blessures multiples">
+        <source>Blessures multiples</source>
+        <target>Blessures multiples</target>
+      </trans-unit>
+      <trans-unit id="GiKwnSi" resname="The fighter suffers multiple wounds, requiring additional rolls on the injury chart.">
+        <source>The fighter suffers multiple wounds, requiring additional rolls on the injury chart.</source>
+        <target>Le combattant subit plusieurs blessures, nécessitant des jets supplémentaires sur le tableau des blessures.</target>
+      </trans-unit>
+      <trans-unit id="CUjem7a" resname="Blessure infectée (1 bataille)">
+        <source>Blessure infectée (1 bataille)</source>
+        <target>Blessure infectée (1 bataille)</target>
+      </trans-unit>
+      <trans-unit id="p3O0ORf" resname="The fighter recovers but misses the next game.">
+        <source>The fighter recovers but misses the next game.</source>
+        <target>Le combattant se rétablit mais manque la bataille suivante.</target>
+      </trans-unit>
+      <trans-unit id="zjXQD7G" resname="Blessure infectée (2 batailles)">
+        <source>Blessure infectée (2 batailles)</source>
+        <target>Blessure infectée (2 batailles)</target>
+      </trans-unit>
+      <trans-unit id="6AAtXxH" resname="The fighter recovers but misses the next 2 games.">
+        <source>The fighter recovers but misses the next 2 games.</source>
+        <target>Le combattant se rétablit mais manque les 2 batailles suivantes.</target>
+      </trans-unit>
+      <trans-unit id="bnoxLZ7" resname="Blessure infectée (3 batailles)">
+        <source>Blessure infectée (3 batailles)</source>
+        <target>Blessure infectée (3 batailles)</target>
+      </trans-unit>
+      <trans-unit id="VPq9xVl" resname="The fighter recovers but misses the next 3 games.">
+        <source>The fighter recovers but misses the next 3 games.</source>
+        <target>Le combattant se rétablit mais manque les 3 batailles suivantes.</target>
+      </trans-unit>
+      <trans-unit id="X0KYWOu" resname="Blessure au torse">
+        <source>Blessure au torse</source>
+        <target>Blessure au torse</target>
+      </trans-unit>
+      <trans-unit id="JquxOTR" resname="Toughness is reduced by -1.">
+        <source>Toughness is reduced by -1.</source>
+        <target>La Résilience est réduite de -1.</target>
+      </trans-unit>
+      <trans-unit id="ItCgPcU" resname="Blessure à la jambe">
+        <source>Blessure à la jambe</source>
+        <target>Blessure à la jambe</target>
+      </trans-unit>
+      <trans-unit id="48.85bQ" resname="Movement is reduced by -1.">
+        <source>Movement is reduced by -1.</source>
+        <target>Le Mouvement est réduit de -1.</target>
+      </trans-unit>
+      <trans-unit id="fODjyaD" resname="Blessure au bras">
+        <source>Blessure au bras</source>
+        <target>Blessure au bras</target>
+      </trans-unit>
+      <trans-unit id="GsqShYP" resname="Strength is reduced by -1.">
+        <source>Strength is reduced by -1.</source>
+        <target>La Force est réduite de -1.</target>
+      </trans-unit>
+      <trans-unit id="P6VJNsU" resname="Blessure à la tête">
+        <source>Blessure à la tête</source>
+        <target>Blessure à la tête</target>
+      </trans-unit>
+      <trans-unit id="oRctulB" resname="The fighter suffers from either stupidity or frenzy before each game.">
+        <source>The fighter suffers from either stupidity or frenzy before each game.</source>
+        <target>Le combattant souffre soit de stupidité, soit de frénésie avant chaque bataille.</target>
+      </trans-unit>
+      <trans-unit id="EC.SfU1" resname="Oeil crevé">
+        <source>Oeil crevé</source>
+        <target>Œil crevé</target>
+      </trans-unit>
+      <trans-unit id="5FvI6a_" resname="Ballistic Skill is reduced by -1. If both eyes are blinded, the fighter dies.">
+        <source>Ballistic Skill is reduced by -1. If both eyes are blinded, the fighter dies.</source>
+        <target>La Compétence Balistique est réduite de -1. Si les deux yeux sont crevés, le combattant meurt.</target>
+      </trans-unit>
+      <trans-unit id="cUqb_Xa" resname="Blessure à l’oreille">
+        <source>Blessure à l’oreille</source>
+        <target>Blessure à l’oreille</target>
+      </trans-unit>
+      <trans-unit id="sNRajYd" resname="Initiative is reduced by -1.">
+        <source>Initiative is reduced by -1.</source>
+        <target>L’Initiative est réduite de -1.</target>
+      </trans-unit>
+      <trans-unit id="KHA.coB" resname="Stress post-traumatique">
+        <source>Stress post-traumatique</source>
+        <target>Stress post-traumatique</target>
+      </trans-unit>
+      <trans-unit id="FlwV97J" resname="Leadership is reduced by -1.">
+        <source>Leadership is reduced by -1.</source>
+        <target>Le Leadership est réduit de -1.</target>
+      </trans-unit>
+      <trans-unit id="PEh4Hcy" resname="Blessure à la main">
+        <source>Blessure à la main</source>
+        <target>Blessure à la main</target>
+      </trans-unit>
+      <trans-unit id="za9AxwR" resname="Weapon Skill is reduced by -1.">
+        <source>Weapon Skill is reduced by -1.</source>
+        <target>La Compétence au Combat est réduite de -1.</target>
+      </trans-unit>
+      <trans-unit id="yIfWDmM" resname="Blessure lancinante">
+        <source>Blessure lancinante</source>
+        <target>Blessure lancinante</target>
+      </trans-unit>
+      <trans-unit id="ouRgTR_" resname="The fighter may miss a game if the old wound flares up.">
+        <source>The fighter may miss a game if the old wound flares up.</source>
+        <target>Le combattant peut manquer une bataille si la vieille blessure se réactive.</target>
+      </trans-unit>
+      <trans-unit id="oBLt0lt" resname="Récupération complète">
+        <source>Récupération complète</source>
+        <target>Récupération complète</target>
+      </trans-unit>
+      <trans-unit id="1.jyafw" resname="The fighter fully recovers from minor injuries.">
+        <source>The fighter fully recovers from minor injuries.</source>
+        <target>Le combattant se remet entièrement des blessures mineures.</target>
+      </trans-unit>
+      <trans-unit id="x6oYIq0" resname="Inimitié amère">
+        <source>Inimitié amère</source>
+        <target>Inimitié amère</target>
+      </trans-unit>
+      <trans-unit id="rwaF925" resname="The fighter develops hatred towards the enemy responsible for the injury, either the individual or the enemy leader.">
+        <source>The fighter develops hatred towards the enemy responsible for the injury, either the individual or the enemy leader.</source>
+        <target>Le combattant développe une haine envers l’ennemi responsable de la blessure, soit l’individu, soit le leader ennemi.</target>
+      </trans-unit>
+      <trans-unit id="MfCI19x" resname="Capturé">
+        <source>Capturé</source>
+        <target>Capturé</target>
+      </trans-unit>
+      <trans-unit id="tz80i6F" resname="The fighter is captured, and players must negotiate for their release or sell them to slavers.">
+        <source>The fighter is captured, and players must negotiate for their release or sell them to slavers.</source>
+        <target>Le combattant est capturé, et les joueurs doivent négocier pour sa libération ou le vendre à des esclavagistes.</target>
+      </trans-unit>
+      <trans-unit id="Qju6hcP" resname="Cicatrices horribles">
+        <source>Cicatrices horribles</source>
+        <target>Cicatrices horribles</target>
+      </trans-unit>
+      <trans-unit id="2w9iZag" resname="The fighter causes fear due to disfigurement.">
+        <source>The fighter causes fear due to disfigurement.</source>
+        <target>Le combattant inspire la peur en raison de ses déformations.</target>
+      </trans-unit>
+      <trans-unit id="YHgVu7G" resname="Cicatrices impressionnantes">
+        <source>Cicatrices impressionnantes</source>
+        <target>Cicatrices impressionnantes</target>
+      </trans-unit>
+      <trans-unit id="c1Trycf" resname="The fighter gains a +1 Leadership bonus.">
+        <source>The fighter gains a +1 Leadership bonus.</source>
+        <target>Le combattant gagne un bonus de +1 en Leadership.</target>
+      </trans-unit>
+      <trans-unit id="IhWmpdD" resname="Survie incroyable">
+        <source>Survie incroyable</source>
+        <target>Survie incroyable</target>
+      </trans-unit>
+      <trans-unit id="FKzvsBM" resname="The fighter makes a full recovery and gains +2D6 Experience points.">
+        <source>The fighter makes a full recovery and gains +2D6 Experience points.</source>
+        <target>Le combattant se remet complètement et gagne +2D6 points d'expérience.</target>
+      </trans-unit>
+      <trans-unit id="wvf_vah" resname="Jet de munitions automatique">
+        <source>Jet de munitions automatique</source>
+        <target>Jet de munitions automatique</target>
+      </trans-unit>
+      <trans-unit id="ElHqxYU" resname="The heavy flamer must roll for Ammo each time it fires.">
+        <source>The heavy flamer must roll for Ammo each time it fires.</source>
+        <target>Le lance-flammes lourd doit effectuer un jet de munitions chaque fois qu'il tire.</target>
+      </trans-unit>
+      <trans-unit id="ZMgqrtG" resname="Blind">
+        <source>Blind</source>
+        <target>Blind</target>
+      </trans-unit>
+      <trans-unit id="yHYah7g" resname="This weapon emits a flash or smoke, temporarily blinding the target and reducing their accuracy.">
+        <source>This weapon emits a flash or smoke, temporarily blinding the target and reducing their accuracy.</source>
+        <target>Cette arme émet un flash ou de la fumée, aveuglant temporairement la cible et réduisant sa précision.</target>
+      </trans-unit>
+      <trans-unit id="GQC0eKW" resname="Capture">
+        <source>Capture</source>
+        <target>Capture</target>
+      </trans-unit>
+      <trans-unit id="M7Nq755" resname="A web pistol can capture an enemy in hand-to-hand combat on a roll of 4+.">
+        <source>A web pistol can capture an enemy in hand-to-hand combat on a roll of 4+.</source>
+        <target>Un pistolet à toile peut capturer un ennemi au corps à corps sur un jet de 4+.</target>
+      </trans-unit>
+      <trans-unit id="Ow.D1ww" resname="Catch Fire (3+)">
+        <source>Catch Fire (3+)</source>
+        <target>Attraper Feu (3+)</target>
+      </trans-unit>
+      <trans-unit id="XExDKgo" resname="Targets hit by a hand flamer catch fire on a roll of 3+.">
+        <source>Targets hit by a hand flamer catch fire on a roll of 3+.</source>
+        <target>Les cibles touchées par un lance-flammes à main prennent feu sur un jet de 3+.</target>
+      </trans-unit>
+      <trans-unit id="xJj2InQ" resname="Catch Fire (4+)">
+        <source>Catch Fire (4+)</source>
+        <target>Attraper Feu (4+)</target>
+      </trans-unit>
+      <trans-unit id="TVnJ7wu" resname="Targets hit by a hand flamer catch fire on a roll of 4+.">
+        <source>Targets hit by a hand flamer catch fire on a roll of 4+.</source>
+        <target>Les cibles touchées par un lance-flammes à main prennent feu sur un jet de 4+.</target>
+      </trans-unit>
+      <trans-unit id="o80NKT_" resname="Catch Fire (5+)">
+        <source>Catch Fire (5+)</source>
+        <target>Attraper Feu (5+)</target>
+      </trans-unit>
+      <trans-unit id="sqfmpbE" resname="Targets hit by a hand flamer catch fire on a roll of 5+.">
+        <source>Targets hit by a hand flamer catch fire on a roll of 5+.</source>
+        <target>Les cibles touchées par un lance-flammes à main prennent feu sur un jet de 5+.</target>
+      </trans-unit>
+      <trans-unit id="ZnlhFng" resname="Choke">
+        <source>Choke</source>
+        <target>Choke</target>
+      </trans-unit>
+      <trans-unit id="1x_q.lG" resname="A gas cloud that chokes targets, causing them to pass out or be incapacitated.">
+        <source>A gas cloud that chokes targets, causing them to pass out or be incapacitated.</source>
+        <target>Un nuage de gaz qui étouffe les cibles, les faisant s'évanouir ou être incapables d'agir.</target>
+      </trans-unit>
+      <trans-unit id="xw8XPP1" resname="Clumsy">
+        <source>Clumsy</source>
+        <target>Maladroit</target>
+      </trans-unit>
+      <trans-unit id="5pQpCK9" resname="Flails double the effect of fumbles, increasing the opponent’s Combat Score.">
+        <source>Flails double the effect of fumbles, increasing the opponent’s Combat Score.</source>
+        <target>Les fléaux doublent l'effet des ratés, augmentant le Score de Combat de l'adversaire.</target>
+      </trans-unit>
+      <trans-unit id="ym3vbiJ" resname="Critical Shot">
+        <source>Critical Shot</source>
+        <target>Tir Critique</target>
+      </trans-unit>
+      <trans-unit id="kYhpVRc" resname="A stationary fighter with a hunting rifle deals D3 damage on a roll of 6 to wound.">
+        <source>A stationary fighter with a hunting rifle deals D3 damage on a roll of 6 to wound.</source>
+        <target>Un combattant immobile avec un fusil de chasse inflige D3 dégâts sur un jet de 6 pour blesser.</target>
+      </trans-unit>
+      <trans-unit id="FFfcVU8" resname="Demolition">
+        <source>Demolition</source>
+        <target>Démolition</target>
+      </trans-unit>
+      <trans-unit id="VkWu.xl" resname="Krak grenades can be affixed to structures for demolition.">
+        <source>Krak grenades can be affixed to structures for demolition.</source>
+        <target>Les grenades krak peuvent être fixées sur des structures pour la démolition.</target>
+      </trans-unit>
+      <trans-unit id="8cdCFFf" resname="Demolition Only">
+        <source>Demolition Only</source>
+        <target>Démolition Uniquement</target>
+      </trans-unit>
+      <trans-unit id="ezhbm3M" resname="Melta bombs cannot be thrown or launched but are used for demolishing structures.">
+        <source>Melta bombs cannot be thrown or launched but are used for demolishing structures.</source>
+        <target>Les bombes à fusion ne peuvent pas être lancées mais sont utilisées pour détruire des structures.</target>
+      </trans-unit>
+      <trans-unit id="0gult2v" resname="Disperse">
+        <source>Disperse</source>
+        <target>Dispersion</target>
+      </trans-unit>
+      <trans-unit id="UCoHzD4" resname="Gas clouds last several turns, dissipating or drifting based on a dice roll.">
+        <source>Gas clouds last several turns, dissipating or drifting based on a dice roll.</source>
+        <target>Les nuages de gaz durent plusieurs tours, se dissipant ou dérivant en fonction d'un jet de dé.</target>
+      </trans-unit>
+      <trans-unit id="4LOipdd" resname="Draws">
+        <source>Draws</source>
+        <target>Égalités</target>
+      </trans-unit>
+      <trans-unit id="p8ktGyj" resname="If combat ends in a draw, the user’s Initiative is halved for determining the winner.">
+        <source>If combat ends in a draw, the user’s Initiative is halved for determining the winner.</source>
+        <target>Si le combat se termine par une égalité, l'Initiative de l'utilisateur est réduite de moitié pour déterminer le vainqueur.</target>
+      </trans-unit>
+      <trans-unit id="UUrvLha" resname="Dual-handed">
+        <source>Dual-handed</source>
+        <target>À deux mains</target>
+      </trans-unit>
+      <trans-unit id="Tc4Zpba" resname="A power axe can be wielded with one or both hands, gaining a strength bonus if dual-handed.">
+        <source>A power axe can be wielded with one or both hands, gaining a strength bonus if dual-handed.</source>
+        <target>Une hache énergétique peut être maniée à une ou deux mains, gagnant un bonus de force si elle est utilisée à deux mains.</target>
+      </trans-unit>
+      <trans-unit id="7nofZKz" resname="Dum-dum Bullets">
+        <source>Dum-dum Bullets</source>
+        <target>Balles Dum-dum</target>
+      </trans-unit>
+      <trans-unit id="MjhuE_7" resname="These bullets increase the gun's Strength but can cause the weapon to explode on a failed Ammo roll.">
+        <source>These bullets increase the gun's Strength but can cause the weapon to explode on a failed Ammo roll.</source>
+        <target>Ces balles augmentent la Force de l'arme mais peuvent faire exploser l'arme en cas d'échec au jet de munitions.</target>
+      </trans-unit>
+      <trans-unit id="UXiOXe4" resname="Flamer">
+        <source>Flamer</source>
+        <target>Lance-flammes</target>
+      </trans-unit>
+      <trans-unit id="KCIvu8R" resname="The flamer uses a template for its shot and requires an Ammo roll each time it’s fired.">
+        <source>The flamer uses a template for its shot and requires an Ammo roll each time it’s fired.</source>
+        <target>Le lance-flammes utilise un gabarit pour son tir et nécessite un jet de munitions à chaque utilisation.</target>
+      </trans-unit>
+      <trans-unit id="sgmK6y2" resname="Gas Cloud">
+        <source>Gas Cloud</source>
+        <target>Nuage de gaz</target>
+      </trans-unit>
+      <trans-unit id="rh4wHly" resname="Frag grenades use a gas cloud template, affecting a wide area.">
+        <source>Frag grenades use a gas cloud template, affecting a wide area.</source>
+        <target>Les grenades frag utilisent un gabarit de nuage de gaz, affectant une large zone.</target>
+      </trans-unit>
+      <trans-unit id="2E1Eb3c" resname="Gets Hot">
+        <source>Gets Hot</source>
+        <target>Surchauffe</target>
+      </trans-unit>
+      <trans-unit id="0GcB.Ds" resname="If the plasma gun overheats, it explodes, inflicting a hit on the user.">
+        <source>If the plasma gun overheats, it explodes, inflicting a hit on the user.</source>
+        <target>Si le pistolet à plasma surchauffe, il explose, infligeant un coup à l'utilisateur.</target>
+      </trans-unit>
+      <trans-unit id="xRGAOC3" resname="Hallucinogen">
+        <source>Hallucinogen</source>
+        <target>Hallucinogène</target>
+      </trans-unit>
+      <trans-unit id="drzy1Bk" resname="This gas cloud causes hallucinations, making the victim act unpredictably.">
+        <source>This gas cloud causes hallucinations, making the victim act unpredictably.</source>
+        <target>Ce nuage de gaz provoque des hallucinations, rendant la victime imprévisible.</target>
+      </trans-unit>
+      <trans-unit id="SKyw6DY" resname="High Impact">
+        <source>High Impact</source>
+        <target>Fort Impact</target>
+      </trans-unit>
+      <trans-unit id="uiMJDtL" resname="This weapon deals massive damage, capable of knocking targets off their feet or through walls.">
+        <source>This weapon deals massive damage, capable of knocking targets off their feet or through walls.</source>
+        <target>Cette arme inflige des dégâts massifs, capable de renverser les cibles ou de les projeter à travers les murs.</target>
+      </trans-unit>
+      <trans-unit id="JOzKUJb" resname="Injury">
+        <source>Injury</source>
+        <target>Blessure</target>
+      </trans-unit>
+      <trans-unit id="FwQjxE7" resname="Shock maul victims roll on a special injury chart instead of the standard one.">
+        <source>Shock maul victims roll on a special injury chart instead of the standard one.</source>
+        <target>Les victimes d'une matraque à choc lancent sur un tableau de blessures spécial au lieu du tableau standard.</target>
+      </trans-unit>
+      <trans-unit id="HLhYanB" resname="Toxic dart victims use a special injury chart for recovery.">
+        <source>Toxic dart victims use a special injury chart for recovery.</source>
+        <target>Les victimes de fléchettes toxiques utilisent un tableau de blessures spécial pour leur récupération.</target>
+      </trans-unit>
+      <trans-unit id="Qi11vOt" resname="Knock-back">
+        <source>Knock-back</source>
+        <target>Recul</target>
+      </trans-unit>
+      <trans-unit id="FptA3C2" resname="Shotgun hits can knock targets off balance, penalizing their Initiative.">
+        <source>Shotgun hits can knock targets off balance, penalizing their Initiative.</source>
+        <target>Les tirs de fusil à pompe peuvent déséquilibrer les cibles, pénalisant leur Initiative.</target>
+      </trans-unit>
+      <trans-unit id="7dEo4FU" resname="Mighty Blow">
+        <source>Mighty Blow</source>
+        <target>Coup Puissant</target>
+      </trans-unit>
+      <trans-unit id="ksyq.j5" resname="Charging with a massive weapon reduces the opponent’s attack dice by one.">
+        <source>Charging with a massive weapon reduces the opponent’s attack dice by one.</source>
+        <target>Charger avec une arme massive réduit le nombre de dés d'attaque de l'adversaire d'un point.</target>
+      </trans-unit>
+      <trans-unit id="9rK872W" resname="-1 to Hit">
+        <source>-1 to Hit</source>
+        <target>-1 pour toucher</target>
+      </trans-unit>
+      <trans-unit id="ITwHL1H" resname="Krak grenades impose a -1 penalty when thrown, but not when fired from a launcher.">
+        <source>Krak grenades impose a -1 penalty when thrown, but not when fired from a launcher.</source>
+        <target>Les grenades krak infligent une pénalité de -1 lorsqu'elles sont lancées, mais pas lorsqu'elles sont tirées depuis un lanceur.</target>
+      </trans-unit>
+      <trans-unit id="fp5Tfvu" resname="Move And Fire">
+        <source>Move And Fire</source>
+        <target>Bouger et Tirer</target>
+      </trans-unit>
+      <trans-unit id="xxz0arB" resname="The heavy flamer can be fired while moving, like a regular gun.">
+        <source>The heavy flamer can be fired while moving, like a regular gun.</source>
+        <target>Le lance-flammes lourd peut être tiré tout en se déplaçant, comme une arme régulière.</target>
+      </trans-unit>
+      <trans-unit id="b9mtNzn" resname="Noisy">
+        <source>Noisy</source>
+        <target>Bruyant</target>
+      </trans-unit>
+      <trans-unit id="XMEwcUd" resname="This weapon makes a loud sound and can trigger an alarm during certain scenarios.">
+        <source>This weapon makes a loud sound and can trigger an alarm during certain scenarios.</source>
+        <target>Cette arme produit un son fort et peut déclencher une alarme dans certains scénarios.</target>
+      </trans-unit>
+      <trans-unit id="c4kE1XN" resname="Nullify">
+        <source>Nullify</source>
+        <target>Annulation</target>
+      </trans-unit>
+      <trans-unit id=".H1c3z0" resname="Flails cancel out the opponent’s parry.">
+        <source>Flails cancel out the opponent’s parry.</source>
+        <target>Les fléaux annulent la parade de l'adversaire.</target>
+      </trans-unit>
+      <trans-unit id="p_XMGYm" resname="Out of Action">
+        <source>Out of Action</source>
+        <target>Hors de Combat</target>
+      </trans-unit>
+      <trans-unit id="RX2d4ow" resname="A fighter hit by a shock maul automatically goes out of action.">
+        <source>A fighter hit by a shock maul automatically goes out of action.</source>
+        <target>Un combattant touché par une matraque à choc est automatiquement mis hors de combat.</target>
+      </trans-unit>
+      <trans-unit id="5VZ.hB9" resname="Parry">
+        <source>Parry</source>
+        <target>Parade</target>
+      </trans-unit>
+      <trans-unit id="lV_TZg0" resname="Allows a fighter with a sword to force an opponent to re-roll a higher Attack dice, unless the opponent's roll is lower or both are armed with swords.">
+        <source>Allows a fighter with a sword to force an opponent to re-roll a higher Attack dice, unless the opponent's roll is lower or both are armed with swords.</source>
+        <target>Permet à un combattant avec une épée de forcer un adversaire à relancer un dé d'attaque plus élevé, sauf si le jet de l'adversaire est plus bas ou si les deux sont armés d'épées.</target>
+      </trans-unit>
+      <trans-unit id="VMyF77c" resname="Plasma Gun">
+        <source>Plasma Gun</source>
+        <target>Lance-plasma</target>
+      </trans-unit>
+      <trans-unit id="4oah9lb" resname="Fires unstable energy shells with varying power, using blast or gas cloud templates.">
+        <source>Fires unstable energy shells with varying power, using blast or gas cloud templates.</source>
+        <target>Tire des projectiles d'énergie instables avec une puissance variable, utilisant des gabarits d'explosion ou de nuage de gaz.</target>
+      </trans-unit>
+      <trans-unit id="mT8CS2U" resname="Saturation">
+        <source>Saturation</source>
+        <target>Saturation</target>
+      </trans-unit>
+      <trans-unit id="bDLArcV" resname="Scatter shots ignore cover modifiers and can hit multiple targets in close proximity.">
+        <source>Scatter shots ignore cover modifiers and can hit multiple targets in close proximity.</source>
+        <target>Les tirs en dispersion ignorent les modificateurs de couverture et peuvent toucher plusieurs cibles à proximité.</target>
+      </trans-unit>
+      <trans-unit id="fIQvLJ6" resname="Scare">
+        <source>Scare</source>
+        <target>Effrayer</target>
+      </trans-unit>
+      <trans-unit id="kfZ2sPe" resname="This weapon emits a terrifying sound or effect, causing fear tests in enemies.">
+        <source>This weapon emits a terrifying sound or effect, causing fear tests in enemies.</source>
+        <target>Cette arme émet un son ou un effet terrifiant, provoquant des tests de peur chez les ennemis.</target>
+      </trans-unit>
+      <trans-unit id="3bzwZyZ" resname="Silent">
+        <source>Silent</source>
+        <target>Silencieux</target>
+      </trans-unit>
+      <trans-unit id="hCaJ.Gv" resname="This weapon is silent and does not trigger alarms during stealth scenarios.">
+        <source>This weapon is silent and does not trigger alarms during stealth scenarios.</source>
+        <target>Cette arme est silencieuse et ne déclenche pas d'alarmes lors des scénarios d'infiltration.</target>
+      </trans-unit>
+      <trans-unit id="Nw.d1DJ" resname="Sustained Fire (1)">
+        <source>Sustained Fire (1)</source>
+        <target>Tir Soutenu (1)</target>
+      </trans-unit>
+      <trans-unit id="dQ5ftqM" resname="The weapon has a sustained fire of 1 dice.">
+        <source>The weapon has a sustained fire of 1 dice.</source>
+        <target>L'arme a un tir soutenu de 1 dé.</target>
+      </trans-unit>
+      <trans-unit id="LuaKOJ5" resname="Sustained Fire (2)">
+        <source>Sustained Fire (2)</source>
+        <target>Tir Soutenu (2)</target>
+      </trans-unit>
+      <trans-unit id="V4drJ.i" resname="The weapon has a sustained fire of 2 dice.">
+        <source>The weapon has a sustained fire of 2 dice.</source>
+        <target>L'arme a un tir soutenu de 2 dés.</target>
+      </trans-unit>
+      <trans-unit id="UEqv2fn" resname="Terrifying Force">
+        <source>Terrifying Force</source>
+        <target>Force Terrifiante</target>
+      </trans-unit>
+      <trans-unit id="z4oYayV" resname="Lascannon blasts cause nearby friendly fighters to take nerve tests.">
+        <source>Lascannon blasts cause nearby friendly fighters to take nerve tests.</source>
+        <target>Les décharges du canon laser obligent les combattants alliés à proximité à effectuer des tests de nerfs.</target>
+      </trans-unit>
+      <trans-unit id="AQnk4tQ" resname="Toxic Dart">
+        <source>Toxic Dart</source>
+        <target>Fléchette Toxique</target>
+      </trans-unit>
+      <trans-unit id="Kn.1Fnx" resname="Automatically inflicts a wound without a roll, but only affects living targets.">
+        <source>Automatically inflicts a wound without a roll, but only affects living targets.</source>
+        <target>Inflige automatiquement une blessure sans jet de dés, mais n'affecte que les cibles vivantes.</target>
+      </trans-unit>
+      <trans-unit id="Dw1jQvc" resname="Two-handed">
+        <source>Two-handed</source>
+        <target>Deux Mains</target>
+      </trans-unit>
+      <trans-unit id="k6xfr8L" resname="A massive weapon requires two hands and cannot be used with another weapon.">
+        <source>A massive weapon requires two hands and cannot be used with another weapon.</source>
+        <target>Une arme massive nécessite deux mains et ne peut pas être utilisée avec une autre arme.</target>
+      </trans-unit>
+      <trans-unit id="OkCWJv5" resname="Web Solvent">
+        <source>Web Solvent</source>
+        <target>Solvant de Toile</target>
+      </trans-unit>
+      <trans-unit id="QTo2jO_" resname="Web pistols have a solvent to free webbed targets, but cannot free the user.">
+        <source>Web pistols have a solvent to free webbed targets, but cannot free the user.</source>
+        <target>Les pistolets à toile disposent d'un solvant pour libérer les cibles prises dans la toile, mais ne peuvent pas libérer l'utilisateur.</target>
+      </trans-unit>
+      <trans-unit id="FK8waw2" resname="Webbed Targets">
+        <source>Webbed Targets</source>
+        <target>Cibles Enlacées</target>
+      </trans-unit>
+      <trans-unit id="Gq3Vzhg" resname="A web pistol ensnares the target, preventing movement and requiring a Strength test to escape.">
+        <source>A web pistol ensnares the target, preventing movement and requiring a Strength test to escape.</source>
+        <target>Un pistolet à toile capture la cible, l'empêchant de bouger et nécessitant un test de Force pour s'échapper.</target>
+      </trans-unit>
       <trans-unit id="M_oSsaA" resname="enum.weapon_types.Pistols">
         <source>enum.weapon_types.Pistols</source>
         <target>Pitolets</target>
@@ -1400,19 +2019,19 @@
       </trans-unit>
       <trans-unit id="Dnb8sIM" resname="New gang : ">
         <source>New gang : </source>
-        <target>New gang : </target>
+        <target>Nouveau gang : </target>
       </trans-unit>
       <trans-unit id="BLwA07m" resname="New territories for ">
         <source>New territories for </source>
-        <target>New territories for </target>
+        <target>Nouveaux territoires for </target>
       </trans-unit>
       <trans-unit id="3XF7.Rt" resname="dice roll">
         <source>dice roll</source>
-        <target>dice roll</target>
+        <target>Jet de dès</target>
       </trans-unit>
       <trans-unit id="nFPAdNe" resname="skill">
         <source>skill</source>
-        <target>skill</target>
+        <target>Compétence</target>
       </trans-unit>
       <trans-unit id="y3TkwS3" resname="gun figther">
         <source>gun figther</source>
@@ -1524,7 +2143,7 @@
       </trans-unit>
       <trans-unit id="1q8ry6D" resname="New ganger">
         <source>New ganger</source>
-        <target>New ganger</target>
+        <target>Nouveau commbatant</target>
       </trans-unit>
     </body>
   </file>
