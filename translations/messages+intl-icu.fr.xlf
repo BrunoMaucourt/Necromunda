@@ -950,6 +950,134 @@
            <source>Hallucinogen Gas</source>
            <target>Grenade hallucinogène</target>
         </trans-unit>
+      <trans-unit id="Dnb8sIM" resname="New gang : ">
+        <source>New gang : </source>
+        <target>New gang : </target>
+      </trans-unit>
+      <trans-unit id="BLwA07m" resname="New territories for ">
+        <source>New territories for </source>
+        <target>New territories for </target>
+      </trans-unit>
+      <trans-unit id="3XF7.Rt" resname="dice roll">
+        <source>dice roll</source>
+        <target>dice roll</target>
+      </trans-unit>
+      <trans-unit id="nFPAdNe" resname="skill">
+        <source>skill</source>
+        <target>skill</target>
+      </trans-unit>
+      <trans-unit id="y3TkwS3" resname="gun figther">
+        <source>gun figther</source>
+        <target>gun figther</target>
+      </trans-unit>
+      <trans-unit id="xB_us5X" resname="shooting">
+        <source>shooting</source>
+        <target>shooting</target>
+      </trans-unit>
+      <trans-unit id="fJDGBB0" resname="quick witted ">
+        <source>quick witted </source>
+        <target>quick witted </target>
+      </trans-unit>
+      <trans-unit id="sius1wB" resname="agility">
+        <source>agility</source>
+        <target>agility</target>
+      </trans-unit>
+      <trans-unit id="PFzJVfq" resname="crack shot">
+        <source>crack shot</source>
+        <target>crack shot</target>
+      </trans-unit>
+      <trans-unit id="MY4ieP_" resname="fast shot">
+        <source>fast shot</source>
+        <target>fast shot</target>
+      </trans-unit>
+      <trans-unit id="hFpjD2O" resname="hip shooting">
+        <source>hip shooting</source>
+        <target>hip shooting</target>
+      </trans-unit>
+      <trans-unit id="eEEJ7SG" resname="dodge">
+        <source>dodge</source>
+        <target>dodge</target>
+      </trans-unit>
+      <trans-unit id="3BeCDgv" resname="rapid fire">
+        <source>rapid fire</source>
+        <target>rapid fire</target>
+      </trans-unit>
+      <trans-unit id="fMhugzw" resname="killer reputation">
+        <source>killer reputation</source>
+        <target>killer reputation</target>
+      </trans-unit>
+      <trans-unit id="Ni6cIob" resname="ferocity">
+        <source>ferocity</source>
+        <target>ferocity</target>
+      </trans-unit>
+      <trans-unit id="rNA6h8O" resname="nerves of steel">
+        <source>nerves of steel</source>
+        <target>nerves of steel</target>
+      </trans-unit>
+      <trans-unit id="cYdrzPU" resname="Marksman">
+        <source>Marksman</source>
+        <target>Marksman</target>
+      </trans-unit>
+      <trans-unit id="71jSWbY" resname=" dodge">
+        <source> dodge</source>
+        <target> dodge</target>
+      </trans-unit>
+      <trans-unit id="_tuwXIn" resname="weapon smith">
+        <source>weapon smith</source>
+        <target>weapon smith</target>
+      </trans-unit>
+      <trans-unit id="6R_t8k9" resname="technology">
+        <source>technology</source>
+        <target>technology</target>
+      </trans-unit>
+      <trans-unit id="y9JWNmx" resname="true grit">
+        <source>true grit</source>
+        <target>true grit</target>
+      </trans-unit>
+      <trans-unit id="_d2Jryq" resname="quick witted">
+        <source>quick witted</source>
+        <target>quick witted</target>
+      </trans-unit>
+      <trans-unit id="0yctGrZ" resname="iron will">
+        <source>iron will</source>
+        <target>iron will</target>
+      </trans-unit>
+      <trans-unit id="UoReJDa" resname="advancement dice result">
+        <source>advancement dice result</source>
+        <target>advancement dice result</target>
+      </trans-unit>
+      <trans-unit id="6lT9mzT" resname="catfall">
+        <source>catfall</source>
+        <target>catfall</target>
+      </trans-unit>
+      <trans-unit id="cGJSDFo" resname="drive">
+        <source>drive</source>
+        <target>drive</target>
+      </trans-unit>
+      <trans-unit id="LZmMtHG" resname="stealth">
+        <source>stealth</source>
+        <target>stealth</target>
+      </trans-unit>
+      <trans-unit id="gQEFDRO" resname="ambush">
+        <source>ambush</source>
+        <target>ambush</target>
+      </trans-unit>
+      <trans-unit id="yOEdQ0E" resname="evade">
+        <source>evade</source>
+        <target>evade</target>
+      </trans-unit>
+      <trans-unit id="M9MHdsp" resname="infiltration">
+        <source>infiltration</source>
+        <target>infiltration</target>
+      </trans-unit>
+      <trans-unit id="mzEfgA2" resname="sneak up">
+        <source>sneak up</source>
+        <target>sneak up</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6D" resname="New ganger">
+        <source>New ganger</source>
+        <target>New ganger</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

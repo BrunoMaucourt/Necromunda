@@ -14,6 +14,7 @@ use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Events;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsDoctrineListener(event: Events::prePersist, priority: 500, connection: 'default')]
 #[AsDoctrineListener(event: Events::preUpdate, priority: 500, connection: 'default')]
@@ -27,16 +28,20 @@ class GangListener
 
     private RequestStack $requestStack;
 
+    private TranslatorInterface $translator;
+
     public function __construct(
         CheckValueRangeService $checkValueRangeService,
         EntityManagerInterface $entityManager,
         HistoryService $historyService,
-        RequestStack $requestStack
+        RequestStack $requestStack,
+        TranslatorInterface $translator
     ){
         $this->checkValueRangeService = $checkValueRangeService;
         $this->entityManager = $entityManager;
         $this->historyService = $historyService;
         $this->requestStack = $requestStack;
+        $this->translator = $translator;
     }
 
     public function prePersist(PrePersistEventArgs $event)
@@ -73,7 +78,7 @@ class GangListener
 
             $flash->add(
                 'success',
-                'New gang : ' . $gang->getName() . '<br><br>' . 'New territories for ' . $gang->getName() . ' : <br><br>' . $summary
+                $this->translator->trans('New gang : ') . $gang->getName() . '<br><br>' . $this->translator->trans('New territories for ') . $gang->getName() . ' : <br><br>' . $summary
             );
         }
     }
