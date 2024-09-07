@@ -3,9 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\GangerTypeField;
+use App\EasyAdmin\TranslatedCollectionField;
 use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Enum\GangerTypeEnum;
+use App\service\EnumTranslator;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -25,15 +27,20 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GangerCrudController extends AbstractCrudController
 {
+
+    private EnumTranslator $enumTranslator;
+
     private Security $security;
 
     private TranslatorInterface $translator;
 
     public function __construct(
+        EnumTranslator $enumTranslator,
         Security $security,
         TranslatorInterface $translator
     )
     {
+        $this->enumTranslator = $enumTranslator;
         $this->security = $security;
         $this->translator = $translator;
     }
@@ -61,6 +68,8 @@ class GangerCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         $context = $this->getContext()->getEntity()->getInstance();
+        $translator = $this->translator;
+        $enumTranslator = $this->enumTranslator;
 
         if ($pageName === Crud::PAGE_NEW) {
             yield TextField::new('name', $this->translator->trans('name'))
@@ -75,8 +84,15 @@ class GangerCrudController extends AbstractCrudController
                     },
                 ]);
             yield GangerTypeField::new('type', $this->translator->trans('Ganger type'))
-                ->formatValue(static function (GangerTypeEnum $gangerType): string {
-                    return $gangerType->enumToString();
+                ->setEnumTranslator($enumTranslator, $translator)
+                ->formatValue(static function (GangerTypeEnum $gangerType) use($translator): string {
+                    if ($translator->getLocale() !== 'en') {
+                        $key = 'enum.ganger_type_' . str_replace(' ', '_', $gangerType->value);
+                        $value = $translator->trans($key);
+                    } else {
+                        $value = $gangerType->enumToString();
+                    }
+                    return $value;
                 })
                 ->setColumns(6);
         } else {
@@ -84,8 +100,15 @@ class GangerCrudController extends AbstractCrudController
                 ->setColumns(6)
                 ->onlyOnIndex();
             yield GangerTypeField::new('type', $this->translator->trans('Ganger type'))
-                ->formatValue(static function (GangerTypeEnum $gangerType): string {
-                    return $gangerType->enumToString();
+                ->setEnumTranslator($enumTranslator, $translator)
+                ->formatValue(static function (GangerTypeEnum $gangerType) use($translator): string {
+                    if ($translator->getLocale() !== 'en') {
+                        $key = 'enum.ganger_type_' . str_replace(' ', '_', $gangerType->value);
+                        $value = $translator->trans($key);
+                    } else {
+                       $value = $gangerType->enumToString();
+                    }
+                    return $value;
                 })
                 ->setColumns(3);
             yield TextField::new('name', $this->translator->trans('name'))
@@ -240,7 +263,6 @@ class GangerCrudController extends AbstractCrudController
             yield TextareaField::new('background', $this->translator->trans('background'))
                 ->setColumns(12)
                 ->hideOnIndex();
-
             yield FormField::addPanel('Ganger history', $this->translator->trans('Ganger history'))
                 ->setIcon('fa-solid fa-clock-rotate-left')
                 ->collapsible();

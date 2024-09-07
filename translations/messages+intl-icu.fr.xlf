@@ -391,7 +391,7 @@
       </trans-unit>
       <trans-unit id="eaaeXVF" resname="Ganger type">
         <source>Ganger type</source>
-        <target>Type de combatants</target>
+        <target>Type</target>
       </trans-unit>
       <trans-unit id="E1.HoJ2" resname="alive">
         <source>alive</source>
@@ -456,6 +456,43 @@
       <trans-unit id="588_9PF" resname="Password">
         <source>Password</source>
         <target>Mot de passe</target>
+      </trans-unit>
+     <!-- Enums       -->
+      <trans-unit id="enum.ganger_type_leader">
+        <source>enum.ganger_type_leader</source>
+        <target>Leader</target>
+      </trans-unit>
+      <trans-unit id="enum.ganger_type_heavy">
+        <source>enum.ganger_type_heavy</source>
+        <target>Balèze</target>
+      </trans-unit>
+      <trans-unit id="enum.ganger_type_ganger">
+        <source>enum.ganger_type_ganger</source>
+        <target>Ganger</target>
+      </trans-unit>
+      <trans-unit id="enum.ganger_type_juve">
+        <source>enum.ganger_type_juve</source>
+        <target>Kid</target>
+      </trans-unit>
+      <trans-unit id="enum.ganger_type_underhive_scum">
+        <source>enum.ganger_type_underhive_scum</source>
+        <target>Racaille</target>
+      </trans-unit>
+      <trans-unit id="enum.ganger_type_bounty_hunter">
+        <source>enum.ganger_type_bounty_hunter</source>
+        <target>Chasseur de primes</target>
+      </trans-unit>
+      <trans-unit id="enum.ganger_type_ratskin_scout">
+        <source>enum.ganger_type_ratskin_scout</source>
+        <target>Scout Ratskin</target>
+      </trans-unit>
+      <trans-unit id="enum.ganger_type_gang">
+        <source>enum.ganger_type_gang</source>
+        <target>gang</target>
+      </trans-unit>
+      <trans-unit id="enum.ganger_type_hired_guns">
+        <source>enum.ganger_type_hired_guns</source>
+        <target>Mercenaires</target>
       </trans-unit>
     </body>
   </file>
