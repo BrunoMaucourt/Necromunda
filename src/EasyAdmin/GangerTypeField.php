@@ -42,7 +42,8 @@ final class GangerTypeField implements FieldInterface
                     }
                     return $choice->getType();
                 },
-            ]);
+            ])
+        ;
     }
 
     public function setEnumTranslator(

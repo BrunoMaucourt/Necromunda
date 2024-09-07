@@ -494,6 +494,234 @@
         <source>enum.ganger_type_hired_guns</source>
         <target>Mercenaires</target>
       </trans-unit>
+        <trans-unit id="enum.weapon_types.Pistols">
+           <source>enum.weapon_types.Pistols</source>
+           <target>Pitolets</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_types.Basic_weapons">
+           <source>enum.weapon_types.Basic_weapons</source>
+           <target>Armes de base</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_types.Special_weapons">
+           <source>enum.weapon_types.Special_weapons</source>
+           <target>Armes spéciales</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_types.Heavy_weapons">
+           <source>enum.weapon_types.Heavy_weapons</source>
+           <target>Armes lourdes</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_types.Hand-to-hands_weapons">
+           <source>enum.weapon_types.Hand-to-hands_weapons</source>
+           <target>Armes de corps à corps</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_types.Grenades">
+           <source>enum.weapon_types.Grenades</source>
+           <target>Grenades</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Stub_Gun">
+           <source>enum.weapon_Stub_Gun</source>
+           <target>Revolver</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Autopistol">
+           <source>enum.weapon_Autopistol</source>
+           <target>Pistolet mitrailleur</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Laspistol">
+           <source>enum.weapon_Laspistol</source>
+           <target>Pistolet laser</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Hand_Flamer">
+           <source>enum.weapon_Hand_Flamer</source>
+           <target>Lance-flammes léger</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Bolt_Pistol">
+           <source>enum.weapon_Bolt_Pistol</source>
+           <target>Pistolet bolter</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Plasma_Pistol">
+           <source>enum.weapon_Plasma_Pistol</source>
+           <target>Pistolet Plasma</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Needle_Pistol">
+           <source>enum.weapon_Needle_Pistol</source>
+           <target>Pistolet à aiguilles</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Web_Pistol">
+           <source>enum.weapon_Web_Pistol</source>
+           <target>Pistolet à toile</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Autogun">
+           <source>enum.weapon_Autogun</source>
+           <target>Fusil mitrailleur</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Shotgun_(Solid_Slug)">
+           <source>enum.weapon_Shotgun_(Solid_Slug)</source>
+           <target>Fusil à pompe (balle à tête pleine)</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Shotgun_(Scatter_Shot)">
+           <source>enum.weapon_Shotgun_(Scatter_Shot)</source>
+           <target>Fusil à pompe (cartouche à disperion)</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Shotgun_(Manstopper)">
+           <source>enum.weapon_Shotgun_(Manstopper)</source>
+           <target>Fusil à pompe (balle anti-personnel)</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Shotgun_(Hot_Shot)">
+           <source>enum.weapon_Shotgun_(Hot_Shot)</source>
+           <target>Fusil à pompe (cartouche incendiaire)</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Shotgun_(Bolt)">
+           <source>enum.weapon_Shotgun_(Bolt)</source>
+           <target>Fusil à pompe (cartouche Bolt)</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Hunting_Rifle">
+           <source>enum.weapon_Hunting_Rifle</source>
+           <target>Fusil de chasse</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Lasgun">
+           <source>enum.weapon_Lasgun</source>
+           <target>Fusil laser</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Boltgun">
+           <source>enum.weapon_Boltgun</source>
+           <target>Fusil laser</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Bolter">
+           <source>enum.weapon_Bolter</source>
+           <target>Bolter</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Autoslugger">
+           <source>enum.weapon_Autoslugger</source>
+           <target>Mitrailleuse légère</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Flamer">
+           <source>enum.weapon_Flamer</source>
+           <target>Lance-flammes</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Grenade_Launcher">
+           <source>enum.weapon_Grenade_Launcher</source>
+           <target>Lance-grenades</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Plasma_Gun">
+           <source>enum.weapon_Plasma_Gun</source>
+           <target>Lance-plasma</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Meltagun">
+           <source>enum.weapon_Meltagun</source>
+           <target>Fuseur</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Needle_Rifle">
+           <source>enum.weapon_Needle_Rifle</source>
+           <target>Fusil à aiguilles</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Heavy_Flamer">
+           <source>enum.weapon_Heavy_Flamer</source>
+           <target>Lance-flammes lourd</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Heavy_Stubber">
+           <source>enum.weapon_Heavy_Stubber</source>
+           <target>Mitrailleuse lourde</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Heavy_Bolter">
+           <source>enum.weapon_Heavy_Bolter</source>
+           <target>Bolter lourd</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Missile_Launcher_(Frag)">
+           <source>enum.weapon_Missile_Launcher_(Frag)</source>
+           <target>Lance-missiles (Frag)</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Missile_Launcher_(Krak)">
+           <source>enum.weapon_Missile_Launcher_(Krak)</source>
+           <target>Lance-missiles (Super Krak)</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Heavy_Plasma_Gun">
+           <source>enum.weapon_Heavy_Plasma_Gun</source>
+           <target>Lance-plasma lourd</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Autocannon">
+           <source>enum.weapon_Autocannon</source>
+           <target>Autocanon</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Lascannon">
+           <source>enum.weapon_Lascannon</source>
+           <target>Canon laser</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Knife">
+           <source>enum.weapon_Knife</source>
+           <target>Couteau</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Chain,_Flail">
+           <source>enum.weapon_Chain,_Flail</source>
+           <target>Chaîne ou Fléau</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Club,_Maul,_Bludgeon">
+           <source>enum.weapon_Club,_Maul,_Bludgeon</source>
+           <target>Gourdin</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Massive_Weapon">
+           <source>enum.weapon_Massive_Weapon</source>
+           <target>Arme à deux mains</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Sword">
+           <source>enum.weapon_Sword</source>
+           <target>Épée</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Chainsword">
+           <source>enum.weapon_Chainsword</source>
+           <target>Épée tronçonneuse</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Power_Axe">
+           <source>enum.weapon_Power_Axe</source>
+           <target>Hache énergétique</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Shock_Maul">
+           <source>enum.weapon_Shock_Maul</source>
+           <target>Matraque électrique</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Power_Sword">
+           <source>enum.weapon_Power_Sword</source>
+           <target>Épée énergétique</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Power_Fist">
+           <source>enum.weapon_Power_Fist</source>
+           <target>Gantelets Hache énergétiques</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Smoke_Bombs">
+           <source>enum.weapon_Smoke_Bombs</source>
+           <target>Grenade fumigène</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Choke_Gas">
+           <source>enum.weapon_Choke_Gas</source>
+           <target>Grenade suffocante</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Scare_Gas">
+           <source>enum.weapon_Scare_Gas</source>
+           <target>Grenade terrifiante</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Photon_Flares">
+           <source>enum.weapon_Photon_Flares</source>
+           <target>Grenade flash</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Frag_Grenade">
+           <source>enum.weapon_Frag_Grenade</source>
+           <target>Grenade Frag</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Plasma_Grenade">
+           <source>enum.weapon_Plasma_Grenade</source>
+           <target>Grenade à Plasma</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Krak_Grenade">
+           <source>enum.weapon_Krak_Grenade</source>
+           <target>Grenade Krak</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Melta_Bombs">
+           <source>enum.weapon_Melta_Bombs</source>
+           <target>Bombe à fusion</target>
+        </trans-unit>
+        <trans-unit id="enum.weapon_Hallucinogen_Gas">
+           <source>enum.weapon_Hallucinogen_Gas</source>
+           <target>Grenade hallucinogène</target>
+        </trans-unit>
     </body>
   </file>
 </xliff>

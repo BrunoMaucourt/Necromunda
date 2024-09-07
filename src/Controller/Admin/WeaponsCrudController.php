@@ -5,7 +5,9 @@ namespace App\Controller\Admin;
 use App\EasyAdmin\WeaponsField;
 use App\Entity\Ganger;
 use App\Entity\Weapon;
+use App\Enum\GangerTypeEnum;
 use App\Enum\WeaponsEnum;
+use App\service\EnumTranslator;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -16,13 +18,24 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class WeaponsCrudController extends AbstractCrudController
 {
+    private EnumTranslator $enumTranslator;
+
     private Security $security;
 
-    public function __construct(Security $security){
+    private TranslatorInterface $translator;
+
+    public function __construct(
+        EnumTranslator $enumTranslator,
+        Security $security,
+        TranslatorInterface $translator
+    ){
+        $this->enumTranslator = $enumTranslator;
         $this->security = $security;
+        $this->translator = $translator;
     }
     public static function getEntityFqcn(): string
     {
@@ -41,10 +54,19 @@ class WeaponsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         $object = $this->getContext()->getEntity()->getInstance();
+        $enumTranslator = $this->enumTranslator;
+        $translator = $this->translator;
 
         yield WeaponsField::new('name', 'Name')
-            ->formatValue(static function (WeaponsEnum $weaponsEnums): string {
-                return $weaponsEnums->enumToString();
+            ->setEnumTranslator($enumTranslator, $translator)
+            ->formatValue(static function (WeaponsEnum $weaponsEnums) use($translator): string {
+                if ($translator->getLocale() !== 'en') {
+                    $key = 'enum.weapon_' . str_replace(' ', '_', $weaponsEnums->value);
+                    $value = $translator->trans($key);
+                } else {
+                    $value = $weaponsEnums->enumToString();
+                }
+                return $value;
             })
             ->setColumns(4);
         if (
