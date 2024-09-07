@@ -722,6 +722,234 @@
            <source>enum.weapon_Hallucinogen_Gas</source>
            <target>Grenade hallucinogène</target>
         </trans-unit>
+        <trans-unit id="Pistols">
+           <source>Pistols</source>
+           <target>Pitolets</target>
+        </trans-unit>
+        <trans-unit id="Basic weapons">
+           <source>Basic weapons</source>
+           <target>Armes de base</target>
+        </trans-unit>
+        <trans-unit id="Special weapons">
+           <source>Special weapons</source>
+           <target>Armes spéciales</target>
+        </trans-unit>
+        <trans-unit id="Heavy weapons">
+           <source>Heavy weapons</source>
+           <target>Armes lourdes</target>
+        </trans-unit>
+        <trans-unit id="Hand-to-hands weapons">
+           <source>Hand-to-hands weapons</source>
+           <target>Armes de corps à corps</target>
+        </trans-unit>
+        <trans-unit id="Grenades">
+           <source>Grenades</source>
+           <target>Grenades</target>
+        </trans-unit>
+        <trans-unit id="Stub Gun">
+           <source>Stub Gun</source>
+           <target>Revolver</target>
+        </trans-unit>
+        <trans-unit id="Autopistol">
+           <source>Autopistol</source>
+           <target>Pistolet mitrailleur</target>
+        </trans-unit>
+        <trans-unit id="Laspistol">
+           <source>Laspistol</source>
+           <target>Pistolet laser</target>
+        </trans-unit>
+        <trans-unit id="Hand Flamer">
+           <source>Hand Flamer</source>
+           <target>Lance-flammes léger</target>
+        </trans-unit>
+        <trans-unit id="Bolt Pistol">
+           <source>Bolt Pistol</source>
+           <target>Pistolet bolter</target>
+        </trans-unit>
+        <trans-unit id="Plasma Pistol">
+           <source>Plasma Pistol</source>
+           <target>Pistolet Plasma</target>
+        </trans-unit>
+        <trans-unit id="Needle Pistol">
+           <source>Needle Pistol</source>
+           <target>Pistolet à aiguilles</target>
+        </trans-unit>
+        <trans-unit id="Web Pistol">
+           <source>Web Pistol</source>
+           <target>Pistolet à toile</target>
+        </trans-unit>
+        <trans-unit id="Autogun">
+           <source>Autogun</source>
+           <target>Fusil mitrailleur</target>
+        </trans-unit>
+        <trans-unit id="Shotgun (Solid Slug)">
+           <source>Shotgun (Solid Slug)</source>
+           <target>Fusil à pompe (balle à tête pleine)</target>
+        </trans-unit>
+        <trans-unit id="Shotgun (Scatter Shot)">
+           <source>Shotgun (Scatter Shot)</source>
+           <target>Fusil à pompe (cartouche à disperion)</target>
+        </trans-unit>
+        <trans-unit id="Shotgun (Manstopper)">
+           <source>Shotgun (Manstopper)</source>
+           <target>Fusil à pompe (balle anti-personnel)</target>
+        </trans-unit>
+        <trans-unit id="Shotgun (Hot Shot)">
+           <source>Shotgun (Hot Shot)</source>
+           <target>Fusil à pompe (cartouche incendiaire)</target>
+        </trans-unit>
+        <trans-unit id="Shotgun (Bolt)">
+           <source>Shotgun (Bolt)</source>
+           <target>Fusil à pompe (cartouche Bolt)</target>
+        </trans-unit>
+        <trans-unit id="Hunting Rifle">
+           <source>Hunting Rifle</source>
+           <target>Fusil de chasse</target>
+        </trans-unit>
+        <trans-unit id="Lasgun">
+           <source>Lasgun</source>
+           <target>Fusil laser</target>
+        </trans-unit>
+        <trans-unit id="Boltgun">
+           <source>Boltgun</source>
+           <target>Fusil laser</target>
+        </trans-unit>
+        <trans-unit id="Bolter">
+           <source>Bolter</source>
+           <target>Bolter</target>
+        </trans-unit>
+        <trans-unit id="Autoslugger">
+           <source>Autoslugger</source>
+           <target>Mitrailleuse légère</target>
+        </trans-unit>
+        <trans-unit id="Flamer">
+           <source>Flamer</source>
+           <target>Lance-flammes</target>
+        </trans-unit>
+        <trans-unit id="Grenade Launcher">
+           <source>Grenade Launcher</source>
+           <target>Lance-grenades</target>
+        </trans-unit>
+        <trans-unit id="Plasma Gun">
+           <source>Plasma Gun</source>
+           <target>Lance-plasma</target>
+        </trans-unit>
+        <trans-unit id="Meltagun">
+           <source>Meltagun</source>
+           <target>Fuseur</target>
+        </trans-unit>
+        <trans-unit id="Needle Rifle">
+           <source>Needle Rifle</source>
+           <target>Fusil à aiguilles</target>
+        </trans-unit>
+        <trans-unit id="Heavy Flamer">
+           <source>Heavy Flamer</source>
+           <target>Lance-flammes lourd</target>
+        </trans-unit>
+        <trans-unit id="Heavy Stubber">
+           <source>Heavy Stubber</source>
+           <target>Mitrailleuse lourde</target>
+        </trans-unit>
+        <trans-unit id="Heavy Bolter">
+           <source>Heavy Bolter</source>
+           <target>Bolter lourd</target>
+        </trans-unit>
+        <trans-unit id="Missile Launcher (Frag)">
+           <source>Missile Launcher (Frag)</source>
+           <target>Lance-missiles (Frag)</target>
+        </trans-unit>
+        <trans-unit id="Missile Launcher (Krak)">
+           <source>Missile Launcher (Krak)</source>
+           <target>Lance-missiles (Super Krak)</target>
+        </trans-unit>
+        <trans-unit id="Heavy Plasma Gun">
+           <source>Heavy Plasma Gun</source>
+           <target>Lance-plasma lourd</target>
+        </trans-unit>
+        <trans-unit id="Autocannon">
+           <source>Autocannon</source>
+           <target>Autocanon</target>
+        </trans-unit>
+        <trans-unit id="Lascannon">
+           <source>Lascannon</source>
+           <target>Canon laser</target>
+        </trans-unit>
+        <trans-unit id="Knife">
+           <source>Knife</source>
+           <target>Couteau</target>
+        </trans-unit>
+        <trans-unit id="Chain, Flail">
+           <source>Chain, Flail</source>
+           <target>Chaîne ou Fléau</target>
+        </trans-unit>
+        <trans-unit id="Club, Maul, Bludgeon">
+           <source>Club, Maul, Bludgeon</source>
+           <target>Gourdin</target>
+        </trans-unit>
+        <trans-unit id="Massive Weapon">
+           <source>Massive Weapon</source>
+           <target>Arme à deux mains</target>
+        </trans-unit>
+        <trans-unit id="Sword">
+           <source>Sword</source>
+           <target>Épée</target>
+        </trans-unit>
+        <trans-unit id="Chainsword">
+           <source>Chainsword</source>
+           <target>Épée tronçonneuse</target>
+        </trans-unit>
+        <trans-unit id="Power Axe">
+           <source>Power Axe</source>
+           <target>Hache énergétique</target>
+        </trans-unit>
+        <trans-unit id="Shock Maul">
+           <source>Shock Maul</source>
+           <target>Matraque électrique</target>
+        </trans-unit>
+        <trans-unit id="Power Sword">
+           <source>Power Sword</source>
+           <target>Épée énergétique</target>
+        </trans-unit>
+        <trans-unit id="Power Fist">
+           <source>Power Fist</source>
+           <target>Gantelets Hache énergétiques</target>
+        </trans-unit>
+        <trans-unit id="Smoke Bombs">
+           <source>Smoke Bombs</source>
+           <target>Grenade fumigène</target>
+        </trans-unit>
+        <trans-unit id="Choke Gas">
+           <source>Choke Gas</source>
+           <target>Grenade suffocante</target>
+        </trans-unit>
+        <trans-unit id="Scare Gas">
+           <source>Scare Gas</source>
+           <target>Grenade terrifiante</target>
+        </trans-unit>
+        <trans-unit id="Photon Flares">
+           <source>Photon Flares</source>
+           <target>Grenade flash</target>
+        </trans-unit>
+        <trans-unit id="Frag Grenade">
+           <source>Frag Grenade</source>
+           <target>Grenade Frag</target>
+        </trans-unit>
+        <trans-unit id="Plasma Grenade">
+           <source>Plasma Grenade</source>
+           <target>Grenade à Plasma</target>
+        </trans-unit>
+        <trans-unit id="Krak Grenade">
+           <source>Krak Grenade</source>
+           <target>Grenade Krak</target>
+        </trans-unit>
+        <trans-unit id="Melta Bombs">
+           <source>Melta Bombs</source>
+           <target>Bombe à fusion</target>
+        </trans-unit>
+        <trans-unit id="Hallucinogen Gas">
+           <source>Hallucinogen Gas</source>
+           <target>Grenade hallucinogène</target>
+        </trans-unit>
     </body>
   </file>
 </xliff>

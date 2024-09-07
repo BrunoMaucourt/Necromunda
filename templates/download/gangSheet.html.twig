@@ -140,7 +140,7 @@
         <tbody>
         {% for territory in gang.territories %}
             <tr>
-                <td>{{ territory.name.enumToString }}</td>
+                <td>{{ territory.name.enumToString|trans }}</td>
                 <td>{{ territory.getEffect | default('None') }}</td>
                 <td>{{ territory.incomeAsString }}</td>
             </tr>
@@ -185,7 +185,7 @@
                 {% endif %}
             ">
                 <td>{{ ganger.name }}</td>
-                <td>{{ ganger.type.enumToString }}</td>
+                <td>{{ ganger.type.enumToString|trans }}</td>
                 <td class="numeric {{ ganger.move < referenceValues[ganger.type.enumToString]['move'] ? 'below-reference' : (ganger.move == referenceValues[ganger.type.enumToString]['move'] ? 'at-reference' : 'above-reference') }}">{{ ganger.move }}</td>
                 <td class="numeric {{ ganger.weaponSkill < referenceValues[ganger.type.enumToString]['weaponSkill'] ? 'below-reference' : (ganger.weaponSkill == referenceValues[ganger.type.enumToString]['weaponSkill'] ? 'at-reference' : 'above-reference') }}">{{ ganger.weaponSkill }}</td>
                 <td class="numeric {{ ganger.ballisticSkill < referenceValues[ganger.type.enumToString]['ballisticSkill'] ? 'below-reference' : (ganger.ballisticSkill == referenceValues[ganger.type.enumToString]['ballisticSkill'] ? 'at-reference' : 'above-reference') }}">{{ ganger.ballisticSkill }}</td>
@@ -199,10 +199,10 @@
                 <td class="numeric">{{ ganger.cost }}</td>
                 <td class="numeric">{{ ganger.rating }}</td>
                 <td class="ganger-details">
-                    <strong>{{ 'Weapons'|trans }}:</strong> {{ ganger.weapons | join(', ') }}<br>
-                    <strong>{{ 'Skills'|trans }}:</strong> {{ ganger.skills | join(', ') }}<br>
-                    <strong>{{ 'Equipment'|trans }}:</strong> {{ ganger.equipements | join(', ') }}<br>
-                    <strong>{{ 'Injuries'|trans }}:</strong> {{ ganger.injuries | join(', ') }}
+                    <strong>{{ 'Weapons'|trans }}:</strong> {{ ganger.weapons | map(weapon => weapon|trans) | join(', ') }}<br>
+                    <strong>{{ 'Skills'|trans }}:</strong> {{ ganger.skills | map(skill => skill|trans) | join(', ') }}<br>
+                    <strong>{{ 'Equipment'|trans }}:</strong> {{ ganger.equipements | map(equipment => equipment|trans) | join(', ') }}<br>
+                    <strong>{{ 'Injuries'|trans }}:</strong> {{ ganger.injuries | map(injury => injury|trans) | join(', ') }}
                 </td>
             </tr>
         {% endfor %}
@@ -228,7 +228,7 @@
         <tbody>
         {% for weapon in weapons %}
             <tr>
-                <td>{{ weapon.name.enumToString }}</td>
+                <td>{{ weapon.name.enumToString|trans }}</td>
                 <td class="numeric">{{ weapon.name.getShortRange }}</td>
                 <td class="numeric">{{ weapon.name.getLongRange }}</td>
                 <td class="numeric">{{ weapon.name.getBonusToHitShort }}</td>
@@ -272,7 +272,7 @@
         <tbody>
         {% for skill in skills %}
             <tr>
-                <td>{{ skill.name.enumToString }}</td>
+                <td>{{ skill.name.enumToString|trans }}</td>
                 <td>{{ skill.name.getDescription }}</td>
             </tr>
         {% endfor %}
@@ -290,7 +290,7 @@
         <tbody>
         {% for equipment in equipments %}
             <tr>
-                <td>{{ equipment.name.enumToString }}</td>
+                <td>{{ equipment.name.enumToString|trans }}</td>
                 <td>{{ equipment.name.getDescription }}</td>
             </tr>
         {% endfor %}
@@ -308,7 +308,7 @@
         <tbody>
         {% for injury in injuries %}
             <tr>
-                <td>{{ injury.name.enumToString }}</td>
+                <td>{{ injury.name.enumToString|trans }}</td>
                 <td>{{ injury.name.getDescription }}</td>
             </tr>
         {% endfor %}
