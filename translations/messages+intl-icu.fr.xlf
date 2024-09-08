@@ -489,31 +489,31 @@
         <source>enum.ganger_type_ratskin_scout</source>
         <target>Scout Ratskin</target>
       </trans-unit>
-      <trans-unit id="ak6b9LY" resname="leader">
+      <trans-unit id="TVtmCUN" resname="leader">
         <source>leader</source>
         <target>Leader</target>
       </trans-unit>
-      <trans-unit id="8wh1e4d" resname="heavy">
+      <trans-unit id="ItWSXtZ" resname="heavy">
         <source>heavy</source>
         <target>Balèze</target>
       </trans-unit>
-      <trans-unit id="iaIbcTE" resname="ganger">
+      <trans-unit id="kmt17u3" resname="ganger">
         <source>ganger</source>
         <target>Ganger</target>
       </trans-unit>
-      <trans-unit id="BRwaUxo" resname="juve">
+      <trans-unit id="1JbkKNo" resname="juve">
         <source>juve</source>
         <target>Kid</target>
       </trans-unit>
-      <trans-unit id="GODL7VX" resname="underhive_scum">
+      <trans-unit id="oEyU5f9" resname="underhive_scum">
         <source>underhive_scum</source>
         <target>Racaille</target>
       </trans-unit>
-      <trans-unit id="IV9hDyf" resname="bounty_hunter">
+      <trans-unit id="jWEYoY4" resname="bounty_hunter">
         <source>bounty_hunter</source>
         <target>Chasseur de primes</target>
       </trans-unit>
-      <trans-unit id="93Hrv_p" resname="ratskin_scout">
+      <trans-unit id="PyjU_3l" resname="ratskin_scout">
         <source>ratskin_scout</source>
         <target>Scout Ratskin</target>
       </trans-unit>
@@ -525,7 +525,7 @@
         <source>enum.ganger_type_hired_guns</source>
         <target>Mercenaires</target>
       </trans-unit>
-      <trans-unit id="d.Mo4mM" resname="clip_harness">
+      <trans-unit id="dxspw.V" resname="clip_harness">
         <source>clip_harness</source>
         <target>Harnais</target>
       </trans-unit>
@@ -533,7 +533,7 @@
         <source>La figurine peut s’attacher pendant sa phase de mouvement en restant immobile. Empêche les chutes.</source>
         <target>La figurine peut s’attacher pendant sa phase de mouvement en restant immobile. Empêche les chutes.</target>
       </trans-unit>
-      <trans-unit id="bcur3XD" resname="filter_plugs">
+      <trans-unit id="tnhoC80" resname="filter_plugs">
         <source>filter_plugs</source>
         <target>Masque à filtre</target>
       </trans-unit>
@@ -541,7 +541,7 @@
         <source>Peut relancer les jets d’endurance (T) pour résister à l’effet d’un gaz.</source>
         <target>Peut relancer les jets d’endurance (T) pour résister à l’effet d’un gaz.</target>
       </trans-unit>
-      <trans-unit id="5VPWj0b" resname="lobo_chip">
+      <trans-unit id="krl.Shy" resname="lobo_chip">
         <source>lobo_chip</source>
         <target>Puce lobotomisante</target>
       </trans-unit>
@@ -549,7 +549,7 @@
         <source>Immunité à stupidité, fureur, haine et brisé mais initiative (I) définitivement réduite à 1.</source>
         <target>Immunité à stupidité, fureur, haine et brisé mais initiative (I) définitivement réduite à 1.</target>
       </trans-unit>
-      <trans-unit id="sxnQGVp" resname="photo_contacts">
+      <trans-unit id="H7UPnFs" resname="photo_contacts">
         <source>photo_contacts</source>
         <target>Photo-lentilles</target>
       </trans-unit>
@@ -557,7 +557,7 @@
         <source>Immunité à l’aveuglement et vision dans le noir améliorée.</source>
         <target>Immunité à l’aveuglement et vision dans le noir améliorée.</target>
       </trans-unit>
-      <trans-unit id="CcUok9u" resname="weapon_reload">
+      <trans-unit id="6ESioIs" resname="weapon_reload">
         <source>weapon_reload</source>
         <target>Chargeur supplémentaire</target>
       </trans-unit>
@@ -565,43 +565,43 @@
         <source>Lance un D6 après un jet de munitions raté : le jet de munitions est réussi sur 4+. Une utilisation par bataille.</source>
         <target>Lance un D6 après un jet de munitions raté : le jet de munitions est réussi sur 4+. Une utilisation par bataille.</target>
       </trans-unit>
-      <trans-unit id="ZDQCX0V" resname="weapon_power - Épée énergétique">
+      <trans-unit id="TI3Euul" resname="weapon_power - Épée énergétique">
         <source>weapon_power - Épée énergétique</source>
         <target>Arme énergétique - Épée énergétique</target>
       </trans-unit>
-      <trans-unit id="rcKZB_i" resname="weapon_power - Hache énergétique">
+      <trans-unit id="z9fyl5H" resname="weapon_power - Hache énergétique">
         <source>weapon_power - Hache énergétique</source>
         <target>Arme énergétique - Hache énergétique</target>
       </trans-unit>
-      <trans-unit id="9ymbtt1" resname="weapon_power - Gantelets énergétiques">
+      <trans-unit id="iSxnYvY" resname="weapon_power - Gantelets énergétiques">
         <source>weapon_power - Gantelets énergétiques</source>
         <target>Arme énergétique - Gantelets énergétiques</target>
       </trans-unit>
-      <trans-unit id="LS.jff4" resname="rare_weapon - Fusil à aiguille">
+      <trans-unit id="n40Fdcz" resname="rare_weapon - Fusil à aiguille">
         <source>rare_weapon - Fusil à aiguille</source>
         <target>Arme rare - Fusil à aiguille</target>
       </trans-unit>
-      <trans-unit id="pj07FES" resname="rare_weapon - Pistolet à aiguille">
+      <trans-unit id="e6B0wFC" resname="rare_weapon - Pistolet à aiguille">
         <source>rare_weapon - Pistolet à aiguille</source>
         <target>Arme rare - Pistolet à aiguille</target>
       </trans-unit>
-      <trans-unit id="iyo_L66" resname="rare_weapon - Pistolet à toile">
+      <trans-unit id="E_1i.qN" resname="rare_weapon - Pistolet à toile">
         <source>rare_weapon - Pistolet à toile</source>
         <target>Arme rare - Pistolet à toile</target>
       </trans-unit>
-      <trans-unit id="huooVjU" resname="rare_weapon - Une sur un million">
+      <trans-unit id="1.G2K9r" resname="rare_weapon - Une sur un million">
         <source>rare_weapon - Une sur un million</source>
         <target>Arme rare - Une sur un million</target>
       </trans-unit>
-      <trans-unit id="aNEYa1o" resname="gas_grenades - Suffocantes">
+      <trans-unit id="ruAIaX3" resname="gas_grenades - Suffocantes">
         <source>gas_grenades - Suffocantes</source>
         <target>Grenades à gaz - Suffocantes</target>
       </trans-unit>
-      <trans-unit id="8HNDnxi" resname="gas_grenades - Terrifiantes">
+      <trans-unit id="kfaNRrF" resname="gas_grenades - Terrifiantes">
         <source>gas_grenades - Terrifiantes</source>
         <target>Grenades à gaz - Terrifiantes</target>
       </trans-unit>
-      <trans-unit id="Nq5BFsb" resname="gas_grenades - Hallucinogènes">
+      <trans-unit id="uXtgo.S" resname="gas_grenades - Hallucinogènes">
         <source>gas_grenades - Hallucinogènes</source>
         <target>Grenades à gaz - Hallucinogènes</target>
       </trans-unit>
@@ -621,55 +621,55 @@
         <source>Grenades - Grenades fumigènes</source>
         <target>Grenades - Grenades fumigènes</target>
       </trans-unit>
-      <trans-unit id="1tGwZ9U" resname="ammo - Pack laser incendiaire">
+      <trans-unit id="ASasqX8" resname="ammo - Pack laser incendiaire">
         <source>ammo - Pack laser incendiaire</source>
         <target>Munitions - Pack laser incendiaire</target>
       </trans-unit>
-      <trans-unit id="ETHHNhX" resname="ammo - Chargeur tambour">
+      <trans-unit id="lghIF1K" resname="ammo - Chargeur tambour">
         <source>ammo - Chargeur tambour</source>
         <target>Munitions - Chargeur tambour</target>
       </trans-unit>
-      <trans-unit id="YPQ0hj5" resname="ammo - Bolts Feu d’enfer">
+      <trans-unit id="Eequt1Z" resname="ammo - Bolts Feu d’enfer">
         <source>ammo - Bolts Feu d’enfer</source>
         <target>Munitions - Bolts Feu d’enfer</target>
       </trans-unit>
-      <trans-unit id="ynLsVkt" resname="gunsight - gunsight laser">
+      <trans-unit id="jS8uB0p" resname="gunsight - gunsight laser">
         <source>gunsight - gunsight laser</source>
         <target>Viseur - Viseur laser</target>
       </trans-unit>
-      <trans-unit id="kSoYzJM" resname="gunsight - Mono-viseur">
+      <trans-unit id="C2JvvkF" resname="gunsight - Mono-viseur">
         <source>gunsight - Mono-viseur</source>
         <target>Viseur - Mono-viseur</target>
       </trans-unit>
-      <trans-unit id="H73OkNq" resname="gunsight - gunsight téléscopique">
+      <trans-unit id="e2pjJkk" resname="gunsight - gunsight téléscopique">
         <source>gunsight - gunsight téléscopique</source>
         <target>Viseur - Viseur téléscopique</target>
       </trans-unit>
-      <trans-unit id="jl2Tcis" resname="gunsight - gunsight infra-rouge">
+      <trans-unit id="kGPvV4P" resname="gunsight - gunsight infra-rouge">
         <source>gunsight - gunsight infra-rouge</source>
         <target>Viseur - Viseur infra-rouge</target>
       </trans-unit>
-      <trans-unit id="7C5k.7x" resname="heavy_gear - Auto-réparateur">
+      <trans-unit id="GsWbSVa" resname="heavy_gear - Auto-réparateur">
         <source>heavy_gear - Auto-réparateur</source>
         <target>Équipement lourd - Auto-réparateur</target>
       </trans-unit>
-      <trans-unit id="b5oYqi2" resname="heavy_gear - Suspenseur">
+      <trans-unit id="Qiaqi6K" resname="heavy_gear - Suspenseur">
         <source>heavy_gear - Suspenseur</source>
         <target>Équipement lourd - Suspenseur</target>
       </trans-unit>
-      <trans-unit id="HDQx_Q_" resname="armour - Flak">
+      <trans-unit id="GfCpq.q" resname="armour - Flak">
         <source>armour - Flak</source>
         <target>Armure - Flak</target>
       </trans-unit>
-      <trans-unit id="XmUb3cw" resname="armour - armour composite">
+      <trans-unit id="rAVIR1g" resname="armour - armour composite">
         <source>armour - armour composite</source>
         <target>Armure - Armure composite</target>
       </trans-unit>
-      <trans-unit id="ZoYIjt9" resname="exotic_armour - Carapace">
+      <trans-unit id="GPsFT0f" resname="exotic_armour - Carapace">
         <source>exotic_armour - Carapace</source>
         <target>Armure exotique - Carapace</target>
       </trans-unit>
-      <trans-unit id="VOd_PzK" resname="exotic_armour - Champs de force">
+      <trans-unit id="0TAjdWt" resname="exotic_armour - Champs de force">
         <source>exotic_armour - Champs de force</source>
         <target>Armure exotique - Champs de force</target>
       </trans-unit>
@@ -677,79 +677,79 @@
         <source>Medi-pack</source>
         <target>Medi-pack</target>
       </trans-unit>
-      <trans-unit id="lCFCyiJ" resname="isotropic_fuel_rod">
+      <trans-unit id="F0iiehf" resname="isotropic_fuel_rod">
         <source>isotropic_fuel_rod</source>
         <target>Pile d’essence isotrope</target>
       </trans-unit>
-      <trans-unit id="JTZq3ct" resname="bionic - bras, oeil, jambe, torse, Implant">
+      <trans-unit id="0jLxgci" resname="bionic - bras, oeil, jambe, torse, Implant">
         <source>bionic - bras, oeil, jambe, torse, Implant</source>
         <target>Bionique - bras, oeil, jambe, torse, Implant</target>
       </trans-unit>
-      <trans-unit id="G7Hep8c" resname="skull_chip">
+      <trans-unit id="Iz.yji0" resname="skull_chip">
         <source>skull_chip</source>
         <target>Puce cérébrale</target>
       </trans-unit>
-      <trans-unit id="UajmEi3" resname="grapnel">
+      <trans-unit id="r9Xon0." resname="grapnel">
         <source>grapnel</source>
         <target>Grappin</target>
       </trans-unit>
-      <trans-unit id="5sFTGpY" resname="grav_chute">
+      <trans-unit id="juDe8SQ" resname="grav_chute">
         <source>grav_chute</source>
         <target>Chute antigrav</target>
       </trans-unit>
-      <trans-unit id="1O9L8EA" resname="Bio_scanner">
+      <trans-unit id="XaqaTld" resname="Bio_scanner">
         <source>Bio_scanner</source>
         <target>Bio-scanner</target>
       </trans-unit>
-      <trans-unit id="vQ4cmHG" resname="Bio_booster">
+      <trans-unit id="wqf_.8d" resname="Bio_booster">
         <source>Bio_booster</source>
         <target>Bio-booster</target>
       </trans-unit>
-      <trans-unit id="1S59I5k" resname="concealed_blade">
+      <trans-unit id="HVAtvEN" resname="concealed_blade">
         <source>concealed_blade</source>
         <target>Lame cachée</target>
       </trans-unit>
-      <trans-unit id="pG5KGy5" resname="respirator">
+      <trans-unit id="soyb0zA" resname="respirator">
         <source>respirator</source>
         <target>Respirateur</target>
       </trans-unit>
-      <trans-unit id="zPROKNl" resname="photo_visor">
+      <trans-unit id="J3Oguhe" resname="photo_visor">
         <source>photo_visor</source>
         <target>Photo-viseur</target>
       </trans-unit>
-      <trans-unit id="vovbd0m" resname="berserker_chip">
+      <trans-unit id="fj.4hN1" resname="berserker_chip">
         <source>berserker_chip</source>
         <target>Puce de Berserker</target>
       </trans-unit>
-      <trans-unit id="ffkWEYL" resname="blindsnake_pouch">
+      <trans-unit id="ggbgi94" resname="blindsnake_pouch">
         <source>blindsnake_pouch</source>
         <target>Poche du serpent aveugle</target>
       </trans-unit>
-      <trans-unit id="clyZLPG" resname="infra_red_goggles">
+      <trans-unit id="gJUfFk0" resname="infra_red_goggles">
         <source>infra_red_goggles</source>
         <target>Lunettes infra-rouges</target>
       </trans-unit>
-      <trans-unit id="iw6WURS" resname="raid_gear - Silencieux">
+      <trans-unit id="ntOxQIj" resname="raid_gear - Silencieux">
         <source>raid_gear - Silencieux</source>
         <target>Matériel d’incursion - Silencieux</target>
       </trans-unit>
-      <trans-unit id="E.FfaZw" resname="raid_gear - Hurleurs ou Bloqueurs">
+      <trans-unit id="Zet2P6W" resname="raid_gear - Hurleurs ou Bloqueurs">
         <source>raid_gear - Hurleurs ou Bloqueurs</source>
         <target>Matériel d’incursion - Hurleurs ou Bloqueurs</target>
       </trans-unit>
-      <trans-unit id="Al9jhuz" resname="stinger_pouch">
+      <trans-unit id="7ehb_yT" resname="stinger_pouch">
         <source>stinger_pouch</source>
         <target>Poche médicinale</target>
       </trans-unit>
-      <trans-unit id="KZ2yBPk" resname="ratskin_map">
+      <trans-unit id="VUef659" resname="ratskin_map">
         <source>ratskin_map</source>
         <target>Carte Ratskin</target>
       </trans-unit>
-      <trans-unit id="fqzvvvT" resname="mung_vase">
+      <trans-unit id="bIX7IwF" resname="mung_vase">
         <source>mung_vase</source>
         <target>Vase Mung</target>
       </trans-unit>
-      <trans-unit id="Ex_F1C7" resname="Agility_-_catfall">
+      <trans-unit id="ZuLetEZ" resname="Agility_-_catfall">
         <source>Agility_-_catfall</source>
         <target>Agilité - Chute féline</target>
       </trans-unit>
@@ -757,7 +757,7 @@
         <source>Lors d’une chute, la réussite d’un jet d’initiative (I) permet d'atterrir sans danger. Les descente peuvent être supérieure à 3’’</source>
         <target>Lors d’une chute, la réussite d’un jet d’initiative (I) permet d'atterrir sans danger. Les descente peuvent être supérieure à 3’’</target>
       </trans-unit>
-      <trans-unit id="4WZS8f2" resname="Agility_-_dodge">
+      <trans-unit id="xNETYYB" resname="Agility_-_dodge">
         <source>Agility_-_dodge</source>
         <target>Agilité - Esquive</target>
       </trans-unit>
@@ -765,7 +765,7 @@
         <source>Gagne une sauvegarde spéciale de 6+ contre les blessures au corps à corps et à distance</source>
         <target>Gagne une sauvegarde spéciale de 6+ contre les blessures au corps à corps et à distance</target>
       </trans-unit>
-      <trans-unit id="_dDIVgN" resname="Agility_-_jump_back">
+      <trans-unit id="ELJHbE1" resname="Agility_-_jump_back">
         <source>Agility_-_jump_back</source>
         <target>Agilité - Désengagement</target>
       </trans-unit>
@@ -773,7 +773,7 @@
         <source>Au début du tour, la figurine peut se désengager à 2” d’un corps à corps</source>
         <target>Au début du tour, la figurine peut se désengager à 2” d’un corps à corps</target>
       </trans-unit>
-      <trans-unit id="D78Ps3W" resname="Agility_-_leap">
+      <trans-unit id="iAXqYQy" resname="Agility_-_leap">
         <source>Agility_-_leap</source>
         <target>Agilité - Saut</target>
       </trans-unit>
@@ -781,7 +781,7 @@
         <source>Peut ajouter un D6” de déplacement lors d’une charge ou d’une course. Le D6 est lancé avant de choisir le déplacement</source>
         <target>Peut ajouter un D6” de déplacement lors d’une charge ou d’une course. Le D6 est lancé avant de choisir le déplacement</target>
       </trans-unit>
-      <trans-unit id="RGW4X8C" resname="Agility_-_quick_witted">
+      <trans-unit id="cQqXgBf" resname="Agility_-_quick_witted">
         <source>Agility_-_quick_witted</source>
         <target>Agilité - Esprit vif</target>
       </trans-unit>
@@ -789,7 +789,7 @@
         <source>Réalisation d’une phase de mouvement avant le 1er tour</source>
         <target>Réalisation d’une phase de mouvement avant le 1er tour</target>
       </trans-unit>
-      <trans-unit id="8sZJTFD" resname="Agility_-_Sprint">
+      <trans-unit id="ruiDoYQ" resname="Agility_-_Sprint">
         <source>Agility_-_Sprint</source>
         <target>Agilité - Sprint</target>
       </trans-unit>
@@ -797,7 +797,7 @@
         <source>Triple la caractéristique que mouvement (M) pour les charges et les courses</source>
         <target>Triple la caractéristique que mouvement (M) pour les charges et les courses</target>
       </trans-unit>
-      <trans-unit id="g86px2H" resname="Combat_-_combat_master">
+      <trans-unit id="KDPN1rG" resname="Combat_-_combat_master">
         <source>Combat_-_combat_master</source>
         <target>Combat - Maître du combat</target>
       </trans-unit>
@@ -805,7 +805,7 @@
         <source>Vole les bonus de combat multiple de ses adversaires si la figurine combat seule</source>
         <target>Vole les bonus de combat multiple de ses adversaires si la figurine combat seule</target>
       </trans-unit>
-      <trans-unit id="tC_QCsn" resname="Combat_-_counter_attack">
+      <trans-unit id="I9s.yJb" resname="Combat_-_counter_attack">
         <source>Combat_-_counter_attack</source>
         <target>Combat - Counter-attaque</target>
       </trans-unit>
@@ -813,7 +813,7 @@
         <source>Peut relancer un de ses dés d’attaque</source>
         <target>Peut relancer un de ses dés d’attaque</target>
       </trans-unit>
-      <trans-unit id="jOpEZzh" resname="Combat_-_deflect">
+      <trans-unit id="qvdqGhE" resname="Combat_-_deflect">
         <source>Combat_-_deflect</source>
         <target>Combat - Blocage</target>
       </trans-unit>
@@ -821,7 +821,7 @@
         <source>Peut forcer un adversaire à relancer un dé d’attaque</source>
         <target>Peut forcer un adversaire à relancer un dé d’attaque</target>
       </trans-unit>
-      <trans-unit id="3SX6es3" resname="Combat_-_disarm">
+      <trans-unit id="BidBX9X" resname="Combat_-_disarm">
         <source>Combat_-_disarm</source>
         <target>Combat - Désarmement</target>
       </trans-unit>
@@ -829,7 +829,7 @@
         <source>Au corps à corps, la réussite d’un jet d’initiative force l’adversaire à n’utiliser qu’un couteau</source>
         <target>Au corps à corps, la réussite d’un jet d’initiative force l’adversaire à n’utiliser qu’un couteau</target>
       </trans-unit>
-      <trans-unit id="1k_KPqs" resname="Combat_-_feint">
+      <trans-unit id="oUecFbP" resname="Combat_-_feint">
         <source>Combat_-_feint</source>
         <target>Combat - Feinte</target>
       </trans-unit>
@@ -837,7 +837,7 @@
         <source>Le premier échec critique de la figurine confère un bonus de +1 au score de combat</source>
         <target>Le premier échec critique de la figurine confère un bonus de +1 au score de combat</target>
       </trans-unit>
-      <trans-unit id="_KEvWyh" resname="Combat_-_step_aside">
+      <trans-unit id="pu5Ko7H" resname="Combat_-_step_aside">
         <source>Combat_-_step_aside</source>
         <target>Combat - Évitement</target>
       </trans-unit>
@@ -845,7 +845,7 @@
         <source>Obtient une sauvegarde spéciale de 4+ contre les blessures au corps à corps</source>
         <target>Obtient une sauvegarde spéciale de 4+ contre les blessures au corps à corps</target>
       </trans-unit>
-      <trans-unit id="DXwxS4I" resname="Ferocity_-_berserk_charge">
+      <trans-unit id="aF2FR8c" resname="Ferocity_-_berserk_charge">
         <source>Ferocity_-_berserk_charge</source>
         <target>Ferocité - Charge berserk</target>
       </trans-unit>
@@ -853,7 +853,7 @@
         <source>Ajoute un D3 dés d’attaque contre un seul adversaire lors d’une charge</source>
         <target>Ajoute un D3 dés d’attaque contre un seul adversaire lors d’une charge</target>
       </trans-unit>
-      <trans-unit id="o40fTFA" resname="Ferocity_-_impetuous">
+      <trans-unit id="QqWot0." resname="Ferocity_-_impetuous">
         <source>Ferocity_-_impetuous</source>
         <target>Ferocité - Impétueux</target>
       </trans-unit>
@@ -861,7 +861,7 @@
         <source>Peut se déplacer jusqu’à 4” lors d’un mouvement de poursuite ou en étant cloué ou tombé</source>
         <target>Peut se déplacer jusqu’à 4” lors d’un mouvement de poursuite ou en étant cloué ou tombé</target>
       </trans-unit>
-      <trans-unit id="TXtM6xF" resname="Ferocity_-_iron_will">
+      <trans-unit id="jBveX20" resname="Ferocity_-_iron_will">
         <source>Ferocity_-_iron_will</source>
         <target>Ferocité - Volonté de fer</target>
       </trans-unit>
@@ -869,7 +869,7 @@
         <source>Peut relancer ses jets de commandement (Ld)</source>
         <target>Peut relancer ses jets de commandement (Ld)</target>
       </trans-unit>
-      <trans-unit id="jepEdMy" resname="Ferocity_-_killer_reputation">
+      <trans-unit id="WslxAcE" resname="Ferocity_-_killer_reputation">
         <source>Ferocity_-_killer_reputation</source>
         <target>Ferocité - Réputation de tueur</target>
       </trans-unit>
@@ -877,7 +877,7 @@
         <source>Cause la peur</source>
         <target>Cause la peur</target>
       </trans-unit>
-      <trans-unit id="iWTWxBM" resname="Ferocity_-_nerves_of_steal">
+      <trans-unit id="f9FJxid" resname="Ferocity_-_nerves_of_steal">
         <source>Ferocity_-_nerves_of_steal</source>
         <target>Ferocité - Nerfs d’acier</target>
       </trans-unit>
@@ -885,7 +885,7 @@
         <source>N’a pas besoin d’allié pour tenter de se relever d’un clouage au début du tour. Si la figurine pouvait déjà se relever, elle peut relancer son jet d’initiative (I)</source>
         <target>N’a pas besoin d’allié pour tenter de se relever d’un clouage au début du tour. Si la figurine pouvait déjà se relever, elle peut relancer son jet d’initiative (I)</target>
       </trans-unit>
-      <trans-unit id="oZNdCqJ" resname="Ferocity_-_true_grit">
+      <trans-unit id="xzdHCom" resname="Ferocity_-_true_grit">
         <source>Ferocity_-_true_grit</source>
         <target>Ferocité - Courage sans faille</target>
       </trans-unit>
@@ -893,7 +893,7 @@
         <source>Peut traiter les résultats de 1-2 comme une blessure superficielle</source>
         <target>Peut traiter les résultats de 1-2 comme une blessure superficielle</target>
       </trans-unit>
-      <trans-unit id="khkwiM2" resname="Muscle_-_body_slam">
+      <trans-unit id="GwovdKT" resname="Muscle_-_body_slam">
         <source>Muscle_-_body_slam</source>
         <target>Muscle - Plaquage</target>
       </trans-unit>
@@ -901,7 +901,7 @@
         <source>Lors d’une charge, la réussite d’un jet de force (S) réduit la capacité de combat (WS) de l’adversaire à 1</source>
         <target>Lors d’une charge, la réussite d’un jet de force (S) réduit la capacité de combat (WS) de l’adversaire à 1</target>
       </trans-unit>
-      <trans-unit id="V8GqU6D" resname="Muscle_-_muscle">
+      <trans-unit id=".nM7UmW" resname="Muscle_-_muscle">
         <source>Muscle_-_muscle</source>
         <target>Muscle - Culturiste</target>
       </trans-unit>
@@ -909,7 +909,7 @@
         <source>Augmente la caractéristique de force (S) de +1</source>
         <target>Augmente la caractéristique de force (S) de +1</target>
       </trans-unit>
-      <trans-unit id="90Mpuf." resname="Muscle_-_hard_as_nails">
+      <trans-unit id="J85ogxe" resname="Muscle_-_hard_as_nails">
         <source>Muscle_-_hard_as_nails</source>
         <target>Muscle - Robuste</target>
       </trans-unit>
@@ -917,7 +917,7 @@
         <source>Si la figurine est hors d’action, elle lance un D6. Sur 5+, elle obtient une récupération complète</source>
         <target>Si la figurine est hors d’action, elle lance un D6. Sur 5+, elle obtient une récupération complète</target>
       </trans-unit>
-      <trans-unit id="Jo.0Itb" resname="Muscle_-_hurl_opponent">
+      <trans-unit id="aDPUmS." resname="Muscle_-_hurl_opponent">
         <source>Muscle_-_hurl_opponent</source>
         <target>Muscle - Projection</target>
       </trans-unit>
@@ -925,7 +925,7 @@
         <source>Peut lancer un adversaire à un D6” en réussissant un test de force. La victime est clouée</source>
         <target>Peut lancer un adversaire à un D6” en réussissant un test de force. La victime est clouée</target>
       </trans-unit>
-      <trans-unit id="ThriEAs" resname="Muscle_-_iron_jaw">
+      <trans-unit id="OuHP.I1" resname="Muscle_-_iron_jaw">
         <source>Muscle_-_iron_jaw</source>
         <target>Muscle - Peau de fer</target>
       </trans-unit>
@@ -933,7 +933,7 @@
         <source>Les attaques au corps à corps et les tirs à moins de 12” ont une force (S) réduite de 1</source>
         <target>Les attaques au corps à corps et les tirs à moins de 12” ont une force (S) réduite de 1</target>
       </trans-unit>
-      <trans-unit id="b2iM1DF" resname="Muscle_-_juggernaut">
+      <trans-unit id="DLgW_F8" resname="Muscle_-_juggernaut">
         <source>Muscle_-_juggernaut</source>
         <target>Muscle - Mastodonte</target>
       </trans-unit>
@@ -941,7 +941,7 @@
         <source>Peut ignorer un tir de surveillance en réussissant un test de force (S)</source>
         <target>Peut ignorer un tir de surveillance en réussissant un test de force (S)</target>
       </trans-unit>
-      <trans-unit id="PxwYaoW" resname="Shooting_-_crack_shot">
+      <trans-unit id="8FjBmBe" resname="Shooting_-_crack_shot">
         <source>Shooting_-_crack_shot</source>
         <target>Tir - Visée précise</target>
       </trans-unit>
@@ -949,7 +949,7 @@
         <source>Les blessures infligées à distance mettent hors d’action sur 5-6</source>
         <target>Les blessures infligées à distance mettent hors d’action sur 5-6</target>
       </trans-unit>
-      <trans-unit id="My64Gnv" resname="Shooting_-_fast_shot">
+      <trans-unit id="O8ufWnK" resname="Shooting_-_fast_shot">
         <source>Shooting_-_fast_shot</source>
         <target>Tir - Tir réflexe</target>
       </trans-unit>
@@ -957,7 +957,7 @@
         <source>Peut se déplacer et se mettre en surveillance lors du même tour</source>
         <target>Peut se déplacer et se mettre en surveillance lors du même tour</target>
       </trans-unit>
-      <trans-unit id="2JZQ69_" resname="Shooting_-_gunfigther">
+      <trans-unit id="tGbWTiU" resname="Shooting_-_gunfigther">
         <source>Shooting_-_gunfigther</source>
         <target>Tir - Pistolero</target>
       </trans-unit>
@@ -965,7 +965,7 @@
         <source>Obtient une attaque à distance supplémentaire lors de l’utilisation de deux pistolets</source>
         <target>Obtient une attaque à distance supplémentaire lors de l’utilisation de deux pistolets</target>
       </trans-unit>
-      <trans-unit id="yWjXoWt" resname="Shooting_-_hip_shooting">
+      <trans-unit id="LLdP_4v" resname="Shooting_-_hip_shooting">
         <source>Shooting_-_hip_shooting</source>
         <target>Tir - Tir au jugé</target>
       </trans-unit>
@@ -973,7 +973,7 @@
         <source>Peut courir et tirer avec un pistolet (malus de -1 au tir) ou une arme de base (malus de -2 au tir)</source>
         <target>Peut courir et tirer avec un pistolet (malus de -1 au tir) ou une arme de base (malus de -2 au tir)</target>
       </trans-unit>
-      <trans-unit id="yS7VegU" resname="Shooting_-_marksman">
+      <trans-unit id="VGayIpB" resname="Shooting_-_marksman">
         <source>Shooting_-_marksman</source>
         <target>Tir - Tireur d’élite</target>
       </trans-unit>
@@ -981,7 +981,7 @@
         <source>La réussite d’un jet de commandement (Ld) permet de choisir la cible d’un tir</source>
         <target>La réussite d’un jet de commandement (Ld) permet de choisir la cible d’un tir</target>
       </trans-unit>
-      <trans-unit id="kVfM94K" resname="Shooting_-_rapid_fire">
+      <trans-unit id="JI5FloR" resname="Shooting_-_rapid_fire">
         <source>Shooting_-_rapid_fire</source>
         <target>Tir - Tir rapide</target>
       </trans-unit>
@@ -989,7 +989,7 @@
         <source>Si la figurine est restée immobile, elle peut relancer un tir manqué avec un pistolet ou une arme de base</source>
         <target>Si la figurine est restée immobile, elle peut relancer un tir manqué avec un pistolet ou une arme de base</target>
       </trans-unit>
-      <trans-unit id="INFLUTt" resname="Stealth_-_ambush">
+      <trans-unit id="prCSvZl" resname="Stealth_-_ambush">
         <source>Stealth_-_ambush</source>
         <target>Furtivité - Embuscade</target>
       </trans-unit>
@@ -997,7 +997,7 @@
         <source>Peut se dissimuler et se mettre en surveillance lors du même tour</source>
         <target>Peut se dissimuler et se mettre en surveillance lors du même tour</target>
       </trans-unit>
-      <trans-unit id="I1fjBRy" resname="Stealth_-_dive">
+      <trans-unit id="BRd0NS0" resname="Stealth_-_dive">
         <source>Stealth_-_dive</source>
         <target>Furtivité - Plongeon</target>
       </trans-unit>
@@ -1005,245 +1005,321 @@
         <source>Peut courir et se dissimuler lors du même tour</source>
         <target>Peut courir et se dissimuler lors du même tour</target>
       </trans-unit>
-      <trans-unit id="JHLwkhW" resname="Stealth - Maître de l’évasion">
-        <source>Stealth - Maître de l’évasion</source>
+      <trans-unit id="rDO6v0_" resname="Stealth_-_escape_artist">
+        <source>Stealth_-_escape_artist</source>
         <target>Furtivité - Maître de l’évasion</target>
       </trans-unit>
       <trans-unit id="L_rdLJg" resname="Les captures sont traitées comme des récupérations complètes">
         <source>Les captures sont traitées comme des récupérations complètes</source>
         <target>Les captures sont traitées comme des récupérations complètes</target>
       </trans-unit>
-      <trans-unit id="P9uBlB1" resname="Stealth - Cible difficile">
-        <source>Stealth - Cible difficile</source>
+      <trans-unit id="XWVq4ZM" resname="Stealth_-_evade">
+        <source>Stealth_-_evade</source>
         <target>Furtivité - Cible difficile</target>
       </trans-unit>
       <trans-unit id="y8rUyim" resname="Les tirs adverses souffrent d’un malus de -2 à courte portée et de -1 à longue portée pour toucher la figurine si elle est à découvert">
         <source>Les tirs adverses souffrent d’un malus de -2 à courte portée et de -1 à longue portée pour toucher la figurine si elle est à découvert</source>
         <target>Les tirs adverses souffrent d’un malus de -2 à courte portée et de -1 à longue portée pour toucher la figurine si elle est à découvert</target>
       </trans-unit>
-      <trans-unit id="h10z7n9" resname="Stealth - Infiltration">
-        <source>Stealth - Infiltration</source>
+      <trans-unit id="KTLjzEI" resname="Stealth_-_infiltration">
+        <source>Stealth_-_infiltration</source>
         <target>Furtivité - Infiltration</target>
       </trans-unit>
       <trans-unit id="Xpd5Mkf" resname="Peut se déployer n’importe où à plus de 8” d’un adversaire">
         <source>Peut se déployer n’importe où à plus de 8” d’un adversaire</source>
         <target>Peut se déployer n’importe où à plus de 8” d’un adversaire</target>
       </trans-unit>
-      <trans-unit id="pLmjELg" resname="Stealth - Discret">
-        <source>Stealth - Discret</source>
+      <trans-unit id="c82AleM" resname="Stealth_-_sneak_up">
+        <source>Stealth_-_sneak_up</source>
         <target>Furtivité - Discret</target>
       </trans-unit>
       <trans-unit id="RXS44hv" resname="En cible fugace, impose un malus de -1 à l’intiative (I) adverse pour un tir de surveillance">
         <source>En cible fugace, impose un malus de -1 à l’intiative (I) adverse pour un tir de surveillance</source>
         <target>En cible fugace, impose un malus de -1 à l’initiative (I) adverse pour un tir de surveillance</target>
       </trans-unit>
-      <trans-unit id="FizsWM8" resname="Techno - Armurier">
-        <source>Techno - Armurier</source>
+      <trans-unit id="D1VWkV_" resname="Techno_-_armourer">
+        <source>Techno_-_armourer</source>
         <target>Techno - Armurier</target>
       </trans-unit>
       <trans-unit id="Rav.0i7" resname="Ignore le premier jet de munitions de la bataille (si la figurine n’était pas hors d’action à la dernière bataille)">
         <source>Ignore le premier jet de munitions de la bataille (si la figurine n’était pas hors d’action à la dernière bataille)</source>
         <target>Ignore le premier jet de munitions de la bataille (si la figurine n’était pas hors d’action à la dernière bataille)</target>
       </trans-unit>
-      <trans-unit id="LZQ6q7c" resname="Techno - Courtier">
-        <source>Techno - Courtier</source>
+      <trans-unit id="lENS_5S" resname="Techno_-_fixer">
+        <source>Techno_-_fixer</source>
         <target>Techno - Courtier</target>
       </trans-unit>
       <trans-unit id="wdmqR0N" resname="Peut relancer le prix d’un butin rare (si la figurine n’était pas hors d’action à la dernière bataille)">
         <source>Peut relancer le prix d’un butin rare (si la figurine n’était pas hors d’action à la dernière bataille)</source>
         <target>Peut relancer le prix d’un butin rare (si la figurine n’était pas hors d’action à la dernière bataille)</target>
       </trans-unit>
-      <trans-unit id="Ip8p3q1" resname="Techno - Inventeur">
-        <source>Techno - Inventeur</source>
+      <trans-unit id="8ginIze" resname="Techno_-_inventor">
+        <source>Techno_-_inventor</source>
         <target>Techno - Inventeur</target>
       </trans-unit>
       <trans-unit id="OrkOe85" resname="Lancer un D6. Sur un résultat de 6 la figurine obtient un butin rare aléatoire (si elle n’était pas hors d’action à la dernière bataille)">
         <source>Lancer un D6. Sur un résultat de 6 la figurine obtient un butin rare aléatoire (si elle n’était pas hors d’action à la dernière bataille)</source>
         <target>Lancer un D6. Sur un résultat de 6 la figurine obtient un butin rare aléatoire (si elle n’était pas hors d’action à la dernière bataille)</target>
       </trans-unit>
-      <trans-unit id="GdL2Awc" resname="Techno - Médecin">
-        <source>Techno - Médecin</source>
+      <trans-unit id="DtJfCg7" resname="Techno_-_medic">
+        <source>Techno_-_medic</source>
         <target>Techno - Médecin</target>
       </trans-unit>
       <trans-unit id="f2mvu1B" resname="Peut relancer la blessure grave d’une autre figurine (si elle n’était pas hors d’action à la dernière bataille)">
         <source>Peut relancer la blessure grave d’une autre figurine (si elle n’était pas hors d’action à la dernière bataille)</source>
         <target>Peut relancer la blessure grave d’une autre figurine (si elle n’était pas hors d’action à la dernière bataille)</target>
       </trans-unit>
-      <trans-unit id="N_9b2HI" resname="Techno - Specialiste">
-        <source>Techno - Specialiste</source>
+      <trans-unit id="19X3fZl" resname="Techno_-_specialist">
+        <source>Techno_-_specialist</source>
         <target>Techno - Spécialiste</target>
       </trans-unit>
       <trans-unit id="sNvA83T" resname="Donne accès aux armes spéciales">
         <source>Donne accès aux armes spéciales</source>
         <target>Donne accès aux armes spéciales</target>
       </trans-unit>
-      <trans-unit id="XU.zxVr" resname="Techno - Artisan">
-        <source>Techno - Artisan</source>
+      <trans-unit id="..FT2Gf" resname="Techno_-_weaponsmith">
+        <source>Techno_-_weaponsmith</source>
         <target>Techno - Artisan</target>
       </trans-unit>
       <trans-unit id="R8U6n2C" resname="Ignore ses jets de munitions et d’explosion ratés sur 4+">
         <source>Ignore ses jets de munitions et d’explosion ratés sur 4+</source>
         <target>Ignore ses jets de munitions et d’explosion ratés sur 4+</target>
       </trans-unit>
-      <trans-unit id="0nbbTCn" resname="Mort">
-        <source>Mort</source>
+      <trans-unit id="7JsQpKe" resname="Dead">
+        <source>Dead</source>
         <target>Mort</target>
       </trans-unit>
       <trans-unit id="QqnesuR" resname="The fighter is killed, and all weapons and equipment are lost. This result cannot be modified.">
         <source>The fighter is killed, and all weapons and equipment are lost. This result cannot be modified.</source>
         <target>Le combattant est tué, et toutes ses armes et équipements sont perdus. Ce résultat ne peut pas être modifié.</target>
       </trans-unit>
-      <trans-unit id="uB2FXWL" resname="Blessures multiples">
-        <source>Blessures multiples</source>
+      <trans-unit id="rSV9L_L" resname="Multiple_injuries">
+        <source>Multiple_injuries</source>
         <target>Blessures multiples</target>
       </trans-unit>
       <trans-unit id="GiKwnSi" resname="The fighter suffers multiple wounds, requiring additional rolls on the injury chart.">
         <source>The fighter suffers multiple wounds, requiring additional rolls on the injury chart.</source>
         <target>Le combattant subit plusieurs blessures, nécessitant des jets supplémentaires sur le tableau des blessures.</target>
       </trans-unit>
-      <trans-unit id="CUjem7a" resname="Blessure infectée (1 bataille)">
-        <source>Blessure infectée (1 bataille)</source>
+      <trans-unit id="oxJLlo9" resname="Infected wound 1 game">
+        <source>Infected wound 1 game</source>
         <target>Blessure infectée (1 bataille)</target>
       </trans-unit>
       <trans-unit id="p3O0ORf" resname="The fighter recovers but misses the next game.">
         <source>The fighter recovers but misses the next game.</source>
         <target>Le combattant se rétablit mais manque la bataille suivante.</target>
       </trans-unit>
-      <trans-unit id="zjXQD7G" resname="Blessure infectée (2 batailles)">
-        <source>Blessure infectée (2 batailles)</source>
+      <trans-unit id="tXcNWxc" resname="Infected wound 2 games">
+        <source>Infected wound 2 games</source>
         <target>Blessure infectée (2 batailles)</target>
       </trans-unit>
       <trans-unit id="6AAtXxH" resname="The fighter recovers but misses the next 2 games.">
         <source>The fighter recovers but misses the next 2 games.</source>
         <target>Le combattant se rétablit mais manque les 2 batailles suivantes.</target>
       </trans-unit>
-      <trans-unit id="bnoxLZ7" resname="Blessure infectée (3 batailles)">
-        <source>Blessure infectée (3 batailles)</source>
+      <trans-unit id="gTolb0x" resname="Infected wound 3 games">
+        <source>Infected wound 3 games</source>
         <target>Blessure infectée (3 batailles)</target>
       </trans-unit>
       <trans-unit id="VPq9xVl" resname="The fighter recovers but misses the next 3 games.">
         <source>The fighter recovers but misses the next 3 games.</source>
         <target>Le combattant se rétablit mais manque les 3 batailles suivantes.</target>
       </trans-unit>
-      <trans-unit id="X0KYWOu" resname="Blessure au torse">
-        <source>Blessure au torse</source>
+      <trans-unit id="NWWNX4v" resname="Chest wound">
+        <source>Chest wound</source>
         <target>Blessure au torse</target>
       </trans-unit>
       <trans-unit id="JquxOTR" resname="Toughness is reduced by -1.">
         <source>Toughness is reduced by -1.</source>
         <target>La Résilience est réduite de -1.</target>
       </trans-unit>
-      <trans-unit id="ItCgPcU" resname="Blessure à la jambe">
-        <source>Blessure à la jambe</source>
+      <trans-unit id="skoftmk" resname="Leg wound">
+        <source>Leg wound</source>
         <target>Blessure à la jambe</target>
       </trans-unit>
       <trans-unit id="48.85bQ" resname="Movement is reduced by -1.">
         <source>Movement is reduced by -1.</source>
         <target>Le Mouvement est réduit de -1.</target>
       </trans-unit>
-      <trans-unit id="fODjyaD" resname="Blessure au bras">
-        <source>Blessure au bras</source>
+      <trans-unit id="N_igX8Y" resname="Arm wound">
+        <source>Arm wound</source>
         <target>Blessure au bras</target>
       </trans-unit>
       <trans-unit id="GsqShYP" resname="Strength is reduced by -1.">
         <source>Strength is reduced by -1.</source>
         <target>La Force est réduite de -1.</target>
       </trans-unit>
-      <trans-unit id="P6VJNsU" resname="Blessure à la tête">
-        <source>Blessure à la tête</source>
+      <trans-unit id="MJzoEYL" resname="Head wound">
+        <source>Head wound</source>
         <target>Blessure à la tête</target>
       </trans-unit>
       <trans-unit id="oRctulB" resname="The fighter suffers from either stupidity or frenzy before each game.">
         <source>The fighter suffers from either stupidity or frenzy before each game.</source>
         <target>Le combattant souffre soit de stupidité, soit de frénésie avant chaque bataille.</target>
       </trans-unit>
-      <trans-unit id="EC.SfU1" resname="Oeil crevé">
-        <source>Oeil crevé</source>
+      <trans-unit id="ZO.1_sM" resname="Blinded in one eye">
+        <source>Blinded in one eye</source>
         <target>Œil crevé</target>
       </trans-unit>
       <trans-unit id="5FvI6a_" resname="Ballistic Skill is reduced by -1. If both eyes are blinded, the fighter dies.">
         <source>Ballistic Skill is reduced by -1. If both eyes are blinded, the fighter dies.</source>
         <target>La Compétence Balistique est réduite de -1. Si les deux yeux sont crevés, le combattant meurt.</target>
       </trans-unit>
-      <trans-unit id="cUqb_Xa" resname="Blessure à l’oreille">
-        <source>Blessure à l’oreille</source>
+      <trans-unit id="sDwn6gR" resname="Partially deafened">
+        <source>Partially deafened</source>
         <target>Blessure à l’oreille</target>
       </trans-unit>
       <trans-unit id="sNRajYd" resname="Initiative is reduced by -1.">
         <source>Initiative is reduced by -1.</source>
         <target>L’Initiative est réduite de -1.</target>
       </trans-unit>
-      <trans-unit id="KHA.coB" resname="Stress post-traumatique">
-        <source>Stress post-traumatique</source>
+      <trans-unit id="Zz8nJFF" resname="Shell shock">
+        <source>Shell shock</source>
         <target>Stress post-traumatique</target>
       </trans-unit>
       <trans-unit id="FlwV97J" resname="Leadership is reduced by -1.">
         <source>Leadership is reduced by -1.</source>
         <target>Le Leadership est réduit de -1.</target>
       </trans-unit>
-      <trans-unit id="PEh4Hcy" resname="Blessure à la main">
-        <source>Blessure à la main</source>
+      <trans-unit id="UfhHrQp" resname="Hand injury">
+        <source>Hand injury</source>
         <target>Blessure à la main</target>
       </trans-unit>
       <trans-unit id="za9AxwR" resname="Weapon Skill is reduced by -1.">
         <source>Weapon Skill is reduced by -1.</source>
         <target>La Compétence au Combat est réduite de -1.</target>
       </trans-unit>
-      <trans-unit id="yIfWDmM" resname="Blessure lancinante">
-        <source>Blessure lancinante</source>
+      <trans-unit id="j9cx8Zs" resname="Old battle wound">
+        <source>Old battle wound</source>
         <target>Blessure lancinante</target>
       </trans-unit>
       <trans-unit id="ouRgTR_" resname="The fighter may miss a game if the old wound flares up.">
         <source>The fighter may miss a game if the old wound flares up.</source>
         <target>Le combattant peut manquer une bataille si la vieille blessure se réactive.</target>
       </trans-unit>
-      <trans-unit id="oBLt0lt" resname="Récupération complète">
-        <source>Récupération complète</source>
+      <trans-unit id="VmK25FH" resname="Full recovery">
+        <source>Full recovery</source>
         <target>Récupération complète</target>
       </trans-unit>
       <trans-unit id="1.jyafw" resname="The fighter fully recovers from minor injuries.">
         <source>The fighter fully recovers from minor injuries.</source>
         <target>Le combattant se remet entièrement des blessures mineures.</target>
       </trans-unit>
-      <trans-unit id="x6oYIq0" resname="Inimitié amère">
-        <source>Inimitié amère</source>
+      <trans-unit id="TxjrR8O" resname="Bitter enmity">
+        <source>Bitter enmity</source>
         <target>Inimitié amère</target>
       </trans-unit>
       <trans-unit id="rwaF925" resname="The fighter develops hatred towards the enemy responsible for the injury, either the individual or the enemy leader.">
         <source>The fighter develops hatred towards the enemy responsible for the injury, either the individual or the enemy leader.</source>
         <target>Le combattant développe une haine envers l’ennemi responsable de la blessure, soit l’individu, soit le leader ennemi.</target>
       </trans-unit>
-      <trans-unit id="MfCI19x" resname="Capturé">
-        <source>Capturé</source>
+      <trans-unit id="igP6mtd" resname="Captured">
+        <source>Captured</source>
         <target>Capturé</target>
       </trans-unit>
       <trans-unit id="tz80i6F" resname="The fighter is captured, and players must negotiate for their release or sell them to slavers.">
         <source>The fighter is captured, and players must negotiate for their release or sell them to slavers.</source>
         <target>Le combattant est capturé, et les joueurs doivent négocier pour sa libération ou le vendre à des esclavagistes.</target>
       </trans-unit>
-      <trans-unit id="Qju6hcP" resname="Cicatrices horribles">
-        <source>Cicatrices horribles</source>
+      <trans-unit id="CGYCmC_" resname="Horrible scars">
+        <source>Horrible scars</source>
         <target>Cicatrices horribles</target>
       </trans-unit>
       <trans-unit id="2w9iZag" resname="The fighter causes fear due to disfigurement.">
         <source>The fighter causes fear due to disfigurement.</source>
         <target>Le combattant inspire la peur en raison de ses déformations.</target>
       </trans-unit>
-      <trans-unit id="YHgVu7G" resname="Cicatrices impressionnantes">
-        <source>Cicatrices impressionnantes</source>
+      <trans-unit id="_KeS.sD" resname="Impressive scars">
+        <source>Impressive scars</source>
         <target>Cicatrices impressionnantes</target>
       </trans-unit>
       <trans-unit id="c1Trycf" resname="The fighter gains a +1 Leadership bonus.">
         <source>The fighter gains a +1 Leadership bonus.</source>
         <target>Le combattant gagne un bonus de +1 en Leadership.</target>
       </trans-unit>
-      <trans-unit id="IhWmpdD" resname="Survie incroyable">
-        <source>Survie incroyable</source>
+      <trans-unit id="nnmSSwz" resname="Survives against the odds">
+        <source>Survives against the odds</source>
         <target>Survie incroyable</target>
       </trans-unit>
-      <trans-unit id="FKzvsBM" resname="The fighter makes a full recovery and gains +2D6 Experience points.">
-        <source>The fighter makes a full recovery and gains +2D6 Experience points.</source>
-        <target>Le combattant se remet complètement et gagne +2D6 points d'expérience.</target>
+      <trans-unit id="XSFkcLn" resname="enum.injuries_Dead">
+        <source>enum.injuries_Dead</source>
+        <target>Mort</target>
+      </trans-unit>
+      <trans-unit id="1_rIXkw" resname="enum.injuries_Multiple_injuries">
+        <source>enum.injuries_Multiple_injuries</source>
+        <target>Blessures multiples</target>
+      </trans-unit>
+      <trans-unit id="xGGpqy2" resname="enum.injuries_Infected_wound_1_game">
+        <source>enum.injuries_Infected_wound_1_game</source>
+        <target>Blessure infectée (1 bataille)</target>
+      </trans-unit>
+      <trans-unit id="yIr6yDP" resname="enum.injuries_Infected_wound_2_games">
+        <source>enum.injuries_Infected_wound_2_games</source>
+        <target>Blessure infectée (2 batailles)</target>
+      </trans-unit>
+      <trans-unit id="7b_veAL" resname="enum.injuries_Infected_wound_3_games">
+        <source>enum.injuries_Infected_wound_3_games</source>
+        <target>Blessure infectée (3 batailles)</target>
+      </trans-unit>
+      <trans-unit id="AHzCTj0" resname="enum.injuries_Chest_wound">
+        <source>enum.injuries_Chest_wound</source>
+        <target>Blessure au torse</target>
+      </trans-unit>
+      <trans-unit id="FPYSCfw" resname="enum.injuries_Leg_wound">
+        <source>enum.injuries_Leg_wound</source>
+        <target>Blessure à la jambe</target>
+      </trans-unit>
+      <trans-unit id="E4e0u5M" resname="enum.injuries_Arm_wound">
+        <source>enum.injuries_Arm_wound</source>
+        <target>Blessure au bras</target>
+      </trans-unit>
+      <trans-unit id="AFilijy" resname="enum.injuries_Head_wound">
+        <source>enum.injuries_Head_wound</source>
+        <target>Blessure à la tête</target>
+      </trans-unit>
+      <trans-unit id="500alLI" resname="enum.injuries_Blinded_in_one_eye">
+        <source>enum.injuries_Blinded_in_one_eye</source>
+        <target>Œil crevé</target>
+      </trans-unit>
+      <trans-unit id="SejVwia" resname="enum.injuries_Partially_deafened">
+        <source>enum.injuries_Partially_deafened</source>
+        <target>Blessure à l’oreille</target>
+      </trans-unit>
+      <trans-unit id="1dSLfVq" resname="enum.injuries_Shell_shock">
+        <source>enum.injuries_Shell_shock</source>
+        <target>Stress post-traumatique</target>
+      </trans-unit>
+      <trans-unit id="HtqphdQ" resname="enum.injuries_Hand_injury">
+        <source>enum.injuries_Hand_injury</source>
+        <target>Blessure à la main</target>
+      </trans-unit>
+      <trans-unit id="nQ9Y297" resname="enum.injuries_Old_battle_wound">
+        <source>enum.injuries_Old_battle_wound</source>
+        <target>Blessure lancinante</target>
+      </trans-unit>
+      <trans-unit id="ZdT6ZDJ" resname="enum.injuries_Full_recovery">
+        <source>enum.injuries_Full_recovery</source>
+        <target>Récupération complète</target>
+      </trans-unit>
+      <trans-unit id="Gbs4eoC" resname="enum.injuries_Bitter_enmity">
+        <source>enum.injuries_Bitter_enmity</source>
+        <target>Inimitié amère</target>
+      </trans-unit>
+      <trans-unit id="urcKzbl" resname="enum.injuries_Captured">
+        <source>enum.injuries_Captured</source>
+        <target>Capturé</target>
+      </trans-unit>
+      <trans-unit id="foHWxzn" resname="enum.injuries_Horrible_scars">
+        <source>enum.injuries_Horrible_scars</source>
+        <target>Cicatrices horribles</target>
+      </trans-unit>
+      <trans-unit id="q1ZAZqE" resname="enum.injuries_Impressive_scars">
+        <source>enum.injuries_Impressive_scars</source>
+        <target>Cicatrices impressionnantes</target>
+      </trans-unit>
+      <trans-unit id="0lM0M3L" resname="enum.injuries_Survives_against_the_odds">
+        <source>enum.injuries_Survives_against_the_odds</source>
+        <target>Survie incroyable</target>
       </trans-unit>
       <trans-unit id="wvf_vah" resname="Jet de munitions automatique">
         <source>Jet de munitions automatique</source>

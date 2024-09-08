@@ -291,7 +291,7 @@
         {% for equipment in equipments %}
             <tr>
                 <td>{{ equipment.name.enumToString|trans }}</td>
-                <td>{{ equipment.name.getDescription }}</td>
+                <td>{{ equipment.name.getDescription|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -309,7 +309,7 @@
         {% for injury in injuries %}
             <tr>
                 <td>{{ injury.name.enumToString|trans }}</td>
-                <td>{{ injury.name.getDescription }}</td>
+                <td>{{ injury.name.getDescription|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

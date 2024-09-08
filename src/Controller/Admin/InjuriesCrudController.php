@@ -6,6 +6,7 @@ use App\EasyAdmin\InjuriesField;
 use App\Entity\Ganger;
 use App\Entity\Injury;
 use App\Enum\InjuriesEnum;
+use App\service\EnumTranslator;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -14,14 +15,26 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class InjuriesCrudController extends AbstractCrudController
 {
+    private EnumTranslator $enumTranslator;
+
     private Security $security;
 
-    public function __construct(Security $security){
+    private TranslatorInterface $translator;
+
+    public function __construct(
+        EnumTranslator $enumTranslator,
+        Security $security,
+        TranslatorInterface $translator
+    ){
+        $this->enumTranslator = $enumTranslator;
         $this->security = $security;
+        $this->translator = $translator;
     }
+
     public static function getEntityFqcn(): string
     {
         return Injury::class;
@@ -37,10 +50,19 @@ class InjuriesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         $object = $this->getContext()->getEntity()->getInstance();
+        $enumTranslator = $this->enumTranslator;
+        $translator = $this->translator;
 
         yield InjuriesField::new('name', 'Name')
-            ->formatValue(static function (InjuriesEnum $injuriesEnum): string {
-                return $injuriesEnum->enumToString();
+            ->setEnumTranslator($enumTranslator, $translator)
+            ->formatValue(static function (InjuriesEnum $injuriesEnum) use($translator): string {
+                if ($translator->getLocale() !== 'en') {
+                    $key = 'enum.injuries_' . str_replace(' ', '_', $injuriesEnum->value);
+                    $value = $translator->trans($key);
+                } else {
+                    $value = $injuriesEnum->enumToString();
+                }
+                return $value;
             })
             ->setColumns(4);
         if (
