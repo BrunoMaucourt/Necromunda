@@ -237,7 +237,8 @@
                 <td class="numeric">{{ weapon.name.getDamage }}</td>
                 <td class="numeric">{{ weapon.name.getSaveModifier }}</td>
                 <td class="numeric">{{ weapon.name.getAmmoRoll }}</td>
-                <td>{{ weapon.name.getSpecial }}</td>
+                {% set special = weapon.name.getSpecial | split(',') | map(special => special | trim | trans) %}
+                <td>{{ special| join(', ') }}</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -254,8 +255,8 @@
         <tbody>
         {% for key, special in specials %}
             <tr>
-                <td>{{ key }}</td>
-                <td>{{ special }}</td>
+                <td>{{ key|trans }}</td>
+                <td>{{ special|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -273,7 +274,7 @@
         {% for skill in skills %}
             <tr>
                 <td>{{ skill.name.enumToString|trans }}</td>
-                <td>{{ skill.name.getDescription }}</td>
+                <td>{{ skill.name.getDescription|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
