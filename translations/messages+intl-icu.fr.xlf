@@ -2221,6 +2221,78 @@
         <source>New ganger</source>
         <target>Nouveau commbatant</target>
       </trans-unit>
+      <trans-unit id="1q8ry6a" resname="Chem pit">
+        <source>Chem pit</source>
+        <target>Bassin chimique</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6b" resname="Old ruins">
+        <source>Old ruins</source>
+        <target>Ruines</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6c" resname="Slag">
+        <source>Slag</source>
+        <target>Scories</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6d" resname="Water still">
+        <source>Water still</source>
+        <target>Puits</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6e" resname="Settlement">
+        <source>Settlement</source>
+        <target>Colonie</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6f" resname="Mine Workings">
+        <source>Mine Workings</source>
+        <target>Mine</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6g" resname="Tunnels">
+        <source>Tunnels</source>
+        <target>Tunnels</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6h" resname="Vents">
+        <source>Vents</source>
+        <target>Conduits</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6i" resname="Holestead">
+        <source>Holestead</source>
+        <target>Ferme</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6j" resname="Drinking hole">
+        <source>Drinking hole</source>
+        <target>Débit de boissons</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6k" resname="Workshop">
+        <source>Workshop</source>
+        <target>Atelier</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6l" resname="Guilder contact">
+        <source>Guilder contact</source>
+        <target>Contact de guilde</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6m" resname="Mineral outcrop">
+        <source>Mineral outcrop</source>
+        <target>Affleurement précieux</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6n" resname="Friendly doc">
+        <source>Friendly doc</source>
+        <target>Docteur amical</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6o" resname="Gambling den">
+        <source>Gambling den</source>
+        <target>Tripot</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6p" resname="Spore cave">
+        <source>Spore cave</source>
+        <target>Cave à spore</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6q" resname="Archeotech hoard">
+        <source>Archeotech hoard</source>
+        <target>Trésor Archéotech</target>
+      </trans-unit>
+      <trans-unit id="1q8ry6r" resname="Green hivers">
+        <source>Green hivers</source>
+        <target>Nouveaux ruchards</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
