@@ -14,13 +14,20 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class TerritoriesCrudController extends AbstractCrudController
 {
-    private $security;
+    private Security $security;
 
-    public function __construct(Security $security){
+    private TranslatorInterface $translator;
+
+    public function __construct(
+        Security $security,
+        TranslatorInterface $translator
+    ){
         $this->security = $security;
+        $this->translator = $translator;
     }
 
     public static function getEntityFqcn(): string
@@ -38,7 +45,7 @@ class TerritoriesCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield AssociationField::new('gang')
+        yield AssociationField::new('gang', $this->translator->trans('gang'))
             ->setColumns(4)
             ->setFormTypeOptions([
                 'query_builder' => function (EntityRepository $er) {
@@ -47,17 +54,17 @@ class TerritoriesCrudController extends AbstractCrudController
                         ->setParameter('user', $this->getUser());
                 },
             ]);
-        yield TerritoriesField::new('name', 'territories name')
+        yield TerritoriesField::new('name', $this->translator->trans('territories name'))
             ->formatValue(static function (TerritoriesEnum $territories): string {
                 return $territories->enumToString();
             })
             ->setColumns(4);
         if ($pageName !== Crud::PAGE_NEW) {
-            yield TextField::new('incomeAsString')
+            yield TextField::new('incomeAsString', $this->translator->trans('incomeAsString'))
                 ->setLabel('Income')
                 ->setColumns(4)
                 ->setFormTypeOption('disabled','disabled');
-            yield TextField::new('effect')
+            yield TextField::new('effect', $this->translator->trans('effect'))
                 ->setColumns(6)
                 ->setFormTypeOption('disabled','disabled');
         }

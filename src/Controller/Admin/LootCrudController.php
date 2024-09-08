@@ -8,9 +8,19 @@ use App\Enum\LootEnum;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class LootCrudController extends AbstractCrudController
 {
+    private TranslatorInterface $translator;
+
+    public function __construct(
+        TranslatorInterface $translator
+    ){
+        $this->translator = $translator;
+    }
+
     public static function getEntityFqcn(): string
     {
         return Loot::class;
@@ -18,12 +28,12 @@ class LootCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield LootField::new('name')
+        yield LootField::new('name', $this->translator->trans('name'))
             ->formatValue(static function (LootEnum $lootEnum): string {
                 return $lootEnum->enumToString();
             });
-        yield IntegerField::new('cost');
-        yield AssociationField::new('gang');
-        yield AssociationField::new('game');
+        yield IntegerField::new('cost', $this->translator->trans('cost'));
+        yield AssociationField::new('gang', $this->translator->trans('gang'));
+        yield AssociationField::new('game', $this->translator->trans('game'));
     }
 }

@@ -59,7 +59,7 @@ class EquipementsCrudController extends AbstractCrudController
         ) {
             $ganger = $object;
 
-            yield AssociationField::new('ganger')
+            yield AssociationField::new('ganger', $this->translator->trans('Ganger'))
                 ->setColumns(4)
                 ->setFormTypeOptions([
                     'query_builder' => function (EntityRepository $er) use ($ganger) {
@@ -72,11 +72,11 @@ class EquipementsCrudController extends AbstractCrudController
                 ]);
         } else {
             if ($this->security->isGranted('ROLE_ADMIN')) {
-                yield AssociationField::new('ganger')
+                yield AssociationField::new('ganger', $this->translator->trans('Ganger'))
                     ->setColumns(4)
                 ;
             } else {
-                yield AssociationField::new('ganger')
+                yield AssociationField::new('ganger', $this->translator->trans('Ganger'))
                     ->setColumns(4)
                     ->setFormTypeOptions([
                         'query_builder' => function (EntityRepository $er)  {
@@ -90,7 +90,7 @@ class EquipementsCrudController extends AbstractCrudController
                 ;
             }
         }
-        yield AssociationField::new('weapon')
+        yield AssociationField::new('weapon', $this->translator->trans('weapon'))
             ->setColumns(4)
             ->setFormTypeOptions([
                 'query_builder' => function (EntityRepository $er) {
@@ -102,7 +102,7 @@ class EquipementsCrudController extends AbstractCrudController
                         ->setParameter('user', $this->getUser());
                 },
             ]);
-        yield IntegerField::new('cost')
+        yield IntegerField::new('cost', $this->translator->trans('cost'))
             ->setColumns(4);
     }
     public function configureActions(Actions $actions): Actions

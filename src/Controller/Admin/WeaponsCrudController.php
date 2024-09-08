@@ -57,7 +57,7 @@ class WeaponsCrudController extends AbstractCrudController
         $enumTranslator = $this->enumTranslator;
         $translator = $this->translator;
 
-        yield WeaponsField::new('name', 'Name')
+        yield WeaponsField::new('name', $this->translator->trans('name'))
             ->setEnumTranslator($enumTranslator, $translator)
             ->formatValue(static function (WeaponsEnum $weaponsEnums) use($translator): string {
                 if ($translator->getLocale() !== 'en') {
@@ -75,7 +75,7 @@ class WeaponsCrudController extends AbstractCrudController
         ) {
             $ganger = $object;
 
-            yield AssociationField::new('ganger')
+            yield AssociationField::new('ganger', $this->translator->trans('ganger'))
                 ->setColumns(4)
                 ->setFormTypeOptions([
                     'query_builder' => function (EntityRepository $er) use ($ganger) {
@@ -92,11 +92,11 @@ class WeaponsCrudController extends AbstractCrudController
             ;
         } else {
             if ($this->security->isGranted('ROLE_ADMIN')) {
-                yield AssociationField::new('ganger')
+                yield AssociationField::new('ganger', $this->translator->trans('ganger'))
                     ->setColumns(4)
                 ;
             } else {
-                yield AssociationField::new('ganger')
+                yield AssociationField::new('ganger', $this->translator->trans('ganger'))
                     ->setColumns(4)
                     ->setFormTypeOptions([
                         'query_builder' => function (EntityRepository $er)  {
@@ -109,11 +109,11 @@ class WeaponsCrudController extends AbstractCrudController
                     ])
                 ;
             }
-            yield IntegerField::new('cost')
+            yield IntegerField::new('cost', $this->translator->trans('cost'))
                 ->setColumns(4)
             ;
         }
-        yield AssociationField::new('equipements')
+        yield AssociationField::new('equipements', $this->translator->trans('equipements'))
             ->setColumns(4)
             ->setFormTypeOptions([
                 'query_builder' => function (EntityRepository $er) {
@@ -125,7 +125,7 @@ class WeaponsCrudController extends AbstractCrudController
                         ->setParameter('user', $this->getUser());
                 },
             ]);
-        yield BooleanField::new('free')
+        yield BooleanField::new('free', $this->translator->trans('free'))
             ->setColumns(4)
             ->onlyWhenCreating()
         ;

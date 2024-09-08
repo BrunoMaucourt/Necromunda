@@ -71,7 +71,7 @@ class InjuriesCrudController extends AbstractCrudController
         ) {
             $victim = $object;
 
-            yield AssociationField::new('victim')
+            yield AssociationField::new('victim', $this->translator->trans('victim'))
                 ->setColumns(4)
                 ->setFormTypeOptions([
                     'query_builder' => function (EntityRepository $er) use ($victim) {
@@ -84,11 +84,11 @@ class InjuriesCrudController extends AbstractCrudController
                 ]);
         } else {
             if ($this->security->isGranted('ROLE_ADMIN')) {
-                yield AssociationField::new('victim')
+                yield AssociationField::new('victim', $this->translator->trans('victim'))
                     ->setColumns(4)
                 ;
             } else {
-                yield AssociationField::new('victim')
+                yield AssociationField::new('victim', $this->translator->trans('victim'))
                     ->setColumns(4)
                     ->setFormTypeOptions([
                         'query_builder' => function (EntityRepository $er)  {
@@ -102,7 +102,7 @@ class InjuriesCrudController extends AbstractCrudController
                 ;
             }
         }
-        yield AssociationField::new('author')
+        yield AssociationField::new('author', $this->translator->trans('author'))
             ->setColumns(4);
     }
     public function configureActions(Actions $actions): Actions
