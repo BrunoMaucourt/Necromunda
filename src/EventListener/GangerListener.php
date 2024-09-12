@@ -160,6 +160,7 @@ class GangerListener
 
             $hiredGunMessage = '';
             $oldDicesResultsHiredGun = [];
+
             if ($ganger->getType() === GangerTypeEnum::underhive_scum) {
                 while ($advancements > 0) {
 
@@ -389,9 +390,12 @@ class GangerListener
                             break;
                     }
 
-                    $hiredGunMessage .= $this->translator->trans('advancement dice result') . " - " . $dicesResults . " : " .$dicesResultsMessage . "\n";
+                    $hiredGunMessage .= $this->translator->trans('advancement dice result') . " - " . $dicesResults . " : " . $dicesResultsMessage . "\n";
                     $advancements--;
                 }
+            }
+
+
             }
 
             if ($ganger->getType() === GangerTypeEnum::ratskin_scout) {
@@ -401,7 +405,7 @@ class GangerListener
                     $dicesResults = $dice1;
                     $dice2 = mt_rand(1, 6);
                     $dicesResults .= $dice2;
-                    if ($dice1 >= 3 && $dice2 >= 3) {
+                    if ($dice1 >= 3 && $dice2 >= 4) {
                         $dice3 = mt_rand(1, 6);
                         $dicesResults .= $dice3;
                     }
@@ -415,6 +419,7 @@ class GangerListener
                     }
                     $oldDicesResultsHiredGun[] = $dicesResults;
 
+                    dump($dicesResults);
                     switch ($dicesResults) {
                         case 11: case 12: case 13:
                             $ganger->setWeaponSkill($ganger->getWeaponSkill() + 1);
@@ -449,36 +454,54 @@ class GangerListener
                             $dicesResultsMessage = "+1 Le";
                             break;
                         case 31: case 41: case 51: case 61:
-                            $catFall = new Skill();
-                            $catFall->setName(SkillsEnum::AgilityCatfall);
-                            $ganger->addSkill($catFall);
-                            $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('catfall') . " ("  .$this->translator->trans('agility') . ")";
+                            $dodge = new Skill();
+                            $dodge->setName(SkillsEnum::AgilityDodge);
+                            $ganger->addSkill($dodge);
+                            $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('leap') . " ("  .$this->translator->trans('agility') . ")";
                             break;
                         case 32: case 42: case 52: case 62:
-                            $drive = new Skill();
-                            $drive->setName(SkillsEnum::FerocityNervesofSteel);
-                            $ganger->addSkill($drive);
-                            $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('drive') . " (". $this->translator->trans('stealth') . ")";
+                            $leap = new Skill();
+                            $leap->setName(SkillsEnum::AgilityLeap);
+                            $ganger->addSkill($leap);
+                            $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('leap') . " (". $this->translator->trans('agility') . ")";
                             break;
                         case 33: case 43: case 53: case 63:
+                            $sprint = new Skill();
+                            $sprint->setName(SkillsEnum::AgilitySprint);
+                            $ganger->addSkill($sprint);
+                            $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('sprint') . " (". $this->translator->trans('agility') . ")";
+                            break;
+                        case 341: case 441: case 541: case 641:
+                            $catfall = new Skill();
+                            $catfall->setName(SkillsEnum::StealthEvade);
+                            $ganger->addSkill($catfall);
+                            $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('catfall') . " (". $this->translator->trans('agility') . ")";
+                            break;
+                        case 342: case 442: case 542: case 642:
+                            $dive = new Skill();
+                            $dive->setName(SkillsEnum::StealthDive);
+                            $ganger->addSkill($dive);
+                            $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('dive') . " (". $this->translator->trans('stealth') . ")";
+                            break;
+                        case 343: case 443: case 543: case 643:
                             $ambush = new Skill();
                             $ambush->setName(SkillsEnum::StealthAmbush);
                             $ganger->addSkill($ambush);
                             $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('ambush') . " (". $this->translator->trans('stealth') . ")";
                             break;
-                        case 34: case 44: case 54: case 64:
+                        case 344: case 444: case 544: case 644:
                             $evade = new Skill();
                             $evade->setName(SkillsEnum::StealthEvade);
                             $ganger->addSkill($evade);
                             $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('evade') . " (". $this->translator->trans('stealth') . ")";
                             break;
-                        case 35: case 45: case 55: case 65:
+                        case 345: case 445: case 545: case 645:
                             $infiltration = new Skill();
                             $infiltration->setName(SkillsEnum::StealthInfiltration);
                             $ganger->addSkill($infiltration);
                             $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('infiltration') . " (". $this->translator->trans('stealth') . ")";
                             break;
-                        case 36: case 46: case 56: case 66:
+                        case 346: case 446: case 546: case 646:
                             $sneakUp = new Skill();
                             $sneakUp->setName(SkillsEnum::StealthSneakUp);
                             $ganger->addSkill($sneakUp);
@@ -489,18 +512,16 @@ class GangerListener
 
                     $hiredGunMessage .= $this->translator->trans('advancement dice result') . " - " . $dicesResults . " : " . $dicesResultsMessage . "\n";
                     $advancements--;
-
                 }
             }
 
-            $flashMessage = date("Y/m/d") . ' - ' . $this->translator->trans('New ganger') . " : " . $ganger->getName() . " (". $ganger->getType()->enumToString() .") : \n \n" . '- ' . $this->translator->trans('experience') . ' = '. $experienceMessage ." \n- $this->translator->trans('free knife')\n" . $hiredGunMessage;
+            $flashMessage = date("Y/m/d") . ' - ' . $this->translator->trans('New ganger') . " : " . $ganger->getName() . " (". $ganger->getType()->enumToString() .") : \n \n" . '- ' . $this->translator->trans('experience') . ' = '. $experienceMessage . " \n- " .  $this->translator->trans('free knife'). "\n" . $hiredGunMessage;
             $ganger->setHistory( $flashMessage);
 
             $flash->add(
                 'success',
-                $this->translator->trans('New ganger') . " : " . $ganger->getName() . " (". $ganger->getType()->enumToString() .") : <br> <br>" . '- '. $this->translator->trans('experience') .' = '. $experienceMessage ." <br>- '$this->translator->trans('free knife')'<br>" . $hiredGunMessage
+                $this->translator->trans('New ganger') . " : " . $ganger->getName() . " (". $ganger->getType()->enumToString() .") : <br> <br>" . '- '. $this->translator->trans('experience') .' = '. $experienceMessage ." <br>- " . $this->translator->trans('free knife') . "<br>" . $hiredGunMessage
             );
-            }
         }
     }
 
