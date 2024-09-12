@@ -2333,6 +2333,174 @@
         <source>author</source>
         <target>Auteur</target>
       </trans-unit>
+      <trans-unit id="dTuhpgo" resname="If double roll, no income collected and ganger cause fear">
+        <source>If double roll, no income collected and ganger cause fear</source>
+        <target>En cas de double, aucun revenu n'est collecté et le combattant provoque la peur</target>
+      </trans-unit>
+      <trans-unit id="3JN7WYk" resname="None">
+        <source>None</source>
+        <target>Aucun</target>
+      </trans-unit>
+      <trans-unit id="KJ1o8zb" resname="If dice roll 6, recruit for free a juve">
+        <source>If dice roll 6, recruit for free a juve</source>
+        <target>Si un 6 est obtenu avec le dé, recrutez gratuitement un kid</target>
+      </trans-unit>
+      <trans-unit id="HgdMUjv" resname="If an enemy fighter is captured, he can work in mine and add +1 to this income D6">
+        <source>If an enemy fighter is captured, he can work in mine and add +1 to this income D6</source>
+        <target>Si un combattant ennemi est capturé, il peut travailler dans la mine et ajouter +1 à ce D6 de revenu</target>
+      </trans-unit>
+      <trans-unit id="ea5J.xL" resname="Three fighters can be deployed anywhere at ground level">
+        <source>Three fighters can be deployed anywhere at ground level</source>
+        <target>Trois combattants peuvent être déployés n'importe où au niveau du sol</target>
+      </trans-unit>
+      <trans-unit id="mIkBp1z" resname="Three fighters can be deployed anywhere on buildings surface">
+        <source>Three fighters can be deployed anywhere on buildings surface</source>
+        <target>Trois combattants peuvent être déployés n'importe où sur la surface des bâtiments</target>
+      </trans-unit>
+      <trans-unit id="WA8RIPD" resname="If dice roll 6, +1 or -1 for next scenario table roll">
+        <source>If dice roll 6, +1 or -1 for next scenario table roll</source>
+        <target>Si un 6 est obtenu avec le dé, +1 ou -1 pour le prochain jet de scénario</target>
+      </trans-unit>
+      <trans-unit id="ARfqmrr" resname="First ammo roll can be ignored">
+        <source>First ammo roll can be ignored</source>
+        <target>Le premier test de munitions peut être ignoré</target>
+      </trans-unit>
+      <trans-unit id="LFHjaHZ" resname="Each loot discovered can be trade for +5 credits">
+        <source>Each loot discovered can be trade for +5 credits</source>
+        <target>Chaque butin découvert peut être échangé contre +5 crédits</target>
+      </trans-unit>
+      <trans-unit id="1YEHPPK" resname="If dice roll 6, add D6 X 10 credits">
+        <source>If dice roll 6, add D6 X 10 credits</source>
+        <target>Si un 6 est obtenu avec le dé, ajoutez D6 X 10 crédits</target>
+      </trans-unit>
+      <trans-unit id=".PaLVsx" resname="If a fighter dead, roll a D6, for 5+ he get multiple injuries instead dead">
+        <source>If a fighter dead, roll a D6, for 5+ he get multiple injuries instead dead</source>
+        <target>Si un combattant est mort, lancez un D6, sur un 5+ il reçoit plusieurs blessures au lieu de mourir</target>
+      </trans-unit>
+      <trans-unit id="cfRHssb" resname="If double roll, you lose this credits">
+        <source>If double roll, you lose this credits</source>
+        <target>En cas de double, vous perdez ces crédits</target>
+      </trans-unit>
+      <trans-unit id="gdNv3Px" resname="If double roll 1, ganger is sick and can take part to next battle on 4+ with a D6">
+        <source>If double roll 1, ganger is sick and can take part to next battle on 4+ with a D6</source>
+        <target>En cas de double 1, le ganger est malade et peut participer à la prochaine bataille sur un 4+ avec un D6</target>
+      </trans-unit>
+      <trans-unit id="5DNFIVL" resname="Can collect 3 to 6 D6 X10 but if double roll, territory become Old ruins">
+        <source>Can collect 3 to 6 D6 X10 but if double roll, territory become Old ruins</source>
+        <target>Peut collecter de 3 à 6 D6 X10 crédits mais en cas de double, le territoire devient des Ruines anciennes</target>
+      </trans-unit>
+      <trans-unit id=".q4COLX" resname="Choose another territory">
+        <source>Choose another territory</source>
+        <target>Choisissez un autre territoire</target>
+      </trans-unit>
+      <trans-unit id="eEEJ7SG" resname="dodge">
+        <source>dodge</source>
+        <target>Dodge</target>
+      </trans-unit>
+      <trans-unit id="Ni6cIob" resname="ferocity">
+        <source>ferocity</source>
+        <target>Ferocity</target>
+      </trans-unit>
+      <trans-unit id="71jSWbY" resname="dodge">
+        <source>dodge</source>
+        <target>Dodge</target>
+      </trans-unit>
+      <trans-unit id="6lT9mzT" resname="catfall">
+        <source>catfall</source>
+        <target>Catfall</target>
+      </trans-unit>
+      <trans-unit id="cGJSDFo" resname="drive">
+        <source>drive</source>
+        <target>Drive</target>
+      </trans-unit>
+      <trans-unit id="LZmMtHG" resname="stealth">
+        <source>stealth</source>
+        <target>Stealth</target>
+      </trans-unit>
+      <trans-unit id="gQEFDRO" resname="ambush">
+        <source>ambush</source>
+        <target>Ambush</target>
+      </trans-unit>
+      <trans-unit id="M9MHdsp" resname="infiltration">
+        <source>infiltration</source>
+        <target>Infiltration</target>
+      </trans-unit>
+      <trans-unit id="YCrSOrz" resname="Game resume">
+        <source>Game resume</source>
+        <target>Résumé de la partie</target>
+      </trans-unit>
+      <trans-unit id="QOWpjAk" resname="Game informations">
+        <source>Game informations</source>
+        <target>Informations sur les gangs</target>
+      </trans-unit>
+      <trans-unit id="mcQKtAW" resname="Date">
+        <source>Date</source>
+        <target>Date</target>
+      </trans-unit>
+      <trans-unit id="RaXPJE." resname="Gangs involved">
+        <source>Gangs involved</source>
+        <target>Gangs impliqués</target>
+      </trans-unit>
+      <trans-unit id="LEJsNwz" resname="Gang">
+        <source>Gang</source>
+        <target>Gang</target>
+      </trans-unit>
+      <trans-unit id="vW2lqU9" resname="advancement">
+        <source>advancement</source>
+        <target>Avancementt</target>
+      </trans-unit>
+      <trans-unit id="2VCCou5" resname="Author">
+        <source>Author</source>
+        <target>Auteur</target>
+      </trans-unit>
+      <trans-unit id="14jTz8H" resname="Territory">
+        <source>Territory</source>
+        <target>Territoire</target>
+      </trans-unit>
+      <trans-unit id="IlLVz5N" resname="Effect">
+        <source>Effect</source>
+        <target>Effet</target>
+      </trans-unit>
+      <trans-unit id="g558A1M" resname="Loot">
+        <source>Loot</source>
+        <target>Butin</target>
+      </trans-unit>
+      <trans-unit id="jnapSsg" resname="Summary">
+        <source>Summary</source>
+        <target>Sommaire</target>
+      </trans-unit>
+      <trans-unit id="yldGZz9" resname="Historic">
+        <source>Historic</source>
+        <target>Historique</target>
+      </trans-unit>
+      <trans-unit id="D1jyhQp" resname="Évaluation Avant Partie">
+        <source>Évaluation Avant Partie</source>
+        <target>Score Avant Partie</target>
+      </trans-unit>
+      <trans-unit id="LBie3uc" resname="Évaluation Après Partie">
+        <source>Évaluation Après Partie</source>
+        <target>Score Après Partie</target>
+      </trans-unit>
+      <trans-unit id="Yrq37Mi" resname="Crédits Avant Partie">
+        <source>Crédits Avant Partie</source>
+        <target>Crédits Avant Partie</target>
+      </trans-unit>
+      <trans-unit id="N.KRXCF" resname="Crédits Après Partie">
+        <source>Crédits Après Partie</source>
+        <target>Crédits Après Partie</target>
+      </trans-unit>
+      <trans-unit id="yDR5a56" resname="Gangers Summary">
+        <source>Gangers Summary</source>
+        <target>Combattants ayant participé</target>
+      </trans-unit>
+      <trans-unit id="jqsPCd8" resname="Experience">
+        <source>Experience</source>
+        <target>Experience</target>
+      </trans-unit>
+      <trans-unit id="39_2AmD" resname="Injury Authors">
+        <source>Injury Authors</source>
+        <target>Blessé par </target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
