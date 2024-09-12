@@ -177,7 +177,7 @@ class GangerListener
                     // Check to avoid have 2 time the same skill
                     if (
                         in_array($dicesResults, $oldDicesResultsHiredGun) &&
-                        $dicesResults > 440
+                        (int) $dicesResults > 440
                     ) {
                         continue;
                     }
@@ -294,7 +294,7 @@ class GangerListener
                     // Check to avoid have 2 time the same skill
                     if (
                         in_array($dicesResults, $oldDicesResultsHiredGun) &&
-                        $dicesResults > 31
+                        (int) $dicesResults > 31
                     ) {
                         continue;
                     }
@@ -409,7 +409,7 @@ class GangerListener
                     // Check to avoid have 2 time the same skill
                     if (
                         in_array($dicesResults, $oldDicesResultsHiredGun) &&
-                        $dicesResults > 30
+                        (int) $dicesResults > 30
                     ) {
                         continue;
                     }
