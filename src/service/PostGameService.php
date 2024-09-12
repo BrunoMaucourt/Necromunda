@@ -462,7 +462,7 @@ class PostGameService
                     }
 
                     $newLoot = new Loot();
-                    $newLoot->setName($loot->enumToString());
+                    $newLoot->setName($loot);
                     $newLoot->setCost($cost);
                     $newLoot->setGang($gang);
 
