@@ -71,7 +71,7 @@ class GangListener
 
                         $this->entityManager->persist($newTerritory);
                         $gang->addTerritory($newTerritory);
-                        $summary .= '- ' . $newTerritory->getName()->enumToString() . '<br>';
+                        $summary .= '- ' . $this->translator->trans($newTerritory->getName()->enumToString()) . '<br>';
                     }
                 }
             }
