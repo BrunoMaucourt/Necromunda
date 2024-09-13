@@ -145,7 +145,7 @@ enum SkillsEnum: string
             self::TechnoInventor => 'Has a chance to invent a rare item after each battle if not taken out of action',
             self::TechnoMedic => 'Re-rolls one result on the Serious Injury table after the battle for another fighter',
             self::TechnoSpecialist => 'Allows the use of special weapons for fighters without access to them',
-            self::TechnoWeaponsmith => ' Ignores failed Ammo rolls and weapon explosions on a D6 roll of 4+',
+            self::TechnoWeaponsmith => 'Ignores failed Ammo rolls and weapon explosions on a D6 roll of 4+',
         };
     }
 
