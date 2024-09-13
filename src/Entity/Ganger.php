@@ -308,12 +308,19 @@ class Ganger
             $weaponsCost += $weapon->getCost();
         }
 
-       $equipements = $this->equipements;
-       foreach ($equipements as $equipement){
+        $equipements = $this->equipements;
+        foreach ($equipements as $equipement){
            $equipementsCost += $equipement->getCost();
+        }
+
+       $multiplicator = 1;
+       $total = $this->experience + $this->cost + $weaponsCost + $equipementsCost;
+
+       if ($this->getType()->getType() === 'hired guns') {
+           $multiplicator = 5;
        }
 
-        return $this->experience + $this->cost + $weaponsCost + $equipementsCost;
+       return $total * $multiplicator;
     }
 
     public function setRating(int $rating): static
