@@ -141,7 +141,7 @@
         {% for territory in gang.territories %}
             <tr>
                 <td>{{ territory.name.enumToString|trans }}</td>
-                <td>{{ territory.getEffect | default('None') }}</td>
+                <td>{{ territory.getEffect |default('None') |trans }}</td>
                 <td>{{ territory.incomeAsString }}</td>
             </tr>
         {% endfor %}
