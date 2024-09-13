@@ -2,11 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Advancement;
 use App\Entity\Equipement;
+use App\Entity\Game;
 use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Entity\Injury;
+use App\Entity\Loot;
 use App\Entity\Skill;
+use App\Entity\Territory;
 use App\Entity\Weapon;
 use App\Enum\GangerTypeEnum;
 use App\service\WeaponService;
@@ -139,6 +143,36 @@ class DownloadSheetController extends AbstractController
             'specials' => $specials,
             'skills' => $skills,
             'weapons' => $weapons,
+        ]);
+    }
+
+    #[Route('/{_locale<%app.supported_locales%>}/admin/generateGameTable/{id}', name: 'generate_game_table')]
+    public function generateGameReport(int $id): Response
+    {
+        $gameRepo = $this->entityManager->getRepository(Game::class);
+        $game = $gameRepo->find($id);
+
+        if (!$game) {
+            throw $this->createNotFoundException('Jeu non trouvé');
+        }
+
+        $gang1 = $game->getGang1();
+        $gang2 = $game->getGang2();
+        $gangers = $gang1->getGangers();
+        $advancements = $game->getAdvancements();
+        $injuries = $game->getInjuries();
+        $territories = $game->getTerritories();
+        $loots = $game->getLoots();
+
+        return $this->render('download/gameSheet.html.twig', [
+            'game' => $game,
+            'gang1' => $gang1,
+            'gang2' => $gang2,
+            'gangers' => $gangers,
+            'advancements' => $advancements,
+            'injuries' => $injuries,
+            'territories' => $territories,
+            'loots' => $loots,
         ]);
     }
 

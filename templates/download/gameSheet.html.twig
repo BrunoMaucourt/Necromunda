@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ 'Game resume' |trans }}</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                line-height: 1.6;
+            }
+
+            h1, h2 {
+                text-align: center;
+                color: #2c3e50;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+
+            th, td {
+                border: 1px solid #2c3e50;
+                padding: 10px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #ecf0f1;
+            }
+
+            .numeric {
+                text-align: center;
+            }
+
+            .gang-info {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .gang-info div {
+                width: 48%;
+            }
+
+            .history {
+                margin-top: 20px;
+            }
+
+            .advancements tr:nth-child(even),
+            .injuries tr:nth-child(even),
+            .loots tr:nth-child(even),
+            .territories tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+
+    <h1>{{ 'Game resume' |trans }}</h1>
+
+    <h2>{{ 'Game informations' |trans }}</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>{{ 'Date' | trans }}</th>
+            <th>{{ 'Scenario' | trans }}</th>
+            <th>{{ 'Winner' | trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ game.date.format('Y-m-d') }}</td>
+            <td>{{ game.scenario.enumToString() }}</td>
+            <td><strong>{{ game.winner.name }}</strong></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>{{ 'Gangs involved' | trans }}</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>{{ 'Gang' | trans }}</th>
+            <th>{{ 'Évaluation Avant Partie' | trans }}</th>
+            <th>{{ 'Évaluation Après Partie' | trans }}</th>
+            <th>{{ 'Crédits Avant Partie' | trans }}</th>
+            <th>{{ 'Crédits Après Partie' | trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><strong>{{ game.gang1.name }}</strong></td>
+            <td>{{ game.gang1RatingBeforeGame }}</td>
+            <td>{{ game.gang1RatingAfterGame }}</td>
+            <td>{{ game.gang1creditsBeforeGame }}</td>
+            <td>{{ game.gang1creditsAfterGame }}</td>
+        </tr>
+        <tr>
+            <td><strong>{{ game.gang2.name }}</strong></td>
+            <td>{{ game.gang2RatingBeforeGame }}</td>
+            <td>{{ game.gang2RatingAfterGame }}</td>
+            <td>{{ game.gang2creditsBeforeGame }}</td>
+            <td>{{ game.gang2creditsAfterGame }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>{{ 'Gangers Summary' | trans }}</h2>
+    <table class="ganger-summary">
+        <thead>
+        <tr>
+            <th>{{ 'Ganger' | trans }}</th>
+            <th>{{ 'Gang' | trans }}</th>
+            <th>{{ 'Type' | trans }}</th>
+            <th>{{ 'Experience' | trans }}</th>
+            <th>{{ 'Advancements' | trans }}</th>
+            <th>{{ 'Injuries' | trans }}</th>
+            <th>{{ 'Injury Authors' | trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ganger in game.gangers %}
+            {% set advancements = game.advancements | filter(a => a.ganger == ganger) %}
+            {% set injuries = game.injuries | filter(i => i.victim == ganger) %}
+
+            <tr>
+                <td>{{ ganger.name }}</td>
+                <td>{{ ganger.gang.name }}</td>
+                <td>{{ ganger.type.enumToString |trans }}</td>
+                <td>{{ ganger.experience }}</td>
+
+                {# Combine advancements with line breaks #}
+                <td>
+                    {% if advancements|length > 0 %}
+                        {{ advancements|map(a => a.content)|join(', ') }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+
+                {# Combine injuries with line breaks #}
+                <td>
+                    {% if injuries|length > 0 %}
+                        {{ injuries|map(i => i.name.enumToString | trans)|join(', ') }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+
+                {# Combine injury authors with line breaks #}
+                <td>
+                    {% if injuries|length > 0 %}
+                        {{ injuries|map(i => i.author | default(''))|join(', ') }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <h2>{{ 'Territories' |trans }}</h2>
+    <table class="territories">
+        <tr>
+            <th>{{ 'Territory' |trans }}</th>
+            <th>{{ 'Gang' |trans }}</th>
+            <th>{{ 'Effect' |trans }}</th>
+        </tr>
+        {% for territory in game.territories %}
+            <tr>
+                <td>{{ territory.name.enumToString |trans }}</td>
+                <td>{{ territory.gang |trans }}</td>
+                <td>{{ territory.getEffect |default('None')  |trans }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>{{ 'Loots' |trans }}</h2>
+    <table class="loots">
+        <tr>
+            <th>{{ 'Loot' |trans }}</th>
+            <th>{{ 'Gang' |trans }}</th>
+            <th>{{ 'Cost' |trans }}</th>
+        </tr>
+        {% for loot in game.loots %}
+            <tr>
+                <td>{{ loot.name.enumToString |trans }}</td>
+                <td>{{ loot.gang }}</td>
+                <td>{{ loot.cost }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>{{ 'Summary' |trans }}</h2>
+    <p>{{ game.summary| replace({'\n': '<br>'}) | raw  }}</p>
+
+    {% if game.history is not null %}
+        <div class="history">
+            <h2>{{ 'Historic' |trans }}</h2>
+            <p>{{ game.history }}</p>
+        </div>
+    {% endif %}
+
+    </body>
+</html>

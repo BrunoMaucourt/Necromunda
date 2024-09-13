@@ -291,9 +291,15 @@ class GamesCrudController extends AbstractCrudController
             ->linkToUrl($urlForCustomNewGameAction)
             ->setCssClass('btn btn-primary')
             ->createAsGlobalAction();
+        $downloadGameSheet = Action::new('downloadGameSheetAction', $this->translator->trans('Download'))
+            ->setIcon('fa-solid fa-download')
+            ->addCssClass('btn btn-light btn-remove-margin')
+            ->linkToCrudAction('downloadGameSheet')
+        ;
 
         return $actions
             ->add(Crud::PAGE_INDEX, $customNewGameAction)
+            ->add(Crud::PAGE_INDEX, $downloadGameSheet)
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->update(Crud::PAGE_INDEX, Action::DETAIL, function (Action $action) {
                 return $action->setIcon('fa fa-eye')
@@ -348,5 +354,16 @@ class GamesCrudController extends AbstractCrudController
         }
 
         return false;
+    }
+
+    public function downloadGameSheet(AdminContext $context)
+    {
+        $entity = $context->getEntity()->getInstance();
+
+        $url = $this->generateUrl('generate_game_table', [
+            'id' => $entity->getId()
+        ]);
+
+        return $this->redirect($url);
     }
 }
