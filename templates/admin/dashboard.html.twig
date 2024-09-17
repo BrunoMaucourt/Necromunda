@@ -49,7 +49,94 @@
       {% endfor %}
     </div>
 
-    <h2 class="mt-5 mb-4">{{ 'Statistics'|trans }}</h2>
+    {% if gangRatingsData is not empty %}
+      <h2 class="mt-5 mb-4">{{ 'Statistics'|trans }}</h2>
+      <div class="row">
+        <canvas id="gangRatingsChart"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('gangRatingsChart').getContext('2d');
+            if (!ctx) {
+              console.error('Le contexte du canvas est introuvable.');
+              return;
+            }
+
+            const chartData = {{ gangRatingsData|json_encode|raw }};
+            const labels = Object.keys(chartData);
+            const updatedChartData = {};
+            const lastKnownValues = {};
+
+            labels.forEach(date => {
+              updatedChartData[date] = {};
+              Object.keys(chartData[date]).forEach(gangName => {
+                const value = chartData[date][gangName];
+
+                if (!lastKnownValues[gangName]) {
+                  lastKnownValues[gangName] = value;
+                }
+
+                updatedChartData[date][gangName] = value === 0 ? lastKnownValues[gangName] : value;
+
+                if (value !== 0) {
+                  lastKnownValues[gangName] = value;
+                }
+              });
+            });
+
+            const datasets = [];
+            const colors = [];
+            const numColors = Object.keys(updatedChartData[labels[0]]).length;
+            for (let i = 0; i < numColors; i++) {
+              colors.push(`hsl(${(i * 360 / numColors) % 360}, 100%, 50%)`);
+            }
+
+            Object.keys(updatedChartData[labels[0]]).forEach((gangName, index) => {
+              const data = [];
+
+              labels.forEach(date => {
+                data.push(updatedChartData[date][gangName]);
+              });
+
+              datasets.push({
+                label: gangName,
+                data: data,
+                borderColor: colors[index],
+                fill: false,
+                stepped: true,
+              });
+            });
+
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: labels,
+                datasets: datasets
+              },
+              options: {
+                responsive: true,
+                scales: {
+                  x: {
+                    title: {
+                      display: true,
+                      text: 'Date'
+                    }
+                  },
+                  y: {
+                    title: {
+                      display: true,
+                      text: 'Gang Rating'
+                    }
+                  }
+                }
+              }
+            });
+          });
+        </script>
+      </div>
+    {% endif %}
+
+    <h2 class="mt-5 mb-4">{{ 'Podium'|trans }}</h2>
     <div class="row">
     {% for statistic in statistics %}
         <div class="col-md-4 mb-3">
@@ -66,5 +153,4 @@
         </div>
       {% endfor %}
     </div>
-  </div>
 {% endblock %}
