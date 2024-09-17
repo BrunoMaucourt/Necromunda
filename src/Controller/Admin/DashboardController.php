@@ -13,6 +13,7 @@ use App\Entity\Skill;
 use App\Entity\Territory;
 use App\Entity\User;
 use App\Entity\Weapon;
+use App\service\GameService;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -33,21 +34,23 @@ class DashboardController extends AbstractDashboardController
 
     private EntityManagerInterface $entityManager;
 
+    private GameService $gameService;
+
     private RequestStack $requestStack;
-
     private Security $security;
-
     private TranslatorInterface $translator;
 
     public function __construct(
         AdminUrlGenerator $adminUrlGenerator,
         EntityManagerInterface $entityManager,
+        GameService  $gameService,
         RequestStack $requestStack,
         Security $security,
         TranslatorInterface $translator,
     ){
         $this->adminUrlGenerator = $adminUrlGenerator;
         $this->entityManager = $entityManager;
+        $this->gameService = $gameService;
         $this->requestStack = $requestStack;
         $this->security = $security;
         $this->translator = $translator;
@@ -185,7 +188,7 @@ class DashboardController extends AbstractDashboardController
             $linksShowSecondary = [];
         }
 
-        // Statistics
+        // Podium
         $errorMessageNoData = 'no data';
         $gangRepository = $this->entityManager->getRepository(Gang::class);
 
@@ -214,7 +217,11 @@ class DashboardController extends AbstractDashboardController
             'highestCredits' => $highestCredits,
         ];
 
+        // Statistics
+        $gangRatingsData = $this->gameService->getGangRatingsGraphData();
+
         return $this->render('admin/dashboard.html.twig', [
+            'gangRatingsData' => $gangRatingsData,
             'linksAdd' => $linksAdd,
             'linksShowPrincipal' => $linksShowPrincipal,
             'linksShowSecondary' => $linksShowSecondary,
