@@ -7,22 +7,14 @@ use App\Repository\EquipementsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EquipementsRepository::class)]
-class Equipement
+class Equipement extends Item
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
     #[ORM\Column]
     private ?EquipementsEnum $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'equipements')]
     #[ORM\JoinColumn(nullable: true)]
     private ?Ganger $ganger = null;
-
-    #[ORM\Column]
-    private ?int $cost = 0;
 
     #[ORM\ManyToOne(inversedBy: 'equipements')]
     #[ORM\JoinColumn(nullable: true)]
@@ -33,10 +25,6 @@ class Equipement
         return $this->name->enumToString();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getName(): ?EquipementsEnum
     {

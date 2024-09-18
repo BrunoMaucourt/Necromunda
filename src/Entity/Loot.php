@@ -7,18 +7,10 @@ use App\Repository\LootRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LootRepository::class)]
-class Loot
+class Loot extends Item
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
     #[ORM\Column(length: 255)]
     private ?LootEnum $name = null;
-
-    #[ORM\Column]
-    private ?int $cost = null;
 
     #[ORM\ManyToOne(inversedBy: 'loots')]
     #[ORM\JoinColumn(nullable: false)]
@@ -33,11 +25,6 @@ class Loot
         return $this->name->enumToString();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getName(): ?LootEnum
     {
         return $this->name;
@@ -46,18 +33,6 @@ class Loot
     public function setName(LootEnum $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getCost(): ?int
-    {
-        return $this->cost;
-    }
-
-    public function setCost(int $cost): static
-    {
-        $this->cost = $cost;
 
         return $this;
     }
