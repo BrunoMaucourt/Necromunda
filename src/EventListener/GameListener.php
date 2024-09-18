@@ -27,18 +27,22 @@ class GameListener
 
     private RequestStack $requestStack;
 
+    private TranslatorInterface $translator;
+
     private array $territoriesToAdd = [];
 
     public function __construct(
         EntityManagerInterface $entityManager,
         HistoryService $historyService,
         PostGameService $gameService,
-        RequestStack $requestStack
+        RequestStack $requestStack,
+        TranslatorInterface $translator
     ){
         $this->entityManager = $entityManager;
         $this->historyService = $historyService;
         $this->gameService = $gameService;
         $this->requestStack = $requestStack;
+        $this->translator = $translator;
     }
 
     public function prePersist(PrePersistEventArgs $event)
@@ -52,6 +56,7 @@ class GameListener
 
             // Get data from sessions
             $session = $this->requestStack->getSession();
+            $flash = $session->getFlashBag();
             $gangRepository = $this->entityManager->getRepository(Gang::class);
 
             // Add gang
@@ -161,6 +166,12 @@ class GameListener
             $session->remove('gang2Territories');
             $session->remove('gang1Experiences');
             $session->remove('gang2Experiences');
+
+            // Add flash message
+            $flash->add(
+                'success',
+                $this->translator->trans('New game')
+            );
         }
     }
 
