@@ -13,15 +13,22 @@ use App\Enum\InjuriesEnum;
 use App\Enum\LootEnum;
 use App\Enum\TerritoriesEnum;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class PostGameService
 {
-    private EntityManagerInterface $entityManager;
     private CheckValueRangeService $checkValueRangeService;
+    private EntityManagerInterface $entityManager;
+    private TranslatorInterface $translator;
 
-    public function __construct(EntityManagerInterface $entityManager, CheckValueRangeService $checkValueRangeService){
-        $this->entityManager = $entityManager;
+    public function __construct(
+        CheckValueRangeService $checkValueRangeService,
+        EntityManagerInterface $entityManager,
+        TranslatorInterface $translator,
+    ){
         $this->checkValueRangeService = $checkValueRangeService;
+        $this->entityManager = $entityManager;
+        $this->translator = $translator;
     }
 
     public function exploitTerritories(
@@ -498,5 +505,38 @@ class PostGameService
                 ->execute()
             ;
         }
+    }
+
+    public function payHiredGuns(array $gangers, Gang $gang): array
+    {
+        $summary = "";
+        $currentGangCredits = $gang->getCredits();
+        $creditsToPyaHiredGuns = 0;
+
+        foreach ($gangers as $gangerID => $gangerExperience) {
+            /** @var Ganger $currentGanger */
+            $currentGanger = $this->entityManager->getRepository(Ganger::class)->find($gangerID);
+            if ($currentGanger->getType()->getType() === GangerTypeEnum::HIRED_GUNS) {
+                $hiredGunCost = $currentGanger->getCost();
+                if ($currentGangCredits - $hiredGunCost > 0) {
+                    $creditsToPyaHiredGuns += $hiredGunCost;
+                    $summary .= $currentGanger->getName() ." - ". $currentGanger->getType()->enumToString() . " pay (" . $currentGanger->getCost() . " " . $this->translator->trans('credits') . ")\n";
+                } else {
+                    $summary .= $this->translator->trans('Not enough credit to payed') . $currentGanger->getName() ." - ". $currentGanger->getType()->enumToString() . " (" . $currentGanger->getCost() . " " . $this->translator->trans('credits') . ")\n";
+                }
+            }
+        }
+
+        if ($summary === "") {
+            $summary .= $this->translator->trans('No hired gun in the gang') . "\n";
+        } else {
+            $newCredits = $currentGangCredits - $creditsToPyaHiredGuns;
+            $summary .= "New gang credit = " . $newCredits . " (" . $currentGangCredits . " credits before)" . "\n";
+            $gang->setCredits($newCredits);
+        }
+
+        return [
+            'summary' => $summary,
+        ];
     }
 }

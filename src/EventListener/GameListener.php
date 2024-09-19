@@ -13,6 +13,7 @@ use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Events;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AsDoctrineListener(event: Events::prePersist, priority: 500, connection: 'default')]
 #[AsDoctrineListener(event: Events::postPersist, priority: 500, connection: 'default')]
@@ -139,6 +140,15 @@ class GameListener
             $result = $this->gameService->AddLoots($game, $gang2);
             $summary .= $result['summary'] . "\n";
 
+            // Pay hired guns
+            $summary .= $this->translator->trans('Hired gun') . "\n ================ \n Gang 1 \n\n";
+            $result = $this->gameService->payHiredGuns($gang1GangersExperiences, $gang1);
+            $summary .= $result['summary'] . "\n";
+
+            $summary .= "================ \n Gang 2\n\n";
+            $result = $this->gameService->payHiredGuns($gang2GangersExperiences, $gang2);
+            $summary .= $result['summary'] . "\n";
+
             // Add gang rating
             $gang1RatingAfterGame = $gang1->getRating();
             $gang2RatingAfterGame = $gang2->getRating();
@@ -166,7 +176,6 @@ class GameListener
             $session->remove('gang2Territories');
             $session->remove('gang1Experiences');
             $session->remove('gang2Experiences');
-
             // Add flash message
             $flash->add(
                 'success',
