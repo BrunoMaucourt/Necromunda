@@ -310,30 +310,35 @@ class PostGameService
             /** @var Ganger $currentGanger */
             $currentGanger = $this->entityManager->getRepository(Ganger::class)->find($gangerID);
 
-            // Add experience
-            $diceRollExperience = mt_rand(1, 6);
-            $newExperience = $currentGanger->getExperience() + $diceRollExperience + $gangerExperience;
-            $experienceRange = $currentGanger->getExperience() + 1 . "-" . $newExperience;
-            $summary .= "- ". $currentGanger->getName() ." (". $currentGanger->getType()->enumToString() .") \nExperience before game = " . $currentGanger->getExperience() ." \nExperience after game = " . $newExperience. " (dice roll : ". $diceRollExperience ." + bonus : ". $gangerExperience .")  \n";
+            /**
+             * Add experience
+             * Hired gun don't gain experience
+             */
+            if ($currentGanger->getType()->getType() !== GangerTypeEnum::HIRED_GUNS) {
+                $diceRollExperience = mt_rand(1, 6);
+                $newExperience = $currentGanger->getExperience() + $diceRollExperience + $gangerExperience;
+                $experienceRange = $currentGanger->getExperience() + 1 . "-" . $newExperience;
+                $summary .= "- ". $currentGanger->getName() ." (". $currentGanger->getType()->enumToString() .") \nExperience before game = " . $currentGanger->getExperience() ." \nExperience after game = " . $newExperience. " (dice roll : ". $diceRollExperience ." + bonus : ". $gangerExperience .")  \n";
+                $currentGanger->setExperience($newExperience);
 
-            // Check for advancement
-            foreach ($experienceLevelsForAdvancement as $experienceLevel) {
-                if ($this->checkValueRangeService->isBetweenOrEqual($experienceRange, $experienceLevel)) {
-                    $advancementsList[] = $currentGanger;
-                    $summary .= "Add advancement - level ". $experienceLevel ."\n";
-                    if (
-                        $experienceLevel == $experienceToBecomeGanger &&
-                        $currentGanger->getType() === GangerTypeEnum::juve
-                    ) {
-                        $currentGanger->setType(GangerTypeEnum::ganger);
-                        $summary .= "Juve become ganger \n";
+                // Check for advancement
+                foreach ($experienceLevelsForAdvancement as $experienceLevel) {
+                    if ($this->checkValueRangeService->isBetweenOrEqual($experienceRange, $experienceLevel)) {
+                        $advancementsList[] = $currentGanger;
+                        $summary .= "Add advancement - level ". $experienceLevel ."\n";
+                        if (
+                            $experienceLevel == $experienceToBecomeGanger &&
+                            $currentGanger->getType() === GangerTypeEnum::juve
+                        ) {
+                            $currentGanger->setType(GangerTypeEnum::ganger);
+                            $summary .= "Juve become ganger \n";
+                        }
                     }
                 }
+
+                $summary .= " \n \n";
             }
 
-            $summary .= " \n \n";
-
-            $currentGanger->setExperience($newExperience);
             $game->addGanger($currentGanger);
         }
 
