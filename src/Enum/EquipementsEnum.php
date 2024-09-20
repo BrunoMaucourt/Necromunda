@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Enum;
 
-enum EquipementsEnum: string
+use App\Contract\ItemEnumInterface;
+
+enum EquipementsEnum: string implements ItemEnumInterface
 {
     case ClipHarness = 'Clip Harness';
     case FilterPlugs = 'Filter Plugs';
@@ -36,6 +38,18 @@ enum EquipementsEnum: string
         };
     }
 
+    public function getVariableDicesNumber(): int
+    {
+        return match($this)
+        {
+            self::ClipHarness => 0,
+            self::FilterPlugs => 0,
+            self::LoboChip => 0,
+            self::PhotoContacts => 0,
+            self::WeaponReload => 0,
+        };
+    }
+
     public function getDescription(): string
     {
         return match($this)
@@ -45,6 +59,18 @@ enum EquipementsEnum: string
             self::LoboChip => 'Grants immunity to psychology but reduces Initiative by 1',
             self::PhotoContacts => 'The user is immune to the effects of flash grenades and gains +1 to hit in low-light conditions',
             self::WeaponReload => 'Once per game, reroll a failed Ammo Roll',
+        };
+    }
+
+    public function isCustomRules(): bool
+    {
+        return match($this)
+        {
+            self::ClipHarness => false,
+            self::FilterPlugs => false,
+            self::LoboChip => false,
+            self::PhotoContacts =>false,
+            self::WeaponReload => false,
         };
     }
 }
