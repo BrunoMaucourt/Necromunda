@@ -71,6 +71,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case KRAK_GRENADE = 'Krak Grenade';
     case MELTA_BOMBS = 'Melta Bombs';
     case HALLUCINOGEN_GAS = 'Hallucinogen Gas';
+    case FLARE_ROCKET = 'Flare Rocket';
 
     function enumToString(): string
     {
@@ -131,6 +132,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => WeaponsEnum::KRAK_GRENADE->value,
             WeaponsEnum::MELTA_BOMBS => WeaponsEnum::MELTA_BOMBS->value,
             WeaponsEnum::HALLUCINOGEN_GAS => WeaponsEnum::HALLUCINOGEN_GAS->value,
+            WeaponsEnum::FLARE_ROCKET => WeaponsEnum::FLARE_ROCKET->value,
         };
     }
 
@@ -193,6 +195,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => self::GRENADES,
             WeaponsEnum::MELTA_BOMBS => self::GRENADES,
             WeaponsEnum::HALLUCINOGEN_GAS => self::GRENADES,
+            WeaponsEnum::FLARE_ROCKET => self::FLARE_ROCKET,
         };
     }
 
@@ -255,6 +258,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => 40,
             WeaponsEnum::MELTA_BOMBS => 40,
             WeaponsEnum::HALLUCINOGEN_GAS => 40,
+            WeaponsEnum::FLARE_ROCKET => 10,
         };
     }
 
@@ -317,6 +321,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => 0,
             WeaponsEnum::MELTA_BOMBS => 3,
             WeaponsEnum::HALLUCINOGEN_GAS => 4,
+            WeaponsEnum::FLARE_ROCKET => 0,
         };
     }
     function getShortRange(): string
@@ -378,6 +383,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => ' - ',
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
+            WeaponsEnum::FLARE_ROCKET => ' - ',
         };
     }
 
@@ -440,6 +446,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => ' - ',
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
+            WeaponsEnum::FLARE_ROCKET => ' - ',
         };
     }
 
@@ -502,6 +509,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => ' - ',
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
+            WeaponsEnum::FLARE_ROCKET => ' - ',
         };
     }
     function getBonusToHitLong(): string
@@ -563,6 +571,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => ' - ',
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
+            WeaponsEnum::FLARE_ROCKET => ' - ',
         };
     }
 
@@ -625,6 +634,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => '6',
             WeaponsEnum::MELTA_BOMBS => '8',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
+            WeaponsEnum::FLARE_ROCKET => ' - ',
         };
     }
 
@@ -687,6 +697,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => 'D6',
             WeaponsEnum::MELTA_BOMBS => '2D6',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
+            WeaponsEnum::FLARE_ROCKET => ' - ',
         };
     }
 
@@ -749,6 +760,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => 'D6',
             WeaponsEnum::MELTA_BOMBS => '2D6',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
+            WeaponsEnum::FLARE_ROCKET => ' - ',
         };
     }
 
@@ -811,6 +823,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => ' - ',
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
+            WeaponsEnum::FLARE_ROCKET => ' - ',
         };
     }
 
@@ -873,6 +886,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => '-1 Hit, Demolition',
             WeaponsEnum::MELTA_BOMBS => 'Demolition',
             WeaponsEnum::HALLUCINOGEN_GAS => 'Gas Cloud, Hallucinogen',
+            WeaponsEnum::FLARE_ROCKET => 'Flare',
         };
     }
 
@@ -880,7 +894,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
     {
         return match ($this) {
             // Pistols
-            WeaponsEnum::STUB_GUN => false,
+            WeaponsEnum::FLARE_ROCKET => true,
         };
     }
 }

@@ -22,6 +22,7 @@ enum SpecialWeaponEnum: string
     case Dual_handed = 'Dual-handed';
     case Dum_dum_Bullets = 'Dum-dum Bullets';
     case Flamer = 'Flamer';
+    case Flare = 'Flare';
     case Gas_Cloud = 'Gas Cloud';
     case Gets_Hot = 'Gets Hot';
     case Hallucinogen = 'Hallucinogen';
@@ -68,6 +69,7 @@ enum SpecialWeaponEnum: string
             self::Dual_handed => self::Dual_handed->value,
             self::Dum_dum_Bullets => self::Dum_dum_Bullets->value,
             self::Flamer => self::Flamer->value,
+            self::Flare => self::Flare->value,
             self::Gas_Cloud => self::Gas_Cloud->value,
             self::Gets_Hot => self::Gets_Hot->value,
             self::Hallucinogen => self::Hallucinogen->value,
@@ -116,6 +118,7 @@ enum SpecialWeaponEnum: string
             self::Dual_handed => 'A power axe can be wielded with one or both hands, gaining a strength bonus if dual-handed.',
             self::Dum_dum_Bullets => 'These bullets increase the gun\'s Strength but can cause the weapon to explode on a failed Ammo roll.',
             self::Flamer => 'The flamer uses a template for its shot and requires an Ammo roll each time it\'s fired.',
+            self::Flare => 'Targets a specific point. Models in the illuminated area can move and be targeted without considering penalties related to total darkness. Roll a D6 at the start of each player\'s turn; the flare remains lit on a 1-4 and extinguishes on a 5-6.',
             self::Gas_Cloud => 'Frag grenades use a gas cloud template, affecting a wide area.',
             self::Gets_Hot => 'If the plasma gun overheats, it explodes, inflicting a hit on the user.',
             self::Hallucinogen => 'This gas cloud causes hallucinations, making the victim act unpredictably.',
