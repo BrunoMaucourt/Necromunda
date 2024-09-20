@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Enum;
 
-enum WeaponsEnum: string
+use App\Contract\ItemEnumInterface;
+
+enum WeaponsEnum: string implements ItemEnumInterface
 {
     const PISTOLS = 'Pistols';
     const BASIC_WEAPONS = 'Basic weapons';
@@ -194,7 +196,7 @@ enum WeaponsEnum: string
         };
     }
 
-    function getWeaponFixedCost(): int
+    function getFixedCost(): int
     {
         return match ($this) {
             // Pistols
@@ -256,7 +258,7 @@ enum WeaponsEnum: string
         };
     }
 
-    function getWeaponVariableCostDiceNumber(): int
+    function getVariableDicesNumber(): int
     {
         return match ($this) {
             // Pistols
@@ -871,6 +873,14 @@ enum WeaponsEnum: string
             WeaponsEnum::KRAK_GRENADE => '-1 Hit, Demolition',
             WeaponsEnum::MELTA_BOMBS => 'Demolition',
             WeaponsEnum::HALLUCINOGEN_GAS => 'Gas Cloud, Hallucinogen',
+        };
+    }
+
+    function isCustomRules(): bool
+    {
+        return match ($this) {
+            // Pistols
+            WeaponsEnum::STUB_GUN => false,
         };
     }
 }
