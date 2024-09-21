@@ -14,6 +14,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
     const HEAVY_WEAPONS = 'Heavy weapons';
     const HAND_TO_HANDS_WEAPONS = 'Hand-to-hands weapons';
     const GRENADES = 'Grenades';
+    const ENFONCERS = 'Enfoncer weapons';
 
     // Pistols
     case STUB_GUN = 'Stub Gun';
@@ -24,6 +25,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case PLASMA_PISTOL = 'Plasma Pistol';
     case NEEDLE_PISTOL = 'Needle Pistol';
     case WEB_PISTOL = 'Web Pistol';
+
     // Basic Weapons
     case AUTOGUN = 'Autogun';
     case SHOTGUN_SOLID_SLUG = 'Shotgun (Solid Slug)';
@@ -34,6 +36,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case HUNTING_RIFLE = 'Hunting Rifle';
     case LASGUN = 'Lasgun';
     case BOLTGUN = 'Boltgun';
+
     // Special Weapons
     case AUTOSLUGGER = 'Autoslugger';
     case FLAMER = 'Flamer';
@@ -41,6 +44,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case PLASMA_GUN = 'Plasma Gun';
     case MELTAGUN = 'Meltagun';
     case NEEDLE_RIFLE = 'Needle Rifle';
+
     // Heavy Weapons
     case HEAVY_FLAMER = 'Heavy Flamer';
     case HEAVY_STUBBER = 'Heavy Stubber';
@@ -50,6 +54,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case HEAVY_PLASMA_GUN = 'Heavy Plasma Gun';
     case AUTOCANNON = 'Autocannon';
     case LASCANNON = 'Lascannon';
+
     // Hand-to-Hand Weapons
     case KNIFE = 'Knife';
     case CHAIN_FLAIL = 'Chain, Flail';
@@ -61,6 +66,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case SHOCK_MAUL = 'Shock Maul';
     case POWER_SWORD = 'Power Sword';
     case POWER_FIST = 'Power Fist';
+
     // Grenades
     case SMOKE_BOMBS = 'Smoke Bombs';
     case CHOKE_GAS = 'Choke Gas';
@@ -72,6 +78,12 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case MELTA_BOMBS = 'Melta Bombs';
     case HALLUCINOGEN_GAS = 'Hallucinogen Gas';
     case FLARE_ROCKET = 'Flare Rocket';
+
+    // Enfoncers
+    case COMBAT_RIFLE = 'Combat Rifle';
+    case EXECUTIONER_SHELLS = 'Executioner shells';
+    case SUPPRESSIVE_SHIELD = 'Suppressive Shield';
+    case WEB_LAUNCHER = 'Web Launcher';
 
     function enumToString(): string
     {
@@ -133,6 +145,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => WeaponsEnum::MELTA_BOMBS->value,
             WeaponsEnum::HALLUCINOGEN_GAS => WeaponsEnum::HALLUCINOGEN_GAS->value,
             WeaponsEnum::FLARE_ROCKET => WeaponsEnum::FLARE_ROCKET->value,
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => WeaponsEnum::COMBAT_RIFLE->value,
+            WeaponsEnum::EXECUTIONER_SHELLS => WeaponsEnum::EXECUTIONER_SHELLS->value,
+            WeaponsEnum::SUPPRESSIVE_SHIELD => WeaponsEnum::SUPPRESSIVE_SHIELD->value,
+            WeaponsEnum::WEB_LAUNCHER => WeaponsEnum::WEB_LAUNCHER->value,
         };
     }
 
@@ -196,6 +213,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => self::GRENADES,
             WeaponsEnum::HALLUCINOGEN_GAS => self::GRENADES,
             WeaponsEnum::FLARE_ROCKET => self::GRENADES,
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => self::ENFONCERS,
+            WeaponsEnum::EXECUTIONER_SHELLS => self::ENFONCERS,
+            WeaponsEnum::SUPPRESSIVE_SHIELD => self::ENFONCERS,
+            WeaponsEnum::WEB_LAUNCHER => self::ENFONCERS,
         };
     }
 
@@ -259,6 +281,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => 40,
             WeaponsEnum::HALLUCINOGEN_GAS => 40,
             WeaponsEnum::FLARE_ROCKET => 10,
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => 0,
+            WeaponsEnum::EXECUTIONER_SHELLS => 0,
+            WeaponsEnum::SUPPRESSIVE_SHIELD => 0,
+            WeaponsEnum::WEB_LAUNCHER => 0,
         };
     }
 
@@ -322,6 +349,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => 3,
             WeaponsEnum::HALLUCINOGEN_GAS => 4,
             WeaponsEnum::FLARE_ROCKET => 0,
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => 0,
+            WeaponsEnum::EXECUTIONER_SHELLS => 0,
+            WeaponsEnum::SUPPRESSIVE_SHIELD => 0,
+            WeaponsEnum::WEB_LAUNCHER => 0,
         };
     }
     function getShortRange(): string
@@ -384,6 +416,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => '0-4',
+            WeaponsEnum::EXECUTIONER_SHELLS => '0-4',
+            WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
+            WeaponsEnum::WEB_LAUNCHER => '0-8',
         };
     }
 
@@ -447,6 +484,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => '4-18',
+            WeaponsEnum::EXECUTIONER_SHELLS => '4-18',
+            WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
+            WeaponsEnum::WEB_LAUNCHER => '8-12',
         };
     }
 
@@ -510,6 +552,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => '+1',
+            WeaponsEnum::EXECUTIONER_SHELLS => '_1',
+            WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
+            WeaponsEnum::WEB_LAUNCHER => ' - ',
         };
     }
     function getBonusToHitLong(): string
@@ -572,6 +619,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => '-1',
+            WeaponsEnum::EXECUTIONER_SHELLS => '+1',
+            WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
+            WeaponsEnum::WEB_LAUNCHER => '-1',
         };
     }
 
@@ -635,6 +687,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => '8',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => '4',
+            WeaponsEnum::EXECUTIONER_SHELLS => '4',
+            WeaponsEnum::SUPPRESSIVE_SHIELD => '3',
+            WeaponsEnum::WEB_LAUNCHER => ' - ',
         };
     }
 
@@ -698,6 +755,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => '2D6',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => '1',
+            WeaponsEnum::EXECUTIONER_SHELLS => '1',
+            WeaponsEnum::SUPPRESSIVE_SHIELD => '1',
+            WeaponsEnum::WEB_LAUNCHER => ' - ',
         };
     }
 
@@ -761,6 +823,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => '2D6',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => ' - ',
+            WeaponsEnum::EXECUTIONER_SHELLS => '-2',
+            WeaponsEnum::SUPPRESSIVE_SHIELD => '-1',
+            WeaponsEnum::WEB_LAUNCHER => ' - ',
         };
     }
 
@@ -824,6 +891,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => '4+',
+            WeaponsEnum::EXECUTIONER_SHELLS => '6+',
+            WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
+            WeaponsEnum::WEB_LAUNCHER => '5+',
         };
     }
 
@@ -887,6 +959,11 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => 'Demolition',
             WeaponsEnum::HALLUCINOGEN_GAS => 'Gas Cloud, Hallucinogen',
             WeaponsEnum::FLARE_ROCKET => 'Flare',
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => ' - ',
+            WeaponsEnum::EXECUTIONER_SHELLS => ' - ',
+            WeaponsEnum::SUPPRESSIVE_SHIELD => 'Armor',
+            WeaponsEnum::WEB_LAUNCHER => 'Webbed Targets, Solvent, Capture',
         };
     }
 
@@ -895,6 +972,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
         return match ($this) {
             // Pistols
             WeaponsEnum::FLARE_ROCKET => true,
+            // Enfoncers
+            WeaponsEnum::SUPPRESSIVE_SHIELD => true,
         };
     }
 }
