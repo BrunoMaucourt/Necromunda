@@ -45,7 +45,7 @@ class WeaponListener
             return;
         }
 
-        $weaponCost = $object->getName()->getWeaponFixedCost();
+        $weaponCost = $object->getName()->getFixedCost();
         $object->setCost($weaponCost);
 
         if (
@@ -66,8 +66,8 @@ class WeaponListener
         }
 
         if (
-            $object->getName()->getWeaponVariableCostDiceNumber() > 0
-            && $object->getCost() === $object->getName()->getWeaponFixedCost()
+            $object->getName()->getVariableDicesNumber() > 0
+            && $object->getCost() === $object->getName()->getFixedCost()
         ) {
             $weaponID = $object->getId();
 
