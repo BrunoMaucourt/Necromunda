@@ -195,7 +195,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::KRAK_GRENADE => self::GRENADES,
             WeaponsEnum::MELTA_BOMBS => self::GRENADES,
             WeaponsEnum::HALLUCINOGEN_GAS => self::GRENADES,
-            WeaponsEnum::FLARE_ROCKET => self::FLARE_ROCKET,
+            WeaponsEnum::FLARE_ROCKET => self::GRENADES,
         };
     }
 
