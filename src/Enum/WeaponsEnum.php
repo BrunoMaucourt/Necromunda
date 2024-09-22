@@ -14,6 +14,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
     const HEAVY_WEAPONS = 'Heavy weapons';
     const HAND_TO_HANDS_WEAPONS = 'Hand-to-hands weapons';
     const GRENADES = 'Grenades';
+    const SPECIAL_AMNUMITIONS = 'Special ammunitions';
     const ENFONCERS = 'Enfoncer weapons';
 
     // Pistols
@@ -49,8 +50,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case HEAVY_FLAMER = 'Heavy Flamer';
     case HEAVY_STUBBER = 'Heavy Stubber';
     case HEAVY_BOLTER = 'Heavy Bolter';
-    case MISSILE_LAUNCHER_FRAG = 'Missile Launcher (Frag)';
-    case MISSILE_LAUNCHER_KRAK = 'Missile Launcher (Krak)';
+    case MISSILE_LAUNCHER = 'Missile Launcher';
     case HEAVY_PLASMA_GUN = 'Heavy Plasma Gun';
     case AUTOCANNON = 'Autocannon';
     case LASCANNON = 'Lascannon';
@@ -78,6 +78,14 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case MELTA_BOMBS = 'Melta Bombs';
     case HALLUCINOGEN_GAS = 'Hallucinogen Gas';
     case FLARE_ROCKET = 'Flare Rocket';
+
+    // Special Ammunitions
+    case BOLT_SHELLS = 'Bolt shells';
+    case DUM_DUM_BULLETS = 'Dum Dum Bullets';
+    case HOT_SHOT_SHELLS = 'Hot shot shells';
+    case MANSTOPPER_SHELLS = 'Manstopper Shells';
+    case MISSILE_LAUNCHER_FRAG = 'Missile Launcher (Frag)';
+    case MISSILE_LAUNCHER_KRAK = 'Missile Launcher (Krak)';
 
     // Enfoncers
     case COMBAT_RIFLE = 'Combat Rifle';
@@ -118,8 +126,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => WeaponsEnum::HEAVY_FLAMER->value,
             WeaponsEnum::HEAVY_STUBBER => WeaponsEnum::HEAVY_STUBBER->value,
             WeaponsEnum::HEAVY_BOLTER => WeaponsEnum::HEAVY_BOLTER->value,
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => WeaponsEnum::MISSILE_LAUNCHER_FRAG->value,
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => WeaponsEnum::MISSILE_LAUNCHER_KRAK->value,
+            WeaponsEnum::MISSILE_LAUNCHER => WeaponsEnum::MISSILE_LAUNCHER->value,
             WeaponsEnum::HEAVY_PLASMA_GUN => WeaponsEnum::HEAVY_PLASMA_GUN->value,
             WeaponsEnum::AUTOCANNON => WeaponsEnum::AUTOCANNON->value,
             WeaponsEnum::LASCANNON => WeaponsEnum::LASCANNON->value,
@@ -145,6 +152,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => WeaponsEnum::MELTA_BOMBS->value,
             WeaponsEnum::HALLUCINOGEN_GAS => WeaponsEnum::HALLUCINOGEN_GAS->value,
             WeaponsEnum::FLARE_ROCKET => WeaponsEnum::FLARE_ROCKET->value,
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => WeaponsEnum::BOLT_SHELLS->value,
+            WeaponsEnum::DUM_DUM_BULLETS => WeaponsEnum::DUM_DUM_BULLETS->value,
+            WeaponsEnum::HOT_SHOT_SHELLS => WeaponsEnum::HOT_SHOT_SHELLS->value,
+            WeaponsEnum::MANSTOPPER_SHELLS => WeaponsEnum::MANSTOPPER_SHELLS->value,
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => WeaponsEnum::MISSILE_LAUNCHER_FRAG->value,
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => WeaponsEnum::MISSILE_LAUNCHER_KRAK->value,
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => WeaponsEnum::COMBAT_RIFLE->value,
             WeaponsEnum::EXECUTIONER_SHELLS => WeaponsEnum::EXECUTIONER_SHELLS->value,
@@ -186,8 +200,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => self::HEAVY_WEAPONS,
             WeaponsEnum::HEAVY_STUBBER => self::HEAVY_WEAPONS,
             WeaponsEnum::HEAVY_BOLTER => self::HEAVY_WEAPONS,
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => self::HEAVY_WEAPONS,
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => self::HEAVY_WEAPONS,
+            WeaponsEnum::MISSILE_LAUNCHER => self::HEAVY_WEAPONS,
             WeaponsEnum::HEAVY_PLASMA_GUN => self::HEAVY_WEAPONS,
             WeaponsEnum::AUTOCANNON => self::HEAVY_WEAPONS,
             WeaponsEnum::LASCANNON => self::HEAVY_WEAPONS,
@@ -213,6 +226,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => self::GRENADES,
             WeaponsEnum::HALLUCINOGEN_GAS => self::GRENADES,
             WeaponsEnum::FLARE_ROCKET => self::GRENADES,
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => self::SPECIAL_AMNUMITIONS,
+            WeaponsEnum::DUM_DUM_BULLETS => self::SPECIAL_AMNUMITIONS,
+            WeaponsEnum::HOT_SHOT_SHELLS => self::SPECIAL_AMNUMITIONS,
+            WeaponsEnum::MANSTOPPER_SHELLS => self::SPECIAL_AMNUMITIONS,
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => self::SPECIAL_AMNUMITIONS,
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => self::SPECIAL_AMNUMITIONS,
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => self::ENFONCERS,
             WeaponsEnum::EXECUTIONER_SHELLS => self::ENFONCERS,
@@ -254,8 +274,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => 80,
             WeaponsEnum::HEAVY_STUBBER => 120,
             WeaponsEnum::HEAVY_BOLTER => 180,
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => 175,
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => 190,
+            WeaponsEnum::MISSILE_LAUNCHER => 140,
             WeaponsEnum::HEAVY_PLASMA_GUN => 240,
             WeaponsEnum::AUTOCANNON => 260,
             WeaponsEnum::LASCANNON => 300,
@@ -281,6 +300,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => 40,
             WeaponsEnum::HALLUCINOGEN_GAS => 40,
             WeaponsEnum::FLARE_ROCKET => 10,
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => 15,
+            WeaponsEnum::DUM_DUM_BULLETS => 5,
+            WeaponsEnum::HOT_SHOT_SHELLS => 5,
+            WeaponsEnum::MANSTOPPER_SHELLS => 5,
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => 35,
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => 50,
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => 0,
             WeaponsEnum::EXECUTIONER_SHELLS => 0,
@@ -322,8 +348,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => 0,
             WeaponsEnum::HEAVY_STUBBER => 0,
             WeaponsEnum::HEAVY_BOLTER => 0,
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => 0,
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => 0,
+            WeaponsEnum::MISSILE_LAUNCHER => 0,
             WeaponsEnum::HEAVY_PLASMA_GUN => 0,
             WeaponsEnum::AUTOCANNON => 0,
             WeaponsEnum::LASCANNON => 0,
@@ -349,6 +374,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => 3,
             WeaponsEnum::HALLUCINOGEN_GAS => 4,
             WeaponsEnum::FLARE_ROCKET => 0,
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => 0,
+            WeaponsEnum::DUM_DUM_BULLETS => 0,
+            WeaponsEnum::HOT_SHOT_SHELLS => 0,
+            WeaponsEnum::MANSTOPPER_SHELLS => 0,
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => 0,
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => 0,
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => 0,
             WeaponsEnum::EXECUTIONER_SHELLS => 0,
@@ -389,8 +421,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => ' - ',
             WeaponsEnum::HEAVY_STUBBER => '0-20',
             WeaponsEnum::HEAVY_BOLTER => '0-20',
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '0-20',
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => '0-20',
+            WeaponsEnum::MISSILE_LAUNCHER => ' - ',
             WeaponsEnum::HEAVY_PLASMA_GUN => '0-20',
             WeaponsEnum::AUTOCANNON => '0-20',
             WeaponsEnum::LASCANNON => '0-20',
@@ -416,6 +447,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => '0-4',
+            WeaponsEnum::DUM_DUM_BULLETS => '0-8',
+            WeaponsEnum::HOT_SHOT_SHELLS => '0-4',
+            WeaponsEnum::MANSTOPPER_SHELLS => '0-4',
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '0-20',
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => '0-20',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '0-4',
             WeaponsEnum::EXECUTIONER_SHELLS => '0-4',
@@ -457,8 +495,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => ' - ',
             WeaponsEnum::HEAVY_STUBBER => '20-40',
             WeaponsEnum::HEAVY_BOLTER => '20-40',
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '20-72',
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => '20-72',
+            WeaponsEnum::MISSILE_LAUNCHER => '20-72',
             WeaponsEnum::HEAVY_PLASMA_GUN => '20-40',
             WeaponsEnum::AUTOCANNON => '20-72',
             WeaponsEnum::LASCANNON => '20-60',
@@ -484,6 +521,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => '4-24',
+            WeaponsEnum::DUM_DUM_BULLETS => '8-16',
+            WeaponsEnum::HOT_SHOT_SHELLS => '4-18',
+            WeaponsEnum::MANSTOPPER_SHELLS => '4-18',
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '20-72',
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => '20-72',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '4-18',
             WeaponsEnum::EXECUTIONER_SHELLS => '4-18',
@@ -525,8 +569,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => ' - ',
             WeaponsEnum::HEAVY_STUBBER => ' - ',
             WeaponsEnum::HEAVY_BOLTER => ' - ',
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => ' - ',
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => ' - ',
+            WeaponsEnum::MISSILE_LAUNCHER => ' - ',
             WeaponsEnum::HEAVY_PLASMA_GUN => ' - ',
             WeaponsEnum::AUTOCANNON => ' - ',
             WeaponsEnum::LASCANNON => ' - ',
@@ -552,6 +595,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => '+1',
+            WeaponsEnum::DUM_DUM_BULLETS => '+1',
+            WeaponsEnum::HOT_SHOT_SHELLS => '+1',
+            WeaponsEnum::MANSTOPPER_SHELLS => '+1',
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => ' - ',
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => ' - ',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '+1',
             WeaponsEnum::EXECUTIONER_SHELLS => '_1',
@@ -592,8 +642,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => ' - ',
             WeaponsEnum::HEAVY_STUBBER => ' - ',
             WeaponsEnum::HEAVY_BOLTER => ' - ',
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => ' - ',
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => ' - ',
+            WeaponsEnum::MISSILE_LAUNCHER => ' - ',
             WeaponsEnum::HEAVY_PLASMA_GUN => ' - ',
             WeaponsEnum::AUTOCANNON => ' - ',
             WeaponsEnum::LASCANNON => ' - ',
@@ -619,6 +668,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => ' - ',
+            WeaponsEnum::DUM_DUM_BULLETS => ' - ',
+            WeaponsEnum::HOT_SHOT_SHELLS => '-1',
+            WeaponsEnum::MANSTOPPER_SHELLS => ' - ',
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => ' - ',
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => ' - ',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '-1',
             WeaponsEnum::EXECUTIONER_SHELLS => '+1',
@@ -660,8 +716,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => '5',
             WeaponsEnum::HEAVY_STUBBER => '4',
             WeaponsEnum::HEAVY_BOLTER => '5',
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '4',
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => '8',
+            WeaponsEnum::MISSILE_LAUNCHER => '4',
             WeaponsEnum::HEAVY_PLASMA_GUN => '7',
             WeaponsEnum::AUTOCANNON => '8',
             WeaponsEnum::LASCANNON => '9',
@@ -687,6 +742,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => '8',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => '4',
+            WeaponsEnum::DUM_DUM_BULLETS => '4',
+            WeaponsEnum::HOT_SHOT_SHELLS => '4',
+            WeaponsEnum::MANSTOPPER_SHELLS => '4',
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '4',
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => '8',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '4',
             WeaponsEnum::EXECUTIONER_SHELLS => '4',
@@ -728,8 +790,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => 'D3',
             WeaponsEnum::HEAVY_STUBBER => '1',
             WeaponsEnum::HEAVY_BOLTER => 'D3',
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '1',
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => 'D6',
+            WeaponsEnum::MISSILE_LAUNCHER => '1',
             WeaponsEnum::HEAVY_PLASMA_GUN => 'D3',
             WeaponsEnum::AUTOCANNON => 'D6',
             WeaponsEnum::LASCANNON => '2D6',
@@ -755,6 +816,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => '2D6',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => '1',
+            WeaponsEnum::DUM_DUM_BULLETS => '1',
+            WeaponsEnum::HOT_SHOT_SHELLS => '1',
+            WeaponsEnum::MANSTOPPER_SHELLS => '1',
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '1',
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => 'D6',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '1',
             WeaponsEnum::EXECUTIONER_SHELLS => '1',
@@ -796,8 +864,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => '-3',
             WeaponsEnum::HEAVY_STUBBER => '-1',
             WeaponsEnum::HEAVY_BOLTER => '-2',
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '-2',
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => '-5',
+            WeaponsEnum::MISSILE_LAUNCHER => '-2',
             WeaponsEnum::HEAVY_PLASMA_GUN => '-4',
             WeaponsEnum::AUTOCANNON => '-5',
             WeaponsEnum::LASCANNON => '-6',
@@ -817,12 +884,19 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::CHOKE_GAS => ' - ',
             WeaponsEnum::SCARE_GAS => ' - ',
             WeaponsEnum::PHOTON_FLARES => ' - ',
-            WeaponsEnum::FRAG_GRENADE => '1',
-            WeaponsEnum::PLASMA_GRENADE => '1',
-            WeaponsEnum::KRAK_GRENADE => 'D6',
-            WeaponsEnum::MELTA_BOMBS => '2D6',
+            WeaponsEnum::FRAG_GRENADE => '-1',
+            WeaponsEnum::PLASMA_GRENADE => '-2',
+            WeaponsEnum::KRAK_GRENADE => '-3',
+            WeaponsEnum::MELTA_BOMBS => '-5',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => '-1',
+            WeaponsEnum::DUM_DUM_BULLETS => ' - ',
+            WeaponsEnum::HOT_SHOT_SHELLS => ' - ',
+            WeaponsEnum::MANSTOPPER_SHELLS => ' - ',
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '-2',
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => '-5',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => ' - ',
             WeaponsEnum::EXECUTIONER_SHELLS => '-2',
@@ -864,8 +938,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => '3+',
             WeaponsEnum::HEAVY_STUBBER => '4+',
             WeaponsEnum::HEAVY_BOLTER => '6+',
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '6+',
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => '6+',
+            WeaponsEnum::MISSILE_LAUNCHER => '6+',
             WeaponsEnum::HEAVY_PLASMA_GUN => '4+',
             WeaponsEnum::AUTOCANNON => '4+',
             WeaponsEnum::LASCANNON => '2+',
@@ -891,6 +964,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => ' - ',
             WeaponsEnum::HALLUCINOGEN_GAS => ' - ',
             WeaponsEnum::FLARE_ROCKET => ' - ',
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => '6+',
+            WeaponsEnum::DUM_DUM_BULLETS => '4+',
+            WeaponsEnum::HOT_SHOT_SHELLS => '4+',
+            WeaponsEnum::MANSTOPPER_SHELLS => '4+',
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => '6+',
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => '6+',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '4+',
             WeaponsEnum::EXECUTIONER_SHELLS => '6+',
@@ -932,8 +1012,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HEAVY_FLAMER => 'Flamer, Ammo Roll, Catch Fire (3+), Move And Fire',
             WeaponsEnum::HEAVY_STUBBER => 'Sustained Fire (2)',
             WeaponsEnum::HEAVY_BOLTER => 'Sustained Fire (2)',
-            WeaponsEnum::MISSILE_LAUNCHER_FRAG => 'Gas Cloud',
-            WeaponsEnum::MISSILE_LAUNCHER_KRAK => 'High Impact',
+            WeaponsEnum::MISSILE_LAUNCHER => 'Gas Cloud',
             WeaponsEnum::HEAVY_PLASMA_GUN => 'Blast, High Impact',
             WeaponsEnum::AUTOCANNON => 'Sustained Fire (1), High Impact',
             WeaponsEnum::LASCANNON => 'High Impact, Terrifying Force',
@@ -959,6 +1038,13 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MELTA_BOMBS => 'Demolition',
             WeaponsEnum::HALLUCINOGEN_GAS => 'Gas Cloud, Hallucinogen',
             WeaponsEnum::FLARE_ROCKET => 'Flare',
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => ' - ',
+            WeaponsEnum::DUM_DUM_BULLETS => 'Dum-dum Bullets',
+            WeaponsEnum::HOT_SHOT_SHELLS => 'Knock-back, Catch Fire (5+)',
+            WeaponsEnum::MANSTOPPER_SHELLS => 'Knock-back',
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => 'Gas cloud',
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => 'High Impact',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => ' - ',
             WeaponsEnum::EXECUTIONER_SHELLS => ' - ',
