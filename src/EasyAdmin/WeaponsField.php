@@ -30,11 +30,16 @@ final class WeaponsField implements FieldInterface
             ->setFormType(EnumType::class)
             ->setFormTypeOptions([
                 'class' => WeaponsEnum::class,
-                'choice_label' => function (\UnitEnum $choice) use ($instance): string {
-                    if ($instance->enumTranslator && $instance->translator->getLocale() !== 'en') {
-                        return $instance->enumTranslator->translate('enum.weapon_' . str_replace(' ', '_', $choice->value));
+                'choice_label' => function (WeaponsEnum $choice) use ($instance): string {
+                    if ($choice->getVariableDicesNumber() > 0) {
+                        $cost = " - " . $choice->getFixedCost() . " " . $instance->translator->trans('credits') . "*";
+                    } else {
+                        $cost = " - " . $choice->getFixedCost() . " " . $instance->translator->trans('credits');
                     }
-                    return $choice->value;
+                    if ($instance->enumTranslator && $instance->translator->getLocale() !== 'en') {
+                        return $instance->enumTranslator->translate('enum.weapon_' . str_replace(' ', '_', $choice->value)) . $cost;
+                    }
+                    return $choice->value . $cost;
                 },
                 'group_by' => function(WeaponsEnum $choice) use ($instance) {
                     if ($instance->enumTranslator && $instance->translator->getLocale() !== 'en') {
