@@ -1062,4 +1062,78 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::SUPPRESSIVE_SHIELD => true,
         };
     }
+
+    function isAvailableOnMenu(): bool
+    {
+        return match ($this) {
+            // Pistols
+            WeaponsEnum::STUB_GUN => true,
+            WeaponsEnum::AUTOPISTOL => true,
+            WeaponsEnum::LASPISTOL => true,
+            WeaponsEnum::HAND_FLAMER => true,
+            WeaponsEnum::BOLT_PISTOL => true,
+            WeaponsEnum::PLASMA_PISTOL => true,
+            WeaponsEnum::NEEDLE_PISTOL => true,
+            WeaponsEnum::WEB_PISTOL => true,
+            // Basic Weapons
+            WeaponsEnum::AUTOGUN => true,
+            WeaponsEnum::SHOTGUN_SOLID_SLUG => true,
+            WeaponsEnum::SHOTGUN_SCATTER_SHOT => true,
+            WeaponsEnum::SHOTGUN_MANSTOPPER => false,
+            WeaponsEnum::SHOTGUN_HOT_SHOT => false,
+            WeaponsEnum::SHOTGUN_BOLT => false,
+            WeaponsEnum::HUNTING_RIFLE => true,
+            WeaponsEnum::LASGUN => true,
+            WeaponsEnum::BOLTGUN => true,
+            // Special Weapons
+            WeaponsEnum::AUTOSLUGGER => true,
+            WeaponsEnum::FLAMER => true,
+            WeaponsEnum::GRENADE_LAUNCHER => true,
+            WeaponsEnum::PLASMA_GUN => true,
+            WeaponsEnum::MELTAGUN => true,
+            WeaponsEnum::NEEDLE_RIFLE => true,
+            // Heavy Weapons
+            WeaponsEnum::HEAVY_FLAMER => true,
+            WeaponsEnum::HEAVY_STUBBER => true,
+            WeaponsEnum::HEAVY_BOLTER => true,
+            WeaponsEnum::MISSILE_LAUNCHER => true,
+            WeaponsEnum::HEAVY_PLASMA_GUN => true,
+            WeaponsEnum::AUTOCANNON => true,
+            WeaponsEnum::LASCANNON => true,
+            // Hand-to-Hand Weapons
+            WeaponsEnum::KNIFE => true,
+            WeaponsEnum::CHAIN_FLAIL => true,
+            WeaponsEnum::CLUB_MAUL_BLUDGEON => true,
+            WeaponsEnum::MASSIVE_WEAPON => true,
+            WeaponsEnum::SWORD => true,
+            WeaponsEnum::CHAIN_SWORD => true,
+            WeaponsEnum::POWER_AXE => true,
+            WeaponsEnum::SHOCK_MAUL => true,
+            WeaponsEnum::POWER_SWORD => true,
+            WeaponsEnum::POWER_FIST => true,
+            // Grenades
+            WeaponsEnum::SMOKE_BOMBS => true,
+            WeaponsEnum::CHOKE_GAS => true,
+            WeaponsEnum::SCARE_GAS => true,
+            WeaponsEnum::PHOTON_FLARES => true,
+            WeaponsEnum::FRAG_GRENADE => true,
+            WeaponsEnum::PLASMA_GRENADE => true,
+            WeaponsEnum::KRAK_GRENADE => true,
+            WeaponsEnum::MELTA_BOMBS => true,
+            WeaponsEnum::HALLUCINOGEN_GAS => true,
+            WeaponsEnum::FLARE_ROCKET => true,
+            // Special Ammunitions
+            WeaponsEnum::BOLT_SHELLS => true,
+            WeaponsEnum::DUM_DUM_BULLETS => true,
+            WeaponsEnum::HOT_SHOT_SHELLS => true,
+            WeaponsEnum::MANSTOPPER_SHELLS => true,
+            WeaponsEnum::MISSILE_LAUNCHER_FRAG => true,
+            WeaponsEnum::MISSILE_LAUNCHER_KRAK => true,
+            // Enfoncers
+            WeaponsEnum::COMBAT_RIFLE => true,
+            WeaponsEnum::EXECUTIONER_SHELLS => false,
+            WeaponsEnum::SUPPRESSIVE_SHIELD => true,
+            WeaponsEnum::WEB_LAUNCHER => true,
+        };
+    }
 }

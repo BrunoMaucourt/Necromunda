@@ -30,6 +30,14 @@ final class WeaponsField implements FieldInterface
             ->setFormType(EnumType::class)
             ->setFormTypeOptions([
                 'class' => WeaponsEnum::class,
+                'choice_attr' => function (WeaponsEnum $choice) {
+                    if (!$choice->isAvailableOnMenu()) {
+                        return [
+                            'class' => 'hide',
+                        ];
+                    }
+                    return [];
+                },
                 'choice_label' => function (WeaponsEnum $choice) use ($instance): string {
                     if ($choice->getVariableDicesNumber() > 0) {
                         $cost = " - " . $choice->getFixedCost() . " " . $instance->translator->trans('credits') . "*";
