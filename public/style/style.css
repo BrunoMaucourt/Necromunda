@@ -108,3 +108,159 @@
 .accordion-body .form-widget, .accordion-body .form-group {
     min-width: 250px;
 }
+
+.hide {
+    display: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+h1, h2, .date {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #2c3e50;
+    text-align: left;
+}
+
+th {
+    background-color: #ecf0f1;
+}
+
+.numeric {
+    text-align: center;
+}
+
+.gang-info, .territories, .gangers, .specials, .skills, .weapons, .equipments, .injuries {
+    margin-bottom: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.equipments th, .equipments td,
+.gang-info th, .gang-info td,
+.territories th, .territories td,
+.injuries th, .injuries td,
+.specials th, .specials td,
+.skills th, .skills td,
+.weapons th, .weapons td,
+.gangers th, .gangers td {
+    padding: 6px;
+    border: 1px solid #000000;
+}
+
+.gang-info th,
+.territories th,
+.gangers th,
+.specials th,
+.skills th,
+.weapons th,
+.injuries th,
+.equipments th,
+.weapon-type-separator{
+    background-color: #c8c8c8;
+}
+
+.gang-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gang-info div {
+    width: 48%;
+}
+
+.ganger-details {
+    text-align: left;
+}
+
+.below-reference {
+    color: red;
+    font-weight: bold;
+}
+
+.above-reference {
+    color: #32c632;
+    font-weight: bold;
+}
+
+.leader td {
+    background-color: #FFB6C1;
+}
+
+.heavy td {
+    background-color: #FFD580;
+}
+
+.ganger td {
+    background-color: #FFFACD;
+}
+
+.juve td {
+    background-color: #C3E6CB;
+}
+
+.hired-gun td {
+    background-color: #ADD8E6;
+}
+
+.equipments tr:nth-child(even),
+.injuries tr:nth-child(even),
+.skills tr:nth-child(even),
+.specials tr:nth-child(even),
+.territories tr:nth-child(even),
+.weapons tr:nth-child(even),
+.advancements tr:nth-child(even),
+.loots tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.history {
+    margin-top: 20px;
+}
+
+@media print {
+    body {
+        margin: 10mm;
+    }
+
+    table, th, td {
+        font-size: 10px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .gang-info {
+        page-break-after: avoid;
+    }
+
+    .territories {
+        page-break-after: avoid;
+    }
+
+    .gangers {
+        page-break-inside: auto;
+    }
+}
