@@ -604,7 +604,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => ' - ',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '+1',
-            WeaponsEnum::EXECUTIONER_SHELLS => '_1',
+            WeaponsEnum::EXECUTIONER_SHELLS => '-1',
             WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
             WeaponsEnum::WEB_LAUNCHER => ' - ',
         };
