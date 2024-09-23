@@ -59,7 +59,6 @@ final class WeaponsField implements FieldInterface
         ;
     }
 
-
     public function setEnumTranslator(
         EnumTranslator $enumTranslator,
         TranslatorInterface $translator

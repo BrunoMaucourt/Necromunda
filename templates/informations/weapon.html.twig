@@ -1,0 +1,74 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}Weapons informations{% endblock %}
+
+{% block main %}
+    <div class="d-flex justify-content-center align-content-center w-100 h-100">
+        <div class="d-flex flex-column justify-content-between align-content-center p-3">
+
+            <table class="weapons">
+                <thead>
+                <tr>
+                    <th>{{ 'Name'|trans }}</th>
+                    <th>{{ 'Short range'|trans }}</th>
+                    <th>{{ 'Long range'|trans }}</th>
+                    <th>{{ 'Bonus to hit short range'|trans }}</th>
+                    <th>{{ 'Bonus to hit long range'|trans }}</th>
+                    <th>{{ 'Strength'|trans }}</th>
+                    <th>{{ 'Damage'|trans }}</th>
+                    <th>{{ 'Save modifier'|trans }}</th>
+                    <th>{{ 'Ammo roll'|trans }}</th>
+                    <th>{{ 'Special'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% set lastType = null %}
+
+                {% for weapon in weapons %}
+                    {% if weapon.getWeaponType() != lastType %}
+                        <tr>
+                            <td colspan="10" class="weapon-type-separator">
+                                <strong>{{ weapon.getWeaponType()|trans }}</strong>
+                            </td>
+                        </tr>
+                        {% set lastType = weapon.getWeaponType() %}
+                    {% endif %}
+
+                    <tr>
+                        <td>{{ weapon.enumToString|trans }}</td>
+                        <td class="numeric">{{ weapon.getShortRange }}</td>
+                        <td class="numeric">{{ weapon.getLongRange }}</td>
+                        <td class="numeric">{{ weapon.getBonusToHitShort }}</td>
+                        <td class="numeric">{{ weapon.getBonusToHitLong }}</td>
+                        <td class="numeric">{{ weapon.getStrength }}</td>
+                        <td class="numeric">{{ weapon.getDamage }}</td>
+                        <td class="numeric">{{ weapon.getSaveModifier }}</td>
+                        <td class="numeric">{{ weapon.getAmmoRoll }}</td>
+                        {% set special = weapon.getSpecial | split(',') | map(special => special | trim | trans) %}
+                        <td>{{ special| join(', ') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <h2>{{ 'Weapons special'|trans }}</h2>
+            <table class="specials">
+                <thead>
+                <tr>
+                    <th>{{ 'Name'|trans }}</th>
+                    <th>{{ 'Description'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for special in specials %}
+                    <tr>
+                        <td>{{ special.enumToString|trans }}</td>
+                        <td>{{ special.getDescription|trans }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+{% endblock %}

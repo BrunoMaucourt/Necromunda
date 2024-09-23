@@ -49,6 +49,21 @@
       {% endfor %}
     </div>
 
+  <h2 class="mt-5 mb-4">{{ 'Informations'|trans }}</h2>
+  <div class="row">
+      {% for link in linksInformation %}
+        <div class="col-md-4 mb-3">
+          <div class="card bg-light rounded-3">
+            <a href="{{ link.url }}" class="dashboardCard card-body text-dark">
+              <h3 class="card-title">
+                <i class="{{ link.icon }}"></i> {{ link.text }}
+              </h3>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
     {% if gangRatingsData is not empty %}
       <h2 class="mt-5 mb-4">{{ 'Statistics'|trans }}</h2>
       <div class="row">

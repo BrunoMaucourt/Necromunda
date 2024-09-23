@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Controller\Admin\DashboardController;
 use App\Entity\Weapon;
+use App\Enum\SpecialWeaponEnum;
+use App\Enum\WeaponsEnum;
 use App\Form\ChooseCost;
 use App\service\WeaponService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -67,6 +69,18 @@ class WeaponController extends AbstractController
         return $this->render('form/choose_cost.html.twig', [
             'form' => $form->createView(),
             'weapon' => $weapon
+        ]);
+    }
+
+    #[Route('/{_locale<%app.supported_locales%>}/admin/weaponInformations', name: 'weapon_informations')]
+    public function WeaponInformations(Request $request): Response
+    {
+        $allWeapons = WeaponsEnum::cases();
+        $allSpecialWeapons = SpecialWeaponEnum::cases();
+
+        return $this->render('informations/weapon.html.twig', [
+            'specials' => $allSpecialWeapons,
+            'weapons' => $allWeapons
         ]);
     }
 }

@@ -117,6 +117,16 @@ class DashboardController extends AbstractDashboardController
             ]
         ];
 
+        $linksShowInformations = [
+            'Weapon' => [
+                'url' => $this->adminUrlGenerator
+                    ->setRoute('weapon_informations')
+                    ->generateUrl(),
+                'icon' => 'fas fa-gun',
+                'text' => $this->translator->trans('Weapon Informations'),
+            ],
+        ];
+
         if ($this->security->isGranted('ROLE_ADMIN')) {
             $linksShowSecondary = [
                 'Advancement' => [
@@ -223,6 +233,7 @@ class DashboardController extends AbstractDashboardController
         return $this->render('admin/dashboard.html.twig', [
             'gangRatingsData' => $gangRatingsData,
             'linksAdd' => $linksAdd,
+            'linksInformation' => $linksShowInformations,
             'linksShowPrincipal' => $linksShowPrincipal,
             'linksShowSecondary' => $linksShowSecondary,
             'statistics' => $statistics,
