@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>{{ 'Game resume' |trans }}</title>
-    </head>
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'Game resume' |trans }}
+{% endblock %}
+
+{% block body %}
     <body>
 
     <h1>{{ 'Game resume' |trans }}</h1>
@@ -154,4 +155,4 @@
     {% endif %}
 
     </body>
-</html>
+{% endblock %}

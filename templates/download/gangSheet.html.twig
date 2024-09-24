@@ -1,221 +1,222 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>{{ 'Gang Sheet'|trans }} - {{ gang.name }}</title>
-    </head>
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'Gang Sheet'|trans }} - {{ gang.name }}
+{% endblock %}
+
+{% block body %}
     <body>
 
-    <h1>{{ gang.name }}</h1>
-    <p class="date">{{ "now" | date("d/m/Y") }}</p>
+        <h1>{{ gang.name }}</h1>
+        <p class="date">{{ "now" | date("d/m/Y") }}</p>
 
-    <h2>{{ 'Gang Information'|trans }}</h2>
-    <table class="gang-info">
-        <thead>
-        <tr>
-            <th>{{ 'Credits'|trans }}</th>
-            <th>{{ 'Active'|trans }}</th>
-            <th>{{ 'House'|trans }}</th>
-            <th>{{ 'Rating'|trans }}</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>{{ gang.credits }}</td>
-            <td>{{ gang.active ? 'Yes' : 'No' }}</td>
-            <td>{{ gang.house.enumToString }}</td>
-            <td>{{ gang.rating }}</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <h2>{{ 'Territories'|trans }}</h2>
-    <table class="territories">
-        <thead>
-        <tr>
-            <th>{{ 'Name'|trans }}</th>
-            <th>{{ 'Effects'|trans }}</th>
-            <th>{{ 'Credits'|trans }}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for territory in gang.territories %}
+        <h2>{{ 'Gang Information'|trans }}</h2>
+        <table class="">
+            <thead>
             <tr>
-                <td>{{ territory.name.enumToString|trans }}</td>
-                <td>{{ territory.getEffect |default('None') |trans }}</td>
-                <td>{{ territory.incomeAsString }}</td>
+                <th>{{ 'Credits'|trans }}</th>
+                <th>{{ 'Active'|trans }}</th>
+                <th>{{ 'House'|trans }}</th>
+                <th>{{ 'Rating'|trans }}</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <h2>{{ 'Gangers'|trans }}</h2>
-    <table class="gangers">
-        <thead>
-        <tr>
-            <th>{{ 'Name'|trans }}</th>
-            <th>{{ 'Type'|trans }}</th>
-            <th class="numeric">M</th>
-            <th class="numeric">WS</th>
-            <th class="numeric">BS</th>
-            <th class="numeric">S</th>
-            <th class="numeric">T</th>
-            <th class="numeric">W</th>
-            <th class="numeric">I</th>
-            <th class="numeric">A</th>
-            <th class="numeric">L</th>
-            <th class="numeric">Exp</th>
-            <th class="numeric">{{ 'Cost'|trans }}</th>
-            <th class="numeric">{{ 'Rating'|trans }}</th>
-            <th>{{ 'Details'|trans }}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for ganger in gangers %}
-            <tr class="
-                {% if ganger.type.enumToString == 'leader'%}
-                    leader
-                {% elseif ganger.type.enumToString == 'heavy' %}
-                    heavy
-                {% elseif ganger.type.enumToString == 'ganger' %}
-                    ganger
-                {% elseif ganger.type.enumToString == 'juve' %}
-                    juve
-                {% elseif ganger.type.enumToString in ['underhive scum', 'bounty hunter', 'ratskin scout'] %}
-                    hired-gun
-                {% endif %}
-            ">
-                <td>{{ ganger.name }}</td>
-                <td>{{ ganger.type.enumToString|trans }}</td>
-                <td class="numeric {{ ganger.move < referenceValues[ganger.type.enumToString]['move'] ? 'below-reference' : (ganger.move == referenceValues[ganger.type.enumToString]['move'] ? 'at-reference' : 'above-reference') }}">{{ ganger.move }}</td>
-                <td class="numeric {{ ganger.weaponSkill < referenceValues[ganger.type.enumToString]['weaponSkill'] ? 'below-reference' : (ganger.weaponSkill == referenceValues[ganger.type.enumToString]['weaponSkill'] ? 'at-reference' : 'above-reference') }}">{{ ganger.weaponSkill }}</td>
-                <td class="numeric {{ ganger.ballisticSkill < referenceValues[ganger.type.enumToString]['ballisticSkill'] ? 'below-reference' : (ganger.ballisticSkill == referenceValues[ganger.type.enumToString]['ballisticSkill'] ? 'at-reference' : 'above-reference') }}">{{ ganger.ballisticSkill }}</td>
-                <td class="numeric {{ ganger.strength < referenceValues[ganger.type.enumToString]['strength'] ? 'below-reference' : (ganger.strength == referenceValues[ganger.type.enumToString]['strength'] ? 'at-reference' : 'above-reference') }}">{{ ganger.strength }}</td>
-                <td class="numeric {{ ganger.toughness < referenceValues[ganger.type.enumToString]['toughness'] ? 'below-reference' : (ganger.toughness == referenceValues[ganger.type.enumToString]['toughness'] ? 'at-reference' : 'above-reference') }}">{{ ganger.toughness }}</td>
-                <td class="numeric {{ ganger.wounds < referenceValues[ganger.type.enumToString]['wounds'] ? 'below-reference' : (ganger.wounds == referenceValues[ganger.type.enumToString]['wounds'] ? 'at-reference' : 'above-reference') }}">{{ ganger.wounds }}</td>
-                <td class="numeric {{ ganger.initiative < referenceValues[ganger.type.enumToString]['initiative'] ? 'below-reference' : (ganger.initiative == referenceValues[ganger.type.enumToString]['initiative'] ? 'at-reference' : 'above-reference') }}">{{ ganger.initiative }}</td>
-                <td class="numeric {{ ganger.attacks < referenceValues[ganger.type.enumToString]['attacks'] ? 'below-reference' : (ganger.attacks == referenceValues[ganger.type.enumToString]['attacks'] ? 'at-reference' : 'above-reference') }}">{{ ganger.attacks }}</td>
-                <td class="numeric {{ ganger.leadership < referenceValues[ganger.type.enumToString]['leadership'] ? 'below-reference' : (ganger.leadership == referenceValues[ganger.type.enumToString]['leadership'] ? 'at-reference' : 'above-reference') }}">{{ ganger.leadership }}</td>
-                <td class="numeric">{{ ganger.experience }}</td>
-                <td class="numeric">{{ ganger.cost }}</td>
-                <td class="numeric">{{ ganger.rating }}</td>
-                <td class="ganger-details">
-                    <strong>{{ 'Weapons'|trans }}:</strong> {{ ganger.weapons | map(weapon => weapon|trans) | join(', ') }}<br>
-                    <strong>{{ 'Skills'|trans }}:</strong> {{ ganger.skills | map(skill => skill|trans) | join(', ') }}<br>
-                    <strong>{{ 'Equipment'|trans }}:</strong> {{ ganger.equipements | map(equipment => equipment|trans) | join(', ') }}<br>
-                    <strong>{{ 'Injuries'|trans }}:</strong> {{ ganger.injuries | map(injury => injury|trans) | join(', ') }}
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <h2>{{ 'Weapons'|trans }}</h2>
-    <table class="weapons">
-        <thead>
-        <tr>
-            <th>{{ 'Name'|trans }}</th>
-            <th>{{ 'Short range'|trans }}</th>
-            <th>{{ 'Long range'|trans }}</th>
-            <th>{{ 'Bonus to hit short range'|trans }}</th>
-            <th>{{ 'Bonus to hit long range'|trans }}</th>
-            <th>{{ 'Strength'|trans }}</th>
-            <th>{{ 'Damage'|trans }}</th>
-            <th>{{ 'Save modifier'|trans }}</th>
-            <th>{{ 'Ammo roll'|trans }}</th>
-            <th>{{ 'Special'|trans }}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for weapon in weapons %}
+            </thead>
+            <tbody>
             <tr>
-                <td>{{ weapon.name.enumToString|trans }}</td>
-                <td class="numeric">{{ weapon.name.getShortRange }}</td>
-                <td class="numeric">{{ weapon.name.getLongRange }}</td>
-                <td class="numeric">{{ weapon.name.getBonusToHitShort }}</td>
-                <td class="numeric">{{ weapon.name.getBonusToHitLong }}</td>
-                <td class="numeric">{{ weapon.name.getStrength }}</td>
-                <td class="numeric">{{ weapon.name.getDamage }}</td>
-                <td class="numeric">{{ weapon.name.getSaveModifier }}</td>
-                <td class="numeric">{{ weapon.name.getAmmoRoll }}</td>
-                {% set special = weapon.name.getSpecial | split(',') | map(special => special | trim | trans) %}
-                <td>{{ special| join(', ') }}</td>
+                <td>{{ gang.credits }}</td>
+                <td>{{ gang.active ? 'Yes' : 'No' }}</td>
+                <td>{{ gang.house.enumToString }}</td>
+                <td>{{ gang.rating }}</td>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <h2>{{ 'Weapons special'|trans }}</h2>
-    <table class="specials">
-        <thead>
-        <tr>
-            <th>{{ 'Name'|trans }}</th>
-            <th>{{ 'Description'|trans }}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for key, special in specials %}
+        <h2>{{ 'Territories'|trans }}</h2>
+        <table class="territories">
+            <thead>
             <tr>
-                <td>{{ key|trans }}</td>
-                <td>{{ special|trans }}</td>
+                <th>{{ 'Name'|trans }}</th>
+                <th>{{ 'Effects'|trans }}</th>
+                <th>{{ 'Credits'|trans }}</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for territory in gang.territories %}
+                <tr>
+                    <td>{{ territory.name.enumToString|trans }}</td>
+                    <td>{{ territory.getEffect |default('None') |trans }}</td>
+                    <td>{{ territory.incomeAsString }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <h2>{{ 'Skills'|trans }}</h2>
-    <table class="skills">
-        <thead>
-        <tr>
-            <th>{{ 'Name'|trans }}</th>
-            <th>{{ 'Description'|trans }}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for skill in skills %}
+        <h2>{{ 'Gangers'|trans }}</h2>
+        <table class="gangers">
+            <thead>
             <tr>
-                <td>{{ skill.name.enumToString|trans }}</td>
-                <td>{{ skill.name.getDescription|trans }}</td>
+                <th>{{ 'Name'|trans }}</th>
+                <th>{{ 'Type'|trans }}</th>
+                <th class="numeric">M</th>
+                <th class="numeric">WS</th>
+                <th class="numeric">BS</th>
+                <th class="numeric">S</th>
+                <th class="numeric">T</th>
+                <th class="numeric">W</th>
+                <th class="numeric">I</th>
+                <th class="numeric">A</th>
+                <th class="numeric">L</th>
+                <th class="numeric">Exp</th>
+                <th class="numeric">{{ 'Cost'|trans }}</th>
+                <th class="numeric">{{ 'Rating'|trans }}</th>
+                <th>{{ 'Details'|trans }}</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for ganger in gangers %}
+                <tr class="
+                    {% if ganger.type.enumToString == 'leader'%}
+                        leader
+                    {% elseif ganger.type.enumToString == 'heavy' %}
+                        heavy
+                    {% elseif ganger.type.enumToString == 'ganger' %}
+                        ganger
+                    {% elseif ganger.type.enumToString == 'juve' %}
+                        juve
+                    {% elseif ganger.type.enumToString in ['underhive scum', 'bounty hunter', 'ratskin scout'] %}
+                        hired-gun
+                    {% endif %}
+                ">
+                    <td>{{ ganger.name }}</td>
+                    <td>{{ ganger.type.enumToString|trans }}</td>
+                    <td class="numeric {{ ganger.move < referenceValues[ganger.type.enumToString]['move'] ? 'below-reference' : (ganger.move == referenceValues[ganger.type.enumToString]['move'] ? 'at-reference' : 'above-reference') }}">{{ ganger.move }}</td>
+                    <td class="numeric {{ ganger.weaponSkill < referenceValues[ganger.type.enumToString]['weaponSkill'] ? 'below-reference' : (ganger.weaponSkill == referenceValues[ganger.type.enumToString]['weaponSkill'] ? 'at-reference' : 'above-reference') }}">{{ ganger.weaponSkill }}</td>
+                    <td class="numeric {{ ganger.ballisticSkill < referenceValues[ganger.type.enumToString]['ballisticSkill'] ? 'below-reference' : (ganger.ballisticSkill == referenceValues[ganger.type.enumToString]['ballisticSkill'] ? 'at-reference' : 'above-reference') }}">{{ ganger.ballisticSkill }}</td>
+                    <td class="numeric {{ ganger.strength < referenceValues[ganger.type.enumToString]['strength'] ? 'below-reference' : (ganger.strength == referenceValues[ganger.type.enumToString]['strength'] ? 'at-reference' : 'above-reference') }}">{{ ganger.strength }}</td>
+                    <td class="numeric {{ ganger.toughness < referenceValues[ganger.type.enumToString]['toughness'] ? 'below-reference' : (ganger.toughness == referenceValues[ganger.type.enumToString]['toughness'] ? 'at-reference' : 'above-reference') }}">{{ ganger.toughness }}</td>
+                    <td class="numeric {{ ganger.wounds < referenceValues[ganger.type.enumToString]['wounds'] ? 'below-reference' : (ganger.wounds == referenceValues[ganger.type.enumToString]['wounds'] ? 'at-reference' : 'above-reference') }}">{{ ganger.wounds }}</td>
+                    <td class="numeric {{ ganger.initiative < referenceValues[ganger.type.enumToString]['initiative'] ? 'below-reference' : (ganger.initiative == referenceValues[ganger.type.enumToString]['initiative'] ? 'at-reference' : 'above-reference') }}">{{ ganger.initiative }}</td>
+                    <td class="numeric {{ ganger.attacks < referenceValues[ganger.type.enumToString]['attacks'] ? 'below-reference' : (ganger.attacks == referenceValues[ganger.type.enumToString]['attacks'] ? 'at-reference' : 'above-reference') }}">{{ ganger.attacks }}</td>
+                    <td class="numeric {{ ganger.leadership < referenceValues[ganger.type.enumToString]['leadership'] ? 'below-reference' : (ganger.leadership == referenceValues[ganger.type.enumToString]['leadership'] ? 'at-reference' : 'above-reference') }}">{{ ganger.leadership }}</td>
+                    <td class="numeric">{{ ganger.experience }}</td>
+                    <td class="numeric">{{ ganger.cost }}</td>
+                    <td class="numeric">{{ ganger.rating }}</td>
+                    <td class="ganger-details">
+                        <strong>{{ 'Weapons'|trans }}:</strong> {{ ganger.weapons | map(weapon => weapon|trans) | join(', ') }}<br>
+                        <strong>{{ 'Skills'|trans }}:</strong> {{ ganger.skills | map(skill => skill|trans) | join(', ') }}<br>
+                        <strong>{{ 'Equipment'|trans }}:</strong> {{ ganger.equipements | map(equipment => equipment|trans) | join(', ') }}<br>
+                        <strong>{{ 'Injuries'|trans }}:</strong> {{ ganger.injuries | map(injury => injury|trans) | join(', ') }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <h2>{{ 'Equipments'|trans }}</h2>
-    <table class="equipments">
-        <thead>
-        <tr>
-            <th>{{ 'Name'|trans }}</th>
-            <th>{{ 'Description'|trans }}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for equipment in equipments %}
+        <h2>{{ 'Weapons'|trans }}</h2>
+        <table class="weapons">
+            <thead>
             <tr>
-                <td>{{ equipment.name.enumToString|trans }}</td>
-                <td>{{ equipment.name.getDescription|trans }}</td>
+                <th>{{ 'Name'|trans }}</th>
+                <th>{{ 'Short range'|trans }}</th>
+                <th>{{ 'Long range'|trans }}</th>
+                <th>{{ 'Bonus to hit short range'|trans }}</th>
+                <th>{{ 'Bonus to hit long range'|trans }}</th>
+                <th>{{ 'Strength'|trans }}</th>
+                <th>{{ 'Damage'|trans }}</th>
+                <th>{{ 'Save modifier'|trans }}</th>
+                <th>{{ 'Ammo roll'|trans }}</th>
+                <th>{{ 'Special'|trans }}</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for weapon in weapons %}
+                <tr>
+                    <td>{{ weapon.name.enumToString|trans }}</td>
+                    <td class="numeric">{{ weapon.name.getShortRange }}</td>
+                    <td class="numeric">{{ weapon.name.getLongRange }}</td>
+                    <td class="numeric">{{ weapon.name.getBonusToHitShort }}</td>
+                    <td class="numeric">{{ weapon.name.getBonusToHitLong }}</td>
+                    <td class="numeric">{{ weapon.name.getStrength }}</td>
+                    <td class="numeric">{{ weapon.name.getDamage }}</td>
+                    <td class="numeric">{{ weapon.name.getSaveModifier }}</td>
+                    <td class="numeric">{{ weapon.name.getAmmoRoll }}</td>
+                    {% set special = weapon.name.getSpecial | split(',') | map(special => special | trim | trans) %}
+                    <td>{{ special| join(', ') }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <h2>{{ 'Injuries'|trans }}</h2>
-    <table class="injuries">
-        <thead>
-        <tr>
-            <th>{{ 'Name'|trans }}</th>
-            <th>{{ 'Description'|trans }}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for injury in injuries %}
+        <h2>{{ 'Weapons special'|trans }}</h2>
+        <table class="specials">
+            <thead>
             <tr>
-                <td>{{ injury.name.enumToString|trans }}</td>
-                <td>{{ injury.name.getDescription|trans }}</td>
+                <th>{{ 'Name'|trans }}</th>
+                <th>{{ 'Description'|trans }}</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for key, special in specials %}
+                <tr>
+                    <td>{{ key|trans }}</td>
+                    <td>{{ special|trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>{{ 'Skills'|trans }}</h2>
+        <table class="skills">
+            <thead>
+            <tr>
+                <th>{{ 'Name'|trans }}</th>
+                <th>{{ 'Description'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for skill in skills %}
+                <tr>
+                    <td>{{ skill.name.enumToString|trans }}</td>
+                    <td>{{ skill.name.getDescription|trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>{{ 'Equipments'|trans }}</h2>
+        <table class="equipments">
+            <thead>
+            <tr>
+                <th>{{ 'Name'|trans }}</th>
+                <th>{{ 'Description'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for equipment in equipments %}
+                <tr>
+                    <td>{{ equipment.name.enumToString|trans }}</td>
+                    <td>{{ equipment.name.getDescription|trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>{{ 'Injuries'|trans }}</h2>
+        <table class="injuries">
+            <thead>
+            <tr>
+                <th>{{ 'Name'|trans }}</th>
+                <th>{{ 'Description'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for injury in injuries %}
+                <tr>
+                    <td>{{ injury.name.enumToString|trans }}</td>
+                    <td>{{ injury.name.getDescription|trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
     </body>
-</html>
+{% endblock %}
