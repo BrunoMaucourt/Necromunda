@@ -24,6 +24,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case HAND_FLAMER = 'Hand Flamer';
     case BOLT_PISTOL = 'Bolt Pistol';
     case PLASMA_PISTOL = 'Plasma Pistol';
+    case PLASMA_PISTOL_LOW = 'Plasma Pistol (Low)';
+    case PLASMA_PISTOL_MAX = 'Plasma Pistol (Max)';
     case NEEDLE_PISTOL = 'Needle Pistol';
     case WEB_PISTOL = 'Web Pistol';
 
@@ -43,6 +45,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
     case FLAMER = 'Flamer';
     case GRENADE_LAUNCHER = 'Grenade Launcher';
     case PLASMA_GUN = 'Plasma Gun';
+    case PLASMA_GUN_LOW = 'Plasma Gun (Low)';
+    case PLASMA_GUN_MAX = 'Plasma Gun (Max)';
     case MELTAGUN = 'Meltagun';
     case NEEDLE_RIFLE = 'Needle Rifle';
 
@@ -103,6 +107,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => WeaponsEnum::HAND_FLAMER->value,
             WeaponsEnum::BOLT_PISTOL =>  WeaponsEnum::BOLT_PISTOL->value,
             WeaponsEnum::PLASMA_PISTOL => WeaponsEnum::PLASMA_PISTOL->value,
+            WeaponsEnum::PLASMA_PISTOL_LOW => WeaponsEnum::PLASMA_PISTOL_LOW->value,
+            WeaponsEnum::PLASMA_PISTOL_MAX => WeaponsEnum::PLASMA_PISTOL_MAX->value,
             WeaponsEnum::NEEDLE_PISTOL => WeaponsEnum::NEEDLE_PISTOL->value,
             WeaponsEnum::WEB_PISTOL => WeaponsEnum::WEB_PISTOL->value,
             // Basic Weapons
@@ -120,6 +126,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => WeaponsEnum::FLAMER->value,
             WeaponsEnum::GRENADE_LAUNCHER => WeaponsEnum::GRENADE_LAUNCHER->value,
             WeaponsEnum::PLASMA_GUN => WeaponsEnum::PLASMA_GUN->value,
+            WeaponsEnum::PLASMA_GUN_LOW => WeaponsEnum::PLASMA_GUN_LOW->value,
+            WeaponsEnum::PLASMA_GUN_MAX => WeaponsEnum::PLASMA_GUN_MAX->value,
             WeaponsEnum::MELTAGUN => WeaponsEnum::MELTAGUN->value,
             WeaponsEnum::NEEDLE_RIFLE => WeaponsEnum::NEEDLE_RIFLE->value,
             // Heavy Weapons
@@ -177,6 +185,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => self::PISTOLS,
             WeaponsEnum::BOLT_PISTOL => self::PISTOLS,
             WeaponsEnum::PLASMA_PISTOL => self::PISTOLS,
+            WeaponsEnum::PLASMA_PISTOL_LOW => self::PISTOLS,
+            WeaponsEnum::PLASMA_PISTOL_MAX => self::PISTOLS,
             WeaponsEnum::NEEDLE_PISTOL => self::PISTOLS,
             WeaponsEnum::WEB_PISTOL => self::PISTOLS,
             // Basic Weapons
@@ -194,6 +204,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => self::SPECIAL_WEAPONS,
             WeaponsEnum::GRENADE_LAUNCHER => self::SPECIAL_WEAPONS,
             WeaponsEnum::PLASMA_GUN => self::SPECIAL_WEAPONS,
+            WeaponsEnum::PLASMA_GUN_LOW => self::SPECIAL_WEAPONS,
+            WeaponsEnum::PLASMA_GUN_MAX => self::SPECIAL_WEAPONS,
             WeaponsEnum::MELTAGUN => self::SPECIAL_WEAPONS,
             WeaponsEnum::NEEDLE_RIFLE => self::SPECIAL_WEAPONS,
             // Heavy Weapons
@@ -251,6 +263,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => 25,
             WeaponsEnum::BOLT_PISTOL => 25,
             WeaponsEnum::PLASMA_PISTOL => 30,
+            WeaponsEnum::PLASMA_PISTOL_LOW => 30,
+            WeaponsEnum::PLASMA_PISTOL_MAX => 30,
             WeaponsEnum::NEEDLE_PISTOL => 80,
             WeaponsEnum::WEB_PISTOL => 120,
             // Basic Weapons
@@ -268,6 +282,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => 40,
             WeaponsEnum::GRENADE_LAUNCHER => 60,
             WeaponsEnum::PLASMA_GUN => 80,
+            WeaponsEnum::PLASMA_GUN_LOW => 80,
+            WeaponsEnum::PLASMA_GUN_MAX => 80,
             WeaponsEnum::MELTAGUN => 95,
             WeaponsEnum::NEEDLE_RIFLE => 180,
             // Heavy Weapons
@@ -325,6 +341,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => 0,
             WeaponsEnum::BOLT_PISTOL => 0,
             WeaponsEnum::PLASMA_PISTOL => 0,
+            WeaponsEnum::PLASMA_PISTOL_LOW => 0,
+            WeaponsEnum::PLASMA_PISTOL_MAX => 0,
             WeaponsEnum::NEEDLE_PISTOL => 4,
             WeaponsEnum::WEB_PISTOL => 4,
             // Basic Weapons
@@ -342,6 +360,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => 0,
             WeaponsEnum::GRENADE_LAUNCHER => 0,
             WeaponsEnum::PLASMA_GUN => 0,
+            WeaponsEnum::PLASMA_GUN_LOW => 0,
+            WeaponsEnum::PLASMA_GUN_MAX => 0,
             WeaponsEnum::MELTAGUN => 0,
             WeaponsEnum::NEEDLE_RIFLE => 4,
             // Heavy Weapons
@@ -398,6 +418,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => ' - ',
             WeaponsEnum::BOLT_PISTOL => '0-8',
             WeaponsEnum::PLASMA_PISTOL => '0-8',
+            WeaponsEnum::PLASMA_PISTOL_LOW => '0-8',
+            WeaponsEnum::PLASMA_PISTOL_MAX => '0-8',
             WeaponsEnum::NEEDLE_PISTOL => '0-8',
             WeaponsEnum::WEB_PISTOL => '0-6',
             // Basic Weapons
@@ -415,6 +437,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => ' - ',
             WeaponsEnum::GRENADE_LAUNCHER => '0-14',
             WeaponsEnum::PLASMA_GUN => '0-8',
+            WeaponsEnum::PLASMA_GUN_LOW => '0-8',
+            WeaponsEnum::PLASMA_GUN_MAX => '0-12',
             WeaponsEnum::MELTAGUN => '0-6',
             WeaponsEnum::NEEDLE_RIFLE => '0-16',
             // Heavy Weapons
@@ -472,6 +496,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => ' - ',
             WeaponsEnum::BOLT_PISTOL => '8-16',
             WeaponsEnum::PLASMA_PISTOL => '8-16',
+            WeaponsEnum::PLASMA_PISTOL_LOW => '8-16',
+            WeaponsEnum::PLASMA_PISTOL_MAX => '8-16',
             WeaponsEnum::NEEDLE_PISTOL => '8-16',
             WeaponsEnum::WEB_PISTOL => '6-9',
             // Basic Weapons
@@ -489,6 +515,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => ' - ',
             WeaponsEnum::GRENADE_LAUNCHER => '14-28',
             WeaponsEnum::PLASMA_GUN => '8-24',
+            WeaponsEnum::PLASMA_GUN_LOW => '8-24',
+            WeaponsEnum::PLASMA_GUN_MAX => '12-24',
             WeaponsEnum::MELTAGUN => '6-12',
             WeaponsEnum::NEEDLE_RIFLE => '16-32',
             // Heavy Weapons
@@ -546,6 +574,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => ' - ',
             WeaponsEnum::BOLT_PISTOL => '+2',
             WeaponsEnum::PLASMA_PISTOL => '+1',
+            WeaponsEnum::PLASMA_PISTOL_LOW => '+1',
+            WeaponsEnum::PLASMA_PISTOL_MAX => '+2',
             WeaponsEnum::NEEDLE_PISTOL => '+2',
             WeaponsEnum::WEB_PISTOL => ' - ',
             // Basic Weapons
@@ -563,6 +593,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => ' - ',
             WeaponsEnum::GRENADE_LAUNCHER => ' - ',
             WeaponsEnum::PLASMA_GUN => '+1',
+            WeaponsEnum::PLASMA_GUN_LOW => '+1',
+            WeaponsEnum::PLASMA_GUN_MAX => '+1',
             WeaponsEnum::MELTAGUN => '+1',
             WeaponsEnum::NEEDLE_RIFLE => '+1',
             // Heavy Weapons
@@ -619,6 +651,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => ' - ',
             WeaponsEnum::BOLT_PISTOL => ' - ',
             WeaponsEnum::PLASMA_PISTOL => ' - ',
+            WeaponsEnum::PLASMA_PISTOL_LOW => ' - ',
+            WeaponsEnum::PLASMA_PISTOL_MAX => ' - ',
             WeaponsEnum::NEEDLE_PISTOL => ' - ',
             WeaponsEnum::WEB_PISTOL => '-1',
             // Basic Weapons
@@ -636,6 +670,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => ' - ',
             WeaponsEnum::GRENADE_LAUNCHER => '-1',
             WeaponsEnum::PLASMA_GUN => ' - ',
+            WeaponsEnum::PLASMA_GUN_LOW => ' - ',
+            WeaponsEnum::PLASMA_GUN_MAX => ' - ',
             WeaponsEnum::MELTAGUN => ' - ',
             WeaponsEnum::NEEDLE_RIFLE => ' - ',
             // Heavy Weapons
@@ -693,6 +729,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => '3',
             WeaponsEnum::BOLT_PISTOL => '4',
             WeaponsEnum::PLASMA_PISTOL => '4',
+            WeaponsEnum::PLASMA_PISTOL_LOW => '4',
+            WeaponsEnum::PLASMA_PISTOL_MAX => '5',
             WeaponsEnum::NEEDLE_PISTOL => '3',
             WeaponsEnum::WEB_PISTOL => ' - ',
             // Basic Weapons
@@ -710,6 +748,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => '4',
             WeaponsEnum::GRENADE_LAUNCHER => ' - ',
             WeaponsEnum::PLASMA_GUN => '5',
+            WeaponsEnum::PLASMA_GUN_LOW => '5',
+            WeaponsEnum::PLASMA_GUN_MAX => '6',
             WeaponsEnum::MELTAGUN => '8',
             WeaponsEnum::NEEDLE_RIFLE => '3',
             // Heavy Weapons
@@ -767,6 +807,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => '1',
             WeaponsEnum::BOLT_PISTOL => '1',
             WeaponsEnum::PLASMA_PISTOL => '1',
+            WeaponsEnum::PLASMA_PISTOL_LOW => '1',
+            WeaponsEnum::PLASMA_PISTOL_MAX => '1',
             WeaponsEnum::NEEDLE_PISTOL => '1',
             WeaponsEnum::WEB_PISTOL => ' - ',
             // Basic Weapons
@@ -784,6 +826,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => '1',
             WeaponsEnum::GRENADE_LAUNCHER => ' - ',
             WeaponsEnum::PLASMA_GUN => '1',
+            WeaponsEnum::PLASMA_GUN_LOW => '1',
+            WeaponsEnum::PLASMA_GUN_MAX => '1',
             WeaponsEnum::MELTAGUN => 'D6',
             WeaponsEnum::NEEDLE_RIFLE => '1',
             // Heavy Weapons
@@ -841,6 +885,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => '-1',
             WeaponsEnum::BOLT_PISTOL => '-1',
             WeaponsEnum::PLASMA_PISTOL => '-1',
+            WeaponsEnum::PLASMA_PISTOL_LOW => '-1',
+            WeaponsEnum::PLASMA_PISTOL_MAX => '-2',
             WeaponsEnum::NEEDLE_PISTOL => '-1',
             WeaponsEnum::WEB_PISTOL => ' - ',
             // Basic Weapons
@@ -858,6 +904,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => '-2',
             WeaponsEnum::GRENADE_LAUNCHER => ' - ',
             WeaponsEnum::PLASMA_GUN => '-2',
+            WeaponsEnum::PLASMA_GUN_LOW => '-2',
+            WeaponsEnum::PLASMA_GUN_MAX => '-3',
             WeaponsEnum::MELTAGUN => '-5',
             WeaponsEnum::NEEDLE_RIFLE => '-1',
             // Heavy Weapons
@@ -915,6 +963,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => '5+',
             WeaponsEnum::BOLT_PISTOL => '6+',
             WeaponsEnum::PLASMA_PISTOL => '4+',
+            WeaponsEnum::PLASMA_PISTOL_LOW => '4+',
+            WeaponsEnum::PLASMA_PISTOL_MAX => '6+',
             WeaponsEnum::NEEDLE_PISTOL => '6+',
             WeaponsEnum::WEB_PISTOL => '6+',
             // Basic Weapons
@@ -932,6 +982,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => '4+',
             WeaponsEnum::GRENADE_LAUNCHER => '6+',
             WeaponsEnum::PLASMA_GUN => '4+',
+            WeaponsEnum::PLASMA_GUN_LOW => '4+',
+            WeaponsEnum::PLASMA_GUN_MAX => '6+',
             WeaponsEnum::MELTAGUN => '4+',
             WeaponsEnum::NEEDLE_RIFLE => '6+',
             // Heavy Weapons
@@ -989,6 +1041,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => 'Flamer, Ammo Roll, Catch Fire (5+)',
             WeaponsEnum::BOLT_PISTOL => ' - ',
             WeaponsEnum::PLASMA_PISTOL => ' - ',
+            WeaponsEnum::PLASMA_PISTOL_LOW => ' - ',
+            WeaponsEnum::PLASMA_PISTOL_MAX => 'Gets Hot',
             WeaponsEnum::NEEDLE_PISTOL => 'Toxic Dart, Injuries, Silent',
             WeaponsEnum::WEB_PISTOL => 'Webbed Targets, Solvent, Capture',
             // Basic Weapons
@@ -1006,6 +1060,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => 'Flamer, Ammo Roll, Catch Fire (4+)',
             WeaponsEnum::GRENADE_LAUNCHER => 'Ammo',
             WeaponsEnum::PLASMA_GUN => ' - ',
+            WeaponsEnum::PLASMA_GUN_LOW => ' - ',
+            WeaponsEnum::PLASMA_GUN_MAX => 'Sustained Fire (1), Gets Hot',
             WeaponsEnum::MELTAGUN => 'High Impact',
             WeaponsEnum::NEEDLE_RIFLE => 'Toxic Dart, Injuries, Silent',
             // Heavy Weapons
@@ -1073,6 +1129,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::HAND_FLAMER => true,
             WeaponsEnum::BOLT_PISTOL => true,
             WeaponsEnum::PLASMA_PISTOL => true,
+            WeaponsEnum::PLASMA_PISTOL_LOW => false,
+            WeaponsEnum::PLASMA_PISTOL_MAX => false,
             WeaponsEnum::NEEDLE_PISTOL => true,
             WeaponsEnum::WEB_PISTOL => true,
             // Basic Weapons
@@ -1090,6 +1148,8 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::FLAMER => true,
             WeaponsEnum::GRENADE_LAUNCHER => true,
             WeaponsEnum::PLASMA_GUN => true,
+            WeaponsEnum::PLASMA_GUN_LOW => false,
+            WeaponsEnum::PLASMA_GUN_MAX => false,
             WeaponsEnum::MELTAGUN => true,
             WeaponsEnum::NEEDLE_RIFLE => true,
             // Heavy Weapons
