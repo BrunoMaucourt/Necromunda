@@ -5,6 +5,7 @@ namespace App\service;
 use App\Entity\Gang;
 use App\Entity\Weapon;
 use App\Enum\SpecialWeaponEnum;
+use App\Enum\WeaponsEnum;
 use Doctrine\ORM\EntityManagerInterface;
 
 class WeaponService
@@ -87,5 +88,37 @@ class WeaponService
         }
 
         return $specialDescription;
+    }
+
+    /**
+     * @param $weapons
+     * @return mixed
+     */
+    public function getWeaponsWithVariants($weapons): array
+    {
+        foreach ($weapons as $index => $weapon) {
+            if ($weapon->getName() === WeaponsEnum::PLASMA_PISTOL) {
+                $plasmaPistolLow = new Weapon();
+                $plasmaPistolLow->setName(WeaponsEnum::PLASMA_PISTOL_LOW);
+                $plasmaPistolMax = new Weapon();
+                $plasmaPistolMax->setName(WeaponsEnum::PLASMA_PISTOL_MAX);
+                $weapons[] = $plasmaPistolLow;
+                $weapons[] = $plasmaPistolMax;
+                unset($weapons[$index]);
+            }
+            if ($weapon->getName() === WeaponsEnum::PLASMA_GUN) {
+                $plasmaGunLow = new Weapon();
+                $plasmaGunLow->setName(WeaponsEnum::PLASMA_GUN_LOW);
+                $plasmaGunMax = new Weapon();
+                $plasmaGunMax->setName(WeaponsEnum::PLASMA_GUN_MAX);
+                $weapons[] = $plasmaGunLow;
+                $weapons[] = $plasmaGunMax;
+                unset($weapons[$index]);
+            }
+        }
+
+        usort($weapons, fn($a, $b) => $a->getName()->enumToString() <=> $b->getName()->enumToString());
+
+        return $weapons;
     }
 }

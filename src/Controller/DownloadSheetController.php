@@ -13,6 +13,7 @@ use App\Entity\Skill;
 use App\Entity\Territory;
 use App\Entity\Weapon;
 use App\Enum\GangerTypeEnum;
+use App\Enum\WeaponsEnum;
 use App\service\WeaponService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,6 +50,7 @@ class DownloadSheetController extends AbstractController
         $injuries = $injuryRepo->findAllInjuriesByGang($id);
         $skills = $skillRepo->findAllSkillsByGang($id);
         $weapons = $weaponRepo->findAllWeaponsTypeByGang($id);
+        $weapons = $this->weaponService->getWeaponsWithVariants($weapons);
 
         $referenceValues = [
             GangerTypeEnum::leader->value => [
