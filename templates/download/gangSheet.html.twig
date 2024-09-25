@@ -130,7 +130,7 @@
             <tbody>
             {% for weapon in weapons %}
                 <tr>
-                    <td>{{ weapon.name.enumToString|trans }}</td>
+                    <td>{{ weapon.name.enumToString|trans }}{% if weapon.isCustomRules %} <strong class="redText">custom rules</strong>{% endif %}</td>
                     <td class="numeric">{{ weapon.name.getShortRange }}</td>
                     <td class="numeric">{{ weapon.name.getLongRange }}</td>
                     <td class="numeric">{{ weapon.name.getBonusToHitShort }}</td>

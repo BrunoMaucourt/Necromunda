@@ -234,6 +234,10 @@ th {
     margin-top: 20px;
 }
 
+.redText {
+    color: red;
+}
+
 @media print {
     body {
         margin: 10mm;
