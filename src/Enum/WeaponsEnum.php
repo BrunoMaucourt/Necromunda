@@ -31,6 +31,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
 
     // Basic Weapons
     case AUTOGUN = 'Autogun';
+    case SHOTGUN = 'Shotgun (Solid Slug / Scatter Shot)';
     case SHOTGUN_SOLID_SLUG = 'Shotgun (Solid Slug)';
     case SHOTGUN_SCATTER_SHOT = 'Shotgun (Scatter Shot)';
     case SHOTGUN_MANSTOPPER = 'Shotgun (Manstopper)';
@@ -93,7 +94,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
 
     // Enfoncers
     case COMBAT_RIFLE = 'Combat Rifle';
-    case EXECUTIONER_SHELLS = 'Executioner shells';
+    case COMBAT_RIFLE_SOLID_SHELLS = 'Combat Rifle (Solid Slug)';
+    case COMBAT_RIFLE_SCATTER_SHELLS = 'Combat Rifle (Scatter Slug)';
+    case COMBAT_RIFLE_EXECUTIONER_SHELLS = 'Combat Rifle (Executioner Shells)';
     case SUPPRESSIVE_SHIELD = 'Suppressive Shield';
     case WEB_LAUNCHER = 'Web Launcher';
 
@@ -113,6 +116,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => WeaponsEnum::WEB_PISTOL->value,
             // Basic Weapons
             WeaponsEnum::AUTOGUN =>  WeaponsEnum::AUTOGUN->value,
+            WeaponsEnum::SHOTGUN =>  WeaponsEnum::SHOTGUN->value,
             WeaponsEnum::SHOTGUN_SOLID_SLUG =>  WeaponsEnum::SHOTGUN_SOLID_SLUG->value,
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => WeaponsEnum::SHOTGUN_SCATTER_SHOT->value,
             WeaponsEnum::SHOTGUN_MANSTOPPER =>  WeaponsEnum::SHOTGUN_MANSTOPPER->value,
@@ -169,7 +173,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => WeaponsEnum::MISSILE_LAUNCHER_KRAK->value,
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => WeaponsEnum::COMBAT_RIFLE->value,
-            WeaponsEnum::EXECUTIONER_SHELLS => WeaponsEnum::EXECUTIONER_SHELLS->value,
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS->value,
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS->value,
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS->value,
             WeaponsEnum::SUPPRESSIVE_SHIELD => WeaponsEnum::SUPPRESSIVE_SHIELD->value,
             WeaponsEnum::WEB_LAUNCHER => WeaponsEnum::WEB_LAUNCHER->value,
         };
@@ -191,6 +197,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => self::PISTOLS,
             // Basic Weapons
             WeaponsEnum::AUTOGUN => self::BASIC_WEAPONS,
+            WeaponsEnum::SHOTGUN => self::BASIC_WEAPONS,
             WeaponsEnum::SHOTGUN_SOLID_SLUG => self::BASIC_WEAPONS,
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => self::BASIC_WEAPONS,
             WeaponsEnum::SHOTGUN_MANSTOPPER => self::BASIC_WEAPONS,
@@ -247,7 +254,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => self::SPECIAL_AMNUMITIONS,
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => self::ENFONCERS,
-            WeaponsEnum::EXECUTIONER_SHELLS => self::ENFONCERS,
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => self::ENFONCERS,
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => self::ENFONCERS,
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => self::ENFONCERS,
             WeaponsEnum::SUPPRESSIVE_SHIELD => self::ENFONCERS,
             WeaponsEnum::WEB_LAUNCHER => self::ENFONCERS,
         };
@@ -269,6 +278,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => 120,
             // Basic Weapons
             WeaponsEnum::AUTOGUN => 20,
+            WeaponsEnum::SHOTGUN => 20,
             WeaponsEnum::SHOTGUN_SOLID_SLUG => 20,
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => 20,
             WeaponsEnum::SHOTGUN_MANSTOPPER => 25,
@@ -325,7 +335,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => 50,
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => 0,
-            WeaponsEnum::EXECUTIONER_SHELLS => 0,
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => 0,
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => 0,
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => 0,
             WeaponsEnum::SUPPRESSIVE_SHIELD => 0,
             WeaponsEnum::WEB_LAUNCHER => 0,
         };
@@ -347,6 +359,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => 4,
             // Basic Weapons
             WeaponsEnum::AUTOGUN => 0,
+            WeaponsEnum::SHOTGUN => 0,
             WeaponsEnum::SHOTGUN_SOLID_SLUG => 0,
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => 0,
             WeaponsEnum::SHOTGUN_MANSTOPPER => 0,
@@ -403,7 +416,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => 0,
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => 0,
-            WeaponsEnum::EXECUTIONER_SHELLS => 0,
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => 0,
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => 0,
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => 0,
             WeaponsEnum::SUPPRESSIVE_SHIELD => 0,
             WeaponsEnum::WEB_LAUNCHER => 0,
         };
@@ -424,6 +439,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => '0-6',
             // Basic Weapons
             WeaponsEnum::AUTOGUN => '0-12',
+            WeaponsEnum::SHOTGUN => '0-4',
             WeaponsEnum::SHOTGUN_SOLID_SLUG => '0-4',
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => '0-4',
             WeaponsEnum::SHOTGUN_MANSTOPPER => '0-4',
@@ -480,7 +496,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => '0-20',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '0-4',
-            WeaponsEnum::EXECUTIONER_SHELLS => '0-4',
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => '0-4',
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => '0-4',
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => '0-4',
             WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
             WeaponsEnum::WEB_LAUNCHER => '0-8',
         };
@@ -502,6 +520,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => '6-9',
             // Basic Weapons
             WeaponsEnum::AUTOGUN => '12-24',
+            WeaponsEnum::SHOTGUN => '4-18',
             WeaponsEnum::SHOTGUN_SOLID_SLUG => '4-18',
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => '4-18',
             WeaponsEnum::SHOTGUN_MANSTOPPER => '4-18',
@@ -558,7 +577,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => '20-72',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '4-18',
-            WeaponsEnum::EXECUTIONER_SHELLS => '4-18',
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => '4-18',
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => '4-18',
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => '4-18',
             WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
             WeaponsEnum::WEB_LAUNCHER => '8-12',
         };
@@ -580,6 +601,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => ' - ',
             // Basic Weapons
             WeaponsEnum::AUTOGUN => '+1',
+            WeaponsEnum::SHOTGUN => '+1',
             WeaponsEnum::SHOTGUN_SOLID_SLUG => '+1',
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => '+1',
             WeaponsEnum::SHOTGUN_MANSTOPPER => '+1',
@@ -636,7 +658,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => ' - ',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '+1',
-            WeaponsEnum::EXECUTIONER_SHELLS => '-1',
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => '+1',
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => '+1',
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => '-1',
             WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
             WeaponsEnum::WEB_LAUNCHER => ' - ',
         };
@@ -657,6 +681,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => '-1',
             // Basic Weapons
             WeaponsEnum::AUTOGUN => ' - ',
+            WeaponsEnum::SHOTGUN => '-1',
             WeaponsEnum::SHOTGUN_SOLID_SLUG => '-1',
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => '-1',
             WeaponsEnum::SHOTGUN_MANSTOPPER => ' - ',
@@ -713,7 +738,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => ' - ',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '-1',
-            WeaponsEnum::EXECUTIONER_SHELLS => '+1',
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => '-1',
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => '-1',
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => '+1',
             WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
             WeaponsEnum::WEB_LAUNCHER => '-1',
         };
@@ -735,6 +762,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => ' - ',
             // Basic Weapons
             WeaponsEnum::AUTOGUN => '3',
+            WeaponsEnum::SHOTGUN => '4',
             WeaponsEnum::SHOTGUN_SOLID_SLUG => '4',
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => '3',
             WeaponsEnum::SHOTGUN_MANSTOPPER => '4',
@@ -791,7 +819,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => '8',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '4',
-            WeaponsEnum::EXECUTIONER_SHELLS => '4',
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => '4',
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => '3',
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => '4',
             WeaponsEnum::SUPPRESSIVE_SHIELD => '3',
             WeaponsEnum::WEB_LAUNCHER => ' - ',
         };
@@ -813,6 +843,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => ' - ',
             // Basic Weapons
             WeaponsEnum::AUTOGUN => '1',
+            WeaponsEnum::SHOTGUN => '1',
             WeaponsEnum::SHOTGUN_SOLID_SLUG => '1',
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => '1',
             WeaponsEnum::SHOTGUN_MANSTOPPER => '1',
@@ -869,7 +900,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => 'D6',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '1',
-            WeaponsEnum::EXECUTIONER_SHELLS => '1',
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => '1',
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => '1',
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => '1',
             WeaponsEnum::SUPPRESSIVE_SHIELD => '1',
             WeaponsEnum::WEB_LAUNCHER => ' - ',
         };
@@ -891,6 +924,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => ' - ',
             // Basic Weapons
             WeaponsEnum::AUTOGUN => ' - ',
+            WeaponsEnum::SHOTGUN => ' - ',
             WeaponsEnum::SHOTGUN_SOLID_SLUG => ' - ',
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => ' - ',
             WeaponsEnum::SHOTGUN_MANSTOPPER => ' - ',
@@ -947,7 +981,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => '-5',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => ' - ',
-            WeaponsEnum::EXECUTIONER_SHELLS => '-2',
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => ' - ',
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => ' - ',
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => '-2',
             WeaponsEnum::SUPPRESSIVE_SHIELD => '-1',
             WeaponsEnum::WEB_LAUNCHER => ' - ',
         };
@@ -969,6 +1005,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => '6+',
             // Basic Weapons
             WeaponsEnum::AUTOGUN => '4+',
+            WeaponsEnum::SHOTGUN => '4+',
             WeaponsEnum::SHOTGUN_SOLID_SLUG => '4+',
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => '4+',
             WeaponsEnum::SHOTGUN_MANSTOPPER => '4+',
@@ -1025,7 +1062,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => '6+',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => '4+',
-            WeaponsEnum::EXECUTIONER_SHELLS => '6+',
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => '4+',
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => '4+',
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => '6+',
             WeaponsEnum::SUPPRESSIVE_SHIELD => ' - ',
             WeaponsEnum::WEB_LAUNCHER => '5+',
         };
@@ -1047,6 +1086,7 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => 'Webbed Targets, Solvent, Capture',
             // Basic Weapons
             WeaponsEnum::AUTOGUN => ' - ',
+            WeaponsEnum::SHOTGUN => ' - ',
             WeaponsEnum::SHOTGUN_SOLID_SLUG => 'Knock-back',
             WeaponsEnum::SHOTGUN_SCATTER_SHOT => 'Saturation',
             WeaponsEnum::SHOTGUN_MANSTOPPER => 'Knock-back',
@@ -1103,7 +1143,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => 'High Impact',
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => ' - ',
-            WeaponsEnum::EXECUTIONER_SHELLS => ' - ',
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => 'Knock-back',
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => 'Saturation',
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => ' - ',
             WeaponsEnum::SUPPRESSIVE_SHIELD => 'Armor',
             WeaponsEnum::WEB_LAUNCHER => 'Webbed Targets, Solvent, Capture',
         };
@@ -1135,8 +1177,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::WEB_PISTOL => true,
             // Basic Weapons
             WeaponsEnum::AUTOGUN => true,
-            WeaponsEnum::SHOTGUN_SOLID_SLUG => true,
-            WeaponsEnum::SHOTGUN_SCATTER_SHOT => true,
+            WeaponsEnum::SHOTGUN => true,
+            WeaponsEnum::SHOTGUN_SOLID_SLUG => false,
+            WeaponsEnum::SHOTGUN_SCATTER_SHOT => false,
             WeaponsEnum::SHOTGUN_MANSTOPPER => false,
             WeaponsEnum::SHOTGUN_HOT_SHOT => false,
             WeaponsEnum::SHOTGUN_BOLT => false,
@@ -1191,7 +1234,9 @@ enum WeaponsEnum: string implements ItemEnumInterface
             WeaponsEnum::MISSILE_LAUNCHER_KRAK => true,
             // Enfoncers
             WeaponsEnum::COMBAT_RIFLE => true,
-            WeaponsEnum::EXECUTIONER_SHELLS => false,
+            WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS => false,
+            WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS => false,
+            WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS => false,
             WeaponsEnum::SUPPRESSIVE_SHIELD => true,
             WeaponsEnum::WEB_LAUNCHER => true,
         };
