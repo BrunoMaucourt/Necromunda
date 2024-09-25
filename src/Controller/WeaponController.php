@@ -78,6 +78,18 @@ class WeaponController extends AbstractController
         $allWeapons = WeaponsEnum::cases();
         $allSpecialWeapons = SpecialWeaponEnum::cases();
 
+        foreach ($allWeapons as $key => $weapon) {
+            if (
+                $weapon == WeaponsEnum::SHOTGUN ||
+                $weapon == WeaponsEnum::COMBAT_RIFLE ||
+                $weapon == WeaponsEnum::PLASMA_GUN ||
+                $weapon == WeaponsEnum::PLASMA_PISTOL ||
+                $weapon == WeaponsEnum::MISSILE_LAUNCHER
+            ) {
+                unset($allWeapons[$key]);
+            }
+        }
+
         return $this->render('informations/weapon.html.twig', [
             'specials' => $allSpecialWeapons,
             'weapons' => $allWeapons
