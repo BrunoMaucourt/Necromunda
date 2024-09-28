@@ -12,6 +12,7 @@ enum HouseEnum: string
     case Goliath = 'Goliath';
     case Orlock = 'Orlock';
     case VanSaar = 'Van saar';
+    case Enfoncers = 'Enfoncers';
 
     public function enumToString(): string
     {
@@ -23,6 +24,7 @@ enum HouseEnum: string
             self::Goliath => HouseEnum::Goliath->value,
             self::Orlock =>  HouseEnum::Orlock->value,
             self::VanSaar =>  HouseEnum::VanSaar->value,
+            self::Enfoncers =>  HouseEnum::Enfoncers->value,
         };
     }
 }
