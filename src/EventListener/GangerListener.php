@@ -388,14 +388,12 @@ class GangerListener
                             $ganger->addSkill($killerReputation);
                             $dicesResultsMessage = $this->translator->trans('skill') . " - " . $this->translator->trans('killer reputation') . " (" . $this->translator->trans('ferocity') . ")";
                             break;
+                        }
+
+                        $hiredGunMessage .= $this->translator->trans('advancement dice result') . " - " . $dicesResults . " : " . $dicesResultsMessage . "\n";
+                        $advancements--;
                     }
-
-                    $hiredGunMessage .= $this->translator->trans('advancement dice result') . " - " . $dicesResults . " : " . $dicesResultsMessage . "\n";
-                    $advancements--;
                 }
-            }
-
-
             }
 
             if ($ganger->getType() === GangerTypeEnum::ratskin_scout) {
