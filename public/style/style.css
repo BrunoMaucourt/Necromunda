@@ -98,6 +98,10 @@
     .form__container-input form label, .form__container-input form select{
         margin: 10px;
     }
+
+    .error-card a {
+        font-size: 32px!important;
+    }
 }
 
 .crudResponsive .form-fieldset-body.without-header.show .row, .crudResponsive .form-fieldset-body.without-header.show .row .form-group {
@@ -236,6 +240,69 @@ th {
 
 .redText {
     color: red;
+}
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.error-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.error-card {
+    background: #f3f3f3;
+    border: solid 1px grey;
+    border-radius: 0.25rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.6);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-card img {
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.error-card h2 {
+    font-size: 16px;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.error-card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.error-card a {
+    margin: 30px 0;
+    background-color: #d4edda;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid #c3e6cb;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.error-card a:hover {
+    background-color: #8b9a8e;
+    border: 1px solid #39433b;
 }
 
 @media print {
