@@ -1337,6 +1337,14 @@
         <source>This weapon emits a flash or smoke, temporarily blinding the target and reducing their accuracy.</source>
         <target>Cette arme émet un flash ou de la fumée, aveuglant temporairement la cible et réduisant sa précision.</target>
       </trans-unit>
+    <trans-unit id="ZMgqrtG" resname="Blind">
+        <source>Blast</source>
+        <target>Petit gabarit</target>
+      </trans-unit>
+      <trans-unit id="yHYah7g" resname="This weapon emits a flash or smoke, temporarily blinding the target and reducing their accuracy.">
+        <source>The weapon uses a small blast template.</source>
+        <target>L'arme utilise un petit gabarit d'explosion</target>
+      </trans-unit>
       <trans-unit id="GQC0eKW" resname="Capture">
         <source>Capture</source>
         <target>Capture</target>
@@ -1580,6 +1588,14 @@
       <trans-unit id="kfZ2sPe" resname="This weapon emits a terrifying sound or effect, causing fear tests in enemies.">
         <source>This weapon emits a terrifying sound or effect, causing fear tests in enemies.</source>
         <target>Cette arme émet un son ou un effet terrifiant, provoquant des tests de peur chez les ennemis.</target>
+      </trans-unit>
+       <trans-unit id="fIQvLJ6" resname="Scare">
+        <source>Smoke</source>
+        <target>Fumée</target>
+      </trans-unit>
+      <trans-unit id="kfZ2sPe" resname="This weapon emits a terrifying sound or effect, causing fear tests in enemies.">
+        <source>Models cannot shoot through the template and move randomly at half their speed. The Weapon Skill (WS) of models in the smoke is halved.</source>
+        <target>Les figurines ne peuvent tirer à travers le gabarit et s'y déplace aléatoirement à la moitié de leur vitesse. La Capacité de combat (WS) de figurines dans la fumée est divisée par deux.</target>
       </trans-unit>
       <trans-unit id="3bzwZyZ" resname="Silent">
         <source>Silent</source>

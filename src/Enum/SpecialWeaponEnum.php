@@ -8,6 +8,7 @@ enum SpecialWeaponEnum: string
 {
     case Ammo_Roll = 'Ammo Roll';
     case Armor = 'Armor';
+    case Blast = 'blast';
     case Blind = 'Blind';
     case Capture = 'Capture';
     case Catch_Fire_3 = 'Catch Fire (3+)';
@@ -42,6 +43,7 @@ enum SpecialWeaponEnum: string
     case Saturation = 'Saturation';
     case Scare = 'Scare';
     case Silent = 'Silent';
+    case smoke = 'smoke';
     case Sustained_Fire_1 = 'Sustained Fire (1)';
     case Sustained_Fire_2 = 'Sustained Fire (2)';
     case Terrifying_Force = 'Terrifying Force';
@@ -56,6 +58,7 @@ enum SpecialWeaponEnum: string
         {
             self::Ammo_Roll => self::Ammo_Roll->value,
             self::Armor => self::Armor->value,
+            self::Blast => self::Blast->value,
             self::Blind => self::Blind->value,
             self::Capture => self::Capture->value,
             self::Catch_Fire_3 => self::Catch_Fire_3->value,
@@ -106,6 +109,7 @@ enum SpecialWeaponEnum: string
         {
             self::Ammo_Roll => 'The heavy flamer must roll for Ammo each time it fires.',
             self::Armor => 'Grants a 5+ armor save against close combat hits and ranged attacks within a 90° arc in front of the enforcer.',
+            self::Blast => 'The weapon uses a small blast template.',
             self::Blind => 'This weapon emits a flash or smoke, temporarily blinding the target and reducing their accuracy.',
             self::Capture => 'A web pistol can capture an enemy in hand-to-hand combat on a roll of 4+.',
             self::Catch_Fire_3 => 'Targets hit by a hand flamer catch fire on a roll of 3+.',
@@ -138,6 +142,7 @@ enum SpecialWeaponEnum: string
             self::Parry => 'Allows a fighter with a sword to force an opponent to re-roll a higher Attack dice, unless the opponent\'s roll is lower or both are armed with swords.',
             self::Plasma_Gun => 'Fires unstable energy shells with varying power, using blast or gas cloud templates.',
             self::Saturation => 'Scatter shots ignore cover modifiers and can hit multiple targets in close proximity.',
+            self::smoke => 'This weapon emits a flash or smoke, temporarily blinding the target and reducing their accuracy.',
             self::Scare => 'This weapon emits a terrifying sound or effect, causing fear tests in enemies.',
             self::Silent => 'This weapon is silent and does not trigger alarms during stealth scenarios.',
             self::Sustained_Fire_1 => 'The weapon has a sustained fire of 1 dice.',
