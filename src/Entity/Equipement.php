@@ -50,21 +50,6 @@ class Equipement extends Item
         return $this;
     }
 
-    public function getCost(): ?int
-    {
-        return $this->cost;
-    }
-
-    public function setCost(int $cost): static
-    {
-        $newGangCredits = $this->ganger->getGang()->getCredits() - $cost;
-        $this->ganger->getGang()->setCredits($newGangCredits);
-
-        $this->cost = $cost;
-
-        return $this;
-    }
-
     public function getWeapon(): ?Weapon
     {
         return $this->weapon;
