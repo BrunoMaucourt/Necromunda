@@ -118,6 +118,13 @@ class DashboardController extends AbstractDashboardController
         ];
 
         $linksShowInformations = [
+            'Equipement' => [
+                'url' => $this->adminUrlGenerator
+                    ->setRoute('equipement_informations')
+                    ->generateUrl(),
+                'icon' => 'fas fa-gun',
+                'text' => $this->translator->trans('Equipement Informations'),
+            ],
             'Weapon' => [
                 'url' => $this->adminUrlGenerator
                     ->setRoute('weapon_informations')

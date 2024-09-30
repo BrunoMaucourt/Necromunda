@@ -38,4 +38,14 @@ class InformationsListsController extends AbstractController
             'weapons' => $allWeapons
         ]);
     }
+
+    #[Route('/{_locale<%app.supported_locales%>}/admin/equipementInformations', name: 'equipement_informations')]
+    public function EquipementInformations(Request $request): Response
+    {
+        $allEquipments = EquipementsEnum::cases();
+
+        return $this->render('informations/equipement.html.twig', [
+            'equipements' => $allEquipments
+        ]);
+    }
 }
