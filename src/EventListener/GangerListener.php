@@ -2,9 +2,11 @@
 
 namespace App\EventListener;
 
+use App\Entity\Equipement;
 use App\Entity\Ganger;
 use App\Entity\Skill;
 use App\Entity\Weapon;
+use App\Enum\EquipementsEnum;
 use App\Enum\GangerTypeEnum;
 use App\Enum\SkillsEnum;
 use App\Enum\WeaponsEnum;
@@ -143,20 +145,55 @@ class GangerListener
                     $experienceMessage = '0';
                     $advancements = 3;
                     break;
+                case GangerTypeEnum::sergeant:
+                    $ganger->setWeaponSkill(4);
+                    $ganger->setBallisticSkill(4);
+                    $ganger->setLeadership(8);
+                    $ganger->setInitiative(4);
+                    $ganger->setCost(0);
+                    $ganger->setExperience(0);
+                    $experienceMessage = '0';
+                    break;
+                case GangerTypeEnum::heavy_unit:
+                case GangerTypeEnum::special_unit:
+                case GangerTypeEnum::canine_unit:
+                case GangerTypeEnum::enforcer:
+                    $ganger->setWeaponSkill(3);
+                    $ganger->setBallisticSkill(3);
+                    $ganger->setLeadership(7);
+                    $ganger->setInitiative(3);
+                    $ganger->setCost(0);
+                    $ganger->setExperience(0);
+                    $experienceMessage = '0';
+                    break;
+                case GangerTypeEnum::cyber_mastiff:
+                    $ganger->setMove(6);
+                    $ganger->setWeaponSkill(3);
+                    $ganger->setBallisticSkill(0);
+                    $ganger->setStrength(5);
+                    $ganger->setToughness(4);
+                    $ganger->setInitiative(4);
+                    $ganger->setLeadership(0);
+                    $ganger->setCost(0);
+                    $ganger->setExperience(0);
+                    $experienceMessage = '0';
+                    break;
             }
 
             $newGangCredits = $ganger->getGang()->getCredits() - $ganger->getCost();
             $ganger->getGang()->setCredits($newGangCredits);
             $ganger->setRating($object->getCost() + $object->getExperience());
 
-            $freeKnife = New Weapon();
-            $freeKnife->setName(WeaponsEnum::KNIFE);
-            $freeKnife->setGanger($object);
-            $freeKnife->setCost(0);
-            $freeKnife->setFree(true);
-            $this->entityManager->persist($freeKnife);
+            if ($ganger->getType() ==! GangerTypeEnum::cyber_mastiff) {
+                $freeKnife = new Weapon();
+                $freeKnife->setName(WeaponsEnum::KNIFE);
+                $freeKnife->setGanger($object);
+                $freeKnife->setCost(0);
+                $freeKnife->setFree(true);
+                $this->entityManager->persist($freeKnife);
 
-            $object->addWeapon($freeKnife);
+                $object->addWeapon($freeKnife);
+            }
 
             $gangerSpecificMessage = '';
             $oldDicesResultsHiredGun = [];
@@ -171,6 +208,13 @@ class GangerListener
 
             if ($ganger->getType() === GangerTypeEnum::ratskin_scout) {
                 $gangerSpecificMessage = $this->processRatskinScout($advancements, $oldDicesResultsHiredGun, $ganger, $gangerSpecificMessage);
+            }
+
+            if (
+                $ganger->getType()->getType() === GangerTypeEnum::ENFONCERS &&
+                $ganger->getType() !== GangerTypeEnum::cyber_mastiff
+            ) {
+                $gangerSpecificMessage = $this->processEnfoncers($object, $ganger);
             }
 
             $flashMessage = date("Y/m/d") . ' - ' . $this->translator->trans('New ganger') . " : " . $ganger->getName() . " (". $ganger->getType()->enumToString() .") : \n \n" . '- ' . $this->translator->trans('experience') . ' = '. $experienceMessage . " \n- " .  $this->translator->trans('free knife'). "\n" . $gangerSpecificMessage;
@@ -767,5 +811,71 @@ class GangerListener
             $advancements--;
         }
         return $hiredGunMessage;
+    }
+
+    /**
+     * @param Ganger $object
+     * @param Ganger $ganger
+     * @return void
+     */
+    public function processEnfoncers(Ganger $object, Ganger $ganger): string
+    {
+        $freeGrenadeChokeGas = new Weapon();
+        $freeGrenadeChokeGas->setName(WeaponsEnum::CHOKE_GAS);
+        $freeGrenadeChokeGas->setGanger($object);
+        $freeGrenadeChokeGas->setCost(0);
+        $freeGrenadeChokeGas->setFree(true);
+        $this->entityManager->persist($freeGrenadeChokeGas);
+
+        $freeGrenadeSmokeGas = new Weapon();
+        $freeGrenadeSmokeGas->setName(WeaponsEnum::SMOKE_BOMBS);
+        $freeGrenadeSmokeGas->setGanger($object);
+        $freeGrenadeSmokeGas->setCost(0);
+        $freeGrenadeSmokeGas->setFree(true);
+        $this->entityManager->persist($freeGrenadeSmokeGas);
+
+        $freeGrenadePhotonFlare = new Weapon();
+        $freeGrenadePhotonFlare->setName(WeaponsEnum::PHOTON_FLARES);
+        $freeGrenadePhotonFlare->setGanger($object);
+        $freeGrenadePhotonFlare->setCost(0);
+        $freeGrenadePhotonFlare->setFree(true);
+        $this->entityManager->persist($freeGrenadePhotonFlare);
+
+        $freeFilterPlugs = new Equipement();
+        $freeFilterPlugs->setName(EquipementsEnum::FilterPlugs);
+        $freeFilterPlugs->setGanger($object);
+        $freeFilterPlugs->setCost(0);
+        $freeFilterPlugs->setFree(true);
+        $this->entityManager->persist($freeFilterPlugs);
+
+        $freePhotoContacts = new Equipement();
+        $freePhotoContacts->setName(EquipementsEnum::PhotoContacts);
+        $freePhotoContacts->setGanger($object);
+        $freePhotoContacts->setCost(0);
+        $freePhotoContacts->setFree(true);
+        $this->entityManager->persist($freePhotoContacts);
+
+        // ToDo infrared and armour
+
+        $ironWill = new Skill();
+        $ironWill->setName(SkillsEnum::FerocityIronWill);
+        $ironWill->setGanger($ganger);
+        $this->entityManager->persist($ironWill);
+
+        $nervesOfSteal = new Skill();
+        $nervesOfSteal->setName(SkillsEnum::FerocityNervesofSteel);
+        $nervesOfSteal->setGanger($ganger);
+        $this->entityManager->persist($nervesOfSteal);
+
+        if ($ganger->getType() === GangerTypeEnum::canine_unit) {
+            $cyberMastif = new Ganger();
+            $cyberMastif->setName('Cyber-mastiff');
+            $cyberMastif->setGang($ganger->getGang());
+            $cyberMastif->setType(GangerTypeEnum::cyber_mastiff);
+
+            $this->entityManager->persist($cyberMastif);
+        }
+
+        return "\n - " . $this->translator->trans('free grenade choke gas') . "\n - " . $this->translator->trans('free grenade smoke gas') . "\n - " . $this->translator->trans('free grenade photon flare') . "\n - " . $this->translator->trans('free filter plugs') . "\n - " . $this->translator->trans('free photo contacts') . "\n\n";
     }
 }
