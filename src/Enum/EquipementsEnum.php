@@ -8,6 +8,11 @@ use App\Contract\ItemEnumInterface;
 
 enum EquipementsEnum: string implements ItemEnumInterface
 {
+    const ARMORS = 'Armors';
+    const WEAPON_EQUIPEMENT = 'Weapon equipment';
+    const PERSONAL_EQUIPMENT = 'Personal equipment';
+    const BIONICS = 'Bionics';
+    const GANG_EQUIPEMENT = 'Gang Equipment';
     case ArmourFlak = 'Armour - Flak';
     case ArmourMesh = 'Armour - Mesh';
     case BerserkerChip = 'Berserker Chip';
@@ -207,6 +212,51 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::LoboChip => false,
             self::PhotoContacts =>false,
             self::WeaponReload => false,
+        };
+    }
+    public function getType(): string
+    {
+        return match($this)
+        {
+            self::ArmourFlak => self::ARMORS,
+            self::ArmourMesh => self::ARMORS,
+            self::BerserkerChip => self::BIONICS,
+            self::BioBooster => self::PERSONAL_EQUIPMENT,
+            self::BioScanner => self::PERSONAL_EQUIPMENT,
+            self::BionicArm => self::BIONICS,
+            self::BionicImplant => self::BIONICS,
+            self::BionicLeg => self::BIONICS,
+            self::BionicEye => self::BIONICS,
+            self::BionicTorso => self::BIONICS,
+            self::BlindSnakePouch => self::PERSONAL_EQUIPMENT,
+            self::ClipHarness => self::PERSONAL_EQUIPMENT,
+            self::ConcealedBlade => self::PERSONAL_EQUIPMENT,
+            self::ExoticArmourCarapace => self::ARMORS,
+            self::ExoticArmourForceField => self::ARMORS,
+            self::FilterPlugs => self::PERSONAL_EQUIPMENT,
+            self::GravChute => self::PERSONAL_EQUIPMENT,
+            self::Grapnel => self::PERSONAL_EQUIPMENT,
+            self::GunsightInfraRedSight => self::WEAPON_EQUIPEMENT,
+            self::GunsightMonoSight => self::WEAPON_EQUIPEMENT,
+            self::GunsightRedDotLaser => self::WEAPON_EQUIPEMENT,
+            self::GunsightTelescopicSight => self::WEAPON_EQUIPEMENT,
+            self::HeavyGearAutoRepairer => self::GANG_EQUIPEMENT,
+            self::HeavyGearSuspensor => self::GANG_EQUIPEMENT,
+            self::InfraRedGoggles => self::WEAPON_EQUIPEMENT,
+            self::IsotropicFuelRod => self::GANG_EQUIPEMENT,
+            self::LoboChip => self::BIONICS,
+            self::MediPack => self::PERSONAL_EQUIPMENT,
+            self::MungVase => self::GANG_EQUIPEMENT,
+            self::PhotoContacts => self::PERSONAL_EQUIPMENT,
+            self::PhotoVisor => self::PERSONAL_EQUIPMENT,
+            self::RaidGearScreamersOrStummers => self::GANG_EQUIPEMENT,
+            self::RaidGearSilencer => self::WEAPON_EQUIPEMENT,
+            self::RatskinMap => self::GANG_EQUIPEMENT,
+            self::RareWeaponOneInAMillionWeapon => self::WEAPON_EQUIPEMENT,
+            self::Respirator => self::PERSONAL_EQUIPMENT,
+            self::SkullChip => self::BIONICS,
+            self::StingerPouch => self::PERSONAL_EQUIPMENT,
+            self::WeaponReload => self::WEAPON_EQUIPEMENT,
         };
     }
 }
