@@ -126,8 +126,8 @@ class GangerCrudController extends AbstractCrudController
             yield IntegerField::new('move')
                 ->setLabel('M')
                 ->setHelp('Move')
-                ->setFormTypeOption('attr', ['min' => 0, 'max' => 4])
-                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 4])])
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 6])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 6])])
                 ->setColumns(3);
             yield IntegerField::new('weaponSkill')
                 ->setLabel('WS')
@@ -144,8 +144,8 @@ class GangerCrudController extends AbstractCrudController
             yield IntegerField::new('strength')
                 ->setLabel('S')
                 ->setHelp('Strength')
-                ->setFormTypeOption('attr', ['min' => 0, 'max' => 4])
-                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 4])])
+                ->setFormTypeOption('attr', ['min' => 0, 'max' => 5])
+                ->setFormTypeOption('constraints', [new Range(['min' => 0, 'max' => 5])])
                 ->setColumns(3);
             yield IntegerField::new('toughness')
                 ->setLabel('T')
