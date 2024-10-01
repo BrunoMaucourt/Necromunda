@@ -9,7 +9,7 @@ enum LootEnum: string
     const EQUIPMENT_FOR_GANGER = 'Equipment for ganger';
     const EQUIPMENT_FOR_WEAPON = 'Equipment for weapon';
     const WEAPON = 'Weapon';
-    
+
     case PowerWeaponPowerSword = 'Power Weapon - Power Sword';
     case PowerWeaponPowerAxe = 'Power Weapon - Power Axe';
     case PowerWeaponPowerFist = 'Power Weapon - Power Fist';
@@ -299,9 +299,9 @@ enum LootEnum: string
             self::GrenadesPhotonFlashFlares => self::WEAPON,
             self::GrenadesPlasmaGrenades => self::WEAPON,
             self::GrenadesSmokeBombs => self::WEAPON,
-            self::AmmoHotshotLaserPowerPacks => self::EQUIPMENT_FOR_WEAPON,
-            self::AmmoDrumMagazine => self::EQUIPMENT_FOR_WEAPON,
-            self::AmmoHellfireBolts => self::EQUIPMENT_FOR_WEAPON,
+            self::AmmoHotshotLaserPowerPacks => self::WEAPON,
+            self::AmmoDrumMagazine => self::WEAPON,
+            self::AmmoHellfireBolts => self::WEAPON,
             self::GunsightRedDotLaser => self::EQUIPMENT_FOR_WEAPON,
             self::GunsightMonoSight => self::EQUIPMENT_FOR_WEAPON,
             self::GunsightTelescopicSight => self::EQUIPMENT_FOR_WEAPON,
