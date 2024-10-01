@@ -43,7 +43,7 @@ enum SpecialWeaponEnum: string
     case Saturation = 'Saturation';
     case Scare = 'Scare';
     case Silent = 'Silent';
-    case smoke = 'smoke';
+    case Smoke = 'smoke';
     case Sustained_Fire_1 = 'Sustained Fire (1)';
     case Sustained_Fire_2 = 'Sustained Fire (2)';
     case Terrifying_Force = 'Terrifying Force';
@@ -93,6 +93,7 @@ enum SpecialWeaponEnum: string
             self::Saturation => self::Saturation->value,
             self::Scare => self::Scare->value,
             self::Silent => self::Silent->value,
+            self::Smoke => self::Smoke->value,
             self::Sustained_Fire_1 => self::Sustained_Fire_1->value,
             self::Sustained_Fire_2 => self::Sustained_Fire_2->value,
             self::Terrifying_Force => self::Terrifying_Force->value,
@@ -142,7 +143,7 @@ enum SpecialWeaponEnum: string
             self::Parry => 'Allows a fighter with a sword to force an opponent to re-roll a higher Attack dice, unless the opponent\'s roll is lower or both are armed with swords.',
             self::Plasma_Gun => 'Fires unstable energy shells with varying power, using blast or gas cloud templates.',
             self::Saturation => 'Scatter shots ignore cover modifiers and can hit multiple targets in close proximity.',
-            self::smoke => 'This weapon emits a flash or smoke, temporarily blinding the target and reducing their accuracy.',
+            self::Smoke => 'This weapon emits a flash or smoke, temporarily blinding the target and reducing their accuracy.',
             self::Scare => 'This weapon emits a terrifying sound or effect, causing fear tests in enemies.',
             self::Silent => 'This weapon is silent and does not trigger alarms during stealth scenarios.',
             self::Sustained_Fire_1 => 'The weapon has a sustained fire of 1 dice.',
