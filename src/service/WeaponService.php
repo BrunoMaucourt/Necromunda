@@ -106,6 +106,7 @@ class WeaponService
                 $weapons[] = $plasmaPistolMax;
                 unset($weapons[$index]);
             }
+
             if ($weapon->getName() === WeaponsEnum::PLASMA_GUN) {
                 $plasmaGunLow = new Weapon();
                 $plasmaGunLow->setName(WeaponsEnum::PLASMA_GUN_LOW);
@@ -113,6 +114,29 @@ class WeaponService
                 $plasmaGunMax->setName(WeaponsEnum::PLASMA_GUN_MAX);
                 $weapons[] = $plasmaGunLow;
                 $weapons[] = $plasmaGunMax;
+                unset($weapons[$index]);
+            }
+
+            if ($weapon->getName() === WeaponsEnum::SHOTGUN) {
+                $shotgunSolid = new Weapon();
+                $shotgunSolid->setName(WeaponsEnum::SHOTGUN_SOLID_SLUG);
+                $weapons[] = $shotgunSolid;
+                $shotgunScatter = new Weapon();
+                $shotgunScatter->setName(WeaponsEnum::SHOTGUN_SCATTER_SHOT);
+                $weapons[] = $shotgunScatter;
+                unset($weapons[$index]);
+            }
+
+            if ($weapon->getName() === WeaponsEnum::COMBAT_RIFLE) {
+                $combatRifleSolid = new Weapon();
+                $combatRifleSolid->setName(WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS);
+                $weapons[] = $combatRifleSolid;
+                $combatRifleScatter = new Weapon();
+                $combatRifleScatter->setName(WeaponsEnum::COMBAT_RIFLE_SCATTER_SHELLS);
+                $weapons[] = $combatRifleScatter;
+                $combatRifleExecutioner = new Weapon();
+                $combatRifleExecutioner->setName(WeaponsEnum::COMBAT_RIFLE_EXECUTIONER_SHELLS);
+                $weapons[] = $combatRifleExecutioner;
                 unset($weapons[$index]);
             }
         }
