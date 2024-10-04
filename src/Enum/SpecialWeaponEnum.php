@@ -7,8 +7,8 @@ namespace App\Enum;
 enum SpecialWeaponEnum: string
 {
     case Ammo_Roll = "Ammo Roll";
-    case Armor = "Armor";
-    case Blast = "blast";
+    case Armour = "Armour";
+    case Blast = "Blast";
     case Blind = "Blind";
     case Capture = "Capture";
     case Catch_Fire_3 = "Catch Fire (3+)";
@@ -57,7 +57,7 @@ enum SpecialWeaponEnum: string
         return match($this)
         {
             self::Ammo_Roll => self::Ammo_Roll->value,
-            self::Armor => self::Armor->value,
+            self::Armour => self::Armour->value,
             self::Blast => self::Blast->value,
             self::Blind => self::Blind->value,
             self::Capture => self::Capture->value,
@@ -109,7 +109,7 @@ enum SpecialWeaponEnum: string
         return match($this)
         {
             self::Ammo_Roll => "The heavy flamer must roll for Ammo each time it fires.",
-            self::Armor => "Grants a 5+ armor save against close combat hits and ranged attacks within a 90° arc in front of the enforcer.",
+            self::Armour => "Grants a 5+ armor save against close combat hits and ranged attacks within a 90° arc in front of the enforcer.",
             self::Blast => "The weapon uses a small blast template.",
             self::Blind => "This weapon emits a flash or smoke, temporarily blinding the target and reducing their accuracy.",
             self::Capture => "A web pistol can capture an enemy in hand-to-hand combat on a roll of 4+.",
