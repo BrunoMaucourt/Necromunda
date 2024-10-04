@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -47,12 +48,14 @@ class EquipementsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         $object = $this->getContext()->getEntity()->getInstance();
+        $translator = $this->translator;
 
         yield EquipementsField::new('name', $this->translator->trans('Name'))
             ->formatValue(static function (EquipementsEnum $equipementsEnum): string {
                 return $equipementsEnum->enumToString();
             })
-            ->setColumns(4);
+            ->setColumns(4)
+            ->setTranslator($translator);
         if (
             $pageName === Crud::PAGE_NEW &&
             $object instanceof Ganger
