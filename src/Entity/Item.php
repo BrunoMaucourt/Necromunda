@@ -28,7 +28,7 @@ abstract class Item
         return $this->cost;
     }
 
-    public function setCost(int $cost): static
+    public function setCost(?int $cost): static
     {
         $this->cost = $cost;
 

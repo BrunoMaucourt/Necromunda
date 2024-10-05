@@ -231,31 +231,16 @@ class GangerCrudController extends AbstractCrudController
                     ->setColumns(6)
                     ->hideOnIndex();
             } else {
-                if ($context instanceof Gang) {
-                    yield CollectionField::new('weapons', $this->translator->trans('weapons'))
-                        ->setColumns(6)
-                        ->hideOnIndex()
-                        ->useEntryCrudForm(WeaponsCrudController::class)
-                        ->addCssClass('crudResponsive')
-                        ->setFormTypeOption('disabled', 'disabled');
-                    yield CollectionField::new('equipements', $this->translator->trans('equipements'))
-                        ->setColumns(6)
-                        ->hideOnIndex()
-                        ->useEntryCrudForm(EquipementsCrudController::class)
-                        ->addCssClass('crudResponsive')
-                        ->setFormTypeOption('disabled', 'disabled');
-                } else {
-                    yield CollectionField::new('weapons', $this->translator->trans('weapons'))
-                        ->setColumns(6)
-                        ->hideOnIndex()
-                        ->useEntryCrudForm(WeaponsCrudController::class)
-                        ->addCssClass('crudResponsive');
-                    yield CollectionField::new('equipements', $this->translator->trans('equipements'))
-                        ->setColumns(6)
-                        ->hideOnIndex()
-                        ->useEntryCrudForm(EquipementsCrudController::class)
-                        ->addCssClass('crudResponsive');
-                }
+                yield CollectionField::new('weapons', $this->translator->trans('weapons'))
+                    ->setColumns(6)
+                    ->hideOnIndex()
+                    ->useEntryCrudForm(WeaponsCrudController::class)
+                    ->addCssClass('crudResponsive');
+                yield CollectionField::new('equipements', $this->translator->trans('equipements'))
+                    ->setColumns(6)
+                    ->hideOnIndex()
+                    ->useEntryCrudForm(EquipementsCrudController::class)
+                    ->addCssClass('crudResponsive');
             }
             yield FormField::addPanel('Ganger background', $this->translator->trans('Ganger background'))
                 ->setIcon('fa fa-book')
