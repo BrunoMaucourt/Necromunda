@@ -5,7 +5,7 @@
 {% block main %}
   <div class="container">
 
-    <h2 class="mt-5 mb-4">{{ 'Add'|trans }}</h2>
+    <h2 class="mt-5 mb-4 text-success">{{ 'Add'|trans }}</h2>
     <div class="row">
       {% for link in linksAdd %}
         <div class="col-md-4 mb-3">
@@ -20,7 +20,7 @@
       {% endfor %}
     </div>
 
-    <h2 class="mt-5 mb-4">{{ 'Show'|trans }}</h2>
+    <h2 class="mt-5 mb-4 text-primary" style="color: rgba(var(--bs-primary-rgb), 1) !important;">{{ 'Show'|trans }}</h2>
     <div class="row">
       {% for link in linksShowPrincipal %}
         <div class="col-md-4 mb-3">
@@ -49,11 +49,11 @@
       {% endfor %}
     </div>
 
-  <h2 class="mt-5 mb-4">{{ 'Informations'|trans }}</h2>
+  <h2 class="mt-5 mb-4 text-warning">{{ 'Informations'|trans }}</h2>
   <div class="row">
       {% for link in linksInformation %}
         <div class="col-md-4 mb-3">
-          <div class="card bg-light rounded-3">
+          <div class="card bg-warning rounded-3">
             <a href="{{ link.url }}" class="dashboardCard card-body text-dark">
               <h3 class="card-title">
                 <i class="{{ link.icon }}"></i> {{ link.text }}

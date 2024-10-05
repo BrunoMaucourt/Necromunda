@@ -122,7 +122,7 @@ class DashboardController extends AbstractDashboardController
                 'url' => $this->adminUrlGenerator
                     ->setRoute('equipement_informations')
                     ->generateUrl(),
-                'icon' => 'fas fa-gun',
+                'icon' => 'fas fa-toolbox',
                 'text' => $this->translator->trans('Equipement Informations'),
             ],
             'Weapon' => [
