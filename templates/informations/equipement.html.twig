@@ -14,7 +14,18 @@
                 </tr>
                 </thead>
                 <tbody>
+                {% set lastType = null %}
+
                 {% for equipement in equipements %}
+                    {% if equipement.type != lastType %}
+                        <tr>
+                            <td colspan="10" class="weapon-type-separator">
+                                <strong>{{ equipement.type|trans }}</strong>
+                            </td>
+                        </tr>
+                        {% set lastType = equipement.type %}
+                    {% endif %}
+
                     <tr>
                         <td>{{ equipement.enumToString|trans }}</td>
                         <td>{{ equipement.getDescription|trans }}</td>
