@@ -106,7 +106,12 @@ class EquipementsCrudController extends AbstractCrudController
                 },
             ]);
         yield IntegerField::new('cost', $this->translator->trans('cost'))
-            ->setColumns(4);
+            ->setColumns(4)
+            ->hideWhenCreating()
+        ;
+        yield BooleanField::new('free', $this->translator->trans('free'))
+            ->setColumns(4)
+        ;
     }
     public function configureActions(Actions $actions): Actions
     {
