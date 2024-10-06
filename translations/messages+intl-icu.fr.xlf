@@ -537,7 +537,7 @@
         <source>Filter Plugs</source>
         <target>Masque à filtre</target>
       </trans-unit>
-      <trans-unit id="CvIDQ8s" resname="The model can re-roll its Toughness (T) tests to resist the effects of gas.">
+      <trans-unit id="y_JaQCO" resname="The model can re-roll its Toughness (T) tests to resist the effects of gas.">
         <source>The model can re-roll its Toughness (T) tests to resist the effects of gas.</source>
         <target>La figurine peut relancer ses jets d'endurance (T) pour résister aux effets d'un gaz.</target>
       </trans-unit>
@@ -597,7 +597,7 @@
         <source>Rare Weapon - One in a Million Weapon</source>
         <target>Arme rare - Une sur un million</target>
       </trans-unit>
-      <trans-unit id="7yTM_yX" resname="Roll a D6 to determine the type of weapon: pistol (1-2), basic weapon (3-4), special weapon (5), or heavy weapon (6). The player then chooses a weapon of their choice within the category, which costs double its price and automatically passes all its ammo rolls.">
+      <trans-unit id="c8CjHEy" resname="Roll a D6 to determine the type of weapon: pistol (1-2), basic weapon (3-4), special weapon (5), or heavy weapon (6). The player then chooses a weapon of their choice within the category, which costs double its price and automatically passes all its ammo rolls.">
         <source>Roll a D6 to determine the type of weapon: pistol (1-2), basic weapon (3-4), special weapon (5), or heavy weapon (6). The player then chooses a weapon of their choice within the category, which costs double its price and automatically passes all its ammo rolls.</source>
         <target>Lancer un D6 pour déterminer le type d'arme : pistolet (1-2), arme de base (3-4), arme spéciale (5) ou arme lourde (6). Le joueur choisit ensuite l'arme de son choix au sein de la catégorie, qui coûte le double de son prix et réussit automatiquement tous ses jets de munitions.</target>
       </trans-unit>
@@ -645,7 +645,7 @@
         <source>Gunsight - Red-dot Laser</source>
         <target>Viseur - Viseur laser</target>
       </trans-unit>
-      <trans-unit id="5Gso0aE" resname="The laser sight can be equipped on pistols, basic weapons, or special weapons. The shooter gains a +1 bonus to hit, but the target gains a 6+ invulnerable save if it can see the shooter.">
+      <trans-unit id="i2RqFq4" resname="The laser sight can be equipped on pistols, basic weapons, or special weapons. The shooter gains a +1 bonus to hit, but the target gains a 6+ invulnerable save if it can see the shooter.">
         <source>The laser sight can be equipped on pistols, basic weapons, or special weapons. The shooter gains a +1 bonus to hit, but the target gains a 6+ invulnerable save if it can see the shooter.</source>
         <target>Le viseur laser équipe des pistolets, armes de base ou armes spéciales. Le tireur reçoit un bonus de +1 pour toucher mais la cible gagne une Sauvegarde spéciale de 6+ si elle voit le tireur.</target>
       </trans-unit>
@@ -653,7 +653,7 @@
         <source>Gunsight - Mono-sight</source>
         <target>Viseur - Mono-viseur</target>
       </trans-unit>
-      <trans-unit id="5iyouiY" resname="This sight can be equipped on basic weapons, special weapons, or heavy weapons. A stationary shooter gains a +1 bonus to hit.">
+      <trans-unit id="gFqLT1t" resname="This sight can be equipped on basic weapons, special weapons, or heavy weapons. A stationary shooter gains a +1 bonus to hit.">
         <source>This sight can be equipped on basic weapons, special weapons, or heavy weapons. A stationary shooter gains a +1 bonus to hit.</source>
         <target>Ce viseur peut équiper les armes de bases, armes spéciales ou armes lourdes. Le tireur immobile reçoit un bonus de +1 pour toucher.</target>
       </trans-unit>
@@ -661,7 +661,7 @@
         <source>Gunsight - Telescopic Sight</source>
         <target>Viseur - Viseur téléscopique</target>
       </trans-unit>
-      <trans-unit id="QwZfg3y" resname="This sight can be equipped on basic weapons. The weapon's short range is added to its long range.">
+      <trans-unit id="euOC2uD" resname="This sight can be equipped on basic weapons. The weapon's short range is added to its long range.">
         <source>This sight can be equipped on basic weapons. The weapon's short range is added to its long range.</source>
         <target>Ce viseur peut équiper les armes de base. La portée courte de l'arme est ajoutée à la portée longue.</target>
       </trans-unit>
@@ -669,7 +669,7 @@
         <source>Gunsight - Infra-red Sight</source>
         <target>Viseur - Viseur infra-rouge</target>
       </trans-unit>
-      <trans-unit id="ojlxt9F" resname="This sight can be equipped on basic weapons. A stationary shooter reduces the target's cover bonus by -1 and is immune to smoke grenades. The shooter's vision in the dark is enhanced.">
+      <trans-unit id="wZuEVfM" resname="This sight can be equipped on basic weapons. A stationary shooter reduces the target's cover bonus by -1 and is immune to smoke grenades. The shooter's vision in the dark is enhanced.">
         <source>This sight can be equipped on basic weapons. A stationary shooter reduces the target's cover bonus by -1 and is immune to smoke grenades. The shooter's vision in the dark is enhanced.</source>
         <target>Ce viseur peut équiper des armes de base. Un tireur immobile réduit de -1 le bonus de couvert de sa cible et est immunisée aux fumigènes. La vision dans le noir est améliorée.</target>
       </trans-unit>
@@ -677,7 +677,7 @@
         <source>Heavy Gear - Auto-repairer</source>
         <target>Équipement lourd - Auto-réparateur</target>
       </trans-unit>
-      <trans-unit id="GYhj0bF" resname="A ganger and a heavy who have not gone Out of Action can use the auto-repairer instead of collecting income. All weapons ignore their missed ammo and blast rolls on a result of 4+. The auto-repairer is associated with a specific territory and can be disrupted, damaged, or lost along with it. Additionally, its value is added to the Gang Rating.">
+      <trans-unit id="ieznxss" resname="A ganger and a heavy who have not gone Out of Action can use the auto-repairer instead of collecting income. All weapons ignore their missed ammo and blast rolls on a result of 4+. The auto-repairer is associated with a specific territory and can be disrupted, damaged, or lost along with it. Additionally, its value is added to the Gang Rating.">
         <source>A ganger and a heavy who have not gone Out of Action can use the auto-repairer instead of collecting income. All weapons ignore their missed ammo and blast rolls on a result of 4+. The auto-repairer is associated with a specific territory and can be disrupted, damaged, or lost along with it. Additionally, its value is added to the Gang Rating.</source>
         <target>Un ganger et un balèze qui n'ont pas été Hors d'action peuvent utiliser l'auto-réparateur à la place de collecter des revenus. Toutes les armes ignorent leurs jets de munitions et d'explosion manqués sur un résultat de 4+. L'auto-réparateur est associé à un territoire spécifique et peut être perturbé, endommagé ou perdu avec celui- ci. En outre, sa valeur est ajoutée au Score de gang.</target>
       </trans-unit>
@@ -685,7 +685,7 @@
         <source>Heavy Gear - Suspensor</source>
         <target>Équipement lourd - Suspenseur</target>
       </trans-unit>
-      <trans-unit id="H_OhEH_" resname="Blockers can only be deployed in a single scenario before being removed. They reduce the chances of triggering the alarm in certain scenarios by lowering the D6 roll by 1. Blockers completely nullify screamers.">
+      <trans-unit id="Jtvtp92" resname="Blockers can only be deployed in a single scenario before being removed. They reduce the chances of triggering the alarm in certain scenarios by lowering the D6 roll by 1. Blockers completely nullify screamers.">
         <source>Blockers can only be deployed in a single scenario before being removed. They reduce the chances of triggering the alarm in certain scenarios by lowering the D6 roll by 1. Blockers completely nullify screamers.</source>
         <target>Les bloqueurs ne peuvent être déployés que dans un unique scénario avant d'être supprimés. Réduit les chances de déclencher l'alarme lors de certains scénarios en réduisant le score du D6 de 1. Les bloqueurs nullifient complètement les hurleurs.</target>
       </trans-unit>
@@ -693,7 +693,7 @@
         <source>Armour - Flak</source>
         <target>Armure - Flak</target>
       </trans-unit>
-      <trans-unit id="I_sTx5Z" resname="Grants a 6+ armor save against wounds. The armor save improves to 5+ against wounds inflicted by template weapons.">
+      <trans-unit id="liv66nY" resname="Grants a 6+ armor save against wounds. The armor save improves to 5+ against wounds inflicted by template weapons.">
         <source>Grants a 6+ armor save against wounds. The armor save improves to 5+ against wounds inflicted by template weapons.</source>
         <target>Confère une Sauvegarde d'armure de 6+ contre les blessures. La Sauvegarde d'armure passe à 5+ contre les blessures infligées par des armes à gabarit.</target>
       </trans-unit>
@@ -701,7 +701,7 @@
         <source>Armour - Mesh</source>
         <target>Armure - Armure composite</target>
       </trans-unit>
-      <trans-unit id="FYm2Ftc" resname="Grants a 5+ armor save against wounds.">
+      <trans-unit id="HDs3F7d" resname="Grants a 5+ armor save against wounds.">
         <source>Grants a 5+ armor save against wounds.</source>
         <target>Confère une Sauvegarde d'armure de 5+ contre les blessures.</target>
       </trans-unit>
@@ -709,15 +709,15 @@
         <source>Exotic Armour - Carapace</source>
         <target>Armure exotique - Carapace</target>
       </trans-unit>
-      <trans-unit id="_cZdPeR" resname="	Grants a 4+ armor save against wounds, but the model suffers a -1 penalty to its Initiative (I) tests.">
-        <source>	Grants a 4+ armor save against wounds, but the model suffers a -1 penalty to its Initiative (I) tests.</source>
+      <trans-unit id="lEdWJax" resname=" Grants a 4+ armor save against wounds, but the model suffers a -1 penalty to its Initiative (I) tests.">
+        <source> Grants a 4+ armor save against wounds, but the model suffers a -1 penalty to its Initiative (I) tests.</source>
         <target>Confère une Sauvegarde d'armure de 4+ contre les blessures mais la figurine souffre d'un malus de -1 à ses tets d'Initiative (I).</target>
       </trans-unit>
       <trans-unit id="i8yQlem" resname="Exotic Armour - Force Field">
         <source>Exotic Armour - Force Field</source>
         <target>Armure exotique - Champs de force</target>
       </trans-unit>
-      <trans-unit id="RgOtcN2" resname="Applies a -1 penalty to Strength (S) and to the armor save modifier of ranged weapons.">
+      <trans-unit id="VISpAML" resname="Applies a -1 penalty to Strength (S) and to the armor save modifier of ranged weapons.">
         <source>Applies a -1 penalty to Strength (S) and to the armor save modifier of ranged weapons.</source>
         <target>Applique un malus de -1 à la force (S) et au modificateur de sauvegarde des armes à distance.</target>
       </trans-unit>
@@ -725,7 +725,7 @@
         <source>Medi-pack</source>
         <target>Medi-pack</target>
       </trans-unit>
-      <trans-unit id="_wI4USY" resname="If the model is in contact with a fallen ally, that ally will treat results of 1-4 as a Flesh Wound during their recovery phase. The model cannot use the medipack on itself.">
+      <trans-unit id="1KpAT_u" resname="If the model is in contact with a fallen ally, that ally will treat results of 1-4 as a Flesh Wound during their recovery phase. The model cannot use the medipack on itself.">
         <source>If the model is in contact with a fallen ally, that ally will treat results of 1-4 as a Flesh Wound during their recovery phase. The model cannot use the medipack on itself.</source>
         <target>Si la figurine est en contact avec un allié tombé, celui traitera les résultats 1-4 comme une Blessure superficielle lors de sa phase de récupération. La figurine ne peut pas utiliser le médipack pour elle-même.</target>
       </trans-unit>
@@ -733,7 +733,7 @@
         <source>Isotropic Fuel Rod</source>
         <target>Pile d’essence isotrope</target>
       </trans-unit>
-      <trans-unit id="70oVaUs" resname="Can transform any territory into a settlement">
+      <trans-unit id="OCM1v3M" resname="Can transform any territory into a settlement">
         <source>Can transform any territory into a settlement</source>
         <target>Peut transformer n'importe quel territoire en une colonie.</target>
       </trans-unit>
@@ -745,7 +745,7 @@
         <source>Bionic - Arm</source>
         <target>Bionique - bras</target>
       </trans-unit>
-      <trans-unit id="tqYdD2U" resname="The model gains a +2 bonus to its Strength (S) characteristic and a +2 bonus to Initiative (I) when testing if it falls from an edge.">
+      <trans-unit id="iyMYfg5" resname="The model gains a +2 bonus to its Strength (S) characteristic and a +2 bonus to Initiative (I) when testing if it falls from an edge.">
         <source>The model gains a +2 bonus to its Strength (S) characteristic and a +2 bonus to Initiative (I) when testing if it falls from an edge.</source>
         <target>La figurine gagne un bonus de +2 à sa caractéristique de force (S) et un bonus de +2 à l'Initiative (I) pour tester si elle chute d'un bord.</target>
       </trans-unit>
@@ -753,7 +753,7 @@
         <source>Bionic - Eye</source>
         <target>Bionique - oeil</target>
       </trans-unit>
-      <trans-unit id="9DALomY" resname="The model can never be blinded or dazzled. Its vision in the dark is enhanced. The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. The model detects opponents in cover as if they were in the open.">
+      <trans-unit id="OD7J_GB" resname="The model can never be blinded or dazzled. Its vision in the dark is enhanced. The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. The model detects opponents in cover as if they were in the open.">
         <source>The model can never be blinded or dazzled. Its vision in the dark is enhanced. The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. The model detects opponents in cover as if they were in the open.</source>
         <target>La figurines ne peut jamais être aveuglée ou éblouie. La vision dans le noir est améliorée. La figurine peut détecter visuellement ses adversaires dissimulés 3 fois plus loin et est immunisé aux fumigènes. La figurine détecte ses adversaires à couverts comme s'ils étaient à découvert.</target>
       </trans-unit>
@@ -761,7 +761,7 @@
         <source>Bionic - Implant</source>
         <target>Bionique - Implant</target>
       </trans-unit>
-      <trans-unit id="1rdq0gv" resname="The implant allows the model to heal all Serious Injuries related to a single limb.">
+      <trans-unit id="1rZWfHm" resname="The implant allows the model to heal all Serious Injuries related to a single limb.">
         <source>The implant allows the model to heal all Serious Injuries related to a single limb.</source>
         <target>L’implant permet de soigner toutes les Blessures graves liées à un unique membre.</target>
       </trans-unit>
@@ -769,7 +769,7 @@
         <source>Bionic - Leg</source>
         <target>Bionique - Jambe</target>
       </trans-unit>
-      <trans-unit id="cNgyKs3" resname="The model gains a +1 bonus to its Movement (M) and Attacks (A) characteristics.">
+      <trans-unit id="Lmlqg6." resname="The model gains a +1 bonus to its Movement (M) and Attacks (A) characteristics.">
         <source>The model gains a +1 bonus to its Movement (M) and Attacks (A) characteristics.</source>
         <target>La figurine gagne un bonus de +1 à ses caractéristiques de mouvement (M) et attaque (A).</target>
       </trans-unit>
@@ -777,7 +777,7 @@
         <source>Bionic - Torso</source>
         <target>Bionique - torse</target>
       </trans-unit>
-      <trans-unit id="9kU5qbc" resname="The model is immune to the effects of gas. Grants a 6+ Armor Save.">
+      <trans-unit id="3YZ7tJ7" resname="The model is immune to the effects of gas. Grants a 6+ Armor Save.">
         <source>The model is immune to the effects of gas. Grants a 6+ Armor Save.</source>
         <target>La figurine est immunisée aux effets d'un gaz. Confère une Sauvegarde d'armure de 6+.</target>
       </trans-unit>
@@ -785,7 +785,7 @@
         <source>Skull Chip</source>
         <target>Puce cérébrale</target>
       </trans-unit>
-      <trans-unit id="Wjw5XwO" resname="The model can re-roll all its Initiative (I) checks. If the second roll fails, the chip can no longer be used for the rest of the battle.">
+      <trans-unit id="OTBEaEp" resname="The model can re-roll all its Initiative (I) checks. If the second roll fails, the chip can no longer be used for the rest of the battle.">
         <source>The model can re-roll all its Initiative (I) checks. If the second roll fails, the chip can no longer be used for the rest of the battle.</source>
         <target>La figurine peut relancer tous ses jets d’Initiative (I). En cas de second échec, la puce ne peut plus être utilisée pour le reste de la bataille.</target>
       </trans-unit>
@@ -793,7 +793,7 @@
         <source>Grapnel</source>
         <target>Grappin</target>
       </trans-unit>
-      <trans-unit id="pPXNixO" resname="The model can attach itself during its movement phase by remaining stationary. It automatically passes Initiative checks to avoid falling when pinned within 1'' of an edge.">
+      <trans-unit id="guiv51I" resname="The model can attach itself during its movement phase by remaining stationary. It automatically passes Initiative checks to avoid falling when pinned within 1'' of an edge.">
         <source>The model can attach itself during its movement phase by remaining stationary. It automatically passes Initiative checks to avoid falling when pinned within 1'' of an edge.</source>
         <target>La figurine peut s'attacher lors de sa phase de mouvement en restant immobile. Elle réussit ses jets d'initiative visant à savoir si elle chute d'un lorsqu'elle est clouée à moins 1'' d'un bord.</target>
       </trans-unit>
@@ -801,7 +801,7 @@
         <source>Grav Chute</source>
         <target>Chute antigrav</target>
       </trans-unit>
-      <trans-unit id="gKEP1P5" resname="The model is no longer limited to a 3'' fall and no longer suffers fall damage.">
+      <trans-unit id="HZjHQ2k" resname="The model is no longer limited to a 3'' fall and no longer suffers fall damage.">
         <source>The model is no longer limited to a 3'' fall and no longer suffers fall damage.</source>
         <target>La figurine n'est plus limitée à 3'' de chute ne subit plus de dommages de chute.</target>
       </trans-unit>
@@ -809,7 +809,7 @@
         <source>Bio-booster</source>
         <target>Bio-booster</target>
       </trans-unit>
-      <trans-unit id="KvCkU_m" resname="Instead of shooting, the model can detect all hidden models within 16'' The model detects an opponent within 16'' and sounds the alarm at the end of its turn on a 4+.">
+      <trans-unit id="l9uneBd" resname="Instead of shooting, the model can detect all hidden models within 16'' The model detects an opponent within 16'' and sounds the alarm at the end of its turn on a 4+.">
         <source>Instead of shooting, the model can detect all hidden models within 16'' The model detects an opponent within 16'' and sounds the alarm at the end of its turn on a 4+.</source>
         <target>la figurine traite les résultats 1-4 comme une Blessure superficielle lors de sa première phase de récupération. Une seule utilisation par bataille.</target>
       </trans-unit>
@@ -817,7 +817,7 @@
         <source>Bio-scanner</source>
         <target>Bio-scanner</target>
       </trans-unit>
-      <trans-unit id="fkVGUZd" resname="The model treats results of 1-4 as a Flesh Wound during its first recovery phase. One use per battle.">
+      <trans-unit id="K0ff6vz" resname="The model treats results of 1-4 as a Flesh Wound during its first recovery phase. One use per battle.">
         <source>The model treats results of 1-4 as a Flesh Wound during its first recovery phase. One use per battle.</source>
         <target>A la place d'un tir, la figurine peut détecter toutes les figurines dissimulées à 16''. La figurine détecte un adversaire à 16'' et sonne l'alarme à la fin de son tour sur 4+.</target>
       </trans-unit>
@@ -825,7 +825,7 @@
         <source>Concealed Blade</source>
         <target>Lame cachée</target>
       </trans-unit>
-      <trans-unit id="xQk2iIk" resname="The model may roll a D6 if it is captured: ▪ 1: The model is killed, and its equipment is kept by its captors. ▪ 2: The model is immediately recaptured. ▪ 3: The model escapes, but its equipment is kept by its captors. ▪ 4-6: The model successfully escapes with all its equipment.">
+      <trans-unit id="SEJr8r3" resname="The model may roll a D6 if it is captured: ▪ 1: The model is killed, and its equipment is kept by its captors. ▪ 2: The model is immediately recaptured. ▪ 3: The model escapes, but its equipment is kept by its captors. ▪ 4-6: The model successfully escapes with all its equipment.">
         <source>The model may roll a D6 if it is captured: ▪ 1: The model is killed, and its equipment is kept by its captors. ▪ 2: The model is immediately recaptured. ▪ 3: The model escapes, but its equipment is kept by its captors. ▪ 4-6: The model successfully escapes with all its equipment.</source>
         <target>La figurine peut lancer un D6 si elle est capturée : ▪ 1 : la figurine est tuée et son équipement est conservé par ses ravisseurs ▪ 2 : la figurine est recapturé immédiatement ▪ 3 : la figurine s'échappe mais son équipement est conservé par ses ravisseurs ▪ 4-6: la figurine parvient à s'échapper avec tout son équipement</target>
       </trans-unit>
@@ -833,7 +833,7 @@
         <source>Respirator</source>
         <target>Respirateur</target>
       </trans-unit>
-      <trans-unit id="qV8qC2P" resname="The model is immune to the effects of gas.">
+      <trans-unit id="k2g4_AJ" resname="The model is immune to the effects of gas.">
         <source>The model is immune to the effects of gas.</source>
         <target>La figurine est immunisée aux effets d'un gaz.</target>
       </trans-unit>
@@ -841,7 +841,7 @@
         <source>Photo-visor</source>
         <target>Photo-viseur</target>
       </trans-unit>
-      <trans-unit id="mLL5fwQ" resname="The model can never be blinded or dazzled. Its vision in the dark is enhanced.">
+      <trans-unit id="QEo_Qn2" resname="The model can never be blinded or dazzled. Its vision in the dark is enhanced.">
         <source>The model can never be blinded or dazzled. Its vision in the dark is enhanced.</source>
         <target>La figurines ne peut jamais être aveuglée ou éblouie. La vision dans le noir est améliorée</target>
       </trans-unit>
@@ -849,7 +849,7 @@
         <source>Berserker Chip</source>
         <target>Puce Berserk</target>
       </trans-unit>
-        <trans-unit id="lj1fpCy" resname="Once per game, the model can activate the chip to gain a +2 bonus to its Movement (M) and Strength (S) characteristics and go into Frenzy until the start of its next turn. At the end of the activation, its Initiative (I) is reduced to 1 for the rest of the battle.">
+      <trans-unit id="rEqO8Ls" resname="Once per game, the model can activate the chip to gain a +2 bonus to its Movement (M) and Strength (S) characteristics and go into Frenzy until the start of its next turn. At the end of the activation, its Initiative (I) is reduced to 1 for the rest of the battle.">
         <source>Once per game, the model can activate the chip to gain a +2 bonus to its Movement (M) and Strength (S) characteristics and go into Frenzy until the start of its next turn. At the end of the activation, its Initiative (I) is reduced to 1 for the rest of the battle.</source>
         <target>Une fois par partie, la figurine peut activer la puce pour gagner un bonus de +2 à ses caractéristiques de Mouvement (M) et de Force (S) et entraîner en Fureur jusqu'au début de son prochain tour. A la fin de l’activation, l’Initiative (I) est réduite à 1 pour le reste de la bataille.</target>
       </trans-unit>
@@ -857,7 +857,7 @@
         <source>Blindsnake Pouch</source>
         <target>Poche du serpent aveugle</target>
       </trans-unit>
-      <trans-unit id="BmrD.z8" resname="Grants a 4+ invulnerable save against overwatch shots (Sentinel).">
+      <trans-unit id="DDQ7sJy" resname="Grants a 4+ invulnerable save against overwatch shots (Sentinel).">
         <source>Grants a 4+ invulnerable save against overwatch shots (Sentinel).</source>
         <target>Confère une Sauvegarde spéciale de 4+ contre les tirs d'opportunités (Surveillance).</target>
       </trans-unit>
@@ -865,7 +865,7 @@
         <source>Infra-red Goggles</source>
         <target>Lunettes infra-rouges</target>
       </trans-unit>
-      <trans-unit id="GamDB.l" resname="The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. Its vision in the dark is enhanced. The model detects opponents in cover as if they were in the open.">
+      <trans-unit id="cPrQ.Rq" resname="The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. Its vision in the dark is enhanced. The model detects opponents in cover as if they were in the open.">
         <source>The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. Its vision in the dark is enhanced. The model detects opponents in cover as if they were in the open.</source>
         <target>La figurine peut détecter visuellement ses adversaires dissimulés 3 fois plus loin et est immunisée aux fumigènes. La vision dans le noir est améliorée. La figurine détecte ses adversaires à couverts comme s'ils étaient à découvert.</target>
       </trans-unit>
@@ -873,7 +873,7 @@
         <source>Raid Gear - Silencer</source>
         <target>Matériel d’incursion - Silencieux</target>
       </trans-unit>
-      <trans-unit id="8hNpOqW" resname="The silencer can be equipped on a revolver, autopistol, submachine gun, shotgun, or light machine gun. The weapon cannot trigger the alarm.">
+      <trans-unit id="Tt8zkXO" resname="The silencer can be equipped on a revolver, autopistol, submachine gun, shotgun, or light machine gun. The weapon cannot trigger the alarm.">
         <source>The silencer can be equipped on a revolver, autopistol, submachine gun, shotgun, or light machine gun. The weapon cannot trigger the alarm.</source>
         <target>Le silencieux peut équiper un revolver, pistolet automatique, fusil mitrailleur, fusil de chasse ou mitrailleuse légère. L'arme ne peut pas déclencher l'alarme.</target>
       </trans-unit>
@@ -881,7 +881,7 @@
         <source>Raid Gear - Screamers or Stummers</source>
         <target>Matériel d’incursion - Hurleurs ou Bloqueurs</target>
       </trans-unit>
-      <trans-unit id="_bkgeof" resname="Blockers can only be deployed in a single scenario before being removed. Roll a D6 for each attacker that has moved. On a result of 6, the alarm is triggered.">
+      <trans-unit id="EUT4BHa" resname="Blockers can only be deployed in a single scenario before being removed. Roll a D6 for each attacker that has moved. On a result of 6, the alarm is triggered.">
         <source>Blockers can only be deployed in a single scenario before being removed. Roll a D6 for each attacker that has moved. On a result of 6, the alarm is triggered.</source>
         <target>Les bloqueurs ne peuvent être déployés que dans un unique scénario avant d'être supprimés. Lancer un D6 pour chaque attaquant s'étant déplacé. Sur un résultat de 6, l'alarme est déclenchée.</target>
       </trans-unit>
@@ -889,7 +889,7 @@
         <source>Stinger Pouch</source>
         <target>Pochette à Dard</target>
       </trans-unit>
-        <trans-unit id="dtRTw2i" resname="If the model goes Out of Action at the end of a battle, on a 4+, it may avoid suffering a serious injury. Heals a Grievous Wound on a 4+. The med-pouch can only be used once before being removed.">
+      <trans-unit id="pAda.sW" resname="If the model goes Out of Action at the end of a battle, on a 4+, it may avoid suffering a serious injury. Heals a Grievous Wound on a 4+. The med-pouch can only be used once before being removed.">
         <source>If the model goes Out of Action at the end of a battle, on a 4+, it may avoid suffering a serious injury. Heals a Grievous Wound on a 4+. The med-pouch can only be used once before being removed.</source>
         <target>Si la figurine passe Hors d’action à la fin d'une bataille sur 4+, elle peut ne pas subir de blessure grave. Soigne une Blessure lancinante sur 4+. La poche médicinale ne peut servir qu'une seule fois avant d'être supprimé.</target>
       </trans-unit>
@@ -897,7 +897,7 @@
         <source>Ratskin Map</source>
         <target>Carte Ratskin</target>
       </trans-unit>
-      <trans-unit id="uFJG6j_" resname="To use the card, it must be carried by the gang leader. Its value is added to the model. Roll a D6: ▪ 1: The opponent chooses the scenario. ▪ 2: Roll a D6, on a result of 6, the Archeotech Hoard territory is added to the gang, and the card is removed. ▪ 3: The player can modify the result by +/-1 to choose the next scenario. ▪ 4: The player can modify the result by +/-2 to choose the next scenario. ▪ 5: Same as 4, but a Vents or Tunnels territory can be added to the gang. ▪ 6: The player can modify the result by +/-3 to choose the next scenario. If the card is used to modify a scenario, roll a D6. If the result is less than or equal to the modifier, the maximum modifier is reduced by 1. If the maximum modifier is reduced to 0, the card is removed.">
+      <trans-unit id="1fWx7sR" resname="To use the card, it must be carried by the gang leader. Its value is added to the model. Roll a D6: ▪ 1: The opponent chooses the scenario. ▪ 2: Roll a D6, on a result of 6, the Archeotech Hoard territory is added to the gang, and the card is removed. ▪ 3: The player can modify the result by +/-1 to choose the next scenario. ▪ 4: The player can modify the result by +/-2 to choose the next scenario. ▪ 5: Same as 4, but a Vents or Tunnels territory can be added to the gang. ▪ 6: The player can modify the result by +/-3 to choose the next scenario. If the card is used to modify a scenario, roll a D6. If the result is less than or equal to the modifier, the maximum modifier is reduced by 1. If the maximum modifier is reduced to 0, the card is removed.">
         <source>To use the card, it must be carried by the gang leader. Its value is added to the model. Roll a D6: ▪ 1: The opponent chooses the scenario. ▪ 2: Roll a D6, on a result of 6, the Archeotech Hoard territory is added to the gang, and the card is removed. ▪ 3: The player can modify the result by +/-1 to choose the next scenario. ▪ 4: The player can modify the result by +/-2 to choose the next scenario. ▪ 5: Same as 4, but a Vents or Tunnels territory can be added to the gang. ▪ 6: The player can modify the result by +/-3 to choose the next scenario. If the card is used to modify a scenario, roll a D6. If the result is less than or equal to the modifier, the maximum modifier is reduced by 1. If the maximum modifier is reduced to 0, the card is removed.</source>
         <target>Pour utiliser la carte, elle doit être portée par le leader du gang. Sa valeur est ajoutée à la figurine. Lancer un D6: ▪ 1 : l'adversaire choisit le scénario  ▪ 2 : lancer un D6, sur un résultat de 6 le territoire Butin Archéotech est ajouté au gang et la carte est supprimée ▪ 3 : le joueur peut modifier de +/-1 le résultat pour choisir le prochain Scénario ▪ 4 : le joueur peut modifier de +/-2 le résultat pour choisir le prochain Scénario ▪ 5 : idem à 4 mais un territoire Conduits ou Tunnels peut être ajouté au gang ▪ 6 : le joueur peut modifier de +/-3 le résultat pour choisir le prochain Scénario. Si la carte est utilisée pour modifier un scénario, lancer un D6. Si le résultat est inférieur ou égal au modificateur, le modificateur maximal est réduit de 1. Si le modificateur maximal est réduit à 0, la carte est supprimée.</target>
       </trans-unit>
@@ -905,7 +905,7 @@
         <source>Mung Vase</source>
         <target>Vase Mung</target>
       </trans-unit>
-      <trans-unit id="eoVj84L" resname="The price of the Mung Vase can only be determined once a gang has decided to purchase it. Once bought, it is kept in a location known only to the Leader (the Mung Vase is lost if the Leader dies). A ganger can sell the vase instead of collecting income. The sale can be refused. Roll a D6: ▪ 1: The vase is sold for D6 credits. The sale cannot be refused. ▪ 2: You are offered 2D6 credits. ▪ 5: You are offered 2D6x10 credits. ▪ 3-4: You are offered 30 + 6D6 credits. ▪ 6: You are offered 3D6x10 credits.">
+      <trans-unit id="TnQomcs" resname="The price of the Mung Vase can only be determined once a gang has decided to purchase it. Once bought, it is kept in a location known only to the Leader (the Mung Vase is lost if the Leader dies). A ganger can sell the vase instead of collecting income. The sale can be refused. Roll a D6: ▪ 1: The vase is sold for D6 credits. The sale cannot be refused. ▪ 2: You are offered 2D6 credits. ▪ 5: You are offered 2D6x10 credits. ▪ 3-4: You are offered 30 + 6D6 credits. ▪ 6: You are offered 3D6x10 credits.">
         <source>The price of the Mung Vase can only be determined once a gang has decided to purchase it. Once bought, it is kept in a location known only to the Leader (the Mung Vase is lost if the Leader dies). A ganger can sell the vase instead of collecting income. The sale can be refused. Roll a D6: ▪ 1: The vase is sold for D6 credits. The sale cannot be refused. ▪ 2: You are offered 2D6 credits. ▪ 5: You are offered 2D6x10 credits. ▪ 3-4: You are offered 30 + 6D6 credits. ▪ 6: You are offered 3D6x10 credits.</source>
         <target>Le prix du vase Mung ne peut être déterminé qu'une fois qu'un gang a décidé de l'acheter. Une fois acheté, il est conservé dans un endroit connu du Leader seul (le vase Mung est perdu si le leader meurt). Un ganger peut vendre le vase à la place de récolter des revenus. La vente peut être refusée. Lancer un D6 :▪ 1 : le vase est vendu pour D6 crédits. La vente ne peut pas être refusée  ▪ 2 : on vous offre 2D6 crédits ▪ 5 : on vous offre 2D6x10 crédits ▪ 3-4 : on vous offre 30 + 6D6 crédits ▪ 6 : on vous offre 3D6x10 crédits</target>
       </trans-unit>
@@ -1581,7 +1581,7 @@
         <source>Draws</source>
         <target>Égalités</target>
       </trans-unit>
-      <trans-unit id="p8ktGyj" resname="If combat ends in a draw, the user's Initiative is halved for determining the winner.">
+      <trans-unit id="SnK6qN_" resname="If combat ends in a draw, the user's Initiative is halved for determining the winner.">
         <source>If combat ends in a draw, the user's Initiative is halved for determining the winner.</source>
         <target>Si le combat se termine par une égalité, l'Initiative de l'utilisateur est réduite de moitié pour déterminer le vainqueur.</target>
       </trans-unit>
@@ -1605,7 +1605,7 @@
         <source>Flamer</source>
         <target>Lance-flammes</target>
       </trans-unit>
-      <trans-unit id="KCIvu8R" resname="The flamer uses a template for its shot and requires an Ammo roll each time it's fired.">
+      <trans-unit id="KKSJRwI" resname="The flamer uses a template for its shot and requires an Ammo roll each time it's fired.">
         <source>The flamer uses a template for its shot and requires an Ammo roll each time it's fired.</source>
         <target>Le lance-flammes utilise un gabarit pour son tir et nécessite un jet de munitions à chaque utilisation.</target>
       </trans-unit>
@@ -1697,31 +1697,31 @@
         <source>Nullify</source>
         <target>Annulation</target>
       </trans-unit>
-      <trans-unit id=".H1c3z0" resname="Flails cancel out the opponent's parry.">
+      <trans-unit id="1KOGwzg" resname="Flails cancel out the opponent's parry.">
         <source>Flails cancel out the opponent's parry.</source>
         <target>Les fléaux annulent la parade de l'adversaire.</target>
       </trans-unit>
-      <trans-unit id="b9mtvzn" resname="Blast">
+      <trans-unit id="ciNJfjc" resname="Blast">
         <source>Blast</source>
         <target>Explosion</target>
       </trans-unit>
-      <trans-unit id="XMEwsUd" resname="The weapon uses a small blast template.">
+      <trans-unit id="62_QQla" resname="The weapon uses a small blast template.">
         <source>The weapon uses a small blast template.</source>
         <target>L'arme utilise un petit gabarit de souffle.</target>
       </trans-unit>
-      <trans-unit id="b9mxvzn" resname="Flare">
+      <trans-unit id="OOm4byv" resname="Flare">
         <source>Flare</source>
         <target>Fusée éclairante</target>
       </trans-unit>
-      <trans-unit id="XMxwsUd" resname="Targets a specific point. Models in the illuminated area can move and be targeted without considering penalties related to total darkness. Roll a D6 at the start of each player's turn; the flare remains lit on a 1-4 and extinguishes on a 5-6.">
+      <trans-unit id="Kz_6TOF" resname="Targets a specific point. Models in the illuminated area can move and be targeted without considering penalties related to total darkness. Roll a D6 at the start of each player's turn; the flare remains lit on a 1-4 and extinguishes on a 5-6.">
         <source>Targets a specific point. Models in the illuminated area can move and be targeted without considering penalties related to total darkness. Roll a D6 at the start of each player's turn; the flare remains lit on a 1-4 and extinguishes on a 5-6.</source>
         <target>Cible un point spécifique. Les figurines dans la zone illuminée peuvent se déplacer et être ciblées sans tenir compte des pénalités liées à l'obscurité totale. Lancez un D6 au début de chaque tour de joueur ; la fusée éclairante reste allumée sur un résultat de 1 à 4 et s'éteint sur un 5 ou 6.</target>
       </trans-unit>
-    <trans-unit id="c4ksdXN" resname="Armour">
+      <trans-unit id="ZC69Ex8" resname="Armour">
         <source>Armour</source>
         <target>Armure</target>
       </trans-unit>
-      <trans-unit id=".Hdf3z0" resname="Grants a 5+ armor save against close combat hits and ranged attacks within a 90° arc in front of the enforcer.">
+      <trans-unit id="gkAVijU" resname="Grants a 5+ armor save against close combat hits and ranged attacks within a 90° arc in front of the enforcer.">
         <source>Grants a 5+ armor save against close combat hits and ranged attacks within a 90° arc in front of the enforcer.</source>
         <target>Confère une sauvegarde d'armure de 5+ contre les attaques de corps à corps et les tirs dans un arc de 90° devant l'enfoncer.</target>
       </trans-unit>
@@ -1745,27 +1745,27 @@
         <source>Plasma Gun</source>
         <target>Lance-plasma</target>
       </trans-unit>
-    <trans-unit id="VM3F77c" resname="Plasma Gun (Low)">
+      <trans-unit id="tPiZ934" resname="Plasma Gun (Low)">
         <source>Plasma Gun (Low)</source>
         <target>Lance-plasma (non chargé)</target>
       </trans-unit>
-     <trans-unit id="VM3Fazc" resname="enum.weapon_types.Special_ammunitions">
+      <trans-unit id="D0AlM7a" resname="enum.weapon_types.Special_ammunitions">
         <source>enum.weapon_types.Special_ammunitions</source>
         <target>Munitions spéciales</target>
       </trans-unit>
-       <trans-unit id="VM32azc" resname="enum.weapon_types.Enfoncer_weapons">
+      <trans-unit id="5adXVbY" resname="enum.weapon_types.Enfoncer_weapons">
         <source>enum.weapon_types.Enfoncer_weapons</source>
         <target>Armes pour enfoncers</target>
       </trans-unit>
-      <trans-unit id="VM3F73c" resname="enum.weapon_Plasma_Gun_(Low)">
+      <trans-unit id="xQbPpuB" resname="enum.weapon_Plasma_Gun_(Low)">
         <source>enum.weapon_Plasma_Gun_(Low)</source>
         <target>Lance-plasma (non chargé)</target>
       </trans-unit>
-      <trans-unit id="V2yF77c" resname="Plasma Gun (Max)">
+      <trans-unit id="EqWDTd5" resname="Plasma Gun (Max)">
         <source>Plasma Gun (Max)</source>
         <target>Lance-plasma (chargé)</target>
       </trans-unit>
-    <trans-unit id="V2yF71c" resname="enum.weapon_Plasma_Gun_(Max)">
+      <trans-unit id="_w0eYPG" resname="enum.weapon_Plasma_Gun_(Max)">
         <source>enum.weapon_Plasma_Gun_(Max)</source>
         <target>Lance-plasma (chargé)</target>
       </trans-unit>
@@ -1809,7 +1809,7 @@
         <source>Sustained Fire (2)</source>
         <target>Tir Soutenu (2)</target>
       </trans-unit>
-      <trans-unit id="V4drJ.i" resname="The weapon has a sustained fire of 2 dices.">
+      <trans-unit id="1VY5JYZ" resname="The weapon has a sustained fire of 2 dices.">
         <source>The weapon has a sustained fire of 2 dices.</source>
         <target>L'arme a un tir soutenu de 2 dés.</target>
       </trans-unit>
@@ -1901,102 +1901,103 @@
         <source>enum.weapon_Plasma_Pistol</source>
         <target>Pistolet Plasma</target>
       </trans-unit>
-        <trans-unit id="VOBdchg" resname="Plasma Pistol (Low)">
+      <trans-unit id="li2Ysfa" resname="Plasma Pistol (Low)">
         <source>Plasma Pistol (Low)</source>
         <target>Pistolet Plasma (non chargé)</target>
       </trans-unit>
-  <trans-unit id="VO2dchg" resname="enum.weapon_Plasma_Pistol_(Low)">
+      <trans-unit id="pLbYo6X" resname="enum.weapon_Plasma_Pistol_(Low)">
         <source>enum.weapon_Plasma_Pistol_(Low)</source>
         <target>Pistolet Plasma (non chargé)</target>
       </trans-unit>
-      <trans-unit id="VOBdc3g" resname="Plasma Pistol (Max)">
+      <trans-unit id="wN9ExeR" resname="Plasma Pistol (Max)">
         <source>Plasma Pistol (Max)</source>
         <target>Pistolet Plasma (chargé)</target>
       </trans-unit>
-    <trans-unit id="12Bdc3g" resname="enum.weapon_Plasma_Pistol_(Max)">
+      <trans-unit id="DVtViCq" resname="enum.weapon_Plasma_Pistol_(Max)">
         <source>enum.weapon_Plasma_Pistol_(Max)</source>
         <target>Pistolet Plasma (chargé)</target>
       </trans-unit>
-    <trans-unit id="VOBdf3g" resname="Flare Rocket">
+      <trans-unit id="iNEOdo6" resname="Flare Rocket">
         <source>Flare Rocket</source>
         <target>Fusée éclairante</target>
       </trans-unit>
-      <trans-unit id="VfBdf3g" resname="enum.weapon_Flare_Rocket">
+      <trans-unit id="ZT7xdC." resname="enum.weapon_Flare_Rocket">
         <source>enum.weapon_Flare_Rocket</source>
         <target>Fusée éclairante</target>
       </trans-unit>
-      <trans-unit id="VsBdf3g" resname="Bolt shells">
+      <trans-unit id="VVknjXk" resname="Bolt shells">
         <source>Bolt shells</source>
         <target>Cartouches bolters</target>
       </trans-unit>
-      <trans-unit id="V23df3g" resname="enum.weapon_Bolt_shells">
+      <trans-unit id="0t8Q7qu" resname="enum.weapon_Bolt_shells">
         <source>enum.weapon_Bolt_shells</source>
         <target>Cartouches bolters</target>
       </trans-unit>
-        <trans-unit id="V21df3g" resname="enum.weapon_Hot_shot_shells">
+      <trans-unit id="Negrhpd" resname="enum.weapon_Hot_shot_shells">
         <source>enum.weapon_Hot_shot_shells</source>
         <target>Cartouches incendiaires</target>
       </trans-unit>
-       <trans-unit id="VsBdf4g" resname="Dum Dum Bullets">
+      <trans-unit id="BOFxb2B" resname="Dum Dum Bullets">
         <source>Dum Dum Bullets</source>
         <target>Balles Dum Dum</target>
       </trans-unit>
-     <trans-unit id="VsB2f4g" resname="enum.weapon_Dum_Dum_Bullets">
+      <trans-unit id="GBCuBq3" resname="enum.weapon_Dum_Dum_Bullets">
         <source>enum.weapon_Dum_Dum_Bullets</source>
         <target>Balles Dum Dum</target>
       </trans-unit>
-         <trans-unit id="V8Bdf4g" resname="Hot shot shells">
+      <trans-unit id="4EJayQ2" resname="Hot shot shells">
         <source>Hot shot shells</source>
         <target>Cartouches incendiaires</target>
       </trans-unit>
-   <trans-unit id="V8Bdf2g" resname="Manstopper Shells">
+      <trans-unit id="2QGux1m" resname="Manstopper Shells">
         <source>Manstopper Shells</source>
         <target>Cartouches anti-personnels</target>
       </trans-unit>
-     <trans-unit id="V82df2g" resname="enum.weapon_Manstopper_Shells">
+      <trans-unit id="eowpgJP" resname="enum.weapon_Manstopper_Shells">
         <source>enum.weapon_Manstopper_Shells</source>
         <target>Cartouches anti-personnels</target>
       </trans-unit>
-     <trans-unit id="765df2g" resname="Combat Rifle (Solid Slug)">
+      <trans-unit id="PVbzdF4" resname="Combat Rifle (Solid Slug)">
         <source>Combat Rifle (Solid Slug)</source>
         <target>Fusil de combat (cartouches à tête pleine)</target>
       </trans-unit>
-       <trans-unit id="76SDf2g" resname="enum.weapon_Combat_Rifle_(Solid_Slug)">
+      <trans-unit id="CrutCqL" resname="enum.weapon_Combat_Rifle_(Solid_Slug)">
         <source>enum.weapon_Combat_Rifle_(Solid_Slug)</source>
         <target>Fusil de combat (cartouches à tête pleine)</target>
       </trans-unit>
-       <trans-unit id="765df4g" resname="enum.weapon_Combat_Rifle">
+      <trans-unit id="wkreE0d" resname="enum.weapon_Combat_Rifle">
         <source>enum.weapon_Combat_Rifle</source>
         <target>Fusil de combat</target>
       </trans-unit>
-       <trans-unit id="765dd2g" resname="Combat Rifle (Scatter Slug)">
+      <trans-unit id="KxIJOWB" resname="Combat Rifle (Scatter Slug)">
         <source>Combat Rifle (Scatter Slug)</source>
         <target>Fusil de combat (cartouches à dispersion)</target>
       </trans-unit>
-     <trans-unit id="765d32g" resname="enum.weapon_Combat_Rifle_(Scatter_Slug)">
+      <trans-unit id="M7mxTuj" resname="enum.weapon_Combat_Rifle_(Scatter_Slug)">
         <source>enum.weapon_Combat_Rifle_(Scatter_Slug)</source>
         <target>Fusil de combat (cartouches à dispersion)</target>
       </trans-unit>
-     <trans-unit id="87Zdd2g" resname="enum.weapon_Combat_Rifle_(Executioner_Shells)">
+      <trans-unit id="gGPYG4a" resname="enum.weapon_Combat_Rifle_(Executioner_Shells)">
         <source>enum.weapon_Combat_Rifle_(Executioner_Shells)</source>
         <target>Fusil de combat (cartouches exécuteurs)</target>
-      </trans-unit>     <trans-unit id="875dd2g" resname="Combat Rifle (Executioner Shells)">
+      </trans-unit>
+      <trans-unit id="KpMbYnP" resname="Combat Rifle (Executioner Shells)">
         <source>Combat Rifle (Executioner Shells)</source>
         <target>Fusil de combat (cartouches exécuteurs)</target>
       </trans-unit>
-       <trans-unit id="875df2g" resname="Web Launcher">
+      <trans-unit id="wvyQw4V" resname="Web Launcher">
         <source>Web Launcher</source>
         <target>Lance toile</target>
       </trans-unit>
-    <trans-unit id="875df21" resname="enum.weapon_Web_Launcher">
+      <trans-unit id="bpnV0bt" resname="enum.weapon_Web_Launcher">
         <source>enum.weapon_Web_Launcher</source>
         <target>Lance toile</target>
       </trans-unit>
- <trans-unit id="825df2g" resname="Suppressive Shield">
+      <trans-unit id="t7z5p2t" resname="Suppressive Shield">
         <source>Suppressive Shield</source>
         <target>Bouclier Suppressif</target>
       </trans-unit>
-      <trans-unit id="125df2g" resname="enum.weapon_Suppressive_Shield">
+      <trans-unit id="_WQs3hi" resname="enum.weapon_Suppressive_Shield">
         <source>enum.weapon_Suppressive_Shield</source>
         <target>Bouclier Suppressif</target>
       </trans-unit>
@@ -2032,7 +2033,7 @@
         <source>enum.weapon_Shotgun_(Bolt)</source>
         <target>Fusil à pompe (cartouche Bolt)</target>
       </trans-unit>
-    <trans-unit id="VOPs_cD" resname="enum.weapon_Shotgun_(Solid_Slug_/_Scatter_Shot)">
+      <trans-unit id="DFdd3SL" resname="enum.weapon_Shotgun_(Solid_Slug_/_Scatter_Shot)">
         <source>enum.weapon_Shotgun_(Solid_Slug_/_Scatter_Shot)</source>
         <target>Fusil à pompe (cartouche à disperion / cartouche à tête pleine)</target>
       </trans-unit>
@@ -2088,7 +2089,7 @@
         <source>enum.weapon_Heavy_Bolter</source>
         <target>Bolter lourd</target>
       </trans-unit>
-      <trans-unit id="kEpv5uS" resname="enum.weapon_Missile_Launcher">
+      <trans-unit id="vdZqTfy" resname="enum.weapon_Missile_Launcher">
         <source>enum.weapon_Missile_Launcher</source>
         <target>Lance-missiles</target>
       </trans-unit>
@@ -2809,96 +2810,100 @@
         <target>Blessé par</target>
       </trans-unit>
       <trans-unit id="aQ4fFsG" resname="Equipement Informations">
-          <source>Equipement Informations</source>
-          <target>Informations sur l'équipement</target>
+        <source>Equipement Informations</source>
+        <target>Informations sur les équipements</target>
       </trans-unit>
       <trans-unit id="qTNYcHq" resname="Weapon Informations">
-          <source>Weapon Informations</source>
-          <target>Informations sur les armes</target>
+        <source>Weapon Informations</source>
+        <target>Informations sur les armes</target>
       </trans-unit>
       <trans-unit id="0kZSu6." resname="Not enough credit to payed">
-          <source>Not enough credit to payed</source>
-          <target>Pas assez de crédits pour payer</target>
+        <source>Not enough credit to payed</source>
+        <target>Pas assez de crédits pour payer</target>
       </trans-unit>
       <trans-unit id="qS.3yod" resname="No hired gun in the gang">
-          <source>No hired gun in the gang</source>
-          <target>Aucun mercenaire dans le gang</target>
+        <source>No hired gun in the gang</source>
+        <target>Aucun mercenaire dans le gang</target>
       </trans-unit>
       <trans-unit id="GlQ.Eyq" resname="Hired gun">
-          <source>Hired gun</source>
-          <target>Mercenaire</target>
+        <source>Hired gun</source>
+        <target>Mercenaire</target>
       </trans-unit>
       <trans-unit id="lG7XBTn" resname="New game">
-          <source>New game</source>
-          <target>Nouvelle partie</target>
+        <source>New game</source>
+        <target>Nouvelle partie</target>
       </trans-unit>
       <trans-unit id="9w9qP8M" resname="free knife">
-          <source>free knife</source>
-          <target>couteau gratuit</target>
+        <source>free knife</source>
+        <target>couteau gratuit</target>
       </trans-unit>
       <trans-unit id="p29Hpoj" resname="leap">
-          <source>leap</source>
-          <target>saut</target>
+        <source>leap</source>
+        <target>saut</target>
       </trans-unit>
       <trans-unit id="_5r6hHO" resname="sprint">
-          <source>sprint</source>
-          <target>sprint</target>
+        <source>sprint</source>
+        <target>sprint</target>
       </trans-unit>
       <trans-unit id="D4iXZh8" resname="dive">
-          <source>dive</source>
-          <target>plongeon</target>
+        <source>dive</source>
+        <target>plongeon</target>
       </trans-unit>
       <trans-unit id="71jSWbY" resname=" dodge">
-          <source>dodge</source>
-          <target>esquive</target>
+        <source> dodge</source>
+        <target>esquive</target>
       </trans-unit>
       <trans-unit id="SLivSXa" resname="free grenade choke gas">
-          <source>free grenade choke gas</source>
-          <target>grenade à gaz asphyxiant gratuite</target>
+        <source>free grenade choke gas</source>
+        <target>grenade à gaz asphyxiant gratuite</target>
       </trans-unit>
       <trans-unit id="OUW0Mms" resname="free grenade smoke gas">
-          <source>free grenade smoke gas</source>
-          <target>grenade à gaz fumigène gratuite</target>
+        <source>free grenade smoke gas</source>
+        <target>grenade à gaz fumigène gratuite</target>
       </trans-unit>
       <trans-unit id="t3eKnS7" resname="free grenade photon flare">
-          <source>free grenade photon flare</source>
-          <target>grenade à éclat photonique gratuite</target>
+        <source>free grenade photon flare</source>
+        <target>grenade à éclat photonique gratuite</target>
       </trans-unit>
       <trans-unit id="uSo7aOL" resname="free filter plugs">
-          <source>free filter plugs</source>
-          <target>bouchons de filtre gratuits</target>
+        <source>free filter plugs</source>
+        <target>masque à filtre gratuit</target>
       </trans-unit>
       <trans-unit id="P4tY4oz" resname="free photo contacts">
-          <source>free photo contacts</source>
-          <target>contacts photo gratuits</target>
+        <source>free photo contacts</source>
+        <target>photo-lentilles gratuites</target>
       </trans-unit>
       <trans-unit id="QSvguc1" resname="Informations">
-          <source>Informations</source>
-          <target>Informations</target>
+        <source>Informations</source>
+        <target>Informations</target>
       </trans-unit>
       <trans-unit id="X3Vy1Cz" resname="Podium">
-          <source>Podium</source>
-          <target>Podium</target>
+        <source>Podium</source>
+        <target>Podium</target>
       </trans-unit>
       <trans-unit id="pGmrTKT" resname="Page not found">
-          <source>Page not found</source>
-          <target>Page non trouvée</target>
+        <source>Page not found</source>
+        <target>Page non trouvée</target>
       </trans-unit>
       <trans-unit id="0D1a9aO" resname="The page you are looking for was not found. It may have been moved or deleted.">
-          <source>The page you are looking for was not found. It may have been moved or deleted.</source>
-          <target>La page que vous recherchez n'a pas été trouvée. Elle a peut-être été déplacée ou supprimée.</target>
+        <source>The page you are looking for was not found. It may have been moved or deleted.</source>
+        <target>La page que vous recherchez n'a pas été trouvée. Elle a peut-être été déplacée ou supprimée.</target>
       </trans-unit>
       <trans-unit id="EwT0gNx" resname="Return to the homepage">
-          <source>Return to the homepage</source>
-          <target>Retour à la page d'accueil</target>
+        <source>Return to the homepage</source>
+        <target>Retour à la page d'accueil</target>
       </trans-unit>
       <trans-unit id="0kxBrlM" resname="Unexpected error">
-          <source>Unexpected error</source>
-          <target>Erreur inattendue</target>
+        <source>Unexpected error</source>
+        <target>Erreur inattendue</target>
       </trans-unit>
       <trans-unit id="zbbHd4e" resname="An unexpected error occurred on the server. Please try again later or contact support if the issue persists.">
-          <source>An unexpected error occurred on the server. Please try again later or contact support if the issue persists.</source>
-          <target>Une erreur inattendue est survenue sur le serveur. Veuillez réessayer plus tard ou contacter le support si le problème persiste.</target>
+        <source>An unexpected error occurred on the server. Please try again later or contact support if the issue persists.</source>
+        <target>Une erreur inattendue est survenue sur le serveur. Veuillez réessayer plus tard ou contacter le support si le problème persiste.</target>
+      </trans-unit>
+      <trans-unit id="CNVLjAQ" resname="Weapons informations">
+        <source>Weapons informations</source>
+        <target>Informations sur les armes</target>
       </trans-unit>
     </body>
   </file>
