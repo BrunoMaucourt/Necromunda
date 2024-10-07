@@ -3,11 +3,11 @@
 namespace App\Controller;
 
 use App\Controller\Admin\DashboardController;
+use App\Entity\Equipement;
+use App\Entity\Item;
 use App\Entity\Weapon;
-use App\Enum\SpecialWeaponEnum;
-use App\Enum\WeaponsEnum;
 use App\Form\ChooseCost;
-use App\service\WeaponService;
+use App\service\GangService;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,29 +15,40 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class WeaponController extends AbstractController
+class ItemController extends AbstractController
 {
     private AdminUrlGenerator $adminUrlGenerator;
 
     private EntityManagerInterface $entityManager;
 
-    private WeaponService $weaponService;
+    private GangService $gangService;
 
     public function __construct(
         AdminUrlGenerator $adminUrlGenerator,
         EntityManagerInterface $entityManager,
-        WeaponService $weaponService
+        GangService $gangService
     ){
         $this->adminUrlGenerator = $adminUrlGenerator;
         $this->entityManager = $entityManager;
-        $this->weaponService = $weaponService;
+        $this->gangService = $gangService;
     }
 
-    #[Route('/admin/setWeaponCostVariable/{id}', name: 'set_weapon_cost_variable')]
-    public function setWeaponCostVariable(int $id, Request $request): Response
+    #[Route('/admin/setItemCostVariable/{id}', name: 'set_item_cost_variable')]
+    public function setItemCostVariable(int $id, string $item, Request $request): Response
     {
-        $weaponRepo = $this->entityManager->getRepository(Weapon::class);
-        $weapon = $weaponRepo->find($id);
+        if ( $item === 'App\Entity\Equipement' ) {
+            $equipementRepo = $this->entityManager->getRepository(Equipement::class);
+            $itemToProcess = $equipementRepo->findAll();
+            dump($itemToProcess);
+            $itemToProcess = $equipementRepo->find($id);
+            dump($equipementRepo);
+            dump($itemToProcess);
+        }
+
+        if ( $item === 'App\Entity\Weapon' ) {
+            $weaponRepo = $this->entityManager->getRepository(Weapon::class);
+            $itemToProcess = $weaponRepo->find($id);
+        }
 
         $form = $this->createForm(ChooseCost::class, null, []);
         $form->handleRequest($request);
@@ -46,16 +57,16 @@ class WeaponController extends AbstractController
             $data = $form->getData();
             $variableCost = $data['cost'];
 
-            $weaponFixedCost = $weapon->getCost();
-            $newWeaponCost = $weaponFixedCost + $variableCost;
-            $weapon->setCost($newWeaponCost);
+            $itemToProcessFixedCost = $itemToProcess->getCost();
+            $newItemCost = $itemToProcessFixedCost + $variableCost;
+            $itemToProcess->setCost($newItemCost);
 
-            $this->entityManager->persist($weapon);
+            $this->entityManager->persist($itemToProcess);
             $this->entityManager->flush();
 
             $this->addFlash(
                 'success',
-                'Weapon: ' . $weapon->getName()->enumToString() .' is added to ' . $weapon->getGanger()->getName() . ' for ' . $newWeaponCost . ' credits'
+                'Item: ' . $itemToProcess->getName()->enumToString() .' is added to ' . $itemToProcess->getGanger()->getName() . ' for ' . $newItemCost . ' credits'
             );
 
             $chooseGangURL = $this->adminUrlGenerator
@@ -68,7 +79,7 @@ class WeaponController extends AbstractController
 
         return $this->render('form/choose_cost.html.twig', [
             'form' => $form->createView(),
-            'weapon' => $weapon
+            'item' => $itemToProcess
         ]);
     }
 }
