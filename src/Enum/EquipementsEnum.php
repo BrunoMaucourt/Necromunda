@@ -124,8 +124,8 @@ enum EquipementsEnum: string implements ItemEnumInterface
         return match($this)
         {
             // ARMORS
-            self::ArmourFlak => 2,
-            self::ArmourMesh => 2,
+            self::ArmourFlak => 10,
+            self::ArmourMesh => 25,
             self::ExoticArmourCarapace => 60,
             self::ExoticArmourForceField => 100,
 
