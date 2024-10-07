@@ -2,7 +2,6 @@
 
 namespace App\service;
 
-use App\Entity\Gang;
 use App\Entity\Weapon;
 use App\Enum\SpecialWeaponEnum;
 use App\Enum\WeaponsEnum;
@@ -38,26 +37,6 @@ class WeaponService
         }
 
         $this->entityManager->commit();
-    }
-
-    /**
-     * @param Weapon $weapon
-     * @return Gang|null
-     */
-    public function updateGangCredits(Weapon $weapon): ?Gang
-    {
-        $ganger = $weapon->getGanger();
-        if ($ganger) {
-            $gang = $ganger->getGang();
-            if ($gang) {
-                $newGangCredits = $gang->getCredits() - $weapon->getCost();
-                $gang->setCredits($newGangCredits);
-            }
-
-            return $gang;
-        }
-
-        return null;
     }
 
     public function getSpecialForWeapon(array $listOfWeapons): ?array
