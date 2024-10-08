@@ -92,6 +92,10 @@ class EquipementsCrudController extends AbstractCrudController
                     ])
                 ;
             }
+            yield IntegerField::new('cost', $this->translator->trans('cost'))
+                ->setColumns(4)
+                ->setDisabled()
+            ;
         }
         yield AssociationField::new('weapon', $this->translator->trans('weapon'))
             ->setColumns(4)
