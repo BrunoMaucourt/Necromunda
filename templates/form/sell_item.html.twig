@@ -1,18 +1,18 @@
 {% extends '@EasyAdmin/page/content.html.twig' %}
 
-{% block content_title %}Sell {{ type }}{% endblock %}
+{% block content_title %}{{ 'Sell'|trans}} {{ type }}{% endblock %}
 
 {% block main %}
     <div class="d-flex justify-content-center align-content-center w-100 h-100">
         <div class="d-flex justify-content-between align-content-center p-3">
             <div class="card bg-light rounded-3 p-3">
                 <div class="card-body">
-                    <h2>You will sell {{ item.getName.enumToString }} for {{ itemCost }} credits</h2>
-                    <p>Are you sure you want to sell this item? The sale is final.</p>
-                    {{ form_start(form, {'attr': {'class': 'd-flex justify-content-between align-content-center p-3'}}) }}
+                    <h2>{{ 'You will sell'|trans }} {{ item.getName.enumToString }} {{ 'for'|trans }} {{ itemCost }} {{ 'credits'|trans }}</h2>
+                    <p>{{ 'Are you sure you want to sell this item? The sale is final.'|trans }}</p>
+                    {{ form_start(form, {'attr': {'class': 'chooseCost'}}) }}
                     {{ form_end(form) }}
                     <div class="d-flex justify-content-center align-content-center p-3">
-                        <a href="#" onclick="window.history.back(); return false;" class="btn btn-light">Come-back to previous page</a>
+                        <a href="#" onclick="window.history.back(); return false;" class="btn btn-light">{{ 'Come-back to previous page'|trans }}</a>
                     </div>
                 </div>
             </div>
