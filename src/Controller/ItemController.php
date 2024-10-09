@@ -34,6 +34,60 @@ class ItemController extends AbstractController
         $this->gangService = $gangService;
     }
 
+    #[Route('/admin/setItemCostVariable/{id}', name: 'set_item_cost_variable')]
+    public function setItemCostVariable(int $id, string $item, Request $request): Response
+    {
+        if ( $item === 'App\Entity\Equipement' ) {
+            $equipementRepo = $this->entityManager->getRepository(Equipement::class);
+            $itemToProcess = $equipementRepo->findAll();
+            dump($itemToProcess);
+            $itemToProcess = $equipementRepo->find($id);
+            dump($equipementRepo);
+            dump($itemToProcess);
+        }
+
+        if ( $item === 'App\Entity\Weapon' ) {
+            $weaponRepo = $this->entityManager->getRepository(Weapon::class);
+            $itemToProcess = $weaponRepo->find($id);
+            dump($weaponRepo);
+            dump($itemToProcess);
+        }
+
+        $form = $this->createForm(ChooseCost::class, null, []);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $variableCost = $data['cost'];
+
+            $itemToProcessFixedCost = $itemToProcess->getCost();
+            $newItemCost = $itemToProcessFixedCost + $variableCost;
+            $itemToProcess->setCost($newItemCost);
+
+            $this->entityManager->persist($itemToProcess);
+            $this->entityManager->flush();
+
+            $this->addFlash(
+                'success',
+                'Item: ' . $itemToProcess->getName()->enumToString() .' is added to ' . $itemToProcess->getGanger()->getName() . ' for ' . $newItemCost . ' credits'
+            );
+
+            $chooseGangURL = $this->adminUrlGenerator
+                ->setController(DashboardController::class)
+                ->generateUrl()
+            ;
+
+
+            return $this->redirect($chooseGangURL);
+        }
+
+
+        return $this->render('form/choose_cost.html.twig', [
+            'form' => $form->createView(),
+            'item' => $itemToProcess
+        ]);
+    }
+
     #[Route('/admin/sellItem/{id}/{type}', name: 'sell_item')]
     public function sellItem(int $id, Request $request, string $type = ''): Response
     {
