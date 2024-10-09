@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\GangCrudController;
+use App\Entity\Equipement;
+use App\Entity\Item;
 use App\Entity\Weapon;
 use App\Form\ChooseCost;
+use App\service\GangService;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,25 +16,35 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SellItemController extends AbstractController
+class ItemController extends AbstractController
 {
     private AdminUrlGenerator $adminUrlGenerator;
 
     private EntityManagerInterface $entityManager;
 
+    private GangService $gangService;
+
     public function __construct(
         AdminUrlGenerator $adminUrlGenerator,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        GangService $gangService
     ){
         $this->adminUrlGenerator = $adminUrlGenerator;
         $this->entityManager = $entityManager;
+        $this->gangService = $gangService;
     }
 
     #[Route('/admin/sellItem/{id}/{type}', name: 'sell_item')]
     public function sellItem(int $id, Request $request, string $type = ''): Response
     {
-        if ($type ==! '') {
-
+        if ($type === 'equipement') {
+            $equipementRepo = $this->entityManager->getRepository(Equipement::class);
+            $item = $equipementRepo->find($id);
+            if ($item->getGanger()->getGang()) {
+                $gang = $item->getGanger()->getGang();
+            } else {
+                $gang = $item->getWeapon()->getGanger()->getGang();
+            }
         }
 
         if ($type === 'weapon') {
@@ -67,10 +81,12 @@ class SellItemController extends AbstractController
                 $newCredits = $gangCredits + $creditsToEarn;
                 $gang->setCredits($newCredits);
 
-                if ($item->getGanger()->getGang()) {
-                    $item->getGanger()->removeWeapon($item);
-                } else {
-                    $item->getStash()->removeWeapon($item);
+                if ($type === 'weapon') {
+                    if ($item->getGanger()->getGang()) {
+                        $item->getGanger()->removeWeapon($item);
+                    } else {
+                        $item->getStash()->removeWeapon($item);
+                    }
                 }
 
                 $this->entityManager->persist($gang);

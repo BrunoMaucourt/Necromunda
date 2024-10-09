@@ -40,8 +40,18 @@
                                 or "_Gang_gangers_entry_weapons_entry" in block_prefixes
                             %}
                                 {% if value is not null %}
-                                    <a href="{{ path('add_weapon_in_stash', {'id': value.id}) }}" class="btn btn-primary my-2"><i class="fa-solid fa-warehouse"></i> Add to stash</a>
-                                    <a href="{{ path('admin-context', {'route': 'sell_item', 'id': data.id, 'type': 'weapon' }) }}" class="btn btn-danger my-2"><i class="fa-solid fa-sack-dollar"></i> Sell weapon</a>
+                                    <a href="{{ path('add_weapon_in_stash', {'id': value.id}) }}" class="btn btn-primary my-2"><i class="fa-solid fa-warehouse"></i> {{ 'Add to stash'|trans }}</a>
+                                    <a href="{{ path('admin-context', {'route': 'sell_item', 'id': data.id, 'type': 'weapon' }) }}" class="btn btn-danger my-2"><i class="fa-solid fa-sack-dollar"></i> {{ 'Sell weapon'|trans }}</a>
+                                {% endif %}
+                            {% endif %}
+
+                            {# sell equipement button #}
+                            {%
+                                if "_Ganger_equipements_entry" in block_prefixes
+                                or "_Gang_gangers_entry_equipements_entry" in block_prefixes
+                            %}
+                                {% if value is not null %}
+                                    <a href="{{ path('admin-context', {'route': 'sell_item', 'id': data.id, 'type': 'equipement' }) }}" class="btn btn-danger my-2"><i class="fa-solid fa-sack-dollar"></i> {{ 'Sell equipment'|trans }}</a>
                                 {% endif %}
                             {% endif %}
 
