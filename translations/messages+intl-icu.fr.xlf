@@ -2905,6 +2905,70 @@
         <source>Weapons informations</source>
         <target>Informations sur les armes</target>
       </trans-unit>
+      <trans-unit id="Ac8jG34" resname="Choose variable cost">
+        <source>Choose variable cost</source>
+        <target>Choisir le coût variable</target>
+      </trans-unit>
+      <trans-unit id="LGPhY5Q" resname="Choose variable cost for">
+        <source>Choose variable cost for</source>
+        <target>Choisir le coût variable pour</target>
+      </trans-unit>
+      <trans-unit id="cjr6OU2" resname="Pay">
+        <source>Pay</source>
+        <target>Payer</target>
+      </trans-unit>
+      <trans-unit id="9wDaIZI" resname="Equipements informations">
+        <source>Equipements informations</source>
+        <target>Informations sur les équipements</target>
+      </trans-unit>
+      <trans-unit id="xMXMlRV" resname="Armors">
+        <source>Armors</source>
+        <target>Armures</target>
+      </trans-unit>
+      <trans-unit id="VSXo7WT" resname="Weapon equipment">
+        <source>Weapon equipment</source>
+        <target>Équipement d'arme</target>
+      </trans-unit>
+      <trans-unit id="d6OdsFE" resname="Personal equipment">
+        <source>Personal equipment</source>
+        <target>Équipement personnel</target>
+      </trans-unit>
+      <trans-unit id=".XjGu8r" resname="Bionics">
+        <source>Bionics</source>
+        <target>Bioniques</target>
+      </trans-unit>
+      <trans-unit id="I6bPR0g" resname="Gang Equipment">
+        <source>Gang Equipment</source>
+        <target>Équipement de gang</target>
+      </trans-unit>
+      <trans-unit id="wXFhg9Q" resname="Show custom rules">
+        <source>Show custom rules</source>
+        <target>Afficher les règles personnalisées</target>
+      </trans-unit>
+      <trans-unit id="xgHchti" resname="Custom rules">
+        <source>Custom rules</source>
+        <target>Règles personnalisées</target>
+      </trans-unit>
+      <trans-unit id="LsHigVl" resname="Sell">
+        <source>Sell</source>
+        <target>Vendre</target>
+      </trans-unit>
+      <trans-unit id="hjANKzB" resname="You will sell">
+        <source>You will sell</source>
+        <target>Vous allez vendre</target>
+      </trans-unit>
+      <trans-unit id="EMIrz0x" resname="for">
+        <source>for</source>
+        <target>pour</target>
+      </trans-unit>
+      <trans-unit id="c8sZiAX" resname="Are you sure you want to sell this item? The sale is final.">
+        <source>Are you sure you want to sell this item? The sale is final.</source>
+        <target>Êtes-vous sûr de vouloir vendre cet article ? La vente est définitive.</target>
+      </trans-unit>
+      <trans-unit id="ADqnXnm" resname="Come-back to previous page">
+        <source>Come-back to previous page</source>
+        <target>Revenir à la page précédente</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
