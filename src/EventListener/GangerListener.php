@@ -855,7 +855,21 @@ class GangerListener
         $freePhotoContacts->setFree(true);
         $this->entityManager->persist($freePhotoContacts);
 
-        // ToDo infrared and armour
+        $freeInfraredGoggles = new Equipement();
+        $freeInfraredGoggles->setName(EquipementsEnum::InfraRedGoggles);
+        $freeInfraredGoggles->setGanger($object);
+        $freeInfraredGoggles->setCost(0);
+        $freeInfraredGoggles->setFree(true);
+        $this->entityManager->persist($freeInfraredGoggles);
+
+        $armourCarapace = new Equipement();
+        $armourCarapace->setName(EquipementsEnum::ExoticArmourCarapace);
+        $armourCarapace->setGanger($object);
+        $armourCarapace->setCost(0);
+        $armourCarapace->setFree(true);
+        $this->entityManager->persist($armourCarapace);
+
+
 
         $ironWill = new Skill();
         $ironWill->setName(SkillsEnum::FerocityIronWill);
