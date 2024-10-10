@@ -109,6 +109,8 @@ class Ganger
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $history = null;
 
+    private bool $free = false;
+
     public function __construct()
     {
         $this->injuries = new ArrayCollection();
@@ -540,6 +542,18 @@ class Ganger
     public function setHistory(?string $history): static
     {
         $this->history = $history;
+
+        return $this;
+    }
+
+    public function isFree(): ?bool
+    {
+        return $this->free;
+    }
+
+    public function setFree(?bool $free): static
+    {
+        $this->free = $free;
 
         return $this;
     }
