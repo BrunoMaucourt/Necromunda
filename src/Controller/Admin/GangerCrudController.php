@@ -73,7 +73,8 @@ class GangerCrudController extends AbstractCrudController
 
         if ($pageName === Crud::PAGE_NEW) {
             yield TextField::new('name', $this->translator->trans('name'))
-                ->setColumns(6);
+                ->setColumns(6)
+            ;
             yield AssociationField::new('gang', $this->translator->trans('gang'))
                 ->setColumns(6)
                 ->setFormTypeOptions([
@@ -82,7 +83,8 @@ class GangerCrudController extends AbstractCrudController
                             ->where('g.user = :user')
                             ->setParameter('user', $this->getUser());
                     },
-                ]);
+                ])
+            ;
             yield GangerTypeField::new('type', $this->translator->trans('Ganger type'))
                 ->setEnumTranslator($enumTranslator, $translator)
                 ->formatValue(static function (GangerTypeEnum $gangerType) use($translator): string {
@@ -94,7 +96,11 @@ class GangerCrudController extends AbstractCrudController
                     }
                     return $value;
                 })
-                ->setColumns(6);
+                ->setColumns(6)
+            ;
+            yield BooleanField::new('free', $this->translator->trans('free'))
+                ->setColumns(4)
+            ;
         } else {
             yield AssociationField::new('gang', $this->translator->trans('gang'))
                 ->setColumns(6)

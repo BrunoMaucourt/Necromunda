@@ -180,7 +180,11 @@ class GangerListener
                     break;
             }
 
+            if ($ganger->isFree() === true){
+                $ganger->setCost(0);
+            }
             $newGangCredits = $ganger->getGang()->getCredits() - $ganger->getCost();
+
             $ganger->getGang()->setCredits($newGangCredits);
             $ganger->setRating($object->getCost() + $object->getExperience());
 
