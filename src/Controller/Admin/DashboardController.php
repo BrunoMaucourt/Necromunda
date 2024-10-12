@@ -200,6 +200,14 @@ class DashboardController extends AbstractDashboardController
                     'icon' => 'fas fa-user',
                     'text' => $this->translator->trans('Show all users'),
                 ],
+                'CustomRules' => [
+                    'url' => $this->adminUrlGenerator
+                        ->setController(CustomRulesCrudController::class)
+                        ->setAction('index')
+                        ->generateUrl(),
+                    'icon' => 'fas fa-screwdriver-wrench',
+                    'text' => $this->translator->trans('Show custom rules'),
+                ],
             ];
         } else {
             $linksShowSecondary = [];
