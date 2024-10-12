@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Advancement;
+use App\Entity\CustomRules;
 use App\Entity\Equipement;
 use App\Entity\Game;
 use App\Entity\Gang;
@@ -15,6 +16,7 @@ use App\Entity\User;
 use App\Entity\Weapon;
 use App\service\GameService;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
@@ -245,7 +247,40 @@ class DashboardController extends AbstractDashboardController
         // Statistics
         $gangRatingsData = $this->gameService->getGangRatingsGraphData();
 
+        // Custom rules
+        $existingRule = $this->entityManager->getRepository(CustomRules::class)->findOneBy([]);
+
+        if ($existingRule) {
+            if($existingRule->isBlindFight()) {
+                $blindFight = $this->translator->trans("Blind fight");
+            } else {
+                $blindFight = null;
+            }
+            if($existingRule->isEnfoncers()) {
+                $enfoncers = $this->translator->trans("Enfoncers");
+            } else {
+                $enfoncers = null;
+            }
+            if($existingRule->isDestinyScore()) {
+                $destinyScore = $this->translator->trans("Destiny score");
+            } else {
+                $destinyScore = null;
+            }
+            if($existingRule->isPhotonFlare()) {
+                $photonFlares = $this->translator->trans("Photon flare");
+            } else {
+                $photonFlares = null;
+            }
+            $rules = [
+                $blindFight,
+                $destinyScore,
+                $enfoncers,
+                $photonFlares
+            ];
+        }
+
         return $this->render('admin/dashboard.html.twig', [
+            'customRules' => $rules,
             'gangRatingsData' => $gangRatingsData,
             'linksAdd' => $linksAdd,
             'linksInformation' => $linksShowInformations,
@@ -276,6 +311,7 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::linkToCrud($this->translator->trans('Territories'), 'fas fa-warehouse', Territory::class);
             yield MenuItem::linkToCrud($this->translator->trans('Users'), 'fas fa-user', User::class);
             yield MenuItem::linkToCrud($this->translator->trans('Weapons'), 'fas fa-gun', Weapon::class);
+            yield MenuItem::linkToCrud($this->translator->trans('Custom rules'), 'fas fa-screwdriver-wrench', CustomRules::class);
         }
     }
 
