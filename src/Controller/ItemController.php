@@ -8,6 +8,7 @@ use App\Entity\Equipement;
 use App\Entity\Item;
 use App\Entity\Weapon;
 use App\Form\ChooseCost;
+use App\Form\ChooseYesNoForm;
 use App\service\GangService;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -114,7 +115,7 @@ class ItemController extends AbstractController
         $cost = $item->getCost();
         $creditsToEarn = round($cost / 2);
 
-        $form = $this->createForm(ChooseCost::class, null, []);
+        $form = $this->createForm(ChooseYesNoForm::class, null, []);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
