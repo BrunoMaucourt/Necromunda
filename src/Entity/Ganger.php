@@ -308,15 +308,23 @@ class Ganger
        } else {
            $weaponsCost = 0;
            $equipementsCost = 0;
+           $freeKnife = true;
 
            $weapons = $this->weapons;
+           foreach ($weapons as $weapon) {
+               if (
+                   $weapon->getName() === WeaponsEnum::KNIFE
+                   && $freeKnife === true
+               ) {
+                   $freeKnife = false;
+                   continue;
+               }
 
-           foreach ($weapons as $weapon){
                $weaponsCost += $weapon->getCost();
            }
 
            $equipements = $this->equipements;
-           foreach ($equipements as $equipement){
+           foreach ($equipements as $equipement) {
                $equipementsCost += $equipement->getCost();
            }
 
