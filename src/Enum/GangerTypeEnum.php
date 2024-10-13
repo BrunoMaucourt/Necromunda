@@ -61,9 +61,29 @@ enum GangerTypeEnum: string
             self::cyber_mastiff => self::ENFONCERS,
             self::enforcer => self::ENFONCERS,
         };
+    }
 
+    public function getCost(): int
+    {
+        return match($this)
+        {
+            self::leader => 120,
+            self::heavy => 60,
+            self::ganger => 50,
+            self::juve => 25,
+            self::underhive_scum => 15,
+            self::bounty_hunter => 35,
+            self::ratskin_scout => 15,
+            self::sergeant => 0,
+            self::heavy_unit => 0,
+            self::special_unit => 0,
+            self::canine_unit => 0,
+            self::cyber_mastiff => 0,
+            self::enforcer => 0,
+        };
+    }
 
-    }public function isAvailableOnMenu(): bool
+    public function isAvailableOnMenu(): bool
     {
         return match($this)
         {

@@ -301,28 +301,29 @@ class Ganger
 
     public function getRating(): ?int
     {
-        $weaponsCost = 0;
-        $equipementsCost = 0;
 
-        $weapons = $this->weapons;
-
-        foreach ($weapons as $weapon){
-            $weaponsCost += $weapon->getCost();
-        }
-
-        $equipements = $this->equipements;
-        foreach ($equipements as $equipement){
-           $equipementsCost += $equipement->getCost();
-        }
-
-       $multiplicator = 1;
-       $total = $this->experience + $this->cost + $weaponsCost + $equipementsCost;
 
        if ($this->getType()->getType() === 'hired guns') {
-           $multiplicator = 5;
+           $total = $this->getType()->getCost() * 5;
+       } else {
+           $weaponsCost = 0;
+           $equipementsCost = 0;
+
+           $weapons = $this->weapons;
+
+           foreach ($weapons as $weapon){
+               $weaponsCost += $weapon->getCost();
+           }
+
+           $equipements = $this->equipements;
+           foreach ($equipements as $equipement){
+               $equipementsCost += $equipement->getCost();
+           }
+
+           $total = $this->experience + $this->cost + $weaponsCost + $equipementsCost;
        }
 
-       return $total * $multiplicator;
+       return $total;
     }
 
     public function setRating(int $rating): static
