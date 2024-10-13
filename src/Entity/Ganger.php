@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Enum\GangerTypeEnum;
+use App\Enum\WeaponsEnum;
 use App\Repository\GangerRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -301,8 +302,6 @@ class Ganger
 
     public function getRating(): ?int
     {
-
-
        if ($this->getType()->getType() === 'hired guns') {
            $total = $this->getType()->getCost() * 5;
        } else {
@@ -320,12 +319,12 @@ class Ganger
                    continue;
                }
 
-               $weaponsCost += $weapon->getCost();
+               $weaponsCost += $weapon->getName()->getFixedCost();
            }
 
            $equipements = $this->equipements;
            foreach ($equipements as $equipement) {
-               $equipementsCost += $equipement->getCost();
+               $equipementsCost += $equipement->getName()->getFixedCost();
            }
 
            $total = $this->experience + $this->cost + $weaponsCost + $equipementsCost;
