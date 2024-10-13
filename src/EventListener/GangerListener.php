@@ -80,7 +80,7 @@ class GangerListener
                     $ganger->setBallisticSkill(4);
                     $ganger->setLeadership(8);
                     $ganger->setInitiative(4);
-                    $ganger->setCost(120);
+                    $ganger->setCost(GangerTypeEnum::leader->getCost());
                     $newExperience = 60 + $diceRollExperience;
                     $ganger->setExperience($newExperience);
                     $experienceMessage = $newExperience . ' (' . 60 . ' + ' .$this->translator->trans('dice roll') . ' ' . $diceRollExperience .')';
@@ -90,7 +90,7 @@ class GangerListener
                     $ganger->setBallisticSkill(3);
                     $ganger->setLeadership(7);
                     $ganger->setInitiative(3);
-                    $ganger->setCost(60);
+                    $ganger->setCost(GangerTypeEnum::heavy->getCost());
                     $newExperience = 60 + $diceRollExperience;
                     $ganger->setExperience($newExperience);
                     $experienceMessage = $newExperience . ' (' . 60 . ' + ' .$this->translator->trans('dice roll') . ' ' . $diceRollExperience .')';
@@ -100,7 +100,7 @@ class GangerListener
                     $ganger->setBallisticSkill(3);
                     $ganger->setLeadership(7);
                     $ganger->setInitiative(3);
-                    $ganger->setCost(50);
+                    $ganger->setCost(GangerTypeEnum::ganger->getCost());
                     $newExperience = 20 + $diceRollExperience;
                     $ganger->setExperience($diceRollExperience);
                     $experienceMessage = $newExperience . ' (' . 20 . ' + ' .$this->translator->trans('dice roll') . ' ' . $diceRollExperience .')';
@@ -110,7 +110,7 @@ class GangerListener
                     $ganger->setBallisticSkill(2);
                     $ganger->setLeadership(6);
                     $ganger->setInitiative(3);
-                    $ganger->setCost(25);
+                    $ganger->setCost(GangerTypeEnum::juve->getCost());
                     $ganger->setExperience(0);
                     $experienceMessage = '0';
                     break;
@@ -119,7 +119,7 @@ class GangerListener
                     $ganger->setBallisticSkill(3);
                     $ganger->setLeadership(7);
                     $ganger->setInitiative(3);
-                    $ganger->setCost(15);
+                    $ganger->setCost(GangerTypeEnum::underhive_scum->getCost());
                     $ganger->setExperience(0);
                     $experienceMessage = '0';
                     $advancements = 6;
@@ -130,7 +130,7 @@ class GangerListener
                     $ganger->setLeadership(8);
                     $ganger->setInitiative(4);
                     $ganger->setWounds(2);
-                    $ganger->setCost(35);
+                    $ganger->setCost(GangerTypeEnum::bounty_hunter->getCost());
                     $ganger->setExperience(0);
                     $experienceMessage = '0';
                     $advancements = 4;
@@ -140,7 +140,7 @@ class GangerListener
                     $ganger->setBallisticSkill(3);
                     $ganger->setLeadership(7);
                     $ganger->setInitiative(3);
-                    $ganger->setCost(15);
+                    $ganger->setCost(GangerTypeEnum::ratskin_scout->getCost());
                     $ganger->setExperience(0);
                     $experienceMessage = '0';
                     $advancements = 3;
@@ -150,7 +150,7 @@ class GangerListener
                     $ganger->setBallisticSkill(4);
                     $ganger->setLeadership(8);
                     $ganger->setInitiative(4);
-                    $ganger->setCost(0);
+                    $ganger->setCost(GangerTypeEnum::sergeant->getCost());
                     $ganger->setExperience(0);
                     $experienceMessage = '0';
                     break;
@@ -162,7 +162,7 @@ class GangerListener
                     $ganger->setBallisticSkill(3);
                     $ganger->setLeadership(7);
                     $ganger->setInitiative(3);
-                    $ganger->setCost(0);
+                    $ganger->setCost(GangerTypeEnum::enforcer->getCost());
                     $ganger->setExperience(0);
                     $experienceMessage = '0';
                     break;
@@ -174,7 +174,7 @@ class GangerListener
                     $ganger->setToughness(4);
                     $ganger->setInitiative(4);
                     $ganger->setLeadership(0);
-                    $ganger->setCost(0);
+                    $ganger->setCost(GangerTypeEnum::cyber_mastiff->getCost());
                     $ganger->setExperience(0);
                     $experienceMessage = '0';
                     break;
