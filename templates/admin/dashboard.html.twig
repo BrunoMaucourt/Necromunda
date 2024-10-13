@@ -63,7 +63,40 @@
         </div>
       {% endfor %}
     </div>
+  </div>
 
+  <div class="container">
+    <h2 class="mt-5 mb-4 text-center">{{ 'Custom rules'|trans }}</h2>
+
+    {% set noCustomRules = true %}
+
+    <div class="row justify-content-center">
+      {% for rule in customRules %}
+        {% if rule is not null %}
+          <div class="col-md-3 mb-3">
+            <div class="card text-center">
+              <div class="card-body">
+                <p class="m-0">{{ rule }}</p>
+              </div>
+            </div>
+          </div>
+          {% set noCustomRules = false %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if noCustomRules == true %}
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="alert alert-info text-center" role="alert">
+            {{ "No custom rules"|trans }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="container">
     {% if gangRatingsData is not empty %}
       <h2 class="mt-5 mb-4">{{ 'Statistics'|trans }}</h2>
       <div class="row">
