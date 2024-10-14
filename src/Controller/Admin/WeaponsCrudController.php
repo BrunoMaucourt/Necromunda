@@ -4,11 +4,13 @@ namespace App\Controller\Admin;
 
 use App\EasyAdmin\EquipementsField;
 use App\EasyAdmin\WeaponsField;
+use App\Entity\CustomRules;
 use App\Entity\Ganger;
 use App\Entity\Weapon;
 use App\Enum\GangerTypeEnum;
 use App\Enum\WeaponsEnum;
 use App\service\EnumTranslator;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -23,6 +25,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class WeaponsCrudController extends AbstractCrudController
 {
+    private EntityManagerInterface $entityManager;
+
     private EnumTranslator $enumTranslator;
 
     private Security $security;
@@ -30,10 +34,12 @@ class WeaponsCrudController extends AbstractCrudController
     private TranslatorInterface $translator;
 
     public function __construct(
+        EntityManagerInterface $entityManager,
         EnumTranslator $enumTranslator,
         Security $security,
         TranslatorInterface $translator
     ){
+        $this->entityManager = $entityManager;
         $this->enumTranslator = $enumTranslator;
         $this->security = $security;
         $this->translator = $translator;
@@ -57,9 +63,16 @@ class WeaponsCrudController extends AbstractCrudController
         $object = $this->getContext()->getEntity()->getInstance();
         $enumTranslator = $this->enumTranslator;
         $translator = $this->translator;
+        $customRulesRepository = $this->entityManager->getRepository(CustomRules::class);
+        $customRulesArray = $customRulesRepository->findAll();
+        $customRules = $customRulesArray[0];
+        if (empty($customRulesArray)) {
+           $customRules = new CustomRules();
+        }
 
         yield WeaponsField::new('name', $this->translator->trans('name'))
             ->setEnumTranslator($enumTranslator, $translator)
+            ->setCustomRules($customRules)
             ->formatValue(static function (WeaponsEnum $weaponsEnums) use($translator): string {
                 if ($translator->getLocale() !== 'en') {
                     $key = 'enum.weapon_' . str_replace(' ', '_', $weaponsEnums->value);

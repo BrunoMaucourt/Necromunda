@@ -2,6 +2,7 @@
 
 namespace App\EasyAdmin;
 
+use App\Entity\CustomRules;
 use App\Enum\WeaponsEnum;
 use App\service\EnumTranslator;
 use EasyCorp\Bundle\EasyAdminBundle\Contracts\Field\FieldInterface;
@@ -13,9 +14,12 @@ final class WeaponsField implements FieldInterface
 {
     use FieldTrait;
 
-    private ?TranslatorInterface $translator = null;
+    private ?CustomRules $customRules;
 
     private ?EnumTranslator $enumTranslator = null;
+
+    private ?TranslatorInterface $translator = null;
+
 
     /**
      * @param string|false|null $label
@@ -30,8 +34,14 @@ final class WeaponsField implements FieldInterface
             ->setFormType(EnumType::class)
             ->setFormTypeOptions([
                 'class' => WeaponsEnum::class,
-                'choice_attr' => function (WeaponsEnum $choice) {
-                    if (!$choice->isAvailableOnMenu()) {
+                'choice_attr' => function (WeaponsEnum $choice) use ($instance) {
+
+                    if ( !$choice->isAvailableOnMenu()  ||
+                        $choice->getWeaponType() == WeaponsEnum::ENFONCERS &&
+                        $instance->customRules->isEnfoncers() === false ||
+                        $choice == WeaponsEnum::FLARE_ROCKET &&
+                        $instance->customRules->isRocketFlare() === false
+                    ) {
                         return [
                             'class' => 'hide',
                         ];
@@ -62,10 +72,16 @@ final class WeaponsField implements FieldInterface
     public function setEnumTranslator(
         EnumTranslator $enumTranslator,
         TranslatorInterface $translator
-    ): self
-    {
+    ): self {
         $this->enumTranslator = $enumTranslator;
         $this->translator = $translator;
+        return $this;
+    }
+
+    public function setCustomRules(
+        CustomRules $customRules,
+    ): self {
+        $this->customRules = $customRules;
         return $this;
     }
 }
