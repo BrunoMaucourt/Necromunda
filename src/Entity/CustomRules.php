@@ -20,10 +20,16 @@ class CustomRules
     private ?bool $destinyScore = false;
 
     #[ORM\Column]
-    private ?bool $photonFlare = false;
+    private ?bool $rocketFlare = false;
 
     #[ORM\Column]
-    private ?bool $blindFight = false;
+    private ?bool $blindFightRemoved = false;
+
+    #[ORM\Column]
+    private ?bool $reRollAdvancementDices = false;
+
+    #[ORM\Column]
+    private ?bool $scenarioModifier = false;
 
     public function getId(): ?int
     {
@@ -54,26 +60,50 @@ class CustomRules
         return $this;
     }
 
-    public function isPhotonFlare(): ?bool
+    public function isRocketFlare(): ?bool
     {
-        return $this->photonFlare;
+        return $this->rocketFlare;
     }
 
-    public function setPhotonFlare(bool $photonFlare): static
+    public function setRocketFlare(bool $rocketFlare): static
     {
-        $this->photonFlare = $photonFlare;
+        $this->rocketFlare = $rocketFlare;
 
         return $this;
     }
 
-    public function isBlindFight(): ?bool
+    public function isBlindFightRemoved(): ?bool
     {
-        return $this->blindFight;
+        return $this->blindFightRemoved;
     }
 
-    public function setBlindFight(bool $blindFight): static
+    public function setBlindFightRemoved(bool $blindFightRemoved): static
     {
-        $this->blindFight = $blindFight;
+        $this->blindFightRemoved = $blindFightRemoved;
+
+        return $this;
+    }
+
+    public function isReRollAdvancementDices(): ?bool
+    {
+        return $this->reRollAdvancementDices;
+    }
+
+    public function setReRollAdvancementDices(bool $reRollAdvancementDices): static
+    {
+        $this->reRollAdvancementDices = $reRollAdvancementDices;
+
+        return $this;
+    }
+
+    public function isScenarioModifier(): ?bool
+    {
+        return $this->scenarioModifier;
+    }
+
+    public function setScenarioModifier(bool $scenarioModifier): static
+    {
+        $this->scenarioModifier = $scenarioModifier;
 
         return $this;
     }

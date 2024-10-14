@@ -251,23 +251,23 @@ class DashboardController extends AbstractDashboardController
         $existingRule = $this->entityManager->getRepository(CustomRules::class)->findOneBy([]);
 
         if ($existingRule) {
-            if($existingRule->isBlindFight()) {
-                $blindFight = $this->translator->trans("Blind fight");
+            if($existingRule->isBlindFightRemoved()) {
+                $blindFight = $this->translator->trans("Blind fight removed");
             } else {
                 $blindFight = null;
             }
             if($existingRule->isEnfoncers()) {
-                $enfoncers = $this->translator->trans("Enfoncers");
+                $enfoncers = $this->translator->trans("Enfoncers added");
             } else {
                 $enfoncers = null;
             }
             if($existingRule->isDestinyScore()) {
-                $destinyScore = $this->translator->trans("Destiny score");
+                $destinyScore = $this->translator->trans("Destiny score added");
             } else {
                 $destinyScore = null;
             }
-            if($existingRule->isPhotonFlare()) {
-                $photonFlares = $this->translator->trans("Photon flare");
+            if($existingRule->isRocketFlare()) {
+                $photonFlares = $this->translator->trans("Photon flare added");
             } else {
                 $photonFlares = null;
             }
