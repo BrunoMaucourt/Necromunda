@@ -271,11 +271,23 @@ class DashboardController extends AbstractDashboardController
             } else {
                 $photonFlares = null;
             }
+            if($existingRule->isReRollAdvancementDices()) {
+                $reRollAdvancementDices = $this->translator->trans("Reroll advance dices");
+            } else {
+                $reRollAdvancementDices = null;
+            }
+            if($existingRule->isScenarioModifier()) {
+                $scenarioModifier = $this->translator->trans("Scenario modifier");
+            } else {
+                $scenarioModifier = null;
+            }
             $rules = [
                 $blindFight,
                 $destinyScore,
                 $enfoncers,
-                $photonFlares
+                $photonFlares,
+                $reRollAdvancementDices,
+                $scenarioModifier
             ];
         }
 
