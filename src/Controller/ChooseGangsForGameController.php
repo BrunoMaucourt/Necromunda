@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\Admin\GamesCrudController;
+use App\Entity\CustomRules;
 use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Enum\GangerTypeEnum;
@@ -123,7 +124,11 @@ class ChooseGangsForGameController extends AbstractController
             $scenarioMessage = "Dices roll (". $dice1RollScenario . " + " . $dice2RollScenario . " = " . $dicesRoll . ") Scenario chooses by player with lower gang rating: ".$lowerGangRating." (wounding hits experience doubled and full recovery convert to bitter ennemy)";
         }
 
-        $form = $this->createForm(ChooseScenarioForm::class);
+        $customRulesRepository = $this->entityManager->getRepository(CustomRules::class);
+        $customRulesArray = $customRulesRepository->findAll();
+        $customRules = $customRulesArray[0];
+
+        $form = $this->createForm(ChooseScenarioForm::class, [], ['customRules' => $customRules]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

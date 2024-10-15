@@ -3,13 +3,15 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\ScenarioField;
+use App\Entity\CustomRules;
 use App\Entity\Game;
 use App\Enum\ScenariosEnum;
-use App\Repository\GangRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
@@ -24,24 +26,28 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GamesCrudController extends AbstractCrudController
 {
-    private Security $security;
-
     private AdminUrlGenerator $adminUrlGenerator;
 
+    private EntityManagerInterface $entityManager;
+
     private RequestStack $requestStack;
+
+    private Security $security;
 
     private TranslatorInterface $translator;
 
     public function __construct(
+        AdminUrlGenerator $adminUrlGenerator,
+        EntityManagerInterface $entityManager,
         RequestStack $requestStack,
         Security $security,
-        TranslatorInterface $translator,
-        AdminUrlGenerator $adminUrlGenerator
+        TranslatorInterface $translator
     ){
+        $this->adminUrlGenerator = $adminUrlGenerator;
+        $this->entityManager = $entityManager;
         $this->security = $security;
         $this->requestStack = $requestStack;
         $this->translator = $translator;
-        $this->adminUrlGenerator = $adminUrlGenerator;
     }
 
     public static function getEntityFqcn(): string
@@ -58,6 +64,10 @@ class GamesCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        $customRulesRepository = $this->entityManager->getRepository(CustomRules::class);
+        $customRulesArray = $customRulesRepository->findAll();
+        $customRules = $customRulesArray[0];
+
         if (
             $pageName === Crud::PAGE_NEW
         ) {
@@ -82,6 +92,7 @@ class GamesCrudController extends AbstractCrudController
         $gangs = [$gang1Id, $gang2Id];
 
         yield ScenarioField::new('scenario', $this->translator->trans('Scenario'))
+            ->setCustomRules($customRules)
             ->hideWhenCreating()
             ->formatValue(static function (ScenariosEnum $scenariosEnum): string {
                 return $scenariosEnum->enumToString();
