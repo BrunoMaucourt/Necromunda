@@ -2969,6 +2969,54 @@
         <source>Come-back to previous page</source>
         <target>Revenir à la page précédente</target>
       </trans-unit>
+      <trans-unit id="6mNElhN" resname="Blind fight">
+        <source>Blind fight</source>
+        <target>Combat à l'aveugle</target>
+      </trans-unit>
+      <trans-unit id="kdfnHw1" resname="Enfoncers">
+        <source>Enfoncers</source>
+        <target>Enfoncers</target>
+      </trans-unit>
+      <trans-unit id="ej18EV1" resname="Destiny score">
+        <source>Destiny score</source>
+        <target>Score de destin</target>
+      </trans-unit>
+      <trans-unit id="2PABMYD" resname="Photon flare">
+        <source>Rocket flare</source>
+        <target>Fusée éclairante</target>
+      </trans-unit>
+      <trans-unit id="9HV0l34" resname="No custom rules">
+        <source>No custom rules</source>
+        <target>Aucune règle personnalisée</target>
+      </trans-unit>
+      <trans-unit id="p660dhf" resname="Blind fight removed">
+        <source>Blind fight removed</source>
+        <target>Combat à l'aveugle retiré</target>
+      </trans-unit>
+      <trans-unit id="W55tGEo" resname="Enfoncers added">
+        <source>Enfoncers added</source>
+        <target>Enfoncers ajoutés</target>
+      </trans-unit>
+      <trans-unit id="du4r2w6" resname="Destiny score added">
+        <source>Destiny score added</source>
+        <target>Score de destin ajouté</target>
+      </trans-unit>
+      <trans-unit id="PjRGvnu" resname="Reroll advance dices">
+        <source>Reroll advance dices</source>
+        <target>Relance des dés d'avancement</target>
+      </trans-unit>
+      <trans-unit id="qi_y8Wu" resname="Scenario modifier">
+        <source>Scenario modifier</source>
+        <target>Modificateur de scénario</target>
+      </trans-unit>
+      <trans-unit id="tlUuBL8" resname="destiny score">
+        <source>destiny score</source>
+        <target>score de destin</target>
+      </trans-unit>
+      <trans-unit id="sLLCbWk" resname="Rocket flare added">
+        <source>Rocket flare added</source>
+        <target>Ajout des fusées éclairantes</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -267,7 +267,7 @@ class DashboardController extends AbstractDashboardController
                 $destinyScore = null;
             }
             if($existingRule->isRocketFlare()) {
-                $photonFlares = $this->translator->trans("Photon flare added");
+                $photonFlares = $this->translator->trans("Rocket flare added");
             } else {
                 $photonFlares = null;
             }
