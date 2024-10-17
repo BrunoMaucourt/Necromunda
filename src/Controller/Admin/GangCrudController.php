@@ -3,8 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\HouseField;
+use App\Entity\CustomRules;
 use App\Entity\Gang;
 use App\Enum\HouseEnum;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -24,15 +26,19 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GangCrudController extends AbstractCrudController
 {
+    private EntityManagerInterface $entityManager;
+
     private $security;
 
     private TranslatorInterface $translator;
 
     public function __construct(
+        EntityManagerInterface $entityManager,
         Security $security,
         TranslatorInterface $translator,
     )
     {
+        $this->entityManager = $entityManager;
         $this->security = $security;
         $this->translator = $translator;
     }
@@ -52,6 +58,10 @@ class GangCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         $gang = $this->getContext()->getEntity()->getInstance();
+
+        $customRulesRepository = $this->entityManager->getRepository(CustomRules::class);
+        $customRulesArray = $customRulesRepository->findAll();
+        $customRules = $customRulesArray[0];
 
         if ($gang instanceof Gang) {
             $gangId = $gang->getId() ? $gang->getId() : null;
@@ -165,6 +175,15 @@ class GangCrudController extends AbstractCrudController
             ->setColumns(12)
             ->hideWhenCreating()
             ->hideOnIndex();
+        if ($customRules->isDestinyScore()) {
+            yield FormField::addPanel('Custom rules', $this->translator->trans('Custom rules'))
+                ->setIcon('fa-solid fa-screwdriver-wrench')
+                ->hideWhenCreating()
+                ->collapsible();
+            yield IntegerField::new('destinyScore', $this->translator->trans('destiny score'))
+                ->setColumns(12)
+                ->hideWhenCreating();
+        }
     }
 
     public function configureActions(Actions $actions): Actions

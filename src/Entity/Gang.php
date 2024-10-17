@@ -76,6 +76,9 @@ class Gang
     #[ORM\OneToMany(targetEntity: Weapon::class, mappedBy: 'stash')]
     private Collection $weapons;
 
+    #[ORM\Column]
+    private int $destinyScore = 6;
+
     public function __construct()
     {
         $this->gangers = new ArrayCollection();
@@ -370,6 +373,18 @@ class Gang
                 $weapon->setStash(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDestinyScore(): ?int
+    {
+        return $this->destinyScore;
+    }
+
+    public function setDestinyScore(int $destinyScore): static
+    {
+        $this->destinyScore = $destinyScore;
 
         return $this;
     }
