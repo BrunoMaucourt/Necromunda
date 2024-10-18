@@ -1,17 +1,21 @@
-# Necromunda Campaign Tracker
+<h1 style="text-align: center;">Necromunda Campaign Tracker</h1>
 
+<div align="center">
+  <img src="https://img.shields.io/badge/PHP-8.1-blue" alt="PHP Version" />
+  <img src="https://img.shields.io/badge/Symfony-6.4-purple" alt="Symfony" />
+  <img src="https://img.shields.io/badge/Easy admin-4.12-green" alt="Easy admin" />
+</div>
 
-<img src="https://raw.githubusercontent.com/BrunoMaucourt/Necromunda/main/public/img/Necromunda_campaign_tracker.png" alt="Necromunda Logo" width="200" />
+<div style="text-align: center;">
+    <img src="https://raw.githubusercontent.com/BrunoMaucourt/Necromunda/main/public/img/Necromunda_campaign_tracker.png" alt="Necromunda Logo" width="200" />
+</div>
 
 
 ## Introduction
 
-
-Necromunda Campaign Tracker is a web application developed in PHP with the Symfony framework and the EasyAdmin bundle. It is designed to help Necromunda (Community Edition 2021) players track their campaigns, manage their gangs, and record battle results.
-
+Necromunda Campaign Tracker is a web application developed in PHP using the Symfony framework and the EasyAdmin bundle. It is designed to help players of Necromunda (Community Edition 2021) track their campaigns, manage their gangs, and record battle results.
 
 ## Table of Contents
-
 
 - [Features](#features)
 - [Prerequisites](#prerequisites)
@@ -22,298 +26,107 @@ Necromunda Campaign Tracker is a web application developed in PHP with the Symfo
 - [License](#license)
 - [Disclaimer](#disclaimer)
 
-
 ## Features
 
-
-- Campaign and battle tracking
-- Gang management
-- Battle result recording
-- Campaign statistics and reports
-
+- **Campaign tracking**: Create and manage campaigns with detailed statistics.
+- **Gang management**: Track members, equipment, and the evolution of each gang.
+- **Battle results**: Record battles with detailed reports.
+- **Statistics reports**: Analyze campaign performance with graphs and summaries.
 
 ## Prerequisites
 
-
-Before starting, make sure you have the following installed on your machine:
-
+Before you begin, make sure you have the following installed on your machine:
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 - [Git](https://git-scm.com/)
 
-
 ## Installation
 
-
 ### Clone the repository
-
 
 ```bash
 git clone https://github.com/your-username/necromunda-campaign-tracker.git
 cd necromunda-campaign-tracker
 ```
 
-
-#### Build the Docker image
-
-
-Make sure you are in the root directory of the project, then run:
-
+Build the Docker image
+From the root directory of the project, run the following command to start the Docker containers:
 
 ```bash
 docker-compose up --build -d
 ```
-
-
-### Install dependencies
-
-
-Once the Docker containers are running, access the PHP container and install the Composer dependencies:
-
-
-``` bash
-docker-compose exec php-fpm bash
-composer install
-```
-
-
-## Configuration
-
-
-### .env.local file
-
-
-Create a .env.local file at the root of the project for installation-specific variables and specify the database URL:
-
-
-``` bash
-DATABASE_URL="mysql://user:password@127.0.0.1:3306/necromunda"
-```
-
-
-### Database migration
-
-
-Run the migrations to create the necessary tables in the database:
-
+Install dependencies
+Once the Docker containers are up and running, access the PHP container and install the Composer dependencies:
 
 ```bash
-php bin/console doctrine:migrations:migrate
+docker-compose exec php-fpm
+composer install
 ```
+Configuration
+.env.local file
+Create a .env.local file at the root of the project for environment-specific variables and specify the database URL:
 
+bash
+Copy code
+DATABASE_URL="mysql://user:password@127.0.0.1:3306/necromunda"
+Database migration
+Run migrations to create the necessary tables in the database:
 
-## Usage
+bash
+Copy code
+php bin/console doctrine:migrations:migrate
+Production deployment
+When deploying this project to production, don’t forget to compile the asset map.
 
+bash
+Copy code
+php bin/console asset-map:compile
+Backup the database
+This project uses the makinacorpus/db-tools-bundle package to automatically back up the database, ensuring the possibility of restoration in case of problems. To perform a manual backup, you can run the following command:
 
+bash
+Copy code
+php bin/console db-tools:backup
+To revert to a previous backup in case of issues, use the command:
+
+bash
+Copy code
+php bin/console db-tools:restore
+Usage
 Access the application by opening your browser and visiting http://localhost:8000.
 
+Admin
+Granting admin status to a user allows them to access more menus and modify custom rules. To do this, add the role ["ROLE_ADMIN"] in the MySQL database for the user.
 
-## Contributing
+Custom rules
+Custom rules have been added to the base game. These rules can be activated from the "Custom Rules" tab, accessible only to the site's admin.
 
-
+Contributing
 Contributions are welcome! Please follow these steps to contribute:
 
-
-### Fork this repository.
-
-
+Fork this repository.
 Create a branch for your feature:
 
-
-``` bash
-git checkout -b feature/AmazingFeature.
-```
-
-
+bash
+Copy code
+git checkout -b feature/AmazingFeature
 Commit your changes:
 
-
-```bash
+bash
+Copy code
 git commit -m 'Add some AmazingFeature'
-```
-
-
 Push your branch:
 
-
-``` bash
+bash
+Copy code
 git push origin feature/AmazingFeature
-```
-
-
 Open a Pull Request.
 
-## License
+License
+This project is licensed under the GNU license. See the LICENSE file for more details.
 
+Disclaimer
+This project, Necromunda Campaign Tracker, is a personal and non-commercial project. It uses data and content from the Necromunda board game, created by Games Workshop. Necromunda and all associated trademarks and names are the property of Games Workshop.
 
-This project is licensed under the GNU license. See the LICENSE file for details.
-
-
-## Disclaimer
-
-
-This project, Necromunda Campaign Tracker, is a personal and non-commercial project. It uses data and content from the board game Necromunda, created by Games Workshop. Necromunda and all associated trademarks and names are the property of Games Workshop.
-
-
-This project is not affiliated, sponsored, or endorsed by Games Workshop. All data and content used in this project are the property of their respective owners and are used solely for non-commercial and educational purposes.
-
-
-# Necromunda Campaign Tracker
-
-
-<img src="https://raw.githubusercontent.com/BrunoMaucourt/Necromunda/main/public/img/Necromunda_campaign_tracker.png" alt="Necromunda Logo" width="200" />
-
-
-## Introduction
-
-
-Necromunda Campaign Tracker est une application web développée en PHP avec le framework Symfony et le bundle EasyAdmin. Elle est conçue pour aider les joueurs de Necromunda (Community Edition 2021) à suivre leurs campagnes, gérer leurs gangs, et enregistrer les résultats des batailles.
-
-
-## Table des matières
-
-
-- [Fonctionnalités](#fonctionnalités)
-- [Prérequis](#prérequis)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Utilisation](#utilisation)
-- [Contribuer](#contribuer)
-- [Licence](#licence)
-- [Avertissement](#avertissement)
-
-
-## Fonctionnalités
-
-
-- Suivi des campagnes et des batailles
-- Gestion des gangs
-- Enregistrement des résultats de bataille
-- Statistiques et rapports de campagne
-
-
-## Prérequis
-
-
-Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
-
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
-- [Git](https://git-scm.com/)
-
-
-## Installation
-
-
-### Cloner le dépôt
-
-
-```bash
-git clone https://github.com/votre-utilisateur/necromunda-campaign-tracker.git
-cd necromunda-campaign-tracker
-```
-
-
-### Construire l'image Docker
-
-
-Assurez-vous que vous êtes dans le répertoire racine du projet, puis exécutez :
-
-
-```bash
-docker-compose up --build -d
-```
-
-
-### Installer les dépendances
-
-
-Une fois les conteneurs Docker en cours d'exécution, accédez au conteneur PHP et installez les dépendances Composer :
-
-
-``` bash
-docker-compose exec php-fpm bash
-composer install
-```
-
-
-## Configuration
-
-
-### Fichier .env.local
-
-
-Créez un fichier .env.local à la racine du projet pour les variables spécifiques à l'installation et spécifiez l'URL de la base de données :
-
-
-``` bash
-DATABASE_URL="mysql://user:password@127.0.0.1:3306/necromunda"
-```
-
-
-### Migration de la base de données
-
-
-Exécutez les migrations pour créer les tables nécessaires dans la base de données :
-
-
-``` bash
-php bin/console doctrine:migrations:migrate
-```
-
-
-## Utilisation
-
-
-Accédez à l'application en ouvrant votre navigateur et en visitant http://localhost:8000.
-
-## Contribuer
-
-
-Les contributions sont les bienvenues ! Veuillez suivre les étapes suivantes pour contribuer :
-
-
-### Fork ce dépôt.
-
-
-Créez une branche pour votre fonctionnalité :
-
-
-``` bash
-git checkout -b feature/AmazingFeature.
-```
-
-
-Commitez vos modifications :
-
-
-``` bash
-git commit -m 'Add some AmazingFeature'
-```
-
-
-Poussez votre branche :
-
-
-``` bash
-git push origin feature/AmazingFeature
-```
-
-
-Ouvrez une Pull Request.
-
-
-## Licence
-
-
-Ce projet est sous licence GNU. Voir le fichier LICENSE pour plus de détails.
-
-
-## Avertissement
-
-
-Ce projet, Necromunda Campaign Tracker, est un projet personnel et non commercial. Il utilise des données et du contenu issus du jeu de société Necromunda, créé par Games Workshop. Necromunda et toutes les marques et noms associés sont la propriété de Games Workshop.
-
-
-Ce projet n'est en aucun cas affilié, sponsorisé ou approuvé par Games Workshop. Toutes les données et contenus utilisés dans ce projet sont la propriété de leurs propriétaires respectifs et sont utilisés uniquement à des fins non commerciales et éducatives.
+This project is in no way affiliated, sponsored, or approved by Games Workshop. All data and content used in this project are the property of their respective owners and are used solely for non-commercial and educational purposes.
