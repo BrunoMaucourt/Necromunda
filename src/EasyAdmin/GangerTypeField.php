@@ -32,13 +32,13 @@ final class GangerTypeField implements FieldInterface
                 'class' => GangerTypeEnum::class,
                 'choice_label' => function (\UnitEnum $choice) use ($instance): string {
                     if ($instance->enumTranslator && $instance->translator->getLocale() !== 'en') {
-                        return $instance->enumTranslator->translate('enum.ganger_type_' . str_replace(' ', '_', $choice->value));
+                        return $instance->enumTranslator->translate($choice->value);
                     }
                     return $choice->value;
                 },
                 'group_by' => function(GangerTypeEnum $choice) use ($instance) {
                     if ($instance->enumTranslator && $instance->translator->getLocale() !== 'en') {
-                        return $instance->enumTranslator->translate('enum.ganger_type_' . str_replace(' ', '_', $choice->getType()));
+                        return $instance->enumTranslator->translate($choice->getType());
                     }
                     return $choice->getType();
                 },
