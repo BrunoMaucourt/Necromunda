@@ -781,32 +781,32 @@
         <source>The model gains a +2 bonus to its Strength (S) characteristic and a +2 bonus to Initiative (I) when testing if it falls from an edge.</source>
         <target>La figurine gagne un bonus de +2 à sa caractéristique de force (S) et un bonus de +2 à l'Initiative (I) pour tester si elle chute d'un bord.</target>
       </trans-unit>
-      <trans-unit id="nq9l_0s" resname="Bionic - Eye">
-        <source>Bionic - Eye</source>
+      <trans-unit id="nq9l_0s" resname="Bionic Eye">
+        <source>Bionic Eye</source>
         <target>Bionique - oeil</target>
       </trans-unit>
       <trans-unit id="OD7J_GB" resname="The model can never be blinded or dazzled. Its vision in the dark is enhanced. The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. The model detects opponents in cover as if they were in the open.">
         <source>The model can never be blinded or dazzled. Its vision in the dark is enhanced. The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. The model detects opponents in cover as if they were in the open.</source>
         <target>La figurines ne peut jamais être aveuglée ou éblouie. La vision dans le noir est améliorée. La figurine peut détecter visuellement ses adversaires dissimulés 3 fois plus loin et est immunisé aux fumigènes. La figurine détecte ses adversaires à couverts comme s'ils étaient à découvert.</target>
       </trans-unit>
-      <trans-unit id="dKcuFj_" resname="Bionic - Implant">
-        <source>Bionic - Implant</source>
+      <trans-unit id="dKcuFj_" resname="Bionic Implant">
+        <source>Bionic Implant</source>
         <target>Bionique - Implant</target>
       </trans-unit>
       <trans-unit id="1rZWfHm" resname="The implant allows the model to heal all Serious Injuries related to a single limb.">
         <source>The implant allows the model to heal all Serious Injuries related to a single limb.</source>
         <target>L’implant permet de soigner toutes les Blessures graves liées à un unique membre.</target>
       </trans-unit>
-      <trans-unit id="MIJeqVD" resname="Bionic - Leg">
-        <source>Bionic - Leg</source>
+      <trans-unit id="MIJeqVD" resname="Bionic Leg">
+        <source>Bionic Leg</source>
         <target>Bionique - Jambe</target>
       </trans-unit>
       <trans-unit id="Lmlqg6." resname="The model gains a +1 bonus to its Movement (M) and Attacks (A) characteristics.">
         <source>The model gains a +1 bonus to its Movement (M) and Attacks (A) characteristics.</source>
         <target>La figurine gagne un bonus de +1 à ses caractéristiques de mouvement (M) et attaque (A).</target>
       </trans-unit>
-      <trans-unit id="rVX_mJq" resname="Bionic - Torso">
-        <source>Bionic - Torso</source>
+      <trans-unit id="rVX_mJq" resname="Bionic Torso">
+        <source>Bionic Torso</source>
         <target>Bionique - torse</target>
       </trans-unit>
       <trans-unit id="3YZ7tJ7" resname="The model is immune to the effects of gas. Grants a 6+ Armor Save.">

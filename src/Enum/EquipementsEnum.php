@@ -47,7 +47,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
     case FilterPlugs = 'Filter Plugs';
     case GravChute = 'Grav Chute';
     case Grapnel = 'Grapnel';
-    case InfraRedGoggles = 'Infra-red Gogles';
+    case InfraRedGoggles = 'Infra-red Goggles';
     case MediPack = 'Medi-pack';
     case PhotoContacts = 'Photo-contacts';
     case PhotoVisor = 'Photo-visor';
