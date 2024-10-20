@@ -2781,8 +2781,8 @@
         <source>Gangs involved</source>
         <target>Gangs impliqués</target>
       </trans-unit>
-      <trans-unit id="LEJsNwz" resname="Gang">
-        <source>Gang</source>
+      <trans-unit id="LEJsNwz" resname="gang">
+        <source>gang</source>
         <target>Gang</target>
       </trans-unit>
       <trans-unit id="vW2lqU9" resname="advancement">
@@ -3005,8 +3005,8 @@
         <source>Blind fight</source>
         <target>Combat à l'aveugle</target>
       </trans-unit>
-      <trans-unit id="kdfnHw1" resname="Enfoncers">
-        <source>Enfoncers</source>
+      <trans-unit id="kdfnHw1" resname="enfoncers">
+        <source>enfoncers</source>
         <target>Enfoncers</target>
       </trans-unit>
       <trans-unit id="ej18EV1" resname="Destiny score">

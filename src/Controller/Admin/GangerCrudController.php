@@ -89,8 +89,7 @@ class GangerCrudController extends AbstractCrudController
                 ->setEnumTranslator($enumTranslator, $translator)
                 ->formatValue(static function (GangerTypeEnum $gangerType) use($translator): string {
                     if ($translator->getLocale() !== 'en') {
-                        $key = 'enum.ganger_type_' . str_replace(' ', '_', $gangerType->value);
-                        $value = $translator->trans($key);
+                        $value = $translator->trans($gangerType->value);
                     } else {
                         $value = $gangerType->enumToString();
                     }
@@ -109,8 +108,7 @@ class GangerCrudController extends AbstractCrudController
                 ->setEnumTranslator($enumTranslator, $translator)
                 ->formatValue(static function (GangerTypeEnum $gangerType) use($translator): string {
                     if ($translator->getLocale() !== 'en') {
-                        $key = 'enum.ganger_type_' . str_replace(' ', '_', $gangerType->value);
-                        $value = $translator->trans($key);
+                        $value = $translator->trans($gangerType->value);
                     } else {
                        $value = $gangerType->enumToString();
                     }
