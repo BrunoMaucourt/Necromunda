@@ -61,7 +61,9 @@ class GangCrudController extends AbstractCrudController
 
         $customRulesRepository = $this->entityManager->getRepository(CustomRules::class);
         $customRulesArray = $customRulesRepository->findAll();
-        $customRules = $customRulesArray[0];
+        if ($customRulesArray) {
+            $customRules = $customRulesArray[0];
+        }
 
         if ($gang instanceof Gang) {
             $gangId = $gang->getId() ? $gang->getId() : null;
@@ -175,14 +177,16 @@ class GangCrudController extends AbstractCrudController
             ->setColumns(12)
             ->hideWhenCreating()
             ->hideOnIndex();
-        if ($customRules->isDestinyScore()) {
-            yield FormField::addPanel('Custom rules', $this->translator->trans('Custom rules'))
-                ->setIcon('fa-solid fa-screwdriver-wrench')
-                ->hideWhenCreating()
-                ->collapsible();
-            yield IntegerField::new('destinyScore', $this->translator->trans('destiny score'))
-                ->setColumns(12)
-                ->hideWhenCreating();
+        if ($customRulesArray) {
+            if ($customRules->isDestinyScore()) {
+                yield FormField::addPanel('Custom rules', $this->translator->trans('Custom rules'))
+                    ->setIcon('fa-solid fa-screwdriver-wrench')
+                    ->hideWhenCreating()
+                    ->collapsible();
+                yield IntegerField::new('destinyScore', $this->translator->trans('destiny score'))
+                    ->setColumns(12)
+                    ->hideWhenCreating();
+            }
         }
     }
 

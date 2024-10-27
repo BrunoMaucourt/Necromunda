@@ -66,7 +66,9 @@ class GamesCrudController extends AbstractCrudController
     {
         $customRulesRepository = $this->entityManager->getRepository(CustomRules::class);
         $customRulesArray = $customRulesRepository->findAll();
-        $customRules = $customRulesArray[0];
+        if ($customRulesArray) {
+            $customRules = $customRulesArray[0];
+        }
 
         if (
             $pageName === Crud::PAGE_NEW
@@ -91,13 +93,25 @@ class GamesCrudController extends AbstractCrudController
 
         $gangs = [$gang1Id, $gang2Id];
 
-        yield ScenarioField::new('scenario', $this->translator->trans('Scenario'))
-            ->setCustomRules($customRules)
-            ->hideWhenCreating()
-            ->formatValue(static function (ScenariosEnum $scenariosEnum): string {
-                return $scenariosEnum->enumToString();
-            })
-            ->setColumns(6);
+        if ($customRulesArray) {
+            yield ScenarioField::new('scenario', $this->translator->trans('Scenario'))
+                ->setCustomRules($customRules)
+                ->hideWhenCreating()
+                ->formatValue(static function (ScenariosEnum $scenariosEnum): string {
+                    return $scenariosEnum->enumToString();
+                })
+                ->setColumns(6)
+            ;
+        } else {
+            yield ScenarioField::new('scenario', $this->translator->trans('Scenario'))
+                ->hideWhenCreating()
+                ->formatValue(static function (ScenariosEnum $scenariosEnum): string {
+                    return $scenariosEnum->enumToString();
+                })
+                ->setColumns(6)
+            ;
+        }
+
         yield DateField::new('date', $this->translator->trans('date'))
             ->setColumns(6);
         yield FormField::addPanel('Players', $this->translator->trans('Players'))
