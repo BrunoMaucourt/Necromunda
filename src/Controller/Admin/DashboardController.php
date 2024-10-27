@@ -289,6 +289,8 @@ class DashboardController extends AbstractDashboardController
                 $reRollAdvancementDices,
                 $scenarioModifier
             ];
+        } else {
+            $rules = [];
         }
 
         return $this->render('admin/dashboard.html.twig', [
