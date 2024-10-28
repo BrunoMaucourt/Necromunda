@@ -50,83 +50,89 @@ git clone https://github.com/your-username/necromunda-campaign-tracker.git
 cd necromunda-campaign-tracker
 ```
 
-Build the Docker image
+### Build the Docker image
 From the root directory of the project, run the following command to start the Docker containers:
 
 ```bash
 docker-compose up --build -d
 ```
-Install dependencies
+
+## Install dependencies
+
 Once the Docker containers are up and running, access the PHP container and install the Composer dependencies:
 
 ```bash
 docker-compose exec php-fpm
 composer install
 ```
-Configuration
-.env.local file
+
+## Configuration
+
+
+## .env.local file
 Create a .env.local file at the root of the project for environment-specific variables and specify the database URL:
 
-bash
-Copy code
+```bash
 DATABASE_URL="mysql://user:password@127.0.0.1:3306/necromunda"
+```
 Database migration
 Run migrations to create the necessary tables in the database:
 
-bash
-Copy code
+```bash
 php bin/console doctrine:migrations:migrate
+```
 Production deployment
 When deploying this project to production, don’t forget to compile the asset map.
 
-bash
-Copy code
+```bash
 php bin/console asset-map:compile
-Backup the database
+```
+### Backup the database
 This project uses the makinacorpus/db-tools-bundle package to automatically back up the database, ensuring the possibility of restoration in case of problems. To perform a manual backup, you can run the following command:
 
-bash
-Copy code
+```bash
 php bin/console db-tools:backup
+```
 To revert to a previous backup in case of issues, use the command:
 
-bash
-Copy code
+```bash
 php bin/console db-tools:restore
-Usage
+```
+
+## Usage
 Access the application by opening your browser and visiting http://localhost:8000.
 
-Admin
+### Admin
 Granting admin status to a user allows them to access more menus and modify custom rules. To do this, add the role ["ROLE_ADMIN"] in the MySQL database for the user.
 
-Custom rules
+### Custom rules
 Custom rules have been added to the base game. These rules can be activated from the "Custom Rules" tab, accessible only to the site's admin.
 
-Contributing
+## Contributing
 Contributions are welcome! Please follow these steps to contribute:
 
-Fork this repository.
+### Fork this repository.
 Create a branch for your feature:
 
-bash
-Copy code
+```bash
 git checkout -b feature/AmazingFeature
+```
 Commit your changes:
 
-bash
-Copy code
+```bash
 git commit -m 'Add some AmazingFeature'
+```
 Push your branch:
 
-bash
-Copy code
+```bash
 git push origin feature/AmazingFeature
+```
 Open a Pull Request.
 
-License
+## License
 This project is licensed under the GNU license. See the LICENSE file for more details.
 
-Disclaimer
+## Disclaimer
 This project, Necromunda Campaign Tracker, is a personal and non-commercial project. It uses data and content from the Necromunda board game, created by Games Workshop. Necromunda and all associated trademarks and names are the property of Games Workshop.
 
 This project is in no way affiliated, sponsored, or approved by Games Workshop. All data and content used in this project are the property of their respective owners and are used solely for non-commercial and educational purposes.
