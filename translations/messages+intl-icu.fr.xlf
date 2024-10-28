@@ -2045,12 +2045,12 @@
         <source>enum.weapon_Autogun</source>
         <target>Fusil mitrailleur</target>
       </trans-unit>
-      <trans-unit id="xLBPeBx" resname="enum.weapon_Shotgun_(Solid_Slug)">
-        <source>enum.weapon_Shotgun_(Solid_Slug)</source>
+      <trans-unit id="xLBPeBx" resname="Shotgun (Solid Slug)">
+        <source>Shotgun (Solid Slug)</source>
         <target>Fusil à pompe (cartouche à tête pleine)</target>
       </trans-unit>
-      <trans-unit id="swdgmBo" resname="enum.weapon_Shotgun_(Scatter_Shot)">
-        <source>enum.weapon_Shotgun_(Scatter_Shot)</source>
+      <trans-unit id="swdgmBo" resname="Shotgun (Scatter Shot)">
+        <source>Shotgun (Scatter Shot)</source>
         <target>Fusil à pompe (cartouche à disperion)</target>
       </trans-unit>
       <trans-unit id="1SnQ4oh" resname="enum.weapon_Shotgun_(Manstopper)">
@@ -2281,13 +2281,9 @@
         <source>Autogun</source>
         <target>Fusil mitrailleur</target>
       </trans-unit>
-      <trans-unit id="yQd6bDv" resname="Shotgun (Solid Slug)">
-        <source>Shotgun (Solid Slug)</source>
-        <target>Fusil à pompe (balle à tête pleine)</target>
-      </trans-unit>
-      <trans-unit id="1RwhbkX" resname="Shotgun (Scatter Shot)">
-        <source>Shotgun (Scatter Shot)</source>
-        <target>Fusil à pompe (cartouche à disperion)</target>
+      <trans-unit id="yQd6bDv" resname="Shotgun (Solid Slug / Scatter Shot)">
+        <source>Shotgun (Solid Slug / Scatter Shot)</source>
+        <target>Fusil à pompe (balle à tête pleine / cartouche à disperion)</target>
       </trans-unit>
       <trans-unit id="Mgm9nwH" resname="Shotgun (Manstopper)">
         <source>Shotgun (Manstopper)</source>
@@ -3043,7 +3039,7 @@
       </trans-unit>
       <trans-unit id="tlUuBL8" resname="destiny score">
         <source>destiny score</source>
-        <target>score de destin</target>
+        <target>Score de destin</target>
       </trans-unit>
       <trans-unit id="sLLCbWk" resname="Rocket flare added">
         <source>Rocket flare added</source>
