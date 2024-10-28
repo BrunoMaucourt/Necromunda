@@ -14,6 +14,7 @@ use Doctrine\ORM\Events;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 #[AsDoctrineListener(event: Events::prePersist, priority: 500, connection: 'default')]
 #[AsDoctrineListener(event: Events::postPersist, priority: 500, connection: 'default')]
@@ -23,16 +24,19 @@ class ItemListener
     private AdminUrlGenerator $adminUrlGenerator;
     private EntityManagerInterface $entityManager;
     private GangService $gangService;
+    private RequestStack $requestStack;
 
     public function __construct (
         AdminUrlGenerator $adminUrlGenerator,
         EntityManagerInterface $entityManager,
-        GangService $gangService
+        GangService $gangService,
+        RequestStack $requestStack
     )
     {
         $this->adminUrlGenerator = $adminUrlGenerator;
         $this->entityManager = $entityManager;
         $this->gangService = $gangService;
+        $this->requestStack = $requestStack;
     }
 
     public function prePersist(PrePersistEventArgs $event): void
@@ -63,17 +67,25 @@ class ItemListener
             $object->getName()->getVariableDicesNumber() > 0
             && $object->getCost() === $object->getName()->getFixedCost()
         ) {
-            $itemId = $object->getId();
+            $session = $this->requestStack->getSession();
+            $itemsFromSession = $session->get('itemsToProcess', []);
+            $alreadyExists = false;
 
-            $equipementRepo = $this->entityManager->getRepository(Equipement::class);
-            $itemToProcess = $equipementRepo->findAll();
+            foreach ($itemsFromSession as $item) {
+                if ($item->getId() === $object->getId()) {
+                    $alreadyExists = true;
+                    break;
+                }
+            }
 
+            if (!$alreadyExists) {
+                $itemsFromSession[] = $object;
+            }
+
+            $session->set('itemsToProcess', $itemsFromSession);
 
             $redirectURL = $this->adminUrlGenerator
-                ->setRoute('set_item_cost_variable', [
-                    'id' => $itemId,
-                    'item' => get_class($object)
-                ])
+                ->setRoute('set_item_cost_variable', [])
                 ->generateUrl()
             ;
 

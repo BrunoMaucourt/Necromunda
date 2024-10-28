@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\GangCrudController;
 use App\Entity\Equipement;
-use App\Entity\Item;
 use App\Entity\Weapon;
 use App\Form\ChooseCost;
 use App\Form\ChooseYesNoForm;
@@ -14,8 +13,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ItemController extends AbstractController
 {
@@ -24,43 +26,53 @@ class ItemController extends AbstractController
     private EntityManagerInterface $entityManager;
 
     private GangService $gangService;
+    private RequestStack $requestStack;
+
+    private TranslatorInterface $translator;
 
     public function __construct(
         AdminUrlGenerator $adminUrlGenerator,
         EntityManagerInterface $entityManager,
-        GangService $gangService
+        GangService $gangService,
+        RequestStack $requestStack,
+        TranslatorInterface $translator
     ){
         $this->adminUrlGenerator = $adminUrlGenerator;
         $this->entityManager = $entityManager;
         $this->gangService = $gangService;
+        $this->requestStack = $requestStack;
+        $this->translator = $translator;
     }
 
-    #[Route('/admin/setItemCostVariable/{id}', name: 'set_item_cost_variable')]
-    public function setItemCostVariable(int $id, string $item, Request $request): Response
+    #[Route('/admin/setItemCostVariable/', name: 'set_item_cost_variable')]
+    public function setItemCostVariable(Request $request): Response
     {
-        if ( $item === 'App\Entity\Equipement' ) {
-            $equipementRepo = $this->entityManager->getRepository(Equipement::class);
-            $itemToProcess = $equipementRepo->findAll();
-            dump($itemToProcess);
-            $itemToProcess = $equipementRepo->find($id);
-            dump($equipementRepo);
-            dump($itemToProcess);
-        }
+        $session = $this->requestStack->getSession();
+        $itemsToProcess = $session->get('itemsToProcess', []);
 
-        if ( $item === 'App\Entity\Weapon' ) {
+        dump($itemsToProcess);
+        $item = array_values($itemsToProcess)[0];
+        dump($item);
+
+
+        if (get_class($item) === 'App\Entity\Equipement') {
+            $equipementRepo = $this->entityManager->getRepository(Equipement::class);
+            $itemToProcess = $equipementRepo->find($item->getId());
+            $itemType = 'Equipement';
+        }
+        if (get_class($item) === 'App\Entity\Weapon') {
             $weaponRepo = $this->entityManager->getRepository(Weapon::class);
-            $itemToProcess = $weaponRepo->find($id);
-            dump($weaponRepo);
-            dump($itemToProcess);
+            $itemToProcess = $weaponRepo->find($item->getId());
+            $itemType = 'Weapon';
         }
 
         $form = $this->createForm(ChooseCost::class, null, []);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $variableCost = $data['cost'];
-
             $itemToProcessFixedCost = $itemToProcess->getCost();
             $newItemCost = $itemToProcessFixedCost + $variableCost;
             $itemToProcess->setCost($newItemCost);
@@ -70,22 +82,33 @@ class ItemController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Item: ' . $itemToProcess->getName()->enumToString() .' is added to ' . $itemToProcess->getGanger()->getName() . ' for ' . $newItemCost . ' credits'
+                $this->translator->trans($itemType . ' : ') . $itemToProcess->getName()->enumToString() . $this->translator->trans(' has been updated with a cost of ') . $newItemCost . $this->translator->trans(' credits')
             );
 
-            $chooseGangURL = $this->adminUrlGenerator
-                ->setController(DashboardController::class)
-                ->generateUrl()
-            ;
+            $itemsToProcess = $session->get('itemsToProcess', []);
+            if (!empty($itemsToProcess)) {
+                array_shift($itemsToProcess);
+            }
+            $session->set('itemsToProcess', $itemsToProcess);
 
-
-            return $this->redirect($chooseGangURL);
+            if (count($itemsToProcess) > 0) {
+                $chooseGangURL = $this->adminUrlGenerator
+                    ->setRoute('set_item_cost_variable', [])
+                    ->generateUrl()
+                ;
+                return $this->redirect($chooseGangURL);
+            } else {
+                $chooseGangURL = $this->adminUrlGenerator
+                    ->setController(GangCrudController::class)
+                    ->generateUrl()
+                ;
+                return $this->redirect($chooseGangURL);
+            }
         }
 
-
         return $this->render('form/choose_cost.html.twig', [
-            'form' => $form->createView(),
-            'item' => $itemToProcess
+            'form' => $form,
+            'item' => $item
         ]);
     }
 
