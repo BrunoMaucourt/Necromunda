@@ -177,7 +177,7 @@ enum LootEnum: string
         };
     }
 
-    public function getFixedIncome(): int
+    public function getFixedCost(): int
     {
         return match($this) {
             self::PowerWeaponPowerSword => 40,
@@ -229,7 +229,7 @@ enum LootEnum: string
             self::MungVase => 0,
         };
     }
-    public function getVariableIncome(): int
+    public function getVariableDicesNumber(): int
     {
         return match($this) {
             self::PowerWeaponPowerSword => 3,

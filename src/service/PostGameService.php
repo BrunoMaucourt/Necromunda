@@ -460,17 +460,17 @@ class PostGameService
                         $cost = $dice * 10;
                         $summary .= $loot->enumToString() . " - cost = ".$cost." (" . $dice . " x 10) \n \n";
                     } else {
-                        for ($dice = 0; $dice < $loot->getVariableIncome(); $dice++) {
+                        for ($dice = 0; $dice < $loot->getVariableDicesNumber(); $dice++) {
                             $addRoll = mt_rand(1, 6);
                             $costSum += $addRoll;
                             $costVariable .= "dice " . $addRoll;
-                            if ($dice < $loot->getVariableIncome() - 1) {
+                            if ($dice < $loot->getVariableDicesNumber() - 1) {
                                 $costVariable .= " + ";
                             }
                         }
 
-                        $cost = $loot->getFixedIncome() + $costSum;
-                        $summary .= $loot->enumToString() . " - cost = ".$cost." (".$loot->getFixedIncome()." + " . $costVariable . ") \n \n";
+                        $cost = $loot->getFixedCost() + $costSum;
+                        $summary .= $loot->enumToString() . " - cost = ".$cost." (".$loot->getFixedCost()." + " . $costVariable . ") \n \n";
                     }
 
                     $newLoot = new Loot();
