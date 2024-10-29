@@ -7,13 +7,17 @@ use App\EasyAdmin\TranslatedCollectionField;
 use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Enum\GangerTypeEnum;
+use App\service\CsvExporterService;
 use App\service\EnumTranslator;
 use Doctrine\ORM\EntityRepository;
+use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
+use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Factory\FilterFactory;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
@@ -30,17 +34,21 @@ class GangerCrudController extends AbstractCrudController
 
     private EnumTranslator $enumTranslator;
 
+    private FilterFactory $filterFactory;
+
     private Security $security;
 
     private TranslatorInterface $translator;
 
     public function __construct(
         EnumTranslator $enumTranslator,
+        FilterFactory $filterFactory,
         Security $security,
         TranslatorInterface $translator
     )
     {
         $this->enumTranslator = $enumTranslator;
+        $this->filterFactory = $filterFactory;
         $this->security = $security;
         $this->translator = $translator;
     }
@@ -263,8 +271,16 @@ class GangerCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
+        $exportAction = Action::new($this->translator->trans('CSV export'))
+            ->linkToCrudAction('export')
+            ->addCssClass('btn btn-success')
+            ->setIcon('fa fa-download')
+            ->createAsGlobalAction()
+        ;
+
         return $actions
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
+            ->add(Crud::PAGE_INDEX, $exportAction)
             ->update(Crud::PAGE_INDEX, Action::DETAIL, function (Action $action) {
                 return $action->setIcon('fa fa-eye')
                    ->setCssClass('btn btn-light btn-remove-margin')
@@ -317,5 +333,13 @@ class GangerCrudController extends AbstractCrudController
         }
 
         return false;
+    }
+
+    public function export(AdminContext $context, CsvExporterService $csvExporter)
+    {
+        $fields = FieldCollection::new($this->configureFields(Crud::PAGE_INDEX));
+        $filters = $this->filterFactory->create($context->getCrud()->getFiltersConfig(), $fields, $context->getEntity());
+        $queryBuilder = $this->createIndexQueryBuilder($context->getSearch(), $context->getEntity(), $fields, $filters);
+        return $csvExporter->createResponseFromQueryBuilder($queryBuilder, $fields, 'gangers.csv');
     }
 }

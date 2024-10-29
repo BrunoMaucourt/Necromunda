@@ -6,13 +6,16 @@ use App\EasyAdmin\HouseField;
 use App\Entity\CustomRules;
 use App\Entity\Gang;
 use App\Enum\HouseEnum;
+use App\service\CsvExporterService;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Factory\FilterFactory;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
@@ -28,17 +31,21 @@ class GangCrudController extends AbstractCrudController
 {
     private EntityManagerInterface $entityManager;
 
+    private FilterFactory $filterFactory;
+
     private $security;
 
     private TranslatorInterface $translator;
 
     public function __construct(
         EntityManagerInterface $entityManager,
+        FilterFactory $filterFactory,
         Security $security,
         TranslatorInterface $translator,
     )
     {
         $this->entityManager = $entityManager;
+        $this->filterFactory = $filterFactory;
         $this->security = $security;
         $this->translator = $translator;
     }
@@ -196,7 +203,14 @@ class GangCrudController extends AbstractCrudController
             ->setIcon('fa-solid fa-download')
             ->addCssClass('btn btn-light btn-remove-margin')
             ->linkToCrudAction('downloadGangSheet')
-       ;
+        ;
+
+        $exportAction = Action::new($this->translator->trans('CSV export'))
+            ->linkToCrudAction('export')
+            ->addCssClass('btn btn-success')
+            ->setIcon('fa fa-download')
+            ->createAsGlobalAction()
+        ;
 
         return $actions
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
@@ -205,6 +219,7 @@ class GangCrudController extends AbstractCrudController
                     ->setCssClass('btn btn-light btn-remove-margin');
             })
             ->add(Crud::PAGE_INDEX, $downloadGangSheet)
+            ->add(Crud::PAGE_INDEX, $exportAction)
             ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
                 $security = $this->security;
                 return $action
@@ -263,5 +278,13 @@ class GangCrudController extends AbstractCrudController
         ]);
 
         return $this->redirect($url);
+    }
+
+    public function export(AdminContext $context, CsvExporterService $csvExporter)
+    {
+        $fields = FieldCollection::new($this->configureFields(Crud::PAGE_INDEX));
+        $filters = $this->filterFactory->create($context->getCrud()->getFiltersConfig(), $fields, $context->getEntity());
+        $queryBuilder = $this->createIndexQueryBuilder($context->getSearch(), $context->getEntity(), $fields, $filters);
+        return $csvExporter->createResponseFromQueryBuilder($queryBuilder, $fields, 'gangs.csv');
     }
 }

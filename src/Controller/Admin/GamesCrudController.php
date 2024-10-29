@@ -6,13 +6,16 @@ use App\EasyAdmin\ScenarioField;
 use App\Entity\CustomRules;
 use App\Entity\Game;
 use App\Enum\ScenariosEnum;
+use App\service\CsvExporterService;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Factory\FilterFactory;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
@@ -30,6 +33,8 @@ class GamesCrudController extends AbstractCrudController
 
     private EntityManagerInterface $entityManager;
 
+    private FilterFactory $filterFactory;
+
     private RequestStack $requestStack;
 
     private Security $security;
@@ -39,12 +44,14 @@ class GamesCrudController extends AbstractCrudController
     public function __construct(
         AdminUrlGenerator $adminUrlGenerator,
         EntityManagerInterface $entityManager,
+        FilterFactory $filterFactory,
         RequestStack $requestStack,
         Security $security,
         TranslatorInterface $translator
     ){
         $this->adminUrlGenerator = $adminUrlGenerator;
         $this->entityManager = $entityManager;
+        $this->filterFactory = $filterFactory;
         $this->security = $security;
         $this->requestStack = $requestStack;
         $this->translator = $translator;
@@ -322,9 +329,17 @@ class GamesCrudController extends AbstractCrudController
             ->linkToCrudAction('downloadGameSheet')
         ;
 
+        $exportAction = Action::new($this->translator->trans('CSV export'))
+            ->linkToCrudAction('export')
+            ->addCssClass('btn btn-success')
+            ->setIcon('fa fa-download')
+            ->createAsGlobalAction()
+        ;
+
         return $actions
             ->add(Crud::PAGE_INDEX, $customNewGameAction)
             ->add(Crud::PAGE_INDEX, $downloadGameSheet)
+            ->add(Crud::PAGE_INDEX, $exportAction)
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->update(Crud::PAGE_INDEX, Action::DETAIL, function (Action $action) {
                 return $action->setIcon('fa fa-eye')
@@ -390,5 +405,13 @@ class GamesCrudController extends AbstractCrudController
         ]);
 
         return $this->redirect($url);
+    }
+
+    public function export(AdminContext $context, CsvExporterService $csvExporter)
+    {
+        $fields = FieldCollection::new($this->configureFields(Crud::PAGE_INDEX));
+        $filters = $this->filterFactory->create($context->getCrud()->getFiltersConfig(), $fields, $context->getEntity());
+        $queryBuilder = $this->createIndexQueryBuilder($context->getSearch(), $context->getEntity(), $fields, $filters);
+        return $csvExporter->createResponseFromQueryBuilder($queryBuilder, $fields, 'games.csv');
     }
 }
