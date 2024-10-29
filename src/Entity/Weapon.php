@@ -99,7 +99,6 @@ class Weapon extends Item
         return $this;
     }
 
-
     public function removeEquipement(Equipement $equipement): static
     {
         if ($this->equipements->removeElement($equipement)) {

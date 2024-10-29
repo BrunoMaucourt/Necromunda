@@ -106,6 +106,27 @@ class WeaponService
                 unset($weapons[$index]);
             }
 
+            if ($weapon->getName() === WeaponsEnum::MANSTOPPER_SHELLS) {
+                $shotgunManstopper = new Weapon();
+                $shotgunManstopper->setName(WeaponsEnum::SHOTGUN_MANSTOPPER);
+                $weapons[] = $shotgunManstopper;
+                unset($weapons[$index]);
+            }
+
+            if ($weapon->getName() === WeaponsEnum::HOT_SHOT_SHELLS) {
+                $shotgunHotShot = new Weapon();
+                $shotgunHotShot->setName(WeaponsEnum::SHOTGUN_HOT_SHOT);
+                $weapons[] = $shotgunHotShot;
+                unset($weapons[$index]);
+            }
+
+            if ($weapon->getName() === WeaponsEnum::BOLT_SHELLS) {
+                $shotgunBolt = new Weapon();
+                $shotgunBolt->setName(WeaponsEnum::SHOTGUN_BOLT);
+                $weapons[] = $shotgunBolt;
+                unset($weapons[$index]);
+            }
+
             if ($weapon->getName() === WeaponsEnum::COMBAT_RIFLE) {
                 $combatRifleSolid = new Weapon();
                 $combatRifleSolid->setName(WeaponsEnum::COMBAT_RIFLE_SOLID_SHELLS);
