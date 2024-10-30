@@ -4,6 +4,7 @@ namespace App\EventListener;
 
 use App\Entity\Equipement;
 use App\Entity\Item;
+use App\Entity\Loot;
 use App\Entity\Weapon;
 use App\service\GangService;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
@@ -43,7 +44,7 @@ class ItemListener
     {
         $object = $event->getObject();
 
-        if (!$object instanceof Item) {
+        if (!$object instanceof Item || $object instanceof Loot) {
             return;
         }
 
@@ -59,7 +60,7 @@ class ItemListener
     {
         $object = $event->getObject();
 
-        if (!$object instanceof Item) {
+        if (!$object instanceof Item || $object instanceof Loot) {
             return;
         }
 
