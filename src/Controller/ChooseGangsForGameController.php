@@ -126,7 +126,11 @@ class ChooseGangsForGameController extends AbstractController
 
         $customRulesRepository = $this->entityManager->getRepository(CustomRules::class);
         $customRulesArray = $customRulesRepository->findAll();
-        $customRules = $customRulesArray[0];
+        if ($customRulesArray) {
+            $customRules = $customRulesArray[0];
+        } else {
+            $customRules = new CustomRules();
+        }
 
         $form = $this->createForm(ChooseScenarioForm::class, [], ['customRules' => $customRules]);
         $form->handleRequest($request);

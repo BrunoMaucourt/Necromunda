@@ -65,9 +65,10 @@ class WeaponsCrudController extends AbstractCrudController
         $translator = $this->translator;
         $customRulesRepository = $this->entityManager->getRepository(CustomRules::class);
         $customRulesArray = $customRulesRepository->findAll();
-        $customRules = $customRulesArray[0];
-        if (empty($customRulesArray)) {
-           $customRules = new CustomRules();
+        if ($customRulesArray) {
+            $customRules = $customRulesArray[0];
+        } else {
+            $customRules = new CustomRules();
         }
 
         yield WeaponsField::new('name', $this->translator->trans('name'))
