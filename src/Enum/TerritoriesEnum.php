@@ -118,9 +118,9 @@ enum TerritoriesEnum: string
             self::GuilderContact =>  10,
             self::MineralOutcrop =>  10,
             self::FriendlyDoc =>  10,
-            self::GamblingDen =>  20,
-            self::SporeCave =>  20,
-            self::ArcheotechHoard =>  20,
+            self::GamblingDen =>  10,
+            self::SporeCave =>  10,
+            self::ArcheotechHoard =>  10,
             self::GreenHivers =>  0,
         };
     }
