@@ -387,7 +387,7 @@
       </trans-unit>
       <trans-unit id="PhfA0NC" resname="gang">
         <source>gang</source>
-        <target>gang</target>
+        <target>Gang</target>
       </trans-unit>
       <trans-unit id="eaaeXVF" resname="Ganger type">
         <source>Ganger type</source>
@@ -461,34 +461,6 @@
         <source>Equipment</source>
         <target>Équipment</target>
       </trans-unit>
-      <trans-unit id="ak6b8LY" resname="leader">
-        <source>leader</source>
-        <target>Leader</target>
-      </trans-unit>
-      <trans-unit id="8wh1e5d" resname="heavy">
-        <source>heavy</source>
-        <target>Balèze</target>
-      </trans-unit>
-      <trans-unit id="iaIbcTQ" resname="ganger">
-        <source>ganger</source>
-        <target>Ganger</target>
-      </trans-unit>
-      <trans-unit id="BQwaUxo" resname="juve">
-        <source>juve</source>
-        <target>Kid</target>
-      </trans-unit>
-      <trans-unit id="GDLY7VX" resname="underhive_scum">
-        <source>underhive_scum</source>
-        <target>Racaille</target>
-      </trans-unit>
-      <trans-unit id="IV0hDyf" resname="bounty_hunter">
-        <source>bounty_hunter</source>
-        <target>Chasseur de primes</target>
-      </trans-unit>
-      <trans-unit id="9zHrv_p" resname="ratskin_scout">
-        <source>ratskin_scout</source>
-        <target>Scout Ratskin</target>
-      </trans-unit>
       <trans-unit id="TVtmCUN" resname="leader">
         <source>leader</source>
         <target>Leader</target>
@@ -505,55 +477,59 @@
         <source>juve</source>
         <target>Kid</target>
       </trans-unit>
-      <trans-unit id="oEyU5f9" resname="underhive scum">
+      <trans-unit id="oEyU5f9" resname="underhive_scum">
+        <source>underhive_scum</source>
+        <target>Racaille</target>
+      </trans-unit>
+      <trans-unit id="jWEYoY4" resname="bounty_hunter">
+        <source>bounty_hunter</source>
+        <target>Chasseur de primes</target>
+      </trans-unit>
+      <trans-unit id="PyjU_3l" resname="ratskin_scout">
+        <source>ratskin_scout</source>
+        <target>Scout Ratskin</target>
+      </trans-unit>
+      <trans-unit id="F73uhtf" resname="underhive scum">
         <source>underhive scum</source>
         <target>Racaille</target>
       </trans-unit>
-      <trans-unit id="jWEYoY4" resname="bounty hunter">
+      <trans-unit id="rIgobDT" resname="bounty hunter">
         <source>bounty hunter</source>
         <target>Chasseur de primes</target>
       </trans-unit>
-      <trans-unit id="Pyj2U3l" resname="ratskin scout">
+      <trans-unit id="ZyQ0YJy" resname="ratskin scout">
         <source>ratskin scout</source>
         <target>Scout Ratskin</target>
       </trans-unit>
-      <trans-unit id="Z39PSn." resname="gang">
-        <source>gang</source>
-        <target>gang</target>
-      </trans-unit>
-      <trans-unit id="aldaHpg" resname="hired guns">
+      <trans-unit id="pLC6YQl" resname="hired guns">
         <source>hired guns</source>
         <target>Mercenaires</target>
       </trans-unit>
-      <trans-unit id="ald7Hpg" resname="sergeant">
+      <trans-unit id="V9h1kGO" resname="sergeant">
         <source>sergeant</source>
         <target>Sergent</target>
       </trans-unit>
-      <trans-unit id="aldaHp0" resname="Heavy unit">
+      <trans-unit id="D9z4JUY" resname="Heavy unit">
         <source>Heavy unit</source>
         <target>Unité spéciale</target>
       </trans-unit>
-      <trans-unit id="alf7Hpg" resname="special unit">
+      <trans-unit id="tWAFIX2" resname="special unit">
         <source>special unit</source>
-        <target>Sergent</target>
+        <target>Unité spéciale</target>
       </trans-unit>
-      <trans-unit id="aPdaHp0" resname="heavy unit">
-        <source>Heavy unit</source>
+      <trans-unit id="7AI2Cd0" resname="heavy unit">
+        <source>heavy unit</source>
         <target>Unité lourde</target>
       </trans-unit>
-      <trans-unit id="alf2Hpg" resname="special unit">
-        <source>special unit</source>
-        <target>Unité spéciale</target>
-      </trans-unit>
-      <trans-unit id="aPxaHp0" resname="canine unit">
+      <trans-unit id="DOoufB3" resname="canine unit">
         <source>canine unit</source>
         <target>Unité canine</target>
       </trans-unit>
-      <trans-unit id="alf7H0g" resname="enforcer">
+      <trans-unit id="fChSgXs" resname="enforcer">
         <source>enforcer</source>
         <target>Enfoncer</target>
       </trans-unit>
-      <trans-unit id="aP2aHp0" resname="cyber mastiff">
+      <trans-unit id="wcmVVSw" resname="cyber mastiff">
         <source>cyber mastiff</source>
         <target>Cyber mastiff</target>
       </trans-unit>
@@ -781,7 +757,7 @@
         <source>The model gains a +2 bonus to its Strength (S) characteristic and a +2 bonus to Initiative (I) when testing if it falls from an edge.</source>
         <target>La figurine gagne un bonus de +2 à sa caractéristique de force (S) et un bonus de +2 à l'Initiative (I) pour tester si elle chute d'un bord.</target>
       </trans-unit>
-      <trans-unit id="nq9l_0s" resname="Bionic Eye">
+      <trans-unit id="m8ja7f_" resname="Bionic Eye">
         <source>Bionic Eye</source>
         <target>Bionique - oeil</target>
       </trans-unit>
@@ -789,7 +765,7 @@
         <source>The model can never be blinded or dazzled. Its vision in the dark is enhanced. The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. The model detects opponents in cover as if they were in the open.</source>
         <target>La figurines ne peut jamais être aveuglée ou éblouie. La vision dans le noir est améliorée. La figurine peut détecter visuellement ses adversaires dissimulés 3 fois plus loin et est immunisé aux fumigènes. La figurine détecte ses adversaires à couverts comme s'ils étaient à découvert.</target>
       </trans-unit>
-      <trans-unit id="dKcuFj_" resname="Bionic Implant">
+      <trans-unit id="WF1TwZT" resname="Bionic Implant">
         <source>Bionic Implant</source>
         <target>Bionique - Implant</target>
       </trans-unit>
@@ -797,7 +773,7 @@
         <source>The implant allows the model to heal all Serious Injuries related to a single limb.</source>
         <target>L’implant permet de soigner toutes les Blessures graves liées à un unique membre.</target>
       </trans-unit>
-      <trans-unit id="MIJeqVD" resname="Bionic Leg">
+      <trans-unit id="dT4bQTF" resname="Bionic Leg">
         <source>Bionic Leg</source>
         <target>Bionique - Jambe</target>
       </trans-unit>
@@ -805,7 +781,7 @@
         <source>The model gains a +1 bonus to its Movement (M) and Attacks (A) characteristics.</source>
         <target>La figurine gagne un bonus de +1 à ses caractéristiques de mouvement (M) et attaque (A).</target>
       </trans-unit>
-      <trans-unit id="rVX_mJq" resname="Bionic Torso">
+      <trans-unit id="BLKA0SO" resname="Bionic Torso">
         <source>Bionic Torso</source>
         <target>Bionique - torse</target>
       </trans-unit>
@@ -2045,11 +2021,11 @@
         <source>enum.weapon_Autogun</source>
         <target>Fusil mitrailleur</target>
       </trans-unit>
-      <trans-unit id="xLBPeBx" resname="Shotgun (Solid Slug)">
+      <trans-unit id="yQd6bDv" resname="Shotgun (Solid Slug)">
         <source>Shotgun (Solid Slug)</source>
         <target>Fusil à pompe (cartouche à tête pleine)</target>
       </trans-unit>
-      <trans-unit id="swdgmBo" resname="Shotgun (Scatter Shot)">
+      <trans-unit id="1RwhbkX" resname="Shotgun (Scatter Shot)">
         <source>Shotgun (Scatter Shot)</source>
         <target>Fusil à pompe (cartouche à disperion)</target>
       </trans-unit>
@@ -2281,7 +2257,7 @@
         <source>Autogun</source>
         <target>Fusil mitrailleur</target>
       </trans-unit>
-      <trans-unit id="yQd6bDv" resname="Shotgun (Solid Slug / Scatter Shot)">
+      <trans-unit id="WiMKaa_" resname="Shotgun (Solid Slug / Scatter Shot)">
         <source>Shotgun (Solid Slug / Scatter Shot)</source>
         <target>Fusil à pompe (balle à tête pleine / cartouche à disperion)</target>
       </trans-unit>
@@ -2777,10 +2753,6 @@
         <source>Gangs involved</source>
         <target>Gangs impliqués</target>
       </trans-unit>
-      <trans-unit id="LEJsNwz" resname="gang">
-        <source>gang</source>
-        <target>Gang</target>
-      </trans-unit>
       <trans-unit id="vW2lqU9" resname="advancement">
         <source>advancement</source>
         <target>Avancementt</target>
@@ -3001,7 +2973,7 @@
         <source>Blind fight</source>
         <target>Combat à l'aveugle</target>
       </trans-unit>
-      <trans-unit id="kdfnHw1" resname="enfoncers">
+      <trans-unit id="ueLvV9Q" resname="enfoncers">
         <source>enfoncers</source>
         <target>Enfoncers</target>
       </trans-unit>
@@ -3010,7 +2982,7 @@
         <target>Score de destin</target>
       </trans-unit>
       <trans-unit id="2PABMYD" resname="Photon flare">
-        <source>Rocket flare</source>
+        <source>Photon flare</source>
         <target>Fusée éclairante</target>
       </trans-unit>
       <trans-unit id="9HV0l34" resname="No custom rules">
@@ -3044,6 +3016,42 @@
       <trans-unit id="sLLCbWk" resname="Rocket flare added">
         <source>Rocket flare added</source>
         <target>Ajout des fusées éclairantes</target>
+      </trans-unit>
+      <trans-unit id="aExSLps" resname="CSV export">
+        <source>CSV export</source>
+        <target>Export en CSV</target>
+      </trans-unit>
+      <trans-unit id="X0hlOp9" resname="Show images">
+        <source>Show images</source>
+        <target>Afficher les images</target>
+      </trans-unit>
+      <trans-unit id="h7voece" resname="avatar">
+        <source>avatar</source>
+        <target>Avatar</target>
+      </trans-unit>
+      <trans-unit id="UIiQwpG" resname=" has been updated with a cost of ">
+        <source> has been updated with a cost of </source>
+        <target> a été mis à jour avec un coût de </target>
+      </trans-unit>
+      <trans-unit id="Q1eU43i" resname=" credits">
+        <source> credits</source>
+        <target> crédits</target>
+      </trans-unit>
+      <trans-unit id="LEJsNwz" resname="Gang">
+        <source>Gang</source>
+        <target>Gang</target>
+      </trans-unit>
+      <trans-unit id="jhjOjUx" resname="Add to stash">
+        <source>Add to stash</source>
+        <target>Ajouter à la cache d'armes</target>
+      </trans-unit>
+      <trans-unit id="2MLaKLK" resname="Sell weapon">
+        <source>Sell weapon</source>
+        <target>Vendre l'arme</target>
+      </trans-unit>
+      <trans-unit id="L67C6K5" resname="Sell equipment">
+        <source>Sell equipment</source>
+        <target>Vendre l'équipement</target>
       </trans-unit>
     </body>
   </file>
