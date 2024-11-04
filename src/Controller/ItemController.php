@@ -48,10 +48,7 @@ class ItemController extends AbstractController
         $session = $this->requestStack->getSession();
         $itemsToProcess = $session->get('itemsToProcess', []);
 
-        dump($itemsToProcess);
         $item = array_values($itemsToProcess)[0];
-        dump($item);
-
 
         if (get_class($item) === 'App\Entity\Equipement') {
             $equipementRepo = $this->entityManager->getRepository(Equipement::class);
