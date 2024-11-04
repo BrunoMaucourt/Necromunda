@@ -2,12 +2,10 @@
 
 namespace App\Controller\Admin;
 
-use App\EasyAdmin\EquipementsField;
 use App\EasyAdmin\WeaponsField;
 use App\Entity\CustomRules;
 use App\Entity\Ganger;
 use App\Entity\Weapon;
-use App\Enum\GangerTypeEnum;
 use App\Enum\WeaponsEnum;
 use App\service\EnumTranslator;
 use Doctrine\ORM\EntityManagerInterface;

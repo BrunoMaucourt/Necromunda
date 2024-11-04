@@ -2,18 +2,14 @@
 
 namespace App\Controller;
 
-use App\Entity\Advancement;
 use App\Entity\Equipement;
 use App\Entity\Game;
 use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Entity\Injury;
-use App\Entity\Loot;
 use App\Entity\Skill;
-use App\Entity\Territory;
 use App\Entity\Weapon;
 use App\Enum\GangerTypeEnum;
-use App\Enum\WeaponsEnum;
 use App\service\WeaponService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\GangerTypeField;
-use App\EasyAdmin\TranslatedCollectionField;
 use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Enum\GangerTypeEnum;
