@@ -717,8 +717,8 @@
         <source>Exotic Armour - Carapace</source>
         <target>Armure exotique - Carapace</target>
       </trans-unit>
-      <trans-unit id="lEdWJax" resname=" Grants a 4+ armor save against wounds, but the model suffers a -1 penalty to its Initiative (I) tests.">
-        <source> Grants a 4+ armor save against wounds, but the model suffers a -1 penalty to its Initiative (I) tests.</source>
+      <trans-unit id="lEdWJax" resname="Grants a 4+ armor save against wounds, but the model suffers a -1 penalty to its Initiative (I) tests.">
+        <source>Grants a 4+ armor save against wounds, but the model suffers a -1 penalty to its Initiative (I) tests.</source>
         <target>Confère une Sauvegarde d'armure de 4+ contre les blessures mais la figurine souffre d'un malus de -1 à ses tets d'Initiative (I).</target>
       </trans-unit>
       <trans-unit id="i8yQlem" resname="Exotic Armour - Force Field">
