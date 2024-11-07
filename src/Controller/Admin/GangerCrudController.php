@@ -21,10 +21,12 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use \Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\Range;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -265,6 +267,11 @@ class GangerCrudController extends AbstractCrudController
             yield TextareaField::new('history', $this->translator->trans('history'))
                 ->setColumns(12)
                 ->hideOnIndex();
+            yield ImageField::new('picture')
+                ->setBasePath('uploads/gangers')
+                ->setUploadDir('public/uploads/gangers')
+                ->setFileConstraints(new Image(maxSize: '100000k'));
+            ;
         }
     }
 

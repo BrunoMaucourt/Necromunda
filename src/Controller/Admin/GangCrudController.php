@@ -21,10 +21,12 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GangCrudController extends AbstractCrudController
@@ -184,6 +186,11 @@ class GangCrudController extends AbstractCrudController
             ->setColumns(12)
             ->hideWhenCreating()
             ->hideOnIndex();
+        yield ImageField::new('picture')
+            ->setBasePath('uploads/gangs')
+            ->setUploadDir('public/uploads/gangs')
+            ->setFileConstraints(new Image(maxSize: '100000k'));
+        ;
         if ($customRulesArray) {
             if ($customRules->isDestinyScore()) {
                 yield FormField::addPanel('Custom rules', $this->translator->trans('Custom rules'))

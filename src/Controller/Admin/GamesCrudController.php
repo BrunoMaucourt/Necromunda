@@ -19,12 +19,14 @@ use EasyCorp\Bundle\EasyAdminBundle\Factory\FilterFactory;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GamesCrudController extends AbstractCrudController
@@ -313,6 +315,11 @@ class GamesCrudController extends AbstractCrudController
             ->setColumns(12)
             ->hideWhenCreating()
             ->hideOnIndex();
+        yield ImageField::new('picture')
+            ->setBasePath('uploads/games')
+            ->setUploadDir('public/uploads/games')
+            ->setFileConstraints(new Image(maxSize: '100000k'));
+        ;
     }
     public function configureActions(Actions $actions): Actions
     {
