@@ -3,11 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use App\service\PasswordHasherService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -41,6 +39,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToMany(targetEntity: Gang::class, mappedBy: 'user')]
     private Collection $gang;
+
+    #[ORM\Column(nullable: true)]
+    private ?string $avatar = null;
 
     public function __construct()
     {
@@ -169,6 +170,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $gang->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): static
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }
