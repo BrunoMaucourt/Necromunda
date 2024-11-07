@@ -110,6 +110,9 @@ class Ganger
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $history = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?string $picture = null;
+
     private bool $free = false;
 
     public function __construct()
@@ -562,6 +565,18 @@ class Ganger
     public function setFree(?bool $free): static
     {
         $this->free = $free;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): static
+    {
+        $this->picture = $picture;
 
         return $this;
     }

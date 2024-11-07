@@ -99,6 +99,9 @@ class Game
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $history = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?string $picture = null;
+
     public function __construct()
     {
         $this->advancements = new ArrayCollection();
@@ -109,6 +112,11 @@ class Game
     }
 
     public function __toString(): string
+    {
+        return $this->date->format('Y-m-d') . ' - ' . $this->scenario->enumToString();
+    }
+
+    public function getName(): string
     {
         return $this->date->format('Y-m-d') . ' - ' . $this->scenario->enumToString();
     }
@@ -438,6 +446,18 @@ class Game
     public function setHistory(?string $history): static
     {
         $this->history = $history;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): static
+    {
+        $this->picture = $picture;
 
         return $this;
     }

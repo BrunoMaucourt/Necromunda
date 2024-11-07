@@ -79,6 +79,9 @@ class Gang
     #[ORM\Column]
     private int $destinyScore = 6;
 
+    #[ORM\Column(nullable: true)]
+    private ?string $picture = null;
+
     public function __construct()
     {
         $this->gangers = new ArrayCollection();
@@ -385,6 +388,19 @@ class Gang
     public function setDestinyScore(int $destinyScore): static
     {
         $this->destinyScore = $destinyScore;
+
+        return $this;
+    }
+
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): static
+    {
+        $this->picture = $picture;
 
         return $this;
     }
