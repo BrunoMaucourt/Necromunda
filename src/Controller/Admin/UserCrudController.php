@@ -9,9 +9,12 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AvatarField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Validator\Constraints\Image;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -38,6 +41,11 @@ class UserCrudController extends AbstractCrudController
             ->setColumns(6);
         yield AssociationField::new('gang', $this->translator->trans('gang'))
             ->setColumns(6);
+        yield ImageField::new('avatar')
+            ->setBasePath('uploads/avatars')
+            ->setUploadDir('public/uploads/avatars')
+            ->setFileConstraints(new Image(maxSize: '100000k'));
+        ;
         if($this->isGranted('ROLE_ADMIN')){
             yield ArrayField::new('roles', $this->translator->trans('roles'))
                 ->setColumns(6);

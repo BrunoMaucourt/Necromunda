@@ -341,6 +341,7 @@ class DashboardController extends AbstractDashboardController
             ->generateUrl();
 
         return parent::configureUserMenu($user)
+            ->setAvatarUrl('/uploads/avatars/' . $user->getAvatar())
             ->addMenuItems([
                 MenuItem::linkToUrl($this->translator->trans('Settings'), 'fa fa-cog', $urlCurrentUserEditPage),
         ]);
