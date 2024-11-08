@@ -133,6 +133,13 @@ class DashboardController extends AbstractDashboardController
                 'icon' => 'fas fa-gun',
                 'text' => $this->translator->trans('Weapon Informations'),
             ],
+            'Gallery' => [
+                'url' => $this->adminUrlGenerator
+                    ->setRoute('gallery')
+                    ->generateUrl(),
+                'icon' => 'fa-regular fa-image',
+                'text' => $this->translator->trans('Gallery'),
+            ],
         ];
 
         if ($this->security->isGranted('ROLE_ADMIN')) {
