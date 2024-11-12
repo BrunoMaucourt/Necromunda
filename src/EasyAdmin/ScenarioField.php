@@ -30,14 +30,15 @@ final class ScenarioField implements FieldInterface
                     return $choice->value;
                 },
                 'choice_attr' => function (ScenariosEnum $choice) use ($instance) {
-
                     if (
                         $choice == ScenariosEnum::BlindFight &&
-                        $instance->customRules->isBlindFightRemoved() === true
+                        isset($instance->customRules)
                     ) {
-                        return [
-                            'class' => 'hide',
-                        ];
+                        if ($instance->customRules->isBlindFightRemoved() === true) {
+                            return [
+                                'class' => 'hide',
+                            ];
+                        }
                     }
                     return [];
                 },
