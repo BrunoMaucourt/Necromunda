@@ -6,6 +6,7 @@ use App\Entity\Equipement;
 use App\Entity\Item;
 use App\Entity\Loot;
 use App\Entity\Weapon;
+use App\Enum\GangerTypeEnum;
 use App\service\GangService;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\EntityManagerInterface;
@@ -65,8 +66,9 @@ class ItemListener
         }
 
         if (
-            $object->getName()->getVariableDicesNumber() > 0
-            && $object->getCost() === $object->getName()->getFixedCost()
+            $object->getName()->getVariableDicesNumber() > 0 &&
+            $object->getCost() === $object->getName()->getFixedCost() &&
+            $object->getGanger()->getType()->getType() !== GangerTypeEnum::ENFONCERS
         ) {
             $session = $this->requestStack->getSession();
             $itemsFromSession = $session->get('itemsToProcess', []);
