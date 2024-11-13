@@ -334,4 +334,26 @@ enum LootEnum: string
             self::MungVase => self::EQUIPMENT_FOR_GANGER,
         };
     }
+
+    public function getWeaponEnum(): WeaponsEnum
+    {
+        return match($this) {
+            self::PowerWeaponPowerSword => WeaponsEnum::POWER_SWORD,
+            self::PowerWeaponPowerAxe => WeaponsEnum::POWER_AXE,
+            self::PowerWeaponPowerFist => WeaponsEnum::POWER_FIST,
+            self::RareWeaponNeedleRifle => WeaponsEnum::NEEDLE_RIFLE,
+            self::RareWeaponNeedlePistol => WeaponsEnum::NEEDLE_PISTOL,
+            self::RareWeaponWebPistol => WeaponsEnum::WEB_PISTOL,
+            self::GasGrenadesChoke => WeaponsEnum::CHOKE_GAS,
+            self::GasGrenadesScare => WeaponsEnum::SCARE_GAS,
+            self::GasGrenadesHallucinogen => WeaponsEnum::HALLUCINOGEN_GAS,
+            self::GrenadesMeltaBombs => WeaponsEnum::MELTA_BOMBS,
+            self::GrenadesPhotonFlashFlares => WeaponsEnum::PHOTON_FLARES,
+            self::GrenadesPlasmaGrenades => WeaponsEnum::PLASMA_GRENADE,
+            self::GrenadesSmokeBombs => WeaponsEnum::SMOKE_BOMBS,
+            self::AmmoHotshotLaserPowerPacks => WeaponsEnum::HOT_SHOT_SHELLS,
+            self::AmmoHellfireBolts => WeaponsEnum::HOT_SHOT_SHELLS,
+            self::ShockMaul => WeaponsEnum::SHOCK_MAUL,
+        };
+    }
 }
