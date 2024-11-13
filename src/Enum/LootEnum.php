@@ -300,7 +300,7 @@ enum LootEnum: string
             self::GrenadesPlasmaGrenades => self::WEAPON,
             self::GrenadesSmokeBombs => self::WEAPON,
             self::AmmoHotshotLaserPowerPacks => self::WEAPON,
-            self::AmmoDrumMagazine => self::WEAPON,
+            self::AmmoDrumMagazine => self::EQUIPMENT_FOR_WEAPON,
             self::AmmoHellfireBolts => self::WEAPON,
             self::GunsightRedDotLaser => self::EQUIPMENT_FOR_WEAPON,
             self::GunsightMonoSight => self::EQUIPMENT_FOR_WEAPON,
