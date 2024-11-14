@@ -1863,7 +1863,7 @@
       </trans-unit>
       <trans-unit id="M_oSsaA" resname="enum.weapon_types.Pistols">
         <source>enum.weapon_types.Pistols</source>
-        <target>Pitolets</target>
+        <target>Pistolets</target>
       </trans-unit>
       <trans-unit id="ZbC2n9j" resname="enum.weapon_types.Basic_weapons">
         <source>enum.weapon_types.Basic_weapons</source>
@@ -2199,7 +2199,7 @@
       </trans-unit>
       <trans-unit id="5mAGG3s" resname="Pistols">
         <source>Pistols</source>
-        <target>Pitolets</target>
+        <target>Pistolets</target>
       </trans-unit>
       <trans-unit id="wUx5aJE" resname="Basic weapons">
         <source>Basic weapons</source>
