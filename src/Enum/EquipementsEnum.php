@@ -229,6 +229,61 @@ enum EquipementsEnum: string implements ItemEnumInterface
         };
     }
 
+    public function getVariableDicesType(): int
+    {
+        return match($this)
+        {
+            // ARMORS
+            self::ArmourFlak => 6,
+            self::ArmourMesh => 6,
+            self::ExoticArmourCarapace => 6,
+            self::ExoticArmourForceField => 6,
+
+            // BIONICS
+            self::BerserkerChip => 6,
+            self::BionicArm => 6,
+            self::BionicImplant => 6,
+            self::BionicLeg => 6,
+            self::BionicEye => 6,
+            self::BionicTorso => 6,
+            self::LoboChip => 0,
+            self::SkullChip => 6,
+
+            // GANG_EQUIPEMENT
+            self::HeavyGearAutoRepairer => 6,
+            self::IsotropicFuelRod => 6,
+            self::MungVase => 10,
+            self::RaidGearScreamersOrStummers => 6,
+            self::RatskinMap => 10,
+
+            // PERSONAL_EQUIPMENT
+            self::BioBooster => 6,
+            self::BioScanner => 6,
+            self::BlindSnakePouch => 6,
+            self::ClipHarness => 0,
+            self::ConcealedBlade => 6,
+            self::FilterPlugs => 0,
+            self::GravChute => 6,
+            self::Grapnel => 6,
+            self::InfraRedGoggles => 6,
+            self::MediPack => 6,
+            self::PhotoContacts => 0,
+            self::PhotoVisor => 6,
+            self::Respirator => 6,
+            self::StingerPouch => 6,
+
+            // WEAPON_EQUIPEMENT
+            self::GunsightInfraRedSight => 6,
+            self::GunsightMonoSight => 6,
+            self::GunsightRedDotLaser => 6,
+            self::GunsightTelescopicSight => 6,
+            self::HeavyGearSuspensor => 6,
+            self::RaidGearSilencer => 6,
+            self::RareWeaponOneInAMillionWeapon => 0,
+            self::WeaponReload => 0,
+        };
+    }
+
     public function getDescription(): string
     {
         return match($this)

@@ -20,7 +20,6 @@ final class WeaponsField implements FieldInterface
 
     private ?TranslatorInterface $translator = null;
 
-
     /**
      * @param string|false|null $label
      */
@@ -50,7 +49,7 @@ final class WeaponsField implements FieldInterface
                 },
                 'choice_label' => function (WeaponsEnum $choice) use ($instance): string {
                     if ($choice->getVariableDicesNumber() > 0) {
-                        $cost = " - " . $choice->getFixedCost() . " " . $instance->translator->trans('credits') . "*";
+                        $cost = " - " . $choice->getFixedCost() . " + " . $choice->getVariableDicesNumber() . " D6" . " " . $instance->translator->trans('credits');
                     } else {
                         $cost = " - " . $choice->getFixedCost() . " " . $instance->translator->trans('credits');
                     }

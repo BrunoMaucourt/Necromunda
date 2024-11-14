@@ -29,7 +29,7 @@ final class EquipementsField implements FieldInterface
                 'class' => EquipementsEnum::class,
                 'choice_label' => function (EquipementsEnum $choice) use ($instance): string {
                     if ($choice->getVariableDicesNumber() > 0) {
-                        $cost = " - " . $choice->getFixedCost() . " " . $instance->translator->trans('credits') . "*";
+                        $cost = " - " . $choice->getFixedCost() . " + " . $choice->getVariableDicesNumber() . " D" . $choice->getVariableDicesType() . " " . $instance->translator->trans('credits');
                     } else {
                         $cost = " - " . $choice->getFixedCost() . " " . $instance->translator->trans('credits');
                     }

@@ -11,6 +11,7 @@
                 <tr>
                     <th>{{ 'Name'|trans }}</th>
                     <th>{{ 'Description'|trans }}</th>
+                    <th>{{ 'Cost'|trans }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,12 @@
                     <tr>
                         <td>{{ equipement.enumToString|trans }}</td>
                         <td>{{ equipement.getDescription|trans }}</td>
+                        {% if equipement.getVariableDicesNumber > 0 %}
+                            <td>{{ equipement.getFixedCost }} + {{ equipement.getVariableDicesNumber }} D{{ equipement.getVariableDicesType }} {{ "credits"|trans }}</td>
+                        {% else %}
+                            <td>{{ equipement.getFixedCost }} {{ "credits"|trans }}</td>
+                        {% endif %}
+
                     </tr>
                 {% endfor %}
                 </tbody>
