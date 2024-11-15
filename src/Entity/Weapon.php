@@ -33,6 +33,9 @@ class Weapon extends Item
     #[ORM\JoinColumn(nullable: true)]
     private ?Gang $stash = null;
 
+    #[ORM\Column]
+    private ?bool $loot = false;
+
     public function __construct()
     {
         $this->equipements = new ArrayCollection();
@@ -119,6 +122,18 @@ class Weapon extends Item
     public function setStash(?Gang $stash): static
     {
         $this->stash = $stash;
+
+        return $this;
+    }
+
+    public function isLoot(): ?bool
+    {
+        return $this->loot;
+    }
+
+    public function setLoot(?bool $loot): static
+    {
+        $this->loot = $loot;
 
         return $this;
     }

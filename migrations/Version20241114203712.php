@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20241106210518 extends AbstractMigration
+final class Version20241114203712 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,16 @@ final class Version20241106210518 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE user ADD avatar VARCHAR(255) DEFAULT NULL');
+        $this->addSql('ALTER TABLE equipement ADD loot TINYINT(1) NOT NULL');
+        $this->addSql('ALTER TABLE loot ADD active TINYINT(1) NOT NULL');
+        $this->addSql('ALTER TABLE weapon ADD loot TINYINT(1) NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP avatar');
+        $this->addSql('ALTER TABLE weapon DROP loot');
+        $this->addSql('ALTER TABLE loot DROP active');
+        $this->addSql('ALTER TABLE equipement DROP loot');
     }
 }

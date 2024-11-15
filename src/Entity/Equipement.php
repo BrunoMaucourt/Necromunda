@@ -20,6 +20,9 @@ class Equipement extends Item
     #[ORM\JoinColumn(nullable: true)]
     private ?Weapon $weapon = null;
 
+    #[ORM\Column]
+    private ?bool $loot = null;
+
     public function __toString(): string
     {
         return $this->name->enumToString();
@@ -58,6 +61,18 @@ class Equipement extends Item
     public function setWeapon(?Weapon $weapon): static
     {
         $this->weapon = $weapon;
+
+        return $this;
+    }
+
+    public function isLoot(): ?bool
+    {
+        return $this->loot;
+    }
+
+    public function setLoot(?bool $loot): static
+    {
+        $this->loot = $loot;
 
         return $this;
     }

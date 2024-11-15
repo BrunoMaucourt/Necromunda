@@ -20,6 +20,9 @@ class Loot extends Item
     #[ORM\JoinColumn(nullable: false)]
     private ?Game $game = null;
 
+    #[ORM\Column]
+    private ?bool $active = true;
+
     public function __toString(): string
     {
         return $this->name->enumToString();
@@ -57,6 +60,18 @@ class Loot extends Item
     public function setGame(?Game $game): static
     {
         $this->game = $game;
+
+        return $this;
+    }
+
+    public function isActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(?bool $active): static
+    {
+        $this->active = $active;
 
         return $this;
     }
