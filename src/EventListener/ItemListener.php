@@ -68,7 +68,8 @@ class ItemListener
         if (
             $object->getName()->getVariableDicesNumber() > 0 &&
             $object->getCost() === $object->getName()->getFixedCost() &&
-            $object->getGanger()->getType()->getType() !== GangerTypeEnum::ENFONCERS
+            $object->getGanger()->getType()->getType() !== GangerTypeEnum::ENFONCERS &&
+            !$object->isLoot()
         ) {
             $session = $this->requestStack->getSession();
             $itemsFromSession = $session->get('itemsToProcess', []);
