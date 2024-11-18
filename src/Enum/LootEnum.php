@@ -356,4 +356,41 @@ enum LootEnum: string
             self::ShockMaul => WeaponsEnum::SHOCK_MAUL,
         };
     }
+
+    public function getEquipementEnum(): EquipementsEnum
+    {
+        return match($this) {
+            self::RareWeaponOneInAMillionWeapon => EquipementsEnum::RareWeaponOneInAMillionWeapon,
+            self::AmmoDrumMagazine => EquipementsEnum::DrumMagazine,
+            self::GunsightRedDotLaser => EquipementsEnum::GunsightRedDotLaser,
+            self::GunsightMonoSight => EquipementsEnum::GunsightMonoSight,
+            self::GunsightTelescopicSight => EquipementsEnum::GunsightTelescopicSight,
+            self::GunsightInfraRedSight => EquipementsEnum::GunsightInfraRedSight,
+            self::HeavyGearAutoRepairer => EquipementsEnum::HeavyGearAutoRepairer,
+            self::HeavyGearSuspensor => EquipementsEnum::HeavyGearSuspensor,
+            self::ArmourFlak => EquipementsEnum::ArmourFlak,
+            self::ArmourMesh => EquipementsEnum::ArmourMesh,
+            self::ExoticArmourCarapace => EquipementsEnum::ExoticArmourCarapace,
+            self::ExoticArmourForceField => EquipementsEnum::ExoticArmourForceField,
+            self::MediPack => EquipementsEnum::MediPack,
+            self::IsotropicFuelRod => EquipementsEnum::IsotropicFuelRod,
+            self::Bionic => EquipementsEnum::BIONICS,
+            self::SkullChip => EquipementsEnum::SkullChip,
+            self::Grapnel => EquipementsEnum::Grapnel,
+            self::GravChute => EquipementsEnum::GravChute,
+            self::BioScanner => EquipementsEnum::BioScanner,
+            self::BioBooster => EquipementsEnum::BioBooster,
+            self::ConcealedBlade => EquipementsEnum::ConcealedBlade,
+            self::Respirator => EquipementsEnum::Respirator,
+            self::PhotoVisor => EquipementsEnum::PhotoVisor,
+            self::BerserkerChip => EquipementsEnum::BerserkerChip,
+            self::BlindSnakePouch => EquipementsEnum::BlindSnakePouch,
+            self::InfraRedGoggles => EquipementsEnum::InfraRedGoggles,
+            self::RaidGearSilencer => EquipementsEnum::RaidGearSilencer,
+            self::RaidGearScreamersOrStummers => EquipementsEnum::RaidGearScreamersOrStummers,
+            self::StingerPouch => EquipementsEnum::StingerPouch,
+            self::RatskinMap => EquipementsEnum::RatskinMap,
+            self::MungVase => EquipementsEnum::MungVase,
+        };
+    }
 }
