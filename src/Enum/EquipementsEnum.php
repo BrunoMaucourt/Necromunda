@@ -55,6 +55,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
     case StingerPouch = 'Stinger Pouch';
 
     // WEAPON_EQUIPEMENT
+    case DrumMagazine = 'Drum magazine';
     case GunsightInfraRedSight = 'Gunsight - Infra-red Sight';
     case GunsightMonoSight = 'Gunsight - Mono-sight';
     case GunsightRedDotLaser = 'Gunsight - Red-dot Laser';
@@ -108,6 +109,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::StingerPouch => EquipementsEnum::StingerPouch->value,
 
             // WEAPON_EQUIPEMENT
+            self::DrumMagazine => EquipementsEnum::DrumMagazine->value,
             self::GunsightInfraRedSight => EquipementsEnum::GunsightInfraRedSight->value,
             self::GunsightMonoSight => EquipementsEnum::GunsightMonoSight->value,
             self::GunsightRedDotLaser => EquipementsEnum::GunsightRedDotLaser->value,
@@ -163,6 +165,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::StingerPouch => 10,
 
             // WEAPON_EQUIPEMENT
+            self::DrumMagazine => 15,
             self::GunsightInfraRedSight => 30,
             self::GunsightMonoSight => 40,
             self::GunsightRedDotLaser => 40,
@@ -218,6 +221,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::StingerPouch => 3,
 
             // WEAPON_EQUIPEMENT
+            self::DrumMagazine => 2,
             self::GunsightInfraRedSight => 3,
             self::GunsightMonoSight => 3,
             self::GunsightRedDotLaser => 3,
@@ -273,6 +277,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::StingerPouch => 6,
 
             // WEAPON_EQUIPEMENT
+            self::DrumMagazine => 6,
             self::GunsightInfraRedSight => 6,
             self::GunsightMonoSight => 6,
             self::GunsightRedDotLaser => 6,
@@ -328,6 +333,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::StingerPouch => 'If the model goes Out of Action at the end of a battle, on a 4+, it may avoid suffering a serious injury. Heals a Grievous Wound on a 4+. The med-pouch can only be used once before being removed.',
 
             // WEAPON_EQUIPEMENT
+            self::DrumMagazine => 'Autopistols, autoguns, and autosluggers can be fitted with a drum magazine, granting a +1 to hit but always requiring an Ammo roll when used.',
             self::GunsightInfraRedSight => 'This sight can be equipped on basic weapons. A stationary shooter reduces the target\'s cover bonus by -1 and is immune to smoke grenades. The shooter\'s vision in the dark is enhanced.',
             self::GunsightMonoSight => 'This sight can be equipped on basic weapons, special weapons, or heavy weapons. A stationary shooter gains a +1 bonus to hit.',
             self::GunsightRedDotLaser => 'The laser sight can be equipped on pistols, basic weapons, or special weapons. The shooter gains a +1 bonus to hit, but the target gains a 6+ invulnerable save if it can see the shooter.',
@@ -383,6 +389,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::StingerPouch => false,
 
             // WEAPON_EQUIPEMENT
+            self::DrumMagazine => false,
             self::GunsightInfraRedSight => false,
             self::GunsightMonoSight => false,
             self::GunsightRedDotLaser => false,
@@ -438,6 +445,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::StingerPouch => self::PERSONAL_EQUIPMENT,
 
             // WEAPON_EQUIPEMENT
+            self::DrumMagazine => self::WEAPON_EQUIPEMENT,
             self::GunsightInfraRedSight => self::WEAPON_EQUIPEMENT,
             self::GunsightMonoSight => self::WEAPON_EQUIPEMENT,
             self::GunsightRedDotLaser => self::WEAPON_EQUIPEMENT,

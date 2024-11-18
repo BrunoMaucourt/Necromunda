@@ -641,9 +641,13 @@
         <source>Ammo - Hotshot Laser Power Packs</source>
         <target>Munitions - Pack laser incendiaire</target>
       </trans-unit>
-      <trans-unit id="JjqdP8f" resname="Ammo - Drum Magazine">
-        <source>Ammo - Drum Magazine</source>
-        <target>Munitions - Chargeur tambour</target>
+      <trans-unit id="JjqdP8f" resname="Drum Magazine">
+        <source>Drum Magazine</source>
+        <target>Chargeur tambour</target>
+      </trans-unit>
+      <trans-unit id="JjsdP8f" resname="Autopistols, autoguns, and autosluggers can be fitted with a drum magazine, granting a +1 to hit but always requiring an Ammo roll when used.">
+        <source>Autopistols, autoguns, and autosluggers can be fitted with a drum magazine, granting a +1 to hit but always requiring an Ammo roll when used.</source>
+        <target>Les pistolets automatiques, fusil mitrailleur et Mmitrailleuse légère peuvent être équipés d’un chargeur tambour, offrant un bonus de +1 pour toucher mais nécessitant toujours un jet de munitions lors de leur utilisation.</target>
       </trans-unit>
       <trans-unit id="aMtIAYK" resname="Ammo - Hellfire Bolts">
         <source>Ammo - Hellfire Bolts</source>
