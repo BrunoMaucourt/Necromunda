@@ -85,3 +85,40 @@ class LootController extends AbstractController
             }
         }
 
+        if ( $loot->getName()->getType() === LootEnum::EQUIPMENT_FOR_GANGER ) {
+            $gangers = $gangerRepo->findAliveByGang($gangID);
+            $form = $this->createForm(SelectGangerForItems::class, null, ['gangers' => $gangers]);
+            $template = "form/choose_ganger_for_items.html.twig";
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $data = $form->getData();
+                $gangerId = $data['ganger'];
+                $ganger = $gangerRepo->find($gangerId);
+                $gangNewCredit = $gangCredit - $loot->getCost();
+                $gang->setCredits($gangNewCredit);
+
+                $equipement = new Equipement();
+                $equipement->setName($loot->getName()->getEquipementEnum());
+                $equipement->setCost($loot->getCost());
+                $equipement->setGanger($ganger);
+                $equipement->setLoot(true);
+
+                $this->entityManager->persist($gang);
+                $this->entityManager->persist($equipement);
+                $this->entityManager->remove($loot);
+                $this->entityManager->flush();
+
+                $this->addFlash(
+                    'success',
+                    'Loot: ' . $loot->getName()->enumToString() .' is added to ' . $ganger->getName() . ' for ' . $loot->getCost() . ' credits'
+                );
+
+                $chooseGangURL = $this->adminUrlGenerator
+                    ->setController(GangCrudController::class)
+                    ->generateUrl()
+                ;
+
+                return $this->redirect($chooseGangURL);
+            }
+        }
