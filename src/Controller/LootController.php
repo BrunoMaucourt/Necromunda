@@ -122,3 +122,48 @@ class LootController extends AbstractController
                 return $this->redirect($chooseGangURL);
             }
         }
+
+        if ( $loot->getName()->getType() === LootEnum::EQUIPMENT_FOR_WEAPON ) {
+            $weapons = $weaponRepo->findAllWeaponsByGang($gangID);
+            $form = $this->createForm(SelectWeaponForItems::class, null, ['weapons' => $weapons]);
+            $template = "form/choose_weapon_for_items.html.twig";
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $data = $form->getData();
+                $weaponId = $data['weapon'];
+                $weapon = $weaponRepo->find($weaponId);
+                $gangNewCredit = $gangCredit - $loot->getCost();
+                $gang->setCredits($gangNewCredit);
+
+                $equipement = new Equipement();
+                $equipement->setName($loot->getName()->getEquipementEnum());
+                $equipement->setCost($loot->getCost());
+                $equipement->setWeapon($weapon);
+                $equipement->setLoot(true);
+
+                $this->entityManager->persist($gang);
+                $this->entityManager->persist($equipement);
+                $this->entityManager->remove($loot);
+                $this->entityManager->flush();
+
+                $this->addFlash(
+                    'success',
+                    'Loot: ' . $loot->getName()->enumToString() .' is added to ' . $weapon->getName()->enumToString() . ' for ' . $loot->getCost() . ' credits'
+                );
+
+                $chooseGangURL = $this->adminUrlGenerator
+                    ->setController(GangCrudController::class)
+                    ->generateUrl()
+                ;
+
+                return $this->redirect($chooseGangURL);
+            }
+        }
+
+        return $this->render($template, [
+            'form' => $form->createView(),
+            'item' => $loot
+        ]);
+    }
+}
