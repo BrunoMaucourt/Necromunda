@@ -150,12 +150,13 @@ th {
     text-align: center;
 }
 
-.gang-info, .territories, .gangers, .specials, .skills, .weapons, .equipments, .injuries {
+.gang-info, .informations, .territories, .gangers, .specials, .skills, .weapons, .equipments, .injuries {
     margin-bottom: 20px;
     width: 100%;
     border-collapse: collapse;
 }
 
+.informations th, .informations td,
 .equipments th, .equipments td,
 .gang-info th, .gang-info td,
 .territories th, .territories td,
@@ -168,15 +169,7 @@ th {
     border: 1px solid #000000;
 }
 
-.gang-info th,
-.territories th,
-.gangers th,
-.specials th,
-.skills th,
-.weapons th,
-.injuries th,
-.equipments th,
-.weapon-type-separator{
+.informations th, .gang-info th, .territories th, .gangers th, .specials th, .skills th, .weapons th, .injuries th, .equipments th, .weapon-type-separator {
     background-color: #c8c8c8;
 }
 
