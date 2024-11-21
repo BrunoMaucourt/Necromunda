@@ -125,6 +125,7 @@
                 <th>{{ 'Save modifier'|trans }}</th>
                 <th>{{ 'Ammo roll'|trans }}</th>
                 <th>{{ 'Special'|trans }}</th>
+                <th>{{ 'Cost'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -141,6 +142,7 @@
                     <td class="numeric">{{ weapon.name.getAmmoRoll }}</td>
                     {% set special = weapon.name.getSpecial | split(',') | map(special => special | trim | trans) %}
                     <td>{{ special| join(', ') }}</td>
+                    <td class="numeric">{{ weapon.name.getFixedCost }} + {{ weapon.name.getVariableDicesNumber }} D6 {{ "credits"|trans }}</td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -188,6 +190,7 @@
             <tr>
                 <th>{{ 'Name'|trans }}</th>
                 <th>{{ 'Description'|trans }}</th>
+                <th>{{ 'Cost'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -195,6 +198,7 @@
                 <tr>
                     <td>{{ equipment.name.enumToString|trans }}</td>
                     <td>{{ equipment.name.getDescription|trans }}</td>
+                    <td>{{ equipment.name.getFixedCost }} + {{ equipment.name.getVariableDicesNumber }} D{{ equipment.name.getVariableDicesType }} {{ "credits"|trans }}</td>
                 </tr>
             {% endfor %}
             </tbody>
