@@ -148,6 +148,45 @@
             </tbody>
         </table>
 
+        {% if stashWeapons is not empty %}
+            <h2>{{ 'Weapons in stash'|trans }}</h2>
+            <table class="weapons">
+                <thead>
+                <tr>
+                    <th>{{ 'Name'|trans }}</th>
+                    <th>{{ 'Short range'|trans }}</th>
+                    <th>{{ 'Long range'|trans }}</th>
+                    <th>{{ 'Bonus to hit short range'|trans }}</th>
+                    <th>{{ 'Bonus to hit long range'|trans }}</th>
+                    <th>{{ 'Strength'|trans }}</th>
+                    <th>{{ 'Damage'|trans }}</th>
+                    <th>{{ 'Save modifier'|trans }}</th>
+                    <th>{{ 'Ammo roll'|trans }}</th>
+                    <th>{{ 'Special'|trans }}</th>
+                    <th>{{ 'Cost'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for weapon in stashWeapons %}
+                    <tr>
+                        <td>{{ weapon.name.enumToString|trans }}{% if weapon.name.isCustomRules %} <strong class="redText">custom rules</strong>{% endif %}</td>
+                        <td class="numeric">{{ weapon.name.getShortRange }}</td>
+                        <td class="numeric">{{ weapon.name.getLongRange }}</td>
+                        <td class="numeric">{{ weapon.name.getBonusToHitShort }}</td>
+                        <td class="numeric">{{ weapon.name.getBonusToHitLong }}</td>
+                        <td class="numeric">{{ weapon.name.getStrength }}</td>
+                        <td class="numeric">{{ weapon.name.getDamage }}</td>
+                        <td class="numeric">{{ weapon.name.getSaveModifier }}</td>
+                        <td class="numeric">{{ weapon.name.getAmmoRoll }}</td>
+                        {% set special = weapon.name.getSpecial | split(',') | map(special => special | trim | trans) %}
+                        <td>{{ special| join(', ') }}</td>
+                        <td class="numeric">{{ weapon.name.getFixedCost }} + {{ weapon.name.getVariableDicesNumber }} D6 {{ "credits"|trans }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
         <h2>{{ 'Weapons special'|trans }}</h2>
         <table class="specials">
             <thead>
