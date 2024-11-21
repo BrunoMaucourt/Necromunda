@@ -40,4 +40,15 @@ class WeaponsRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function findAllSatshWeaponsByGang(int $gangId)
+    {
+        return $this->createQueryBuilder('g')
+            ->leftjoin('g.ganger', 'f')
+            ->where('g.stash = :gangId')
+            ->setParameter('gangId', $gangId)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

@@ -47,6 +47,7 @@ class DownloadSheetController extends AbstractController
         $skills = $skillRepo->findAllSkillsByGang($id);
         $weapons = $weaponRepo->findAllWeaponsTypeByGang($id);
         $weapons = $this->weaponService->getWeaponsWithVariants($weapons);
+        $stashWeapons = $weaponRepo->findAllSatshWeaponsByGang($id);
 
         $referenceValues = [
             GangerTypeEnum::leader->value => [
