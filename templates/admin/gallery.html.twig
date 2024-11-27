@@ -1,1 +1,87 @@
-{% extends '@EasyAdmin/page/content.html.twig' %}{% block main %}    <div class="container">        <h1>{{ "Gallery"|trans }}</h1>        <div class="avatar-gallery">            <h2>{{ "Avatars"|trans }}</h2>            <div class="avatar-container">                {% for user in users %}                    {% if user.avatar is not null %}                        <div class="avatar-item">                            <a href="/{{ ea.request.locale }}/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&entityId={{ user.id }}">                                <img src="/uploads/avatars/{{ user.avatar }}" alt="Avatar de {{ user.username }}" class="avatar-image">                                <p>{{ user.username }}</p>                            </a>                        </div>                    {% endif %}                {% endfor %}            </div>        </div>        <div class="avatar-gallery">            <h2>{{ "Gangs"|trans }}</h2>            <div class="avatar-container">                {% for gang in gangs %}                    {% if gang.picture is not null %}                        <div class="avatar-item">                            <a href="/{{ ea.request.locale }}/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CGangCrudController&entityId={{ gang.id }}">                                <img src="/uploads/gangs/{{ gang.picture }}" alt="Image du gang {{ gang.name }}" class="avatar-image">                                <p>{{ gang.name }}</p>                            </a>                        </div>                    {% endif %}                {% endfor %}            </div>        </div>        <div class="avatar-gallery">            <h2>{{ "Gangers"|trans }}</h2>            <div class="avatar-container">                {% for ganger in gangers %}                    {% if ganger.picture is not null %}                        <div class="avatar-item">                            <a href="/{{ ea.request.locale }}/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CGangerCrudController&entityId={{ ganger.id }}">                                <img src="/uploads/gangers/{{ ganger.picture }}" alt="Image du ganger {{ ganger.name }}" class="avatar-image">                                <p>{{ ganger.name }} - {{ ganger.gang }}</p>                            </a>                        </div>                    {% endif %}                {% endfor %}            </div>        </div>        <div class="avatar-gallery">            <h2>{{ "Games"|trans }}</h2>            <div class="avatar-container">                {% for game in games %}                    {% if game.picture is not null %}                        <div class="avatar-item">                            <a href="/{{ ea.request.locale }}/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CGamesCrudController&entityId={{ game.id }}">                                <img src="/uploads/games/{{ game.picture }}" alt="Image du jeu {{ game.getName }}" class="avatar-image">                                <p>{{ game.getName }}</p>                            </a>                        </div>                    {% endif %}                {% endfor %}            </div>        </div>    </div>{% endblock %}
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block main %}
+    <div class="container">
+        <h1>{{ "Gallery"|trans }}</h1>
+        <div class="avatar-gallery">
+            <h2>{{ "Avatars"|trans }}</h2>
+            <div class="avatar-container">
+                {% for user in users %}
+                    {% if user.avatar is not null %}
+                        <div class="avatar-item">
+                            <a href="/{{ ea.request.locale }}/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&entityId={{ user.id }}">
+                                <img src="/uploads/avatars/{{ user.avatar }}" alt="Avatar de {{ user.username }}" class="avatar-image">
+                                <p>{{ user.username }}</p>
+                            </a>
+                        </div>
+                    {% else %}
+                        <h3>{{ "No pictures"|trans }}</h3>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="avatar-gallery">
+            <h2>{{ "Gangs"|trans }}</h2>
+            <div class="avatar-container">
+                {% set noGangPicture = true %}
+                {% for gang in gangs %}
+                    {% if gang.picture is not null %}
+                        {% set noGangPicture = false %}
+                        <div class="avatar-item">
+                            <a href="/{{ ea.request.locale }}/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CGangCrudController&entityId={{ gang.id }}">
+                                <img src="/uploads/gangs/{{ gang.picture }}" alt="Image du gang {{ gang.name }}" class="avatar-image">
+                                <p>{{ gang.name }}</p>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {% if noGangPicture == true %}
+                    <h3>{{ "No pictures"|trans }}</h3>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="avatar-gallery">
+            <h2>{{ "Gangers"|trans }}</h2>
+            <div class="avatar-container">
+                {% set noGangerPicture = true %}
+                {% for ganger in gangers %}
+                    {% if ganger.picture is not null %}
+                        {% set noGangerPicture = false %}
+                        <div class="avatar-item">
+                            <a href="/{{ ea.request.locale }}/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CGangerCrudController&entityId={{ ganger.id }}">
+                                <img src="/uploads/gangers/{{ ganger.picture }}" alt="Image du ganger {{ ganger.name }}" class="avatar-image">
+                                <p>{{ ganger.name }} - {{ ganger.gang }}</p>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {% if noGangerPicture == true %}
+                    <h3>{{ "No pictures"|trans }}</h3>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="avatar-gallery">
+            <h2>{{ "Games"|trans }}</h2>
+            <div class="avatar-container">
+                {% set noGamePicture = true %}
+                {% for game in games %}
+                    {% if game.picture is not null %}
+                        {% set noGamePicture = false %}
+                        <div class="avatar-item">
+                            <a href="/{{ ea.request.locale }}/admin?crudAction=detail&crudControllerFqcn=App%5CController%5CAdmin%5CGamesCrudController&entityId={{ game.id }}">
+                                <img src="/uploads/games/{{ game.picture }}" alt="Image du jeu {{ game.getName }}" class="avatar-image">
+                                <p>{{ game.getName }}</p>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {% if noGamePicture == true %}
+                    <h3>{{ "No pictures"|trans }}</h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
