@@ -27,4 +27,18 @@ class EquipementsRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function findAllWeaponEquipmentsByGang(int $gangId)
+    {
+        return $this->createQueryBuilder('g')
+            ->leftjoin('g.weapon', 'w')
+            ->leftjoin('w.ganger', 'f')
+            ->Where('f.gang = :gangId')
+            ->orWhere('w.stash = :gangId')
+            ->setParameter('gangId', $gangId)
+            ->groupBy('g.name')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
