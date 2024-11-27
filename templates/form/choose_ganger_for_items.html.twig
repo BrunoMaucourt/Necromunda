@@ -1,6 +1,6 @@
 {% extends '@EasyAdmin/page/content.html.twig' %}
 
-{% block content_title %}Choose ganger to add {{ weapon.getName.enumToString }}{% endblock %}
+{% block content_title %}Choose ganger to add {{ item.getName.enumToString }}{% endblock %}
 
 {% block main %}
     <style>
@@ -25,7 +25,7 @@
                 <div class="card-body">
                     {{ form_start(form) }}
                     <fieldset class="mb-3 xl">
-                        <legend>{{ weapon.getName.enumToString }}</legend>
+                        <legend>{{ item.getName.enumToString }}</legend>
                         <div class="btn-group d-flex flex-column justify-content-between " role="group" aria-label="Gangers">
                             {% for child in form.ganger %}
                                 <div class="form-check form-check-inline">

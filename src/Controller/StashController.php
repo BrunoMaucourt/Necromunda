@@ -94,7 +94,7 @@ class StashController extends AbstractController
 
         return $this->render('form/choose_ganger_for_items.html.twig', [
             'form' => $form->createView(),
-            'weapon' => $weapon
+            'item' => $weapon
         ]);
     }
 }
