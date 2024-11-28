@@ -16,28 +16,14 @@ class LootRepository extends ServiceEntityRepository
         parent::__construct($registry, Loot::class);
     }
 
-    //    /**
-    //     * @return Loot[] Returns an array of Loot objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('l')
-    //            ->andWhere('l.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('l.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Loot
-    //    {
-    //        return $this->createQueryBuilder('l')
-    //            ->andWhere('l.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+        public function findActiveLootByGang(int $gangID): ?array
+        {
+            return $this->createQueryBuilder('l')
+                ->where('l.active = 1')
+                ->andWhere('l.gang = :gang')
+                ->setParameter('gang', $gangID)
+                ->getQuery()
+                ->getResult()
+            ;
+        }
 }
