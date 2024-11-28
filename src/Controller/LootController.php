@@ -66,9 +66,11 @@ class LootController extends AbstractController
                 $weapon->setGanger($ganger);
                 $weapon->setLoot(true);
 
+                $loot->setActive(false);
+
                 $this->entityManager->persist($gang);
                 $this->entityManager->persist($weapon);
-                $this->entityManager->remove($loot);
+                $this->entityManager->persist($loot);
                 $this->entityManager->flush();
 
                 $this->addFlash(
@@ -104,9 +106,11 @@ class LootController extends AbstractController
                 $equipement->setGanger($ganger);
                 $equipement->setLoot(true);
 
+                $loot->setActive(false);
+
                 $this->entityManager->persist($gang);
                 $this->entityManager->persist($equipement);
-                $this->entityManager->remove($loot);
+                $this->entityManager->persist($loot);
                 $this->entityManager->flush();
 
                 $this->addFlash(
@@ -142,9 +146,11 @@ class LootController extends AbstractController
                 $equipement->setWeapon($weapon);
                 $equipement->setLoot(true);
 
+                $loot->setActive(false);
+
                 $this->entityManager->persist($gang);
                 $this->entityManager->persist($equipement);
-                $this->entityManager->remove($loot);
+                $this->entityManager->persist($loot);
                 $this->entityManager->flush();
 
                 $this->addFlash(
