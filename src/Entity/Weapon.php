@@ -92,6 +92,18 @@ class Weapon extends Item
         return $this->equipements;
     }
 
+    public function getEquipementNamesAsString(): string
+    {
+        $equipements = $this->getEquipements();
+        $equipementsList = '';
+
+        foreach ($equipements as $equipement) {
+            $equipementsList .= $equipement->getName()->enumToString();
+        }
+
+        return $equipementsList; // Concatène avec une virgule
+    }
+
     public function addEquipement(Equipement $equipement): static
     {
         if (!$this->equipements->contains($equipement)) {

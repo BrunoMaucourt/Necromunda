@@ -141,7 +141,7 @@ class WeaponService
             }
         }
 
-        usort($weapons, fn($a, $b) => $a->getName()->enumToString() <=> $b->getName()->enumToString());
+        usort($weapons, fn($a, $b) => $a->getName()->enumToString() . $a->getEquipementNamesAsString() <=> $b->getName()->enumToString() . $b->getEquipementNamesAsString());
 
         return $weapons;
     }
