@@ -10,6 +10,7 @@ use App\Entity\Injury;
 use App\Entity\Skill;
 use App\Entity\Weapon;
 use App\Enum\GangerTypeEnum;
+use App\service\EquipementService;
 use App\service\WeaponService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,14 +19,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DownloadSheetController extends AbstractController
 {
+    private EquipementService $equipementService;
+
     private EntityManagerInterface $entityManager;
 
     private WeaponService $weaponService;
 
     public function __construct(
+        EquipementService $equipementService,
         EntityManagerInterface $entityManager,
         WeaponService $weaponService
     ){
+        $this->equipementService = $equipementService;
         $this->entityManager = $entityManager;
         $this->weaponService = $weaponService;
     }
@@ -41,6 +46,8 @@ class DownloadSheetController extends AbstractController
         $weaponRepo = $this->entityManager->getRepository(Weapon::class);
 
         $equipments = $equipmentRepo->findAllEquipmentsByGang($id);
+        $weaponEquipments = $equipmentRepo->findAllWeaponEquipmentsByGang($id);
+        $equipments = $this->equipementService->mergeAndSortEquipements($equipments, $weaponEquipments);
         $gang = $gangRepo->find($id);
         $gangers = $gangerRepo->findAliveByGang($id);
         $injuries = $injuryRepo->findAllInjuriesByGang($id);
@@ -207,6 +214,7 @@ class DownloadSheetController extends AbstractController
             'referenceValues' => $referenceValues,
             'specials' => $specials,
             'skills' => $skills,
+            'stashWeapons' => $stashWeapons,
             'weapons' => $weapons,
         ]);
     }
