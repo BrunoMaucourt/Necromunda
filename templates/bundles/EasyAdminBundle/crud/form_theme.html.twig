@@ -60,7 +60,7 @@
                                 if "_Gang_weapons_entry" in block_prefixes
                             %}
                                 {% if data is not null %}
-                                    <a href="{{ path('admin-context', {'route': 'remove_weapon_from_stash', 'id': data.id }) }}" class="btn btn-primary my-2">Add to a ganger</a>
+                                    <a href="{{ path('admin-context', {'route': 'remove_weapon_from_stash', 'id': data.id }) }}" class="btn btn-primary my-2">{{ "Add to a ganger"|trans }}</a>
                                 {% endif %}
                             {% endif %}
 
@@ -68,8 +68,8 @@
                             {%
                                 if "_Gang_loots_entry" in block_prefixes
                             %}
-                                {% if data is not null %}
-                                    <a href="{{ path('admin-context', {'route': 'buy_loot', 'id': data.id }) }}" class="btn btn-primary my-2">Buy loot</a>
+                                {% if data is not null and data.isactive == true %}
+                                    <a href="{{ path('admin-context', {'route': 'buy_loot', 'id': data.id }) }}" class="btn btn-primary my-2 lootActive">{{ "Buy loot"|trans }}</a>
                                 {% endif %}
                             {% endif %}
                             {{ form_widget(form) }}

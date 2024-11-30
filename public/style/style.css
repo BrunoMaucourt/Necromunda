@@ -327,6 +327,16 @@ th {
     margin-right: 10px;
 }
 
+#Gang_loots .accordion-item:not(:has(.lootActive)) {
+    background-color: lightgrey !important;
+    border: 1px solid grey !important;
+}
+
+#Gang_loots .accordion-item:not(:has(.lootActive)) .accordion-header {
+    background-color: darkgray !important;
+    border: 1px solid grey !important;
+}
+
 @media (max-width: 600px) {
     .avatar-gallery {
         flex-direction: column;
