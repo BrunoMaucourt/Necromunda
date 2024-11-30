@@ -318,7 +318,8 @@ class GamesCrudController extends AbstractCrudController
         yield ImageField::new('picture')
             ->setBasePath('uploads/games')
             ->setUploadDir('public/uploads/games')
-            ->setFileConstraints(new Image(maxSize: '100000k'));
+            ->setFileConstraints(new Image(maxSize: '100000k'))
+            ->setTemplatePath('admin/fields/defaultImage.html.twig');
         ;
     }
     public function configureActions(Actions $actions): Actions

@@ -44,8 +44,7 @@ class GangCrudController extends AbstractCrudController
         FilterFactory $filterFactory,
         Security $security,
         TranslatorInterface $translator,
-    )
-    {
+    ) {
         $this->entityManager = $entityManager;
         $this->filterFactory = $filterFactory;
         $this->security = $security;
@@ -189,8 +188,8 @@ class GangCrudController extends AbstractCrudController
         yield ImageField::new('picture')
             ->setBasePath('uploads/gangs')
             ->setUploadDir('public/uploads/gangs')
-            ->setFileConstraints(new Image(maxSize: '100000k'));
-        ;
+            ->setFileConstraints(new Image(maxSize: '100000k'))
+            ->setTemplatePath('admin/fields/defaultImage.html.twig');
         if ($customRulesArray) {
             if ($customRules->isDestinyScore()) {
                 yield FormField::addPanel('Custom rules', $this->translator->trans('Custom rules'))

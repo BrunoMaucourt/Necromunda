@@ -270,7 +270,8 @@ class GangerCrudController extends AbstractCrudController
             yield ImageField::new('picture')
                 ->setBasePath('uploads/gangers')
                 ->setUploadDir('public/uploads/gangers')
-                ->setFileConstraints(new Image(maxSize: '100000k'));
+                ->setFileConstraints(new Image(maxSize: '100000k'))
+                ->setTemplatePath('admin/fields/defaultImage.html.twig');
             ;
         }
     }

@@ -1,0 +1,33 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{# @var field \EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto #}
+{# @var entity \EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto #}
+{% set images = field.formattedValue %}
+{% if images is not iterable %}
+    {% set images = [images] %}
+{% endif %}
+
+{% for image in images %}
+    {% set html_id = 'ea-lightbox-' ~ field.uniqueId ~ '-' ~ loop.index %}
+
+    {% if image is not null %}
+        {% set imageAsset = asset(image) %}
+    {% else %}
+        {% if entity.fqcn == "App\\Entity\\Gang" %}
+            {% set imageAsset = asset('img/gang-default.svg') %}
+        {% endif %}
+        {% if entity.fqcn == "App\\Entity\\Ganger" %}
+            {% set imageAsset = asset('img/ganger-default.svg') %}
+        {% endif %}
+        {% if entity.fqcn == "App\\Entity\\Game" %}
+            {% set imageAsset = asset('img/game-default.svg') %}
+        {% endif %}
+    {% endif %}
+
+        <a href="#" class="ea-lightbox-thumbnail" data-ea-lightbox-content-selector="#{{ html_id }}">
+            <img src="{{ imageAsset }}" class="img-fluid">
+        </a>
+
+        <div id="{{ html_id }}" class="ea-lightbox">
+            <img src="{{ imageAsset }}">
+        </div>
+{% endfor %}
