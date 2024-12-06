@@ -76,6 +76,10 @@ class GameListener
             $gang1CreditsBeforeGame = $gang1->getCredits();
             $gang2CreditsBeforeGame = $gang2->getCredits();
 
+            // Remove loot from previous game
+            $this->removeLootFromPreviousGame($gang1->getLoots()->toArray());
+            $this->removeLootFromPreviousGame($gang2->getLoots()->toArray());
+
             // Historic
             $summary = "";
 
@@ -214,5 +218,16 @@ class GameListener
         $currentHistory = $entity->getHistory();
         $newHistory = $currentHistory ? $currentHistory . "\n" . $historyMessage : $historyMessage;
         $entity->setHistory($newHistory);
+    }
+
+    /**
+     * @param array
+     * @return void
+     */
+    public function removeLootFromPreviousGame(array $gang1PreviousLoots): void
+    {
+        foreach ($gang1PreviousLoots as $loot) {
+            $loot->setActive(false);
+        }
     }
 }
