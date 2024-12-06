@@ -27,7 +27,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
     case BionicImplant = 'Bionic Implant';
     case BionicLeg = 'Bionic Leg';
     case BionicEye = 'Bionic Eye';
-    case BionicTorso = 'Bionic Torso';
+    case BionicChest = 'Bionic Chest';
     case LoboChip = 'Lobo-chip';
     case SkullChip = 'Skull Chip';
 
@@ -81,7 +81,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::BionicImplant => EquipementsEnum::BionicImplant->value,
             self::BionicLeg => EquipementsEnum::BionicLeg->value,
             self::BionicEye => EquipementsEnum::BionicEye->value,
-            self::BionicTorso => EquipementsEnum::BionicTorso->value,
+            self::BionicChest => EquipementsEnum::BionicChest->value,
             self::LoboChip => EquipementsEnum::LoboChip->value,
             self::SkullChip => EquipementsEnum::SkullChip->value,
 
@@ -137,7 +137,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::BionicImplant => 50,
             self::BionicLeg => 80,
             self::BionicEye => 50,
-            self::BionicTorso => 50,
+            self::BionicChest => 50,
             self::LoboChip => 20,
             self::SkullChip => 30,
 
@@ -193,7 +193,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::BionicImplant => 3,
             self::BionicLeg => 3,
             self::BionicEye => 3,
-            self::BionicTorso => 3,
+            self::BionicChest => 3,
             self::LoboChip => 0,
             self::SkullChip => 3,
 
@@ -249,7 +249,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::BionicImplant => 6,
             self::BionicLeg => 6,
             self::BionicEye => 6,
-            self::BionicTorso => 6,
+            self::BionicChest => 6,
             self::LoboChip => 0,
             self::SkullChip => 6,
 
@@ -305,7 +305,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::BionicImplant => 'The implant allows the model to heal all Serious Injuries related to a single limb.',
             self::BionicLeg => 'The model gains a +1 bonus to its Movement (M) and Attacks (A) characteristics.',
             self::BionicEye => 'The model can never be blinded or dazzled. Its vision in the dark is enhanced. The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. The model detects opponents in cover as if they were in the open.',
-            self::BionicTorso => 'The model is immune to the effects of gas. Grants a 6+ Armor Save.',
+            self::BionicChest => 'The model is immune to the effects of gas. Grants a 6+ Armor Save.',
             self::LoboChip => 'Grants immunity to psychology but reduces Initiative by 1',
             self::SkullChip => 'The model can re-roll all its Initiative (I) checks. If the second roll fails, the chip can no longer be used for the rest of the battle.',
 
@@ -361,7 +361,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::BionicImplant => false,
             self::BionicLeg => false,
             self::BionicEye => false,
-            self::BionicTorso => false,
+            self::BionicChest => false,
             self::LoboChip => false,
             self::SkullChip => false,
 
@@ -417,7 +417,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
             self::BionicImplant => self::BIONICS,
             self::BionicLeg => self::BIONICS,
             self::BionicEye => self::BIONICS,
-            self::BionicTorso => self::BIONICS,
+            self::BionicChest => self::BIONICS,
             self::LoboChip => self::BIONICS,
             self::SkullChip => self::BIONICS,
 

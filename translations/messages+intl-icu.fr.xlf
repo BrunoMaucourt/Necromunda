@@ -785,8 +785,8 @@
         <source>The model gains a +1 bonus to its Movement (M) and Attacks (A) characteristics.</source>
         <target>La figurine gagne un bonus de +1 à ses caractéristiques de mouvement (M) et attaque (A).</target>
       </trans-unit>
-      <trans-unit id="BLKA0SO" resname="Bionic Torso">
-        <source>Bionic Torso</source>
+      <trans-unit id="BLKA0SO" resname="Bionic Chest">
+        <source>Bionic Chest</source>
         <target>Bionique - torse</target>
       </trans-unit>
       <trans-unit id="3YZ7tJ7" resname="The model is immune to the effects of gas. Grants a 6+ Armor Save.">
