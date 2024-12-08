@@ -134,6 +134,9 @@ class GangCrudController extends AbstractCrudController
             yield CollectionField::new('weapons', $this->translator->trans('weapons'))
                 ->setColumns(6)
                 ->hideOnIndex()
+                ->renderExpanded()
+                ->setEntryIsComplex()
+                ->setEntryType(WeaponType::class)
                 ->allowAdd(false);
             yield FormField::addPanel('Loots', $this->translator->trans('Loots'))
                 ->setIcon('fa fa-gem')
