@@ -65,12 +65,21 @@ class ItemListener
             return;
         }
 
+        // Avoid to choose variable cost for enfoncers
+        $gangerIsEnfoncer = false;
+        if ($object->getGanger()) {
+            if ($object->getGanger()->getType()->getType() === GangerTypeEnum::ENFONCERS) {
+                $gangerIsEnfoncer = true;
+            }
+        }
+
         if (
             $object->getName()->getVariableDicesNumber() > 0 &&
             $object->getCost() === $object->getName()->getFixedCost() &&
-            $object->getGanger()->getType()->getType() !== GangerTypeEnum::ENFONCERS &&
+            !$gangerIsEnfoncer &&
             !$object->isLoot()
         ) {
+
             $session = $this->requestStack->getSession();
             $itemsFromSession = $session->get('itemsToProcess', []);
             $alreadyExists = false;
