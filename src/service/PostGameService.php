@@ -371,9 +371,9 @@ class PostGameService
 
             $content = "";
             if ($advancementScore == 2 || $advancementScore == 12) {
-                $content = "Choose a new skill in any table";
+                $content = Advancement::CHOOSE_ANY_TABLE;
             } elseif ($advancementScore == 3 || $advancementScore == 4 || $advancementScore == 10 || $advancementScore == 11) {
-                $content = "Random skill in standard table";
+                $content = Advancement::RANDON_STANDARD_TABLE;
             } elseif ($advancementScore == 5) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll > 3) {
