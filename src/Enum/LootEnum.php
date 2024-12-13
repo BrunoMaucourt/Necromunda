@@ -49,7 +49,11 @@ enum LootEnum: string
     case IsotropicFuelRod = 'Isotropic Fuel Rod';
 
     case Bionic = 'Bionic - Arm, Eye, Leg, Chest, Implant';
-
+    case BionicArm = 'Bionic Arm';
+    case BionicChest = 'Bionic Chest';
+    case BionicEye = 'Bionic Eye';
+    case BionicImplant = 'Bionic Implant';
+    case BionicLeg = 'Bionic Leg';
     case SkullChip = 'Skull Chip';
     case ShockMaul = 'Shock Maul';
     case Grapnel = 'Grapnel';
@@ -104,6 +108,11 @@ enum LootEnum: string
             self::MediPack => LootEnum::MediPack->value,
             self::IsotropicFuelRod => LootEnum::IsotropicFuelRod->value,
             self::Bionic => LootEnum::Bionic->value,
+            self::BionicArm => LootEnum::BionicArm->value,
+            self::BionicChest => LootEnum::BionicChest->value,
+            self::BionicEye => LootEnum::BionicEye->value,
+            self::BionicImplant => LootEnum::BionicImplant->value,
+            self::BionicLeg => LootEnum::BionicLeg->value,
             self::SkullChip => LootEnum::SkullChip->value,
             self::ShockMaul => LootEnum::ShockMaul->value,
             self::Grapnel => LootEnum::Grapnel->value,
@@ -157,6 +166,11 @@ enum LootEnum: string
             self::MediPack => '34-34',
             self::IsotropicFuelRod => '35-35',
             self::Bionic => '36-36',
+            self::BionicArm => '36-36',
+            self::BionicChest => '36-36',
+            self::BionicEye => '36-36',
+            self::BionicImplant => '36-36',
+            self::BionicLeg => '36-36',
             self::SkullChip => '41-41',
             self::ShockMaul => '42-42',
             self::Grapnel => '43-43',
@@ -210,6 +224,11 @@ enum LootEnum: string
             self::MediPack => 80,
             self::IsotropicFuelRod => 50,
             self::Bionic => 0,
+            self::BionicArm => 80,
+            self::BionicChest => 50,
+            self::BionicEye => 50,
+            self::BionicImplant => 50,
+            self::BionicLeg => 80,
             self::SkullChip => 30,
             self::ShockMaul => 35,
             self::Grapnel => 30,
@@ -262,6 +281,11 @@ enum LootEnum: string
             self::MediPack => 4,
             self::IsotropicFuelRod => 4,
             self::Bionic => 0,
+            self::BionicArm => 3,
+            self::BionicChest => 3,
+            self::BionicEye => 3,
+            self::BionicImplant => 3,
+            self::BionicLeg => 3,
             self::SkullChip => 3,
             self::ShockMaul => 3,
             self::Grapnel => 4,
@@ -315,6 +339,11 @@ enum LootEnum: string
             self::MediPack => self::EQUIPMENT_FOR_GANGER,
             self::IsotropicFuelRod => self::EQUIPMENT_FOR_GANGER,
             self::Bionic => self::EQUIPMENT_FOR_GANGER,
+            self::BionicArm => self::EQUIPMENT_FOR_GANGER,
+            self::BionicChest => self::EQUIPMENT_FOR_GANGER,
+            self::BionicEye => self::EQUIPMENT_FOR_GANGER,
+            self::BionicImplant => self::EQUIPMENT_FOR_GANGER,
+            self::BionicLeg => self::EQUIPMENT_FOR_GANGER,
             self::SkullChip => self::EQUIPMENT_FOR_GANGER,
             self::ShockMaul => self::WEAPON,
             self::Grapnel => self::EQUIPMENT_FOR_GANGER,
@@ -375,6 +404,11 @@ enum LootEnum: string
             self::MediPack => EquipementsEnum::MediPack,
             self::IsotropicFuelRod => EquipementsEnum::IsotropicFuelRod,
             self::Bionic => EquipementsEnum::BIONICS,
+            self::BionicArm => EquipementsEnum::BionicArm,
+            self::BionicChest => EquipementsEnum::BionicChest,
+            self::BionicEye => EquipementsEnum::BionicEye,
+            self::BionicImplant => EquipementsEnum::BionicImplant,
+            self::BionicLeg => EquipementsEnum::BionicLeg,
             self::SkullChip => EquipementsEnum::SkullChip,
             self::Grapnel => EquipementsEnum::Grapnel,
             self::GravChute => EquipementsEnum::GravChute,
