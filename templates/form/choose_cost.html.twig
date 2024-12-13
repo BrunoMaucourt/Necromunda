@@ -3,10 +3,16 @@
 {% block content_title %}{{ 'Choose variable cost'|trans }}{% endblock %}
 
 {% block main %}
+    {% set weapon = item.getName %}
     <div class="d-flex justify-content-center align-content-center w-100 h-100">
         <div class="d-flex justify-content-between align-content-center p-3">
-            <div class="card bg-light rounded-3 p-3">
-                <p class="mb-3">{{ 'Choose variable cost for'|trans }} {{ item.getName.enumToString }}</p>
+            <div class="card bg-light rounded-3 p-3 text-center">
+                <p class="mb-3">{{ 'Choose variable cost for'|trans }} <strong>{{ weapon.enumToString|trans }}</strong></p>
+                {% if weapon.getVariableDicesNumber > 0 %}
+                    <p class="mb-3">{{ weapon.getFixedCost }} + {{ weapon.getVariableDicesNumber }} D6 {{ "credits"|trans }}</p>
+                {% else %}
+                    <p class="mb-3">{{ weapon.getFixedCost }} {{ "credits"|trans }}</p>
+                {% endif %}
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
                 <div class="d-flex justify-content-center mt-3">

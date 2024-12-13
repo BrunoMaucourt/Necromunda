@@ -1,0 +1,50 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}{{ 'Choose bionic'|trans }}{% endblock %}
+
+{% block main %}
+    <style>
+        .bionics-radio-group {
+            display: flex;
+            align-items: flex-start; /* Aligne les éléments au début verticalement */
+            margin-bottom: 15px; /* Ajoute un espacement entre les options */
+        }
+
+        .bionics-radio-group input[type="radio"] {
+            margin-right: 10px; /* Espacement entre le bouton radio et le label */
+            margin-top: 4px; /* Aligne le bouton radio au début du texte */
+        }
+
+        .bionics-radio-group label {
+            display: block; /* Pour permettre une mise en page sur plusieurs lignes */
+            line-height: 1.4; /* Améliore la lisibilité des labels */
+        }
+    </style>
+    <div class="d-flex justify-content-center align-content-center w-100 h-100">
+        <div class="d-flex justify-content-between align-content-center p-3">
+            <div class="card bg-light rounded-3 p-3">
+                <div class="card-body">
+                    {{ form_start(form) }}
+
+                    {% for child in form.bionic %}
+                        <div class="form-check bionics-radio-group">
+                            {{ form_widget(child) }}
+                            <label for="{{ child.vars.id }}" class="form-check-label">
+                                {{ child.vars.label|raw }}<br>
+                                <span class="text-muted">
+                {{ child.vars.attr['data-description'] }}<br>
+                Cost: {{ child.vars.attr['data-cost'] }} + Dice: {{ child.vars.attr['data-dice'] }}
+            </span>
+                            </label>
+                        </div>
+                    {% endfor %}
+
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="submit" class="btn btn-primary">{{ 'Pay'|trans }}</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
