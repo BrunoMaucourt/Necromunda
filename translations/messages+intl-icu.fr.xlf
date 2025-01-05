@@ -3057,6 +3057,18 @@
         <source>Sell equipment</source>
         <target>Vendre l'équipement</target>
       </trans-unit>
+      <trans-unit id="L67C6K2" resname="Choose a new skill in any table">
+        <source>Choose a new skill in any table</source>
+        <target>Choisir une compétence dans n'importe quelle table</target>
+      </trans-unit>
+      <trans-unit id="L67X6K5" resname="Random skill in standard table">
+        <source>Random skill in standard table</source>
+        <target>Une compétence aléatoire dans une table standard</target>
+      </trans-unit>
+      <trans-unit id="Q67C6K5" resname="+ 1 attacks">
+        <source>+ 1 attacks</source>
+        <target>+ 1 attaque</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
