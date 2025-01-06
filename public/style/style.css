@@ -328,8 +328,7 @@ th {
 }
 
 #Gang_loots .accordion-item:not(:has(.lootActive)) {
-    background-color: lightgrey !important;
-    border: 1px solid grey !important;
+    display: none;
 }
 
 #Gang_loots .accordion-item:not(:has(.lootActive)) .accordion-header {
