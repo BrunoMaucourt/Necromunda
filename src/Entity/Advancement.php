@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\AdvancementEnum;
 use App\Repository\AdvancementRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -21,8 +22,8 @@ class Advancement
     #[ORM\JoinColumn(nullable: false)]
     private ?Ganger $ganger = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $content = null;
+    #[ORM\Column(length: 255, enumType: AdvancementEnum::class)]
+    private ?AdvancementEnum $content = null;
 
     #[ORM\ManyToOne(inversedBy: 'advancements')]
     #[ORM\JoinColumn(nullable: false)]
@@ -30,6 +31,11 @@ class Advancement
 
     #[ORM\ManyToOne(inversedBy: 'advancements')]
     private ?Skill $skill = null;
+
+    public function __toString(): string
+    {
+        return $this->content;
+    }
 
     public function getId(): ?int
     {
@@ -48,12 +54,12 @@ class Advancement
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getContent(): ?AdvancementEnum
     {
         return $this->content;
     }
 
-    public function setContent(string $content): static
+    public function setContent(AdvancementEnum $content): static
     {
         $this->content = $content;
 
