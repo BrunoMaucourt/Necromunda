@@ -8,6 +8,7 @@ use App\Enum\AdvancementEnum;
 use App\service\EnumTranslator;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AdvancementCrudController extends AbstractCrudController
@@ -50,5 +51,8 @@ class AdvancementCrudController extends AbstractCrudController
         yield AssociationField::new('game', $this->translator->trans('Game'));
 
         yield AssociationField::new('skill', $this->translator->trans('Skill'));
+
+        yield BooleanField::new('active', $this->translator->trans('active'));
+        yield BooleanField::new('reRoll', $this->translator->trans('reRoll'));
     }
 }

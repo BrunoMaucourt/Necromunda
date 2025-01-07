@@ -32,9 +32,15 @@ class Advancement
     #[ORM\ManyToOne(inversedBy: 'advancements')]
     private ?Skill $skill = null;
 
+    #[ORM\Column]
+    private ?bool $reRoll = true;
+
+    #[ORM\Column]
+    private ?bool $active = true;
+
     public function __toString(): string
     {
-        return $this->content;
+        return $this->content->enumToString();
     }
 
     public function getId(): ?int
@@ -86,6 +92,30 @@ class Advancement
     public function setSkill(?Skill $skill): static
     {
         $this->skill = $skill;
+
+        return $this;
+    }
+
+    public function isReRoll(): ?bool
+    {
+        return $this->reRoll;
+    }
+
+    public function setReRoll(bool $reRoll): static
+    {
+        $this->reRoll = $reRoll;
+
+        return $this;
+    }
+
+    public function isActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): static
+    {
+        $this->active = $active;
 
         return $this;
     }
