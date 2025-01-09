@@ -19,7 +19,15 @@
                 {{ delete_item_button }}
             {% endif %}
         {% else %}
-            <div class="accordion-item">
+            {% set hide = '' %}
+            {% if data is not null %}
+                {% if "_Gang_gangers_entry_advancement_entry" in block_prefixes %}
+                    {% if data.isActive == null %}
+                        {% set hide = 'hide' %}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            <div class="accordion-item {{ hide }}">
                 <h2 class="accordion-header">
                     <button class="accordion-button {{ render_expanded ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ id }}-contents">
                         {{ value|ea_as_string|trans }}
