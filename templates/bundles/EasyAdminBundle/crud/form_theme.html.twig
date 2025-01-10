@@ -85,10 +85,23 @@
                                 if "_Gang_gangers_entry_advancement_entry" in block_prefixes
                             %}
                                 {% if data is not null and data.isactive == true %}
-{#                                    {{ constant('Namespace\\Classname::CONSTANT_NAME') }}#}
-                                    <a href="{{ path('admin-context', {'route': 'choose_skill', 'id': data.id }) }}" class="btn btn-primary my-2 advancementActive">{{ "Validate"|trans }}</a>
-                                    <a href="{{ path('admin-context', {'route': 'choose_skill', 'id': data.id }) }}" class="btn btn-primary my-2 advancementActive">{{ "ReRoll"|trans }}</a>
-                                    <a href="{{ path('admin-context', {'route': 'choose_skill', 'id': data.id }) }}" class="btn btn-primary my-2 advancementActive">{{ "Choose skill"|trans }}</a>
+                                    <script>
+                                        // Effectuer la requête pour récupérer les règles personnalisées
+                                        fetch('/admin/customRules')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                if (data.reRollAdvancementDices === false) {
+                                                    const button = document.querySelector('.btn-reRollAdvancement');
+                                                    if (button) {
+                                                        button.classList.add('hide');
+                                                    }
+                                                }
+                                            })
+                                            .catch(error => console.error('Error fetching customRules:', error));
+                                    </script>
+                                    <a href="{{ path('admin-context', {'route': 'validate_advancement', 'id': data.id }) }}" class="btn btn-primary my-2">{{ "Validate"|trans }}</a>
+                                    <a href="{{ path('admin-context', {'route': 'choose_skill', 'id': data.id }) }}" class="btn btn-primary my-2 btn-reRollAdvancement">{{ "ReRoll"|trans }}</a>
+                                    <a href="{{ path('admin-context', {'route': 'choose_skill', 'id': data.id }) }}" class="btn btn-primary my-2">{{ "Choose skill"|trans }}</a>
                                 {% endif %}
                             {% endif %}
                             {{ form_widget(form) }}
