@@ -9,10 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: AdvancementRepository::class)]
 class Advancement
 {
-    const CHOOSE_ANY_TABLE = "Choose a new skill in any table";
-
-    const RANDON_STANDARD_TABLE ="Random skill in standard table";
-
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
