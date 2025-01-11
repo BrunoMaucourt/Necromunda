@@ -8,6 +8,7 @@ use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Entity\Injury;
 use App\Entity\Loot;
+use App\Enum\AdvancementEnum;
 use App\Enum\GangerTypeEnum;
 use App\Enum\InjuriesEnum;
 use App\Enum\LootEnum;
@@ -371,44 +372,36 @@ class PostGameService
 
             $content = "";
             if ($advancementScore == 2 || $advancementScore == 12) {
-                $content = Advancement::CHOOSE_ANY_TABLE;
+                $content = AdvancementEnum::CHOOSE_ANY_TABLE;
             } elseif ($advancementScore == 3 || $advancementScore == 4 || $advancementScore == 10 || $advancementScore == 11) {
-                $content = Advancement::RANDON_STANDARD_TABLE;
+                $content = AdvancementEnum::RANDOM_STANDARD_TABLE;
             } elseif ($advancementScore == 5) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll > 3) {
-                    $content = "+ 1 attacks";
-                    $ganger->setAttacks($ganger->getAttacks() + 1);
+                    $content = AdvancementEnum::ATTACKS;
                 } else {
-                    $content = "+ 1 strength";
-                    $ganger->setStrength($ganger->getStrength() + 1);
+                    $content = AdvancementEnum::STRENGTH;
                 }
             } elseif ($advancementScore == 6 || $advancementScore == 8) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll > 3) {
-                    $content = "+ 1 BS";
-                    $ganger->setBallisticSkill($ganger->getBallisticSkill() + 1);
+                    $content = AdvancementEnum::BALLISTIC_WEAPON;
                 } else {
-                    $content = "+ 1 WS";
-                    $ganger->setWeaponSkill($ganger->getStrength() + 1);
+                    $content = AdvancementEnum::WEAPON_SKILL;
                 }
             } elseif ($advancementScore == 7) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll > 3) {
-                    $content = "+ 1 leadership";
-                    $ganger->setLeadership($ganger->getLeadership() + 1);
+                    $content = AdvancementEnum::LEADERSHIP;
                 } else {
-                    $content = "+ 1 initiative";
-                    $ganger->setInitiative($ganger->getInitiative() + 1);
+                    $content = AdvancementEnum::INITIATIVE;
                 }
             } elseif ($advancementScore == 9) {
                 $diceRoll = mt_rand(1, 6);
                 if ($diceRoll > 3) {
-                    $content = "+ 1 toughness";
-                    $ganger->setToughness($ganger->getToughness() + 1);
+                    $content = AdvancementEnum::TOUGHNESS;
                 } else {
-                    $content = "+ 1 wounds";
-                    $ganger->setWounds($ganger->getWounds() + 1);
+                    $content = AdvancementEnum::WOUNDS;
                 }
             }
 
@@ -416,6 +409,7 @@ class PostGameService
             $newAdvancement = new Advancement();
             $newAdvancement->setGanger($ganger);
             $newAdvancement->setContent($content);
+            $newAdvancement->setActive(true);
 
             $this->entityManager->persist($newAdvancement);
             $game->addAdvancement($newAdvancement);
