@@ -86,14 +86,15 @@
                             %}
                                 {% if data is not null and data.isactive == true %}
                                     <script>
-                                        // Effectuer la requête pour récupérer les règles personnalisées
                                         fetch('/admin/customRules')
                                             .then(response => response.json())
                                             .then(data => {
                                                 if (data.reRollAdvancementDices === false) {
-                                                    const button = document.querySelector('.btn-reRollAdvancement');
+                                                    const button = document.querySelectorAll('.btn-reRollAdvancement');
                                                     if (button) {
-                                                        button.classList.add('hide');
+                                                        button.forEach( (item) => {
+                                                            item.classList.add('hide');
+                                                        })
                                                     }
                                                 }
                                             })
