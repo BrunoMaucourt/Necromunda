@@ -753,9 +753,9 @@
         <source>Bionic - Arm, Eye, Leg, Chest, Implant</source>
         <target>Bionique - bras, oeil, jambe, torse, Implant</target>
       </trans-unit>
-      <trans-unit id="vEej4jx" resname="Bionic - Arm">
-        <source>Bionic - Arm</source>
-        <target>Bionique - bras</target>
+      <trans-unit id="vEej4jx" resname="Bionic Arm">
+        <source>Bionic Arm</source>
+        <target>Bras bionique</target>
       </trans-unit>
       <trans-unit id="iyMYfg5" resname="The model gains a +2 bonus to its Strength (S) characteristic and a +2 bonus to Initiative (I) when testing if it falls from an edge.">
         <source>The model gains a +2 bonus to its Strength (S) characteristic and a +2 bonus to Initiative (I) when testing if it falls from an edge.</source>
@@ -763,7 +763,7 @@
       </trans-unit>
       <trans-unit id="m8ja7f_" resname="Bionic Eye">
         <source>Bionic Eye</source>
-        <target>Bionique - oeil</target>
+        <target>Oeil bionique</target>
       </trans-unit>
       <trans-unit id="OD7J_GB" resname="The model can never be blinded or dazzled. Its vision in the dark is enhanced. The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. The model detects opponents in cover as if they were in the open.">
         <source>The model can never be blinded or dazzled. Its vision in the dark is enhanced. The model can visually detect hidden opponents at three times the normal range and is immune to smoke grenades. The model detects opponents in cover as if they were in the open.</source>
@@ -771,7 +771,7 @@
       </trans-unit>
       <trans-unit id="WF1TwZT" resname="Bionic Implant">
         <source>Bionic Implant</source>
-        <target>Bionique - Implant</target>
+        <target>Implant bionique</target>
       </trans-unit>
       <trans-unit id="1rZWfHm" resname="The implant allows the model to heal all Serious Injuries related to a single limb.">
         <source>The implant allows the model to heal all Serious Injuries related to a single limb.</source>
@@ -779,7 +779,7 @@
       </trans-unit>
       <trans-unit id="dT4bQTF" resname="Bionic Leg">
         <source>Bionic Leg</source>
-        <target>Bionique - Jambe</target>
+        <target>Jambe bionique</target>
       </trans-unit>
       <trans-unit id="Lmlqg6." resname="The model gains a +1 bonus to its Movement (M) and Attacks (A) characteristics.">
         <source>The model gains a +1 bonus to its Movement (M) and Attacks (A) characteristics.</source>
@@ -787,7 +787,7 @@
       </trans-unit>
       <trans-unit id="BLKA0SO" resname="Bionic Chest">
         <source>Bionic Chest</source>
-        <target>Bionique - torse</target>
+        <target>Torse bionique</target>
       </trans-unit>
       <trans-unit id="3YZ7tJ7" resname="The model is immune to the effects of gas. Grants a 6+ Armor Save.">
         <source>The model is immune to the effects of gas. Grants a 6+ Armor Save.</source>
