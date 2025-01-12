@@ -21,7 +21,7 @@
         {% else %}
             {% set hide = '' %}
             {% if data is not null %}
-                {% if "_Gang_gangers_entry_advancement_entry" in block_prefixes %}
+                {% if "_Gang_gangers_entry_advancement_entry" in block_prefixes or "_Ganger_advancement_entry" in block_prefixes %}
                     {% if data.isActive == null %}
                         {% set hide = 'hide' %}
                     {% endif %}
@@ -82,7 +82,7 @@
 
                             {# Advancement button #}
                             {%
-                                if "_Gang_gangers_entry_advancement_entry" in block_prefixes
+                                if "_Gang_gangers_entry_advancement_entry" in block_prefixes or "_Ganger_advancement_entry" in block_prefixes
                             %}
                                 {% if data is not null and data.isactive == true %}
                                     <script>
@@ -102,7 +102,6 @@
                                     </script>
                                     <a href="{{ path('admin-context', {'route': 'validate_advancement', 'id': data.id }) }}" class="btn btn-primary my-2">{{ "Validate"|trans }}</a>
                                     <a href="{{ path('admin-context', {'route': 'choose_skill', 'id': data.id }) }}" class="btn btn-primary my-2 btn-reRollAdvancement">{{ "ReRoll"|trans }}</a>
-                                    <a href="{{ path('admin-context', {'route': 'choose_skill', 'id': data.id }) }}" class="btn btn-primary my-2">{{ "Choose skill"|trans }}</a>
                                 {% endif %}
                             {% endif %}
                             {{ form_widget(form) }}
