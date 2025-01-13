@@ -6,18 +6,28 @@ namespace App\Enum;
 
 enum SkillsEnum: string
 {
+    const AGILITY = 'Agility';
+    const COMBAT = 'Combat';
+    const FEROCITY = 'Ferocity';
+    const MUSCLE = 'Muscle';
+    const SHOOTING = 'Shooting';
+    const STEALTH = 'Stealth';
+    const TECHNO = 'Techno';
+
     case AgilityCatfall = 'Agility - Catfall';
     case AgilityDodge = 'Agility - Dodge';
     case AgilityJumpBack = 'Agility - Jump Back';
     case AgilityLeap = 'Agility - Leap';
     case AgilityQuickWitted = 'Agility - Quick Witted';
     case AgilitySprint = 'Agility - Sprint';
+
     case CombatCombatMaster = 'Combat - Combat Master';
     case CombatCounterAttack = 'Combat - Counter Attack';
     case CombatDeflect = 'Combat - Deflect';
     case CombatDisarm = 'Combat - Disarm';
     case CombatFeint = 'Combat - Feint';
     case CombatStepAside = 'Combat - Step Aside';
+
     case FerocityBerserkCharge = 'Ferocity - Berserk Charge';
     case FerocityImpetuous = 'Ferocity - Impetuous';
     case FerocityIronWill = 'Ferocity - Iron Will';
@@ -31,25 +41,27 @@ enum SkillsEnum: string
     case MuscleHurlOpponent = 'Muscle - Hurl Opponent';
     case MuscleIronJaw = 'Muscle - Iron Jaw';
     case MuscleJuggernaut = 'Muscle - Juggernaut';
+
     case ShootingCrackShot = 'Shooting - Crack Shot';
     case ShootingFastShot = 'Shooting - Fast Shot';
     case ShootingGunfighter = 'Shooting - Gunfighter';
     case ShootingHipShooting = 'Shooting - Hip Shooting';
     case ShootingMarksman = 'Shooting - Marksman';
     case ShootingRapidFire = 'Shooting - Rapid Fire';
+
     case StealthAmbush = 'Stealth - Ambush';
     case StealthDive = 'Stealth - Dive';
     case StealthEscapeArtist = 'Stealth - Escape Artist';
     case StealthEvade = 'Stealth - Evade';
     case StealthInfiltration = 'Stealth - Infiltration';
     case StealthSneakUp = 'Stealth - Sneak Up';
+
     case TechnoArmourer = 'Techno - Armourer';
     case TechnoFixer = 'Techno - Fixer';
     case TechnoInventor = 'Techno - Inventor';
     case TechnoMedic = 'Techno - Medic';
     case TechnoSpecialist = 'Techno - Specialist';
     case TechnoWeaponsmith = 'Techno - Weaponsmith';
-
 
     public function enumToString(): string
     {
@@ -149,61 +161,52 @@ enum SkillsEnum: string
         };
     }
 
-    public function getAgilitySkills(): int
+    public function getSkillCategory(): string
     {
-        return match($this) {
-            self::AgilityCatfall => 1,
-            self::AgilityDodge => 2,
-            self::AgilityJumpBack => 3,
-            self::AgilityLeap => 4,
-            self::AgilityQuickWitted => 5,
-            self::AgilitySprint => 6,
-        };
-    }
-
-    public function getCombatSkills(): int
-    {
-        return match($this) {
-            self::CombatCombatMaster => 1,
-            self::CombatCounterAttack => 2,
-            self::CombatDeflect => 3,
-            self::CombatDisarm => 4,
-            self::CombatFeint => 5,
-            self::CombatStepAside => 6,
-        };
-    }
-    public function getFerocitySkills(): int
-    {
-        return match($this) {
-            self::FerocityBerserkCharge => 1,
-            self::FerocityImpetuous => 2,
-            self::FerocityIronWill => 3,
-            self::FerocityKillerReputation => 4,
-            self::FerocityNervesofSteel => 5,
-            self::FerocityTrueGrit => 6,
-        };
-    }
-
-    public function getMuscleSkills(): int
-    {
-        return match($this) {
-            self::MuscleBodySlam => 1,
-            self::MuscleBulgingBiceps => 2,
-            self::MuscleHardasNails => 3,
-            self::MuscleHurlOpponent => 4,
-            self::MuscleIronJaw => 5,
-            self::MuscleJuggernaut => 6,
-        };
-    }
-    public function getShootingSkills(): int
-    {
-        return match($this) {
-            self::ShootingCrackShot => 1,
-            self::ShootingFastShot => 2,
-            self::ShootingGunfighter => 3,
-            self::ShootingHipShooting => 4,
-            self::ShootingMarksman => 5,
-            self::ShootingRapidFire => 6,
+        return match($this)
+        {
+            self::AgilityCatfall => SkillsEnum::AGILITY,
+            self::AgilityDodge => SkillsEnum::AGILITY,
+            self::AgilityJumpBack => SkillsEnum::AGILITY,
+            self::AgilityLeap => SkillsEnum::AGILITY,
+            self::AgilityQuickWitted => SkillsEnum::AGILITY,
+            self::AgilitySprint => SkillsEnum::AGILITY,
+            self::CombatCombatMaster => SkillsEnum::COMBAT,
+            self::CombatCounterAttack => SkillsEnum::COMBAT,
+            self::CombatDeflect => SkillsEnum::COMBAT,
+            self::CombatDisarm => SkillsEnum::COMBAT,
+            self::CombatFeint => SkillsEnum::COMBAT,
+            self::CombatStepAside => SkillsEnum::COMBAT,
+            self::FerocityBerserkCharge => SkillsEnum::FEROCITY,
+            self::FerocityImpetuous => SkillsEnum::FEROCITY,
+            self::FerocityIronWill => SkillsEnum::FEROCITY,
+            self::FerocityKillerReputation => SkillsEnum::FEROCITY,
+            self::FerocityNervesofSteel => SkillsEnum::FEROCITY,
+            self::FerocityTrueGrit => SkillsEnum::FEROCITY,
+            self::MuscleBodySlam => SkillsEnum::MUSCLE,
+            self::MuscleBulgingBiceps => SkillsEnum::MUSCLE,
+            self::MuscleHardasNails => SkillsEnum::MUSCLE,
+            self::MuscleHurlOpponent => SkillsEnum::MUSCLE,
+            self::MuscleIronJaw => SkillsEnum::MUSCLE,
+            self::MuscleJuggernaut => SkillsEnum::MUSCLE,
+            self::ShootingCrackShot => SkillsEnum::SHOOTING,
+            self::ShootingFastShot => SkillsEnum::SHOOTING,
+            self::ShootingGunfighter => SkillsEnum::SHOOTING,
+            self::ShootingHipShooting => SkillsEnum::SHOOTING,
+            self::ShootingMarksman => SkillsEnum::SHOOTING,
+            self::ShootingRapidFire => SkillsEnum::SHOOTING,
+            self::StealthAmbush => SkillsEnum::STEALTH,
+            self::StealthDive => SkillsEnum::STEALTH,
+            self::StealthEscapeArtist => SkillsEnum::STEALTH,
+            self::StealthEvade => SkillsEnum::STEALTH,
+            self::StealthInfiltration => SkillsEnum::STEALTH,
+            self::StealthSneakUp => SkillsEnum::STEALTH,
+            self::TechnoArmourer => SkillsEnum::TECHNO,
+            self::TechnoFixer => SkillsEnum::TECHNO,
+            self::TechnoInventor => SkillsEnum::TECHNO,
+            self::TechnoMedic => SkillsEnum::TECHNO,
+            self::TechnoSpecialist => SkillsEnum::TECHNO,
+            self::TechnoWeaponsmith => SkillsEnum::TECHNO,
         };
     }
 
