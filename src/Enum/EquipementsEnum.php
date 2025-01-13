@@ -55,7 +55,7 @@ enum EquipementsEnum: string implements ItemEnumInterface
     case StingerPouch = 'Stinger Pouch';
 
     // WEAPON_EQUIPEMENT
-    case DrumMagazine = 'Drum magazine';
+    case DrumMagazine = 'Drum Magazine';
     case GunsightInfraRedSight = 'Gunsight - Infra-red Sight';
     case GunsightMonoSight = 'Gunsight - Mono-sight';
     case GunsightRedDotLaser = 'Gunsight - Red-dot Laser';
