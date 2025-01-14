@@ -3,11 +3,13 @@
 namespace App\Controller\Admin;
 
 use App\EasyAdmin\GangerTypeField;
+use App\Entity\CustomRules;
 use App\Entity\Gang;
 use App\Entity\Ganger;
 use App\Enum\GangerTypeEnum;
 use App\service\CsvExporterService;
 use App\service\EnumTranslator;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -32,6 +34,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GangerCrudController extends AbstractCrudController
 {
+    private EntityManagerInterface $entityManager;
 
     private EnumTranslator $enumTranslator;
 
@@ -42,12 +45,14 @@ class GangerCrudController extends AbstractCrudController
     private TranslatorInterface $translator;
 
     public function __construct(
+        EntityManagerInterface $entityManager,
         EnumTranslator $enumTranslator,
         FilterFactory $filterFactory,
         Security $security,
         TranslatorInterface $translator
     )
     {
+        $this->entityManager = $entityManager;
         $this->enumTranslator = $enumTranslator;
         $this->filterFactory = $filterFactory;
         $this->security = $security;
@@ -79,6 +84,12 @@ class GangerCrudController extends AbstractCrudController
         $context = $this->getContext()->getEntity()->getInstance();
         $translator = $this->translator;
         $enumTranslator = $this->enumTranslator;
+
+        $customRulesRepository = $this->entityManager->getRepository(CustomRules::class);
+        $customRulesArray = $customRulesRepository->findAll();
+        if ($customRulesArray) {
+            $customRules = $customRulesArray[0];
+        }
 
         if ($pageName === Crud::PAGE_NEW) {
             yield TextField::new('name', $this->translator->trans('name'))
@@ -240,6 +251,13 @@ class GangerCrudController extends AbstractCrudController
                     ->useEntryCrudForm(EquipementsCrudController::class)
                     ->addCssClass('crudResponsive');
             }
+            yield FormField::addPanel('Advancements', $this->translator->trans('Advancements'))
+                ->setIcon('fa fa-gun')
+                ->collapsible();
+            yield CollectionField::new('advancement', $this->translator->trans('advancement'))
+                ->setColumns(6)
+                ->hideOnIndex()
+                ->addCssClass('crudResponsive');
             yield FormField::addPanel('Ganger background', $this->translator->trans('Ganger background'))
                 ->setIcon('fa fa-book')
                 ->collapsible();
