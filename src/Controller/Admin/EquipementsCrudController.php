@@ -92,10 +92,6 @@ class EquipementsCrudController extends AbstractCrudController
                     ])
                 ;
             }
-            yield IntegerField::new('cost', $this->translator->trans('cost'))
-                ->setColumns(4)
-                ->setDisabled()
-            ;
         }
         yield AssociationField::new('weapon', $this->translator->trans('weapon'))
             ->setColumns(4)
@@ -112,6 +108,7 @@ class EquipementsCrudController extends AbstractCrudController
         yield IntegerField::new('cost', $this->translator->trans('cost'))
             ->setColumns(4)
             ->hideWhenCreating()
+            ->setDisabled()
         ;
         yield BooleanField::new('free', $this->translator->trans('free'))
             ->setColumns(4)
@@ -161,11 +158,20 @@ class EquipementsCrudController extends AbstractCrudController
 
     public static function checkEquipementsOfCurrentUser(Equipement $equipement, $security): bool
     {
-        if(
-            $equipement->getGanger()->getGang()->getUser() == $security->getUser()
-            || $security->isGranted('ROLE_ADMIN')
-        ) {
+        if ( $security->isGranted('ROLE_ADMIN') ) {
             return true;
+        }
+
+        if ( $equipement->getGanger() ) {
+            if( $equipement->getGanger()->getGang()->getUser() == $security->getUser() ) {
+                return true;
+            }
+        }
+
+        if ( $equipement->getWeapon() ) {
+            if( $equipement->getWeapon()->getGanger()->getGang()->getUser() == $security->getUser() ) {
+                return true;
+            }
         }
 
         return false;
