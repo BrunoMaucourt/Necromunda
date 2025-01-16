@@ -187,8 +187,8 @@ class GangerListener
 
             $ganger->getGang()->setCredits($newGangCredits);
             $ganger->setRating($object->getCost() + $object->getExperience());
-
-            if ($ganger->getType() ==! GangerTypeEnum::cyber_mastiff) {
+            
+            if ($ganger->getType() !== GangerTypeEnum::cyber_mastiff) {
                 $freeKnife = new Weapon();
                 $freeKnife->setName(WeaponsEnum::KNIFE);
                 $freeKnife->setGanger($object);
