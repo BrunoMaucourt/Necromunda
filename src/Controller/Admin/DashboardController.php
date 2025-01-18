@@ -226,7 +226,7 @@ class DashboardController extends AbstractDashboardController
         $gangRepository = $this->entityManager->getRepository(Gang::class);
 
         $highestRating['message'] = $this->translator->trans('Highest gang rating');
-        if ($gangRepository->getGangWithHighestRating() ==! null) {
+        if ($gangRepository->getGangWithHighestRating() !== null) {
             $gang = $gangRepository->find($gangRepository->getGangWithHighestRating());
             $highestRating['gang'] = $gang->getName();
             $highestRating['data'] = $gang->getRating();
@@ -236,7 +236,7 @@ class DashboardController extends AbstractDashboardController
         };
 
         $highestCredits['message'] = $this->translator->trans('Highest gang credits');
-        if ($gangRepository->getGangWithHighestCredits() ==! null) {
+        if ($gangRepository->getGangWithHighestCredits() !== null) {
             $gang = $gangRepository->find($gangRepository->getGangWithHighestCredits());
             $highestCredits['gang'] = $gang->getName();
             $highestCredits['data'] = $gang->getCredits();

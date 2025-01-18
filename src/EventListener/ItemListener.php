@@ -124,7 +124,7 @@ class ItemListener
                 $afterUpdate = $changeset['cost'][1];
 
                 // To avoid error with free weapon / equipement
-                if ($beforeUpdate ==! 0) {
+                if ($beforeUpdate !== 0) {
                     $costUpdate = $afterUpdate - $beforeUpdate;
 
                     if ($object instanceof Weapon) {
