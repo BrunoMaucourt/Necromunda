@@ -21,6 +21,7 @@ class EquipementsRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('g')
             ->leftjoin('g.ganger', 'f')
             ->Where('f.gang = :gangId')
+            ->andWhere('f.alive = 1')
             ->setParameter('gangId', $gangId)
             ->groupBy('g.name')
             ->getQuery()
