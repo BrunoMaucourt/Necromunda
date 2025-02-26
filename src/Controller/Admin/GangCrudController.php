@@ -24,6 +24,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Validator\Constraints\Image;
@@ -177,7 +178,7 @@ class GangCrudController extends AbstractCrudController
         yield FormField::addPanel('Gang background', $this->translator->trans('Gang background'))
             ->setIcon('fa fa-book')
             ->collapsible();
-        yield TextareaField::new('background', $this->translator->trans('background'))
+        yield TextEditorField::new('background', $this->translator->trans('background'))
             ->setColumns(12)
             ->hideOnIndex();
         yield FormField::addPanel('Gang history', $this->translator->trans('Gang history'))
