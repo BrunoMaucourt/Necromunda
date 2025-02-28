@@ -64,6 +64,11 @@ class GangCrudController extends AbstractCrudController
         ;
     }
 
+    public function configureAssets(Assets $assets): Assets
+    {
+        return $assets->addJsFile(Asset::new('js/admin-hide-gang-weapons.js'));
+    }
+
     public function configureFields(string $pageName): iterable
     {
         $gang = $this->getContext()->getEntity()->getInstance();
