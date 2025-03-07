@@ -43,7 +43,18 @@ class Weapon extends Item
 
     public function __toString(): string
     {
-        return $this->name->enumToString();
+        $equipements = $this->equipements->toArray();
+        $equipementsAsString = count($equipements) > 0 ? ' (' : '';
+        foreach ($equipements as $key => $equipement) {
+            dump($equipement);
+            dump($equipement->getName()->enumToString() );
+            dump($key === array_key_last($equipements) ? ')' : ', ' );
+            $equipementsAsString .= $equipement->getName()->enumToString();
+            dump($equipementsAsString);
+            $equipementsAsString .= $key === array_key_last($equipements) ? ')' : ', ';
+            dump($equipementsAsString);
+        }
+        return $this->name->enumToString() . $equipementsAsString;
     }
 
     public static function loadValidatorMetadata(ClassMetadata $metadata): void
