@@ -68,6 +68,7 @@
                             %}
                                 {% if data is not null %}
                                     <a href="{{ path('admin-context', {'route': 'remove_weapon_from_stash', 'id': data.id }) }}" class="btn btn-primary my-2">{{ "Add to a ganger"|trans }}</a>
+                                    <a href="{{ path('admin-context', {'route': 'sell_item', 'id': data.id, 'type': 'weapon' }) }}" class="btn btn-danger my-2"><i class="fa-solid fa-sack-dollar"></i> {{ 'Sell weapon'|trans }}</a>
                                 {% endif %}
                             {% endif %}
 
